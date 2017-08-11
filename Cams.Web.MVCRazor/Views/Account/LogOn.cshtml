@@ -1,0 +1,90 @@
+﻿
+@using Cams.Web.MVCRazor;
+@* Resource keys related to this page have extension LG*@
+
+@model Cams.Web.MVCRazor.Models.Account.LogOnModel
+@{
+    
+    //View.Title = "LogOn";
+    //ViewBag.Title = "LogOn";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+@section MainBody{
+@using (Html.BeginForm("LogOn", "Account", FormMethod.Post)){
+ 
+        <div class="content ovfl-hidden">
+            <div class="page-data-full fl">
+                @*@Html.Partial("MultipleSelectList")*@
+                <div class="panes-data">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td width="230">
+                                <div class="login_wrap">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td>
+                                                @Html.ValidationSummary(true)
+                                                @Html.ValidationMessageFor(model => model.UserName)
+                                                <br/>
+                                                @Html.ValidationMessageFor(model => model.Password)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h1>
+                                                    @ClientResources.LGLogin</h1>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="loginfmlbl">@ClientResources.LGUserName
+                                                </label>
+                                                <br />
+                                                @Html.TextBoxFor(model => model.UserName, new { @class = "required" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="loginfmlbl">@ClientResources.LGPassword
+                                                </label>
+                                                <br />
+                                                @Html.PasswordFor(model => model.Password, new { @class = "required fontSize10 height15" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="align-center">
+                                                    <input type="image" src=@Url.Content("~/Content/images/loginbtn.jpg") name="button" />
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">@ClientResources.LGForgotUserNamePassWord</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    @* </form>*@
+                </div>
+            </div>
+        </div>
+}
+}

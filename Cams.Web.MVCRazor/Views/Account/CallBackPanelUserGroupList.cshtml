@@ -1,0 +1,60 @@
+﻿@model IList<Cams.Common.Dto.User.UserGroupDto>
+           
+@Html.DevExpress().CallbackPanel(cbpSettings =>
+{
+    cbpSettings.Name = "cbpUserGroupList";
+    cbpSettings.CallbackRouteValues = new { Controller = "Account", Action = "GetUpdatedUserGroupList" };
+    cbpSettings.SetContent(() =>
+{
+    @Html.DevExpress().DropDownEdit(
+        settings =>
+        {
+            settings.Name = "ddlUserGroup";
+            settings.SkinID = "CheckComboBox";
+            settings.Width = System.Web.UI.WebControls.Unit.Pixel(180);
+            settings.Properties.DropDownWindowStyle.BackColor = System.Drawing.Color.FromArgb(0xEDEDED);
+            settings.ControlStyle.CssClass = "fontName";
+            settings.SetDropDownWindowTemplateContent(c =>
+                                        {
+                                            @Html.DevExpress().ListBox(
+                                                listBoxSettings =>
+                                                {
+                                                    listBoxSettings.Name = "listUserGroup";
+                                                    listBoxSettings.SkinID = "CheckComboBoxListBox";
+                                                    listBoxSettings.ControlStyle.Border.BorderWidth = 0;
+                                                    listBoxSettings.ControlStyle.BorderBottom.BorderWidth = 1;
+                                                    listBoxSettings.ControlStyle.BorderBottom.BorderColor = System.Drawing.Color.FromArgb(0xDCDCDC);
+                                                    listBoxSettings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+                                                    listBoxSettings.Properties.SelectionMode = DevExpress.Web.ASPxEditors.ListEditSelectionMode.CheckColumn;
+                                                    listBoxSettings.Properties.Items.Insert(0, new ListEditItem("(Select All)", "0"));
+                                                    listBoxSettings.Properties.ClientSideEvents.SelectedIndexChanged = "OnListBoxSelectionChanged";
+                                                    listBoxSettings.Properties.TextField = "UserGroupName";
+                                                    listBoxSettings.Properties.ValueField = "UserGroupId";
+                                                    listBoxSettings.ControlStyle.CssClass = "fontName";
+                                                    listBoxSettings.ControlStyle.Font.Name = "DejaVu Serif";
+                                                }
+                                                ).BindList(Model)
+                                                .Render();
+                                            ViewContext.Writer.Write("<table style=\"width:100%\"><tr><td align=\"right\">");
+                                            @Html.DevExpress().Button(
+                                                buttonSettings =>
+                                                {
+                                                    buttonSettings.Name = "buttonClose";
+                                                    buttonSettings.Text = "Close";
+                                                    buttonSettings.Style.Add("float", "right");
+                                                    buttonSettings.ControlStyle.CssClass = "fontName";
+                                                    buttonSettings.ClientSideEvents.Click = "function(s, e){ ddlUserGroup.HideDropDown(); }";
+                                                }
+                                                )
+                                                .Render();
+                                            ViewContext.Writer.Write("</td></tr></table>");
+                                        });
+            settings.Properties.EnableAnimation = false;
+            settings.Properties.ClientSideEvents.TextChanged = "SynchronizeListBoxValues";
+            settings.Properties.ClientSideEvents.DropDown = "SynchronizeListBoxValues";
+        }
+        ).GetHtml();
+});
+    cbpSettings.ClientSideEvents.BeginCallback = "cbpUserGroupList_OnBeginCallback";
+}).GetHtml()

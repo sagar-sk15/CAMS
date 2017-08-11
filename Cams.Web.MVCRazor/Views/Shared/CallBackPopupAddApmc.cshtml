@@ -1,0 +1,12 @@
+﻿@model Cams.Web.MVCRazor.Models.Masters.APMCModel
+@Html.DevExpress().CallbackPanel(cbpSettings =>
+{
+    cbpSettings.Name = "CBPPopupAddApmc";
+    cbpSettings.CallbackRouteValues = new { Controller = "Masters", Action = "AddNewApmcUsingPopup" };
+    cbpSettings.SetContent(() =>
+                               {
+                                   Html.RenderPartial("PopupAddApmc",Model);
+                               });
+    cbpSettings.ClientSideEvents.BeginCallback = "CBPPopupAddApmc_BeginCallback";
+    cbpSettings.ClientSideEvents.EndCallback= "CBPPopupAddApmc_EndCallback";
+}).GetHtml()

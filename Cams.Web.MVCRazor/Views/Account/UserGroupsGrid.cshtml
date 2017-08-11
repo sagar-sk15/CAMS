@@ -1,0 +1,172 @@
+﻿@using ThisController = Cams.Web.MVCRazor.Controllers.AccountController
+@using Cams.Web.MVCRazor
+
+@{
+    string UType = string.Empty;
+    if (ViewData["userType"] != null)
+    {
+        UType = ViewData["userType"].ToString();
+    }
+    string CaId = string.Empty;
+    if (ViewData["CAId"] != null)
+    {
+        CaId = ViewData["CAId"].ToString();
+    }
+}
+@Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gvUserGroups";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "UserGroupsGrid" };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.ControlStyle.CssClass = "generaltext";
+        settings.Settings.ShowGroupPanel = true;
+        settings.Styles.Header.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+        settings.ClientSideEvents.BeginCallback = "SetCAId";
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.ClientSideEvents.FocusedRowChanged = "OngvUserGroupsFocusedRowChanged";
+        //settings.SettingsBehavior.
+        settings.ControlStyle.CssClass = "fontName";
+        settings.CustomCallback = (sender, e) =>
+        {
+            int layoutIndex = Int32.Parse(e.Parameters);
+            MVCxGridView grid = (MVCxGridView)sender;
+
+            grid.BeginUpdate();
+            try
+            {
+                grid.ClearSort();
+                switch (layoutIndex)
+                {
+                    case 0:
+                        grid.GroupBy(grid.Columns["UserGroupName"]);
+                        break;
+                    case 1:
+                        grid.GroupBy(grid.Columns["Description"]);
+                        break;
+                    case 2:
+                        grid.GroupBy(grid.Columns["Roles"]);
+                        break;
+                    case 3:
+                        grid.GroupBy(grid.Columns["UsersInUserGroupCount"]);
+                        break;
+                    case 4:
+                        grid.GroupBy(grid.Columns["IsActive"]);
+                        break;
+                }
+            }
+            finally
+            {
+                grid.EndUpdate();
+            }
+            grid.ExpandAll();
+        };
+        
+        settings.KeyFieldName = "UserGroupId";
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UserGroupName";
+            column.Caption = ClientResources.UGLGridUserGroups;
+            column.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Left;
+            column.Settings.AllowAutoFilter = DefaultBoolean.True;
+            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            column.ColumnType = MVCxGridViewColumnType.HyperLink;
+            column.SetDataItemTemplateContent(c =>
+            {
+                Html.DevExpress().HyperLink(linkSettings =>
+                {
+                    linkSettings.Properties.Text = Convert.ToString(DataBinder.Eval(c.DataItem, "UserGroupName"));
+                    linkSettings.ControlStyle.CssClass = "fontName";
+                    linkSettings.NavigateUrl = Url.Action("GetUserGroupsView", "Account",
+                        new { usergroupid = DataBinder.Eval(c.DataItem, "UserGroupId"), usertype = Request.Params["usertype"], CAId = DataBinder.Eval(c.DataItem, "CAId") });
+
+
+                }).Render();
+            });
+        });
+        
+        settings.Columns.Add("Description",@ClientResources.UGLGridDescription);
+        
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UsersInUserGroupCount";
+            column.Caption = @ClientResources.UGLGridMembers;
+            column.ColumnType = MVCxGridViewColumnType.HyperLink;
+            //var memberLinkProperties = column.PropertiesEdit as HyperLinkProperties;
+            column.SetDataItemTemplateContent(c =>
+            {
+                Html.DevExpress().HyperLink(linkSettings =>
+                {
+                    linkSettings.Properties.Text = Convert.ToString(DataBinder.Eval(c.DataItem, "UsersInUserGroupCount"));
+                    linkSettings.NavigateUrl = "#";
+                }).Render();
+            });
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IsActive";
+            column.Caption = "Status";
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(
+                    Html.DevExpress().Label(editSettings =>
+                    {
+                        bool isActive = (bool)DataBinder.Eval(c.DataItem, "IsActive");
+                        editSettings.Text = (isActive) ? @ClientResources.UGLGridActive : @ClientResources.UGLGridInActive;
+                        editSettings.ControlStyle.CssClass = (!isActive) ? "UserLocked fontName" : "fontName";
+                        editSettings.AssociatedControlName = "IsActive";
+                    }).GetHtml().ToHtmlString()
+                    );
+            });
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UserGroupId";
+            column.Caption = "Roles";
+            column.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Left;
+            column.Settings.AllowAutoFilter = DefaultBoolean.True;
+            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            column.ColumnType = MVCxGridViewColumnType.HyperLink;
+            column.SetDataItemTemplateContent(c =>
+            {
+                Html.DevExpress().HyperLink(linkSettings =>
+                {
+                    int noOfUsersInGroup = Convert.ToInt32(DataBinder.Eval(c.DataItem, "RolesInUserGroupCount"));
+                    linkSettings.Properties.Text = (noOfUsersInGroup > 0) ? ClientResources.UGLGridUpdateRoles : ClientResources.UGLGridAssignRoles;
+                    linkSettings.Properties.Text = "Assign";
+                    linkSettings.ControlStyle.CssClass = "fontName";
+                    linkSettings.NavigateUrl = Url.Action("UserGroupRolesIndex", "Account", new RouteValueDictionary(new { usertype = UType, usergroupid = Convert.ToString(DataBinder.Eval(c.DataItem, "UserGroupId")) }));
+                }).Render();
+            });
+        });
+        settings.Columns.Add("AllowEdit");
+        settings.Settings.ShowFooter = true;
+        settings.SetFooterRowTemplateContent(footer =>
+            {
+                Html.DevExpress().HyperLink(linkSettings =>
+                {
+                    linkSettings.Name = "EditButton";
+                    linkSettings.ClientVisible = ((List<Cams.Common.Dto.User.UserGroupDto>)ViewData["UserGroupList"]).Count() == 0 ? false : true;
+                    linkSettings.Properties.Style.CssClass = "button_Edit";
+                    linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                    linkSettings.NavigateUrl = "";
+                }).Render();
+            });
+
+        settings.Settings.ShowFilterRow = true;
+        settings.CommandColumn.ClearFilterButton.Visible = true;
+        settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.AlwaysShowPager = true;
+        settings.SettingsPager.PageSize = 10;
+        settings.SettingsPager.ShowEmptyDataRows = true;
+    }).Bind(ViewData["UserGroupList"]).GetHtml()
+
+

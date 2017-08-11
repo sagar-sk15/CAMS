@@ -1,0 +1,45 @@
+﻿@using Cams.Web.MVCRazor
+@model Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel   
+<li>
+    <label id=@Model.StateLabelName class=@Model.LeftLabelsClassName>@ClientResources.EClblState</label>
+    @Html.Partial("States", Model)
+</li>
+<li>
+    <label id="lblECDistrict" class=@Model.LeftLabelsClassName>@ClientResources.EClblDistrict</label>
+    @Html.Partial("Districts", Model)
+</li>
+<li>
+    <label id=@Model.PlacesLabelName class=@Model.LeftLabelsClassName>@ClientResources.EClblCityVillage</label>
+    <table>
+        <tr>
+            <td>
+                @Html.Partial("Places", Model)
+            </td>
+            <td>
+                @*@if (!IsPost)*@
+                @{
+                    string strRoles = Cams.Common.Constants.PLACE;
+                    IList<string> roles = strRoles.Split(',').ToList();
+                    if (Cams.Web.MVCRazor.Helpers.CamsAuthorizeAttribute.IsUserInRole(roles, Cams.Web.MVCRazor.Helpers.CamsAuthorizeAttribute.RolePermission.Add, (Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+                    {
+                        string fnAddnewButtonClick = "AddnewButtonClick('" + Model.AddPlacesPopupStateTextBoxName + "','"
+                                                                                + Model.AddPlacesPopupDistrictTextBoxName + "','"
+                                                                                + Model.StateComboName + "','"
+                                                                                + Model.DistrictComboName + "','"
+                                                                                + Model.AddPlacesPopupName + "')";
+                
+                    
+                    
+                    <a href="#" class="addnew" onclick="@fnAddnewButtonClick"></a>   
+                    }        
+                }
+            </td>
+        </tr>
+    </table>
+    <div class="Form-Wrapapmc">
+        @Html.Partial("CallBackPopupAddCity", Model)
+    </div>
+    <input id=@Model.HiddenFieldForCityVillage type="hidden" value=@Model.HiddenFieldForCityVillageValue />
+    <input id=@Model.HiddenFieldForState type="hidden" value=@Model.HiddenFieldForStateValue />
+    <input id=@Model.HiddenFieldForDistrict type="hidden" value=@Model.HiddenFieldForDistrictValue />
+</li>

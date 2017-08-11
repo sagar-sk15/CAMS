@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common.Querying" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common.Querying" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="Query">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CAId" type="xs:int" />
+      <xs:element minOccurs="0" name="QueryOperator" type="tns:QueryOperator" />
+      <xs:element minOccurs="0" name="_alias" nillable="true" type="tns:ArrayOfAlias" />
+      <xs:element minOccurs="0" name="_criteria" nillable="true" type="tns:ArrayOfCriterion" />
+      <xs:element minOccurs="0" name="_joinParameters" nillable="true" type="tns:ArrayOfJoinParameters" />
+      <xs:element minOccurs="0" name="_orderByFields" nillable="true" type="tns:ArrayOfOrderByClause" />
+      <xs:element minOccurs="0" name="_subQueries" nillable="true" type="tns:ArrayOfQuery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Query" nillable="true" type="tns:Query" />
+  <xs:simpleType name="QueryOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="And" />
+      <xs:enumeration value="Or" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueryOperator" nillable="true" type="tns:QueryOperator" />
+  <xs:complexType name="ArrayOfAlias">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alias" nillable="true" type="tns:Alias" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlias" nillable="true" type="tns:ArrayOfAlias" />
+  <xs:complexType name="Alias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AliasFor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AliasName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JoinType" type="tns:JoinType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alias" nillable="true" type="tns:Alias" />
+  <xs:simpleType name="JoinType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-666</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InnerJoin">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LeftOuterJoin">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RightOuterJoin">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FullJoin" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="JoinType" nillable="true" type="tns:JoinType" />
+  <xs:complexType name="ArrayOfCriterion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Criterion" nillable="true" type="tns:Criterion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCriterion" nillable="true" type="tns:ArrayOfCriterion" />
+  <xs:complexType name="Criterion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Values" nillable="true" type="q1:ArrayOfanyType" />
+      <xs:element minOccurs="0" name="criteriaOperator" type="tns:CriteriaOperator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Criterion" nillable="true" type="tns:Criterion" />
+  <xs:simpleType name="CriteriaOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="LesserThanOrEqual" />
+      <xs:enumeration value="GreaterThanOrEqual" />
+      <xs:enumeration value="LesserThan" />
+      <xs:enumeration value="GreaterThan" />
+      <xs:enumeration value="NotEqual" />
+      <xs:enumeration value="IsNullOrZero" />
+      <xs:enumeration value="IsNotNullOrZero" />
+      <xs:enumeration value="In" />
+      <xs:enumeration value="NotIn" />
+      <xs:enumeration value="Like" />
+      <xs:enumeration value="NotLike" />
+      <xs:enumeration value="NotApplicable" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CriteriaOperator" nillable="true" type="tns:CriteriaOperator" />
+  <xs:complexType name="ArrayOfJoinParameters">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JoinParameters" nillable="true" type="tns:JoinParameters" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJoinParameters" nillable="true" type="tns:ArrayOfJoinParameters" />
+  <xs:complexType name="JoinParameters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssociationPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JoinType" type="tns:JoinType" />
+      <xs:element minOccurs="0" name="WithClauseOperator" type="tns:QueryOperator" />
+      <xs:element minOccurs="0" name="_criteria" nillable="true" type="tns:ArrayOfCriterion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JoinParameters" nillable="true" type="tns:JoinParameters" />
+  <xs:complexType name="ArrayOfOrderByClause">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderByClause" nillable="true" type="tns:OrderByClause" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderByClause" nillable="true" type="tns:ArrayOfOrderByClause" />
+  <xs:complexType name="OrderByClause">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Desc" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderByClause" nillable="true" type="tns:OrderByClause" />
+  <xs:complexType name="ArrayOfQuery">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Query" nillable="true" type="tns:Query" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuery" nillable="true" type="tns:ArrayOfQuery" />
+</xs:schema>

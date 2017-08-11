@@ -1,0 +1,13 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+           
+@Html.DevExpress().CallbackPanel(cbpSettings =>
+{
+    cbpSettings.Name = "CBPCtrlPopupClientPartnersAdd";
+    cbpSettings.CallbackRouteValues = new { Controller = "ClientRegistration", Action = "AddClientPartner" };
+    cbpSettings.SetContent(() =>
+                               {
+                                   Html.RenderPartial("PopupClientPartnersAdd", Model);
+                               });
+    //cbpSettings.ClientSideEvents.BeginCallback = "CBPCtrlPopupClientPartnersAdd_OnBeginCallback";
+    //cbpSettings.ClientSideEvents.EndCallback = "CBPCtrlPopupClientPartnersAdd_OnEndCallback";
+}).GetHtml()

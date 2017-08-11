@@ -1,0 +1,196 @@
+﻿@using System.Web.UI.WebControls
+@model Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel
+           
+@* Resource keys related to this page have prefix ACPP == Add City Popup*@
+@Html.DevExpress().PopupControl(
+            settings =>
+            {
+                settings.Name = Model.AddPlacesPopupName; //"AddCityVillageModal";
+            settings.CloseAction = CloseAction.CloseButton;
+            settings.EnableAnimation = false;
+            settings.HeaderText = "Add City / Village";
+            settings.ControlStyle.CssClass = "fontName";
+            settings.Modal = true;
+            settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+            settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+            settings.SetContent(() =>
+                        {
+
+                            ViewContext.Writer.Write("<div class='Form-Wrap' style='width:300px;'>");
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+                                    labelSettings.ControlStyle.CssClass = "fontName width85";
+                                    //labelSettings.ControlStyle.Font.Name = "";
+                                                                            
+                                    labelSettings.Text = "Country";
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+
+                                    labelSettings.Name = Model.AddPlacesPopupCountryTextBoxName;//"ppCountry";
+                                    labelSettings.Text = "India"; //pick up from resource
+                                    labelSettings.ControlStyle.CssClass = "fontName autoinputvalue";
+
+                                }
+                            )
+                            .Render();
+                            ViewContext.Writer.Write("</div><div class='line'>");
+                            ViewContext.Writer.Write("<br/>");
+                            ViewContext.Writer.Write("<br/>");
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+                                    labelSettings.ControlStyle.CssClass = "fontName width85";
+                                    labelSettings.Text = "State / UT";
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().Label(
+                                    labelSettings =>
+                                    {
+
+                                        labelSettings.Name = Model.AddPlacesPopupStateTextBoxName;//"ppStateUT";
+                                        labelSettings.ControlStyle.CssClass = "fontName autoinputvalue";
+                                    }
+                                )
+                                .Render();
+                            ViewContext.Writer.Write("<br/>");
+                            ViewContext.Writer.Write("<br/>");
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+                                    labelSettings.ControlStyle.CssClass = "fontName width85";
+                                    labelSettings.Text = "District";
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().Label(
+                                    labelSettings =>
+                                    {
+
+                                        labelSettings.Name = Model.AddPlacesPopupDistrictTextBoxName;//"ppDistricts";
+                                        labelSettings.ControlStyle.CssClass = "fontName autoinputvalue";
+                                    }
+                                )
+                                .Render();
+                            ViewContext.Writer.Write("<br/>");
+                            ViewContext.Writer.Write("<br/>");
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+                                    labelSettings.ControlStyle.CssClass = "fontName width80";
+                                    labelSettings.Text = "Place Type";
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().RadioButtonList(
+                            radiobuttonListSettings =>
+                            {
+                                radiobuttonListSettings.Name = Model.AddPlacesPopupCityVillageRadioButtonName;//"ppCityVillage";
+                                radiobuttonListSettings.Properties.Items.Add("City", 0);
+                                radiobuttonListSettings.Properties.Items.Add("Village", 1);
+                                radiobuttonListSettings.Properties.TextAlign = TextAlign.Right;
+                                radiobuttonListSettings.Properties.TextSpacing = 0;
+                                radiobuttonListSettings.SelectedIndex = 0;
+                                radiobuttonListSettings.Properties.Style.Paddings.Padding = 0;
+                                radiobuttonListSettings.Properties.Style.Border.BorderWidth = 0;
+                                radiobuttonListSettings.Properties.Style.Width = 10;
+                                radiobuttonListSettings.ControlStyle.CssClass = "fontName";
+                                radiobuttonListSettings.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                                radiobuttonListSettings.TabIndex = 1;
+                                radiobuttonListSettings.Properties.Items[0].Selected = true;
+                            }
+                            ).Render();
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+                                    labelSettings.ControlStyle.CssClass = "fontName width85";
+                                    labelSettings.Text = "Place";
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().TextBox(
+                                textBoxSettings =>
+                                {
+
+                                    textBoxSettings.Name = Model.AddPlacesPopupPlaceTextBoxName;//"ppPlace";
+                                    textBoxSettings.ControlStyle.CssClass = "fontName required";
+                                    textBoxSettings.TabIndex = 3;
+                                    textBoxSettings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                                    textBoxSettings.Properties.ValidationSettings.RequiredField.ErrorText = @Cams.Web.MVCRazor.ClientResources.ACPPPlace;
+                                    textBoxSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+                                    textBoxSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+                                    labelSettings.ControlStyle.CssClass = "fontName width85";
+                                    labelSettings.Text = "STD Code";
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().Label(
+                                labelSettings =>
+                                {
+
+                                    labelSettings.Name = Model.AddPlacesPopupCountryCodeTextBoxName ;//"ppCountryCode";
+                                    labelSettings.Text = "+91";
+                                    labelSettings.ControlStyle.CssClass = "fontName autoinputvalue";
+                                    labelSettings.Width = 25;
+
+                                }
+                            )
+                            .Render();
+                            Html.DevExpress().TextBox(
+                                textBoxSettings =>
+                                {
+
+                                    textBoxSettings.Name = Model.AddPlacesPopupSTDCodeTextBoxName;//"ppSTDCode";
+                                    textBoxSettings.TabIndex = 4;
+                                    textBoxSettings.ControlStyle.CssClass = "fontName required";
+                                    textBoxSettings.Width = 140;
+                                    textBoxSettings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                                    textBoxSettings.Properties.ValidationSettings.RequiredField.ErrorText = @Cams.Web.MVCRazor.ClientResources.ACPPStdCode;
+                                    textBoxSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+                                    textBoxSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                                }
+                            )
+                            .Render();
+                            ViewContext.Writer.Write("<br/>");
+                            Html.DevExpress().Label(
+                            labelSettings =>
+                            {
+                                labelSettings.ControlStyle.CssClass = "fontName width85";
+                            }
+                        )
+                        .Render();
+                            
+                            Html.DevExpress().Button(
+                                buttonSettings =>
+                                {
+                                    buttonSettings.Name = Model.AddPlacesPopupSaveButtonName;//"ppAddCitySavebutton";
+                                    buttonSettings.Images.Image.Url = "../content/images/control/save.jpg";
+                                    buttonSettings.Text = "";
+                                    buttonSettings.TabIndex = 5;
+                                    buttonSettings.ClientSideEvents.Click = "function(s,e) {"
+                                                                            + "if(" + Model.AddPlacesPopupPlaceTextBoxName + ".GetText() !='' && " + Model.AddPlacesPopupSTDCodeTextBoxName + ".GetText()!='')"
+                                                                            + "{ $('#" + Model.HiddenFieldForCityVillage + "').val(" + Model.AddPlacesPopupPlaceTextBoxName + ".GetText()); "
+                                                                            //+ "alert($('#" + Model.HiddenFieldForCityVillage + "').val());"
+                                                                            + Model.AddPlacesPopupCallBackPanelName + ".PerformCallback();"                                                                            
+                                                                            + "}"
+                                                                            + "}";
+                                }
+                            )
+                            .Render();
+                            ViewContext.Writer.Write("</div><b class='Clear'></b>");
+
+                        });
+
+settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(" + Model.AddPlacesPopupName + ", '', true); }";
+}).GetHtml()

@@ -1,0 +1,163 @@
+﻿@using System.Web.UI.WebControls
+@using Cams.Web.MVCRazor;
+@using DevExpress.Web.ASPxGridView
+@using DevExpress.Web.ASPxHtmlEditor.Internal
+@using DevExpress.Web.Mvc
+@using DevExpress.Web.Mvc.UI
+@* Resource keys related to this page have extension UG*@
+@model Cams.Web.MVCRazor.Models.Account.UserGroupModel
+@{
+    //View.Title = "UserRegistration";
+    //ViewBag.Title = "UserRegistration";
+    //Cams.Common.Dto.User.UserDto loggedInUser = (Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER];
+
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts{
+    <script src="../../Scripts/JS/CommonScripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuUserGroups');
+        });
+
+        function OnEditClick(s, e) {
+            if ($('#AllowUserGroupToEdit').val() == "True") {
+                var baseUrl = window.location.pathname;
+                baseUrl = baseUrl.substring(0, baseUrl.indexOf("/Account"));
+                s.SetNavigateUrl(baseUrl + '/Account/UserGroup?mode=edit');
+                if ($.QueryString["usertype"] == 'CAUser') {
+                    var CaId = $('#CAId').val();
+                    if (CaId == 0) {
+                        alert("Select Client to Add New User.");
+                        return false;
+                    }
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&usergroupid=' + $('#UserGroupId').val() + '&usertype=' + $.QueryString["usertype"].toString() + '&CAId=' + encodeURIComponent(CaId));
+                }
+                else if ($.QueryString["usertype"] == 'AckUser') {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&usergroupid=' + $('#UserGroupId').val() + '&usertype=' + $.QueryString["usertype"].toString());
+                }
+                else {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&usergroupid=' + $('#UserGroupId').val());
+                }
+                return true;
+            }
+            else {
+                alert("The User Group is not editable");
+                return false;
+            }
+        }
+    </script>
+}
+@{
+    string UType = string.Empty;
+    if (Request.QueryString["userType"] != null)
+    {
+        UType = Request.QueryString["userType"].ToString();
+    }
+    string CaId = string.Empty;
+    if (Request.QueryString["CAId"] != null)
+    {
+        CaId = Request.QueryString["CAId"].ToString();
+    }
+}
+@section MainBody{
+    @{
+        Nullable<int> caId = null;
+        if (!string.IsNullOrEmpty(Request.QueryString["CAId"]))
+        {
+            caId = Convert.ToInt32(Request.QueryString["CAId"]);
+        }
+
+        string UserType = "";
+        if (!string.IsNullOrEmpty(Request.QueryString["userType"]))
+        {
+            UserType = Request.QueryString["userType"];
+        }
+    }
+    @using (Html.BeginForm("CreateUserGroup", "Account", new { usertype = UserType, CAId = caId }, FormMethod.Post))
+    {
+        <div class="page-data fl">
+            <div class="panes">
+                <div class="panes-data">
+                    <h1>
+                        @ClientResources.UGViewUserGroup</h1>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <div class="response-msg error-msg">
+                            <span>@ViewData["Error"].ToString()</span>
+                            <br />
+                            <span>@Html.ValidationSummary(true)</span>
+                        </div>
+                    }
+                    @Html.ValidationSummary(false)
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+                    <div class="Form-Wrap">
+                        <ul class="reset leftfield fl">
+                            <li>
+                                <label id="lblGroupName" class="width85">
+                                    @ClientResources.UGGroupName
+                                </label>
+                                @Html.TextBoxFor(model => model.UserGroupName, new { @readonly = "readonly", @class = "autoinputvalue", style = "font-size:12px; width:200px;" })
+                            </li>
+                            <li>
+                                <label id="lblDescription" class="width85">
+                                    @ClientResources.UGDescription</label>
+                                @Html.TextAreaFor(model => model.Description, new { @readonly = "readonly", @class = "autoinputvalue", style = "font-size:12px; width:200px; height:100px;" })
+                            </li>
+                            <li>
+                                <label class="width85">@ClientResources.UGStatus</label>
+                                @{
+                                                  string Status = string.Empty;
+                                                  if (Model.IsActive)
+                                                  {
+                                                      Status = "Active";
+                                                  }
+                                                  else
+                                                  {
+                                                      Status = "Inactive";
+                                                  }
+                                }
+                                @Html.TextBoxFor(model => Status, new { @readonly = "readonly", @class = "autoinputvalue", style = "font-size:12px; width:70px;" })
+                                <div class="clr">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="middlefield fl">
+                        </div>
+                        <div class="clr">
+                        </div>
+                        <ul class="reset input-botton">
+                            <li>
+                                @Html.DevExpress().HyperLink(linkSettings =>
+                    {
+                        linkSettings.Name = "EditButton";
+                        linkSettings.Properties.Style.CssClass = "button_Edit";
+                        linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                        linkSettings.NavigateUrl = "";
+                    }).GetHtml()
+                            </li>
+                            <li>
+                                <div class="text-link">@ClientResources.CancelString&nbsp;@Html.ActionLink(ClientResources.PICancel, "UserGroupsIndex", new { usertype = Request.QueryString["usertype"], CAId = CaId })</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.AllowEdit, new { id = "AllowUserGroupToEdit" });
+        @Html.HiddenFor(model => model.CAId);
+        @Html.HiddenFor(model => model.UserGroupId);
+    }
+}

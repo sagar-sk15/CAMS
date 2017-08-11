@@ -1,0 +1,104 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Common;
+@using Cams.Web.MVCRazor;
+@using Cams.Common.Dto.ClientRegistration;
+@{
+    int ActivePartnerCount = 0;
+    if (Session["ClientPartners"] != null)
+    {
+        ActivePartnerCount = ((List<ClientPartnerDetailsDto>)Session["ClientPartners"]).Where(x => x.IsActive == true).Count();
+    }
+    }
+<div id="link4" class="panes-data">
+            <h1>@ClientResources.CLRBCH1</h1>
+            <div class="Form-Wrap">
+                @if (TempData["AddClientPartnerError"] != null)
+                    {
+                        <div class="response-msg error-msg">
+                            <span>@TempData["AddClientPartnerError"].ToString()</span>
+                        </div>
+                    }
+                <div class="groupfieldset" style="margin-bottom:4px;">
+                  <ul class="reset leftfield fl" style="width:50%">
+                    <li>
+                      <label id="lblConstitutiontype" class="width140">@ClientResources.lblBusinessConstitution</label>
+                      @Html.DevExpress().ComboBox(
+                                   settings =>
+                                   {
+                                       settings.Name = "cmbBusinessContitutions";
+                                       settings.Width = 180;
+                                       settings.SelectedIndex = Model.businessConstitutionModel.SelectedIndex;
+                                       settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                       settings.Properties.CallbackPageSize = 30;
+                                       settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                                       settings.Properties.ValueField = "BusinessConstitutionId";
+                                       settings.Properties.TextField = "BusinessConstitutionName";
+                                       settings.ControlStyle.CssClass = "fontName";
+                                       settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                       settings.Properties.ClientSideEvents.SelectedIndexChanged = "function (s, e) {"
+                                                                                                        + "ActivePartnerCount = parseInt('" + ActivePartnerCount + "');"
+                                                                                                        + "if (cmbBusinessContitutions.GetText().indexOf(\"Sole\") != -1) {"
+                                                                                                            + "if (ActivePartnerCount <= 1) {"
+                                                                                                                + "$('#txtNoOfClientPartners').val(\"1\");"
+                                                                                                                + "$('#liNoofPartners').hide();"
+                                                                                                            + "}"
+                                                                                                            + "else {"
+                                                                                                                + "alert(\"Invalid Selection. You have already added \" + ActivePartnerCount + \" 'Active' partners\");"
+                                                                                                                + "cmbBusinessContitutions.SetValue(cmbBusinessContitutions.lastChangedValue);"
+                                                                                                            + "}"
+
+                                                                                                                                        + "}"
+                                                                                                        + "else {"
+                                                                                                            + "$('#txtNoOfClientPartners').val(\"2\");"
+                                                                                                            + "$('#liNoofPartners').show();"
+                                                                                                        + "}"
+                                                                                                    + "}";
+                                   }).BindList(Cams.Web.MVCRazor.Models.ClientRegistration.BusinessConstitutionModel.GetBusinessConstitution()).GetHtml()
+                    </li>
+                  </ul>
+                  <ul class="reset rightfield fr" style="width:27%;">
+                    @{
+                          string display = string.Empty;
+                          if (Model.businessConstitutionModel.NoOfClientPartners>=2)
+                          {
+                              display = "display:block;"; 
+                          }
+                          else
+                          {
+                              display = "display:none;"; 
+                          }
+                          } 
+                    <li id="liNoofPartners" style="@display">
+                        
+                      <label id="lblPartners" style="width:135px;">@ClientResources.lblNoofPartners</label>
+                      @Html.TextBoxFor(model => model.businessConstitutionModel.NoOfClientPartners, new { @class = "generalfield width30", id = "txtNoOfClientPartners", maxlength = "2", onblur = "CheckNoOfPartners('" + ActivePartnerCount + "')" })
+                    </li>
+                  </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="ListHead">
+              <div class="ListSearch fl"></div>
+              <div class="ListAddNew fr">
+              @*@Html.DevExpress().Button(buttonsetting =>
+         {
+             buttonsetting.Name = "action:AddClientPartner";
+             buttonsetting.Text = "";
+             buttonsetting.UseSubmitBehavior = true;
+             buttonsetting.EnableTheming = false;
+             buttonsetting.Styles.EnableDefaultAppearance = false;
+             buttonsetting.Images.Image.Url = Url.Content("~/Content/Images/control/btn-add-new.jpg");
+             buttonsetting.ClientSideEvents.Click = "IsClientPartnerAllowed()";
+         }).GetHtml()*@
+
+         
+              <input type="submit" name="action:AddClientPartner" class="button_Add" value="" style=" width:100px; height:25px; text-decoration:none; border-style: none;" />@*onclick="IsAddClientPartnerAllowed('@ActivePartnerCount')" *@
+              
+            </div>
+              <div class="clr"></div>
+            </div>
+            @Html.Partial("ClientPartnersListGridView", Model)
+                <div class="clr"></div>
+                @Html.HiddenFor(model => model.businessConstitutionModel.NoOfClientPartnersAdded, new { id = "HiddenNoOfClientPartners" })
+                @Html.HiddenFor(model => model.businessConstitutionModel.PartnerId, new { id = "HiddenPartnerId" })
+            </div>
+          </div>

@@ -1,0 +1,204 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientPartnersModel
+@using Cams.Web.MVCRazor;
+@using Cams.Common.Dto;
+@using Cams.Common;
+@using Cams.Web.MVCRazor.Helpers
+<div class="panes-data">
+    <div class="Form-Wrap">
+        <div class="groupfieldset">
+            <ul class="reset leftfield fl" style="width: 70%">
+                <li>
+                    <label id="lblName" class="width110">
+                        Name</label>
+                    @Html.DropDownListFor(model => model.ClientPartnerGuardian.Title,
+                                            new List<SelectListItem> { 
+                                                    new SelectListItem { Text = ClientResources.URMr, Value = ClientResources.URMr, Selected = true },
+                                                    new SelectListItem { Text = ClientResources.URMrs, Value = ClientResources.URMrs, Selected = true },
+                                                    new SelectListItem { Text = ClientResources.URMs, Value = ClientResources.URMs, Selected = true }
+                                                }, new { style = "width:50px; padding:1px;", id = "ddlAOTitle" })
+                    @Html.TextBoxFor(model => model.ClientPartnerGuardian.GuardianName, new { name = "txtAOGardianName", @class = "required width210", id = "txtAOGardianName", maxlength = "60" })
+                </li>
+                <li>
+                    <label id="lblCLRPCPGender" class="width100 label-radio-pad">@ClientResources.PIlblGender</label>
+                    @Html.RadioButtonFor(model => model.ClientPartnerGuardian.Gender, ClientResources.PIrbtnGenderMale, new { @class = "radio-botton", id = "rbtnAOGardianGenderMale", name = "rbtnAOGardianGender", @checked = "checked" })
+                    <label class="label-radio fl">@ClientResources.URMale</label>
+                    @Html.RadioButtonFor(model => model.ClientPartnerGuardian.Gender, ClientResources.PIrbtnGenderFemale, new { @class = "radio-botton", id = "rbtnAOGardianGenderFemale", name = "rbtnAOGardianGender" })
+                    <label class="label-radio fl">@ClientResources.URFemale</label>
+                    <div class="clr">
+                    </div>
+                </li>
+                <li>
+                    <label id="lblDateofBirth" class="width110">
+                        Date of Birth</label>
+                    @Html.Partial("CBPDOBnAge", Model.dOBnAgeModellist[1])
+                </li>
+                <li>
+                    <div class="fl">
+                        <label id="lblPAN" class="width110">@ClientResources.PIlblPAN</label>
+                        @Html.TextBoxFor(model => model.ClientPartnerGuardian.PAN, new { name = "txtAOGardianPAN", @class = "required width110", id = "txtAOGardianPAN", maxlength = "10" })
+                    </div>
+                    <div class="fl">
+                        <label id="lblUID" class="width30">@ClientResources.PIlblUID</label>
+                        @Html.TextBoxFor(model => model.ClientPartnerGuardian.UID, new { name = "txtAOGardianUID", @class = "textfiled width140", id = "txtAOGardianUID", maxlength = "12" })
+                    </div>
+                </li>
+                <li>
+                    <label id="lblGardianRelation" class="width110">@ClientResources.lblRelationship</label>
+                    @Html.DropDownListFor(model => model.ClientPartnerGuardian.GuardianRelationshipWithClientPartner.RelationshipId, new SelectList(Model.Relationships, "RelationshipId", "Name"), new { @class = "required width110", name = "ddlAOGardianRelationShip", id = "ddlAOGardianRelationShip" })
+                </li>
+            </ul>
+            <ul class="reset rightfield fr" style="width: 20%;">
+                <li>
+                    <div class="fl" style="width: 23px;">
+                        &nbsp;</div>
+                    <div class="profile-img fl">
+                        @{
+                            string AOGardianimagePath = string.Empty;
+                            if (!String.IsNullOrEmpty(Model.ClientPartnerGuardian.Image))
+                            {
+                                AOGardianimagePath = Url.Content(Constants.IMAGEUPLOADPATHCLIENTPARTNERGUARDIAN + Model.Image);
+                            }
+                            else
+                            {
+                                AOGardianimagePath = @Url.Content("~/Content/UploadedImages/avatar_blank.jpg");
+                            }
+                        }
+                        <img id="AOGuardianpreviewImage" width="110" height="100" alt="" src="@AOGardianimagePath"/>
+                        @Html.DevExpress().UploadControl(
+                            UploadControlsettings =>
+                            {
+                                UploadControlsettings.Name = "AOGuardianImageUpload";
+                                UploadControlsettings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "AOGuardianCallbacksImageUpload" };
+                                UploadControlsettings.ShowProgressPanel = true;
+                                UploadControlsettings.ClientSideEvents.FileUploadComplete = "AOGuardianRenderImage";
+                                UploadControlsettings.Width = System.Web.UI.WebControls.Unit.Pixel(140);
+                                UploadControlsettings.BrowseButton.Text = "...";
+
+                            }).GetHtml()
+                        <input type="button" value="Upload" onclick="AOGuardianImageUpload.Upload()" align="left" />
+                    </div>
+                </li>
+            </ul>
+            <div class="clr">
+            </div>
+        </div>
+        <div class="groupfieldset groupfieldsetcol fl" style="min-height: 219px;">
+            <ul class="reset onecolfield">
+                <li>
+                    <label id="lblAddress" class="width110">@ClientResources.PIlblAddress</label>
+                    @Html.TextAreaFor(model => model.ClientPartnerGuardian.ClientPartnerGuardianAddress.AddressLine1, new { name = "txtAOGardianAddress", @class = "textarea width195", id = "txtAOGardianAddress", cols = "", rows = "" })
+                </li>
+                <li>
+                    <label id="lblAOCountry" class="width110">@ClientResources.PIlblCountry</label>
+                    <input name="txtAOGuardianCountryName" type="text" class="autoinputvalue width90"
+                        id="txtAOGuardianCountryName" value="India" maxlength="40" />
+                </li>
+                @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[1])
+                <li>
+                    <label id="lblAOPIN" class="width110">@ClientResources.PIlblPin</label>
+                    @Html.TextBoxFor(model => model.ClientPartnerGuardian.ClientPartnerGuardianAddress.PIN, new { name = "txtAOGardianPIN", @class = "required width110", id = "txtAOGardianPIN", maxlength = "6" })
+                </li>
+            </ul>
+            <div class="clr">
+            </div>
+        </div>
+        <div class="groupfieldset groupfieldsetcol fr" style="min-height: 219px;">
+            <ul class="reset onecolfield">
+                <li>
+                    <input id="CLRAOGardianCurrentIndex" type="hidden" value="@Model.ClientPartnerGuardian.ClientPartnerGuardianContacts.Count" />
+                    <table id="CLRAOGardianContacts">
+                        @{
+                            if (Model.ClientPartnerGuardian.ClientPartnerGuardianContacts == null)
+                            {
+                                Model.ClientPartnerGuardian.ClientPartnerGuardianContacts = new List<ContactDetailsDto>();
+                            }
+
+                            if (Model.ClientPartnerGuardian.ClientPartnerGuardianContacts.Count == 0)
+                            {
+                                Model.ClientPartnerGuardian.ClientPartnerGuardianContacts.Add(new ContactDetailsDto
+                                {
+                                    ContactNoType = ContactType.MobileNo,
+                                    CountryCallingCode = "+91",
+                                    STDCode = "020"
+                                });
+                            }
+
+
+                            for (int i = 0; i < Model.ClientPartnerGuardian.ClientPartnerGuardianContacts.Count; i++)
+                            {
+                            @Html.HiddenFor(model => model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactDetailsId);
+                                                                                                                                   bool contactTypeMobile = Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactNoType == ContactType.MobileNo ? true : false;
+                                                                                                                                   bool contactTypeOff = Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                                                                                                                                   bool contactTypeRes = Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                                                                                                                                   bool contactTypefax = Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactNoType == ContactType.Fax ? true : false;
+
+                            <tr>
+                                <td>
+                                    @Html.DropDownListFor(model => Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactNoType,
+                                new List<SelectListItem> { 
+                                    new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(),Selected = contactTypeMobile},
+                                    new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected=contactTypeOff},
+                                    new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+                                    new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(),Selected = contactTypefax}
+                                    }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(model => Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].CountryCallingCode, new { value = "+91", @class = "required", style = "width:28px; text-align:center", disabled = "disabled" })
+                                </td>
+                                <td>
+                                    @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                                    {
+                                        @Html.TextBoxFor(model => Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].STDCode, new { value = Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].STDCode, @class = "required", style = "width:38px; text-align:center;" });
+                                        @Html.TextBoxFor(model => Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactNo, new { @class = "required width118", value = "", maxlength = "15" });
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].STDCode,
+                                                        new { value = "020", @class = "required", style = "width:38px; display:none; text-align:center;" });
+                                        @Html.TextBoxFor(model => Model.ClientPartnerGuardian.ClientPartnerGuardianContacts[i].ContactNo, new { @class = "required width166", value = "", maxlength = "15" });
+                                    }
+                                </td>
+                                <td>
+                                    @Html.HiddenIndexerInputForModel()
+                                    @if (i == 0)
+                                    {
+                                        <a href="#" class="addnew" onclick="javascript:addNewContact('#CLRAOGardianContacts','#CLRAOGardianCurrentIndex','4','ClientPartnerGuardian_ClientPartnerGuardianContacts_', 'ClientPartnerGuardian.ClientPartnerGuardianContacts')">
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="remove" onclick="javascript:removeContact('@i')"></a>
+                                    }
+                                </td>
+                            </tr>
+                            }
+                        }
+                    </table>
+                </li>
+                <li>
+                    <label id="lblEmail1" class="width83">@ClientResources.Email1</label>
+                    @Html.TextBoxFor(model => model.ClientPartnerGuardian.Email1, new { @class = "required width200", id = "txtAOGardianEmail1", name = "txtAOGardianEmail1" })
+                    <a href="#" class="addnew" onclick="javascript:showEmail2('#CLRAOGardianliEmail2')">
+                    </a></li>
+                @{
+                    string listyle = string.Empty;
+                    if (string.IsNullOrEmpty(Model.ClientPartnerGuardian.Email2))
+                    {
+                        listyle = "display: none";
+                    }
+                    else
+                    {
+                        listyle = "display: block";
+                    }
+                }
+                <li id="CLRAOGardianliEmail2" style="@listyle">
+                    <label id="lblEmail2" class="width83" style="">@ClientResources.Email2</label>
+                    @Html.TextBoxFor(model => model.ClientPartnerGuardian.Email2, new { @class = "generalfield width200", id = "txtAOGardianEmail2", name = "txtAOGardianEmail2" })
+                    <a href="#" class="remove" onclick="javascript:hideEmail2('#CLRAOGardianliEmail2')">
+                    </a></li>
+            </ul>
+            <div class="clr">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@Html.DevExpress().ComboBox(cmbsettings =>
+            {
+                cmbsettings.Name = "APMCList";
+                cmbsettings.Properties.DropDownStyle = DevExpress.Web.ASPxEditors.DropDownStyle.DropDownList;
+                cmbsettings.Width = System.Web.UI.WebControls.Unit.Pixel(250);
+                cmbsettings.SelectedIndex = 0;
+                cmbsettings.ControlStyle.Font.Name = "DejaVu Serif";
+                cmbsettings.ControlStyle.Font.Size = System.Web.UI.WebControls.FontUnit.Point(10);
+                cmbsettings.ControlStyle.CssClass = "comboBoxControl";
+                cmbsettings.CallbackRouteValues = new { Controller = "Masters", Action = "GetUpdatedApmcList" };
+                cmbsettings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                cmbsettings.Properties.TextFormatString = "{0}";
+                cmbsettings.Properties.ValueField = "APMCId";
+                cmbsettings.Properties.TextField = "Name";
+                cmbsettings.Properties.ValueType = typeof(int);
+                cmbsettings.Properties.ClientSideEvents.SelectedIndexChanged = "APMCSelect";
+                cmbsettings.Properties.ClientSideEvents.Init = "APMCSelect";
+                cmbsettings.Properties.Columns.Add("Name");
+                cmbsettings.Properties.CallbackPageSize = 30;
+                cmbsettings.Properties.ClientSideEvents.BeginCallback = "APMCList_OnBeginCallback";
+                cmbsettings.Properties.ClientSideEvents.EndCallback = "APMCList_OnEndCallback";
+
+            }).BindList(Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel.GetAllApmc()).GetHtml()

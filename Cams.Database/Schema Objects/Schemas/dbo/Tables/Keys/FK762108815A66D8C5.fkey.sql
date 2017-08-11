@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[BankBranchContacts]
+    ADD CONSTRAINT [FK762108815A66D8C5] FOREIGN KEY ([BranchId]) REFERENCES [dbo].[BankBranches] ([BranchId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

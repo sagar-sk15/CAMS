@@ -1,0 +1,158 @@
+﻿@using Cams.Web.MVCRazor
+@model Cams.Web.MVCRazor.Models.Account.UserGroupsModel
+@{
+    //ViewBag.Title = "UserGroups";
+    //Cams.Common.Dto.User.UserDto loggedInUser = (Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER];
+
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/CommonScripts.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuUserGroups');
+        });
+
+        function SetCAId(s, e) {
+            if ($.QueryString["usertype"] == 'CAUser') {
+                e.customArgs["CAId"] = cmbClient.GetValue();
+                $('#CAId').val(cmbClient.GetValue());
+            }
+            else {
+                e.customArgs["CAId"] = $('#CAId').val();
+            }
+            e.customArgs["usertype"] = $.QueryString["usertype"];
+        }
+
+        $(function () {
+            $('#addLink').click(function () {
+                var CaId = null;
+                if ($.QueryString["usertype"] == 'CAUser') {
+                    CaId = cmbClient.GetValue();
+                    if (CaId == 0) {
+                        alert("Select Client to Add New User.");
+                        return false;
+                    }
+                    $(this).attr('href', this.href + '&CAId=' + encodeURIComponent(CaId));
+                }
+                return true;
+            });
+        });
+
+        function OngvUserGroupsFocusedRowChanged(s, e) {
+            if (s.focusedRowIndex != -1) {
+                $('#UserGroupId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+                s.GetRowValues(s.GetFocusedRowIndex(), "AllowEdit", OnGetSelectedFieldValues);
+            }
+        }
+
+        function OnEditClick(s, e) {
+            if ($('#AllowUserGroupToEdit').val() == "true") {
+                var baseUrl = window.location.pathname;
+                baseUrl = baseUrl.substring(0, baseUrl.indexOf("/Account"));
+                s.SetNavigateUrl(baseUrl + '/Account/UserGroup?mode=edit');
+                if ($.QueryString["usertype"] == 'CAUser') {
+                    var CaId = cmbClient.GetValue();
+                    if (CaId == 0) {
+                        alert("Select Client to Add New User.");
+                        return false;
+                    }
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&usergroupid=' + $('#UserGroupId').val() + '&usertype=' + $.QueryString["usertype"].toString() + '&CAId=' + encodeURIComponent(CaId));
+                }
+                else if ($.QueryString["usertype"] == 'AckUser') {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&usergroupid=' + $('#UserGroupId').val() + '&usertype=' + $.QueryString["usertype"].toString());
+                }
+                else {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&usergroupid=' + $('#UserGroupId').val());
+                }
+                return true;
+            }
+            else {
+                alert("The User Group is not editable");
+                return false;
+            }
+        }
+
+        function OnGetSelectedFieldValues(values) {
+            $('#AllowUserGroupToEdit').val(values);
+        }
+        
+    </script>
+}
+@section MainBody{
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data padbot15">
+                <h1>@ClientResources.UGListTitle</h1>
+                @if (TempData["GroupSaved"] != null)
+                {
+                    <div class="response-msg success-msg">
+                        <span>@TempData["GroupSaved"].ToString()</span>
+                    </div>
+                }
+                <div class="ListHead">
+                    <div class="ListSearch fl">
+                        <table class="userlisttable">
+                            <tr>
+                                @{bool IsClientUser = Request.QueryString["usertype"] == "CAUser" ? true : false;
+                                  if (IsClientUser)
+                                  {
+                                    <td style="width: 50px;">
+                                        Client
+                                    </td>
+                                    <td>@Html.DevExpress().ComboBox(
+                          settings =>
+                          {
+                              settings.Name = "cmbClient";
+                              settings.Width = 180;
+                              settings.SelectedIndex = ViewData["SelectedClient"] != null ? Convert.ToInt32(ViewData["SelectedClient"]) : 0;
+                              settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                              settings.Properties.CallbackPageSize = 30;
+                              settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                              settings.Properties.TextFormatString = "{0}";
+                              settings.Properties.ValueField = "CAId";
+                              settings.Properties.ValueType = typeof(string);
+                              settings.Properties.Columns.Add("CompanyName", "Client");
+                              settings.Properties.Columns.Add("ClientAddress.CityVillage.Name", "Place");
+                              settings.Properties.Columns.Add("DisplayClientId", "Client ID");
+                              settings.ControlStyle.CssClass = "fontName";
+                              settings.ControlStyle.Font.Name = "DejaVu Serif";
+                              settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {cbpUGroupList.PerformCallback(); }";
+                          }).BindList(Model.ClientList).GetHtml()
+                                    </td>
+                                  }}
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="ListAddNew fr">
+                        @{
+                            string UserType = string.Empty;
+                            if (Request.QueryString["usertype"] != null)
+                            {
+                                UserType = Request.QueryString["usertype"];
+                            }
+                        }
+                        @Html.ActionLink(" ", "UserGroup", "Account", new { usertype = UserType }, new { @id = "addLink", @class = "button_Add" })
+                    </div>
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="myGrid">
+                    @Html.Partial("CBPUserGroupsList", ViewData["UserGroupList"])
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(model => model.CAId)
+    @Html.HiddenFor(model => model.UserGroupId)
+    @Html.HiddenFor(model => model.AllowEdit,new {id="AllowUserGroupToEdit"})
+    @Html.HiddenFor(model => model.UserGroupName)
+}

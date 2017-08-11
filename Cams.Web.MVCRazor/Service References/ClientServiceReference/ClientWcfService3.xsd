@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49846/ClientWcfService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" />
+  <xs:import schemaLocation="http://localhost:49846/ClientWcfService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Message" />
+  <xs:complexType name="UserAddressDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q1:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CityVillage" type="xs:int" />
+          <xs:element minOccurs="0" name="ContactNo" type="xs:int" />
+          <xs:element minOccurs="0" name="ContactNoType" type="xs:int" />
+          <xs:element minOccurs="0" name="Country" type="xs:int" />
+          <xs:element minOccurs="0" name="CountryCode" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PIN" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Place" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StateandUT" type="xs:int" />
+          <xs:element minOccurs="0" name="StdCode" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" minOccurs="0" name="UserAddress" nillable="true" type="q2:UserProfileDto" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" minOccurs="0" name="UserEmergencyContactPersonAddress" nillable="true" type="q3:UserEmergencyContactPersonDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserAddressDto" nillable="true" type="tns:UserAddressDto" />
+</xs:schema>

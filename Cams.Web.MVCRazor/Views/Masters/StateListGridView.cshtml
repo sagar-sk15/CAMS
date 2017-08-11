@@ -1,0 +1,18 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+ @Html.DevExpress().GridView(
+                                    settings =>
+                                    {
+                                        settings.Name = "StateListGridViewDataBinding";
+                                        settings.CallbackRouteValues = new { Controller = "Masters", Action = "StateListGridView" };
+                                        settings.Settings.ShowTitlePanel = true;
+                                        settings.Width = 500;
+                                        settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+                                        settings.SettingsPager.PageSize = 10;
+                                        settings.SettingsPager.Position = PagerPosition.Bottom;
+                                        settings.SettingsPager.FirstPageButton.Visible = true;
+                                        settings.SettingsPager.LastPageButton.Visible = true;
+                                        settings.Settings.ShowFilterRow = true;
+                                        settings.Columns.Add("RegionName");
+                                        settings.Columns.Add("RegionType");
+                                    }).Bind(ViewData["StateList"]).GetHtml()

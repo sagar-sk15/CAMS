@@ -1,0 +1,137 @@
+﻿@using System.Web.UI.WebControls
+
+@Html.DevExpress().PopupControl(
+                                    settings =>
+                                    {
+                                        settings.Name = "AddBankModal";
+                                        settings.CloseAction = CloseAction.CloseButton;
+                                        settings.EnableAnimation = false;
+                                        settings.HeaderText = "Add New Bank Details";
+                                        settings.Modal = true;
+                                        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+                                        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+                                        settings.SetContent(() =>
+                                                                {
+
+                                                                    ViewContext.Writer.Write("<div  class=\"groupfieldset\" style=\"width:300px; padding:5px 5px 5px 5px;\"><ul class=\"reset leftfield fl\" style=\"width:100%\">");
+                                                                    if (TempData["AddBankError"] != null) TempData["AddBankError"].ToString();
+                                                                    //ViewContext.Writer.Write("<div class=\"width50\">");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName AddBankLableClass";
+                                                                            labelSettings.Text = "Bank";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+                                                                    Html.TextArea("sdf");
+                                                                    //ViewContext.Writer.Write("</div>");
+                                                                    //ViewContext.Writer.Write("<div>");
+                                                                    Html.DevExpress().TextBox(
+                                                                        TextBoxSettings =>
+                                                                        {
+                                                                            TextBoxSettings.Name = "txtppBankName";
+                                                                            TextBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                            TextBoxSettings.Width = System.Web.UI.WebControls.Unit.Pixel(200);
+                                                                            TextBoxSettings.Properties.MaxLength = 60;
+                                                                            TextBoxSettings.Properties.ClientSideEvents.KeyUp = "ToTitleCase";
+                                                                            TextBoxSettings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                                                                            TextBoxSettings.Properties.ValidationSettings.RequiredField.ErrorText = @Cams.Web.MVCRazor.ErrorAndValidationMessages.ABMtxtppBankName;
+                                                                            TextBoxSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+                                                                            TextBoxSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                                                                        }
+                                                                    )
+                                                                    .Render();
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    //ViewContext.Writer.Write("</div>");
+                                                                    //ViewContext.Writer.Write("<div class=\"width50\">");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName AddBankLableClass";
+                                                                            labelSettings.Text = "Alias";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+                                                                    //ViewContext.Writer.Write("</div>");
+                                                                    //ViewContext.Writer.Write("<div>");
+                                                                    Html.DevExpress().TextBox(
+                                                                        TextBoxSettings =>
+                                                                        {
+                                                                            TextBoxSettings.Name = "txtppAlias";
+                                                                            TextBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                            TextBoxSettings.Width = System.Web.UI.WebControls.Unit.Pixel(200);
+                                                                            TextBoxSettings.Properties.MaxLength = 5;
+                                                                            TextBoxSettings.Properties.ClientSideEvents.KeyUp = "ToUpperCase";
+                                                                            TextBoxSettings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                                                                            TextBoxSettings.Properties.ValidationSettings.RequiredField.ErrorText = @Cams.Web.MVCRazor.ErrorAndValidationMessages.ABMtxtppAlias;
+                                                                            TextBoxSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+                                                                            TextBoxSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                                                                        }
+                                                                    )
+                                                                     .Render();
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    //ViewContext.Writer.Write("</div>");
+                                                                    //ViewContext.Writer.Write("<div class=\"width50\">");
+                                                                    Html.DevExpress().Label(
+                                                                       labelSettings =>
+                                                                       {
+                                                                           labelSettings.ControlStyle.CssClass = "fontName AddBankLableClass";
+                                                                           labelSettings.Text = "URL";
+                                                                       }
+                                                                   )
+                                                                   .Render();
+                                                                    //ViewContext.Writer.Write("</div>");
+                                                                    //ViewContext.Writer.Write("<div style=\"overflow:visible;\">");
+                                                                    Html.DevExpress().TextBox(
+                                                                        TextBoxSettings =>
+                                                                        {
+                                                                            TextBoxSettings.Name = "txtppURL";
+                                                                            TextBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                            TextBoxSettings.Width = System.Web.UI.WebControls.Unit.Pixel(200);
+                                                                            TextBoxSettings.Properties.MaxLength = 50;
+                                                                            TextBoxSettings.Properties.ClientSideEvents.KeyUp = "ToLowerCase";
+                                                                            TextBoxSettings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                                                                            TextBoxSettings.Properties.ValidationSettings.RequiredField.ErrorText = Cams.Web.MVCRazor.ErrorAndValidationMessages.ABMtxtppURL;
+                                                                            TextBoxSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+                                                                            TextBoxSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                                                                            TextBoxSettings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"(http(s)?://)?([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?|(http(s)?://)([\w-]+\.)*[\w-]+(/[\w- ./?%&=]*)?";  //(?\w+):\/\/(?[\w@][\w.:@]+)\/?[\w\.?=%&=\-@/$,]*|(http(s)?://)?([\w-]+\.)+[\w-]+(/[\w- ;,./?%&=]*)?
+                                                                            TextBoxSettings.Properties.ValidationSettings.RegularExpression.ErrorText = Cams.Web.MVCRazor.ErrorAndValidationMessages.ABMtxtppURLRegEx;
+                                                                        }
+                                                                     )
+                                                                     .Render();
+                                                                    //ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("</li></ul>");
+                                                                    ViewContext.Writer.Write("<div class=\"clr\"></div><div class=\"Form-Wrap\"><ul class=\"reset input-botton\"><li>");
+                                                                    //ViewContext.Writer.Write("<br/>");
+                                                                    //ViewContext.Writer.Write("<div class=\"width50\">");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName AddBankLableClass";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+                                                                    //ViewContext.Writer.Write("</div>");
+                                                                    //ViewContext.Writer.Write("<div>");
+                                                                    Html.DevExpress().Button(
+                                                                        buttonSettings =>
+                                                                        {
+                                                                            buttonSettings.Name = "ppAddBankSavebutton";
+                                                                            buttonSettings.Images.Image.Url = "../content/images/control/save.jpg";
+                                                                            buttonSettings.Text = "";
+                                                                            buttonSettings.TabIndex = 5;
+                                                                            buttonSettings.ClientSideEvents.Click = "AddBankPopupSaveButtonClick";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+                                                                    ViewContext.Writer.Write("</li></ul></div></div><div class=\"clr\"></div>");
+                                                                    //ViewContext.Writer.Write("</div></div><b class=\"Clear\"></b>");
+
+                                                                });
+
+                                        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(AddBankModal, '', true); }";
+                                    }).GetHtml()

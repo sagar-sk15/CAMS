@@ -1,0 +1,333 @@
+﻿@model Cams.Web.MVCRazor.Models.Account.UserRegistrationModel
+@using Cams.Web.MVCRazor
+@using DevExpress.XtraPrinting.Native
+@using Microsoft.Web.Helpers
+@using Cams.Common
+@{
+    //View.Title = "UserRegistration";
+    //ViewBag.Title = "UserRegistration";
+    //Cams.Common.Dto.User.UserDto loggedInUser = (Cams.Common.Dto.User.UserDto)Session[Constants.SKCURRENTUSER];
+
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/UserGroupDropdownScript.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/ContactDetails.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/UserGroupsPopup.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/UserDesignation.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/StateDistrictVillage.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        function RenderImage(s, e) {
+            //        debugger;
+            if (e.callbackData != '') {
+                $('#previewImage').attr('src', "../../Content/UploadedImages/" + e.callbackData);
+            }
+        }
+
+        $(function () { $('#txtPAN').keyup(function () { this.value = this.value.toUpperCase(); }); });
+
+        (function ($) { $.QueryString = (function (a) { if (a == "") return {}; var b = {}; for (var i = 0; i < a.length; ++i) { var p = a[i].split('='); if (p.length != 2) continue; b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " ")); } return b; })(window.location.search.substr(1).split('&')) })(jQuery);
+
+        
+        $(document).ready(function () {
+            UpdateSelectionByIdList();
+            if ($.QueryString["usertype"] == 'AckUser')
+                SetDesignationSelectedIndex();
+
+            //$("ul.tabs").tabs("div.panes > div.panes-data", { initialIndex: 2 });
+            HighlightSuperAdminMainMenu('#mnuUserGroups');
+        });
+
+       
+
+    </script>
+}
+@section TabsPartial{
+    <div class="clr">
+    </div>
+    <!-- the tabs -->
+    
+    <ul class="tabs">
+        <li><a href="#">@ClientResources.URTabRegistration</a></li>
+        <li><a href="#">@ClientResources.URTabPersonalInformation</a></li>
+        @{bool IsClientUser = Request.QueryString["usertype"] == "CAUser" ? true : false;
+          IsClientUser = Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]) ? true : IsClientUser;
+          if (!IsClientUser)
+          {
+            <li><a href="#">@ClientResources.URTabEmergencyContact</a></li>
+          }
+        }
+    </ul>
+    
+}
+@section MainBody
+{
+    @{
+        string mode = string.Empty;
+        if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+        {
+            mode = Request.QueryString["mode"];
+        }
+        Nullable<int> Caid = null;
+        if (!string.IsNullOrEmpty(Request.QueryString["CAId"]))
+        {
+            Caid = Convert.ToInt32(Request.QueryString["CAId"]);
+        }
+    }
+
+    <div class="page-data fl">
+        @using (Html.BeginForm("UserRegistration", "Account", new { usertype = Request.QueryString["usertype"]}, FormMethod.Post, new { id = "UserRegistrationForm" }))
+        {
+            <div class="panes">
+                <div class="panes-data">
+                    <h1>
+                        @if (!String.IsNullOrEmpty(mode))
+                        {
+                            @ClientResources.EditUserRegistrationH1;
+                        }
+                        else
+                        { 
+                            @ClientResources.AddUserRegistrationH1;
+                        }
+            
+                    </h1>
+
+                    <div style="background: #fffcfc; color: #FF0000">@Html.ValidationSummary(false)</div>
+                    
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+                    <div class="Form-Wrap">
+                        <div class="groupfieldset" style="padding: 4px 0">
+                            @{
+                    bool issClientUser = Request.QueryString["usertype"] == "CAUser" ? true : false;
+
+                    if (issClientUser)
+                    {
+                                Html.DevExpress().Label(labelsettings=>
+                                                                   {
+                                                                       labelsettings.ControlStyle.CssClass = "width145";
+                                                                       labelsettings.Text = ClientResources.URClientId;
+                                                                   }).Render();
+                        
+                                @Html.TextBoxFor(model => model.UserOfClient.DisplayClientId, new { @class = "autoinputvalue width100", @readonly = "readonly" })
+                        ViewContext.Writer.Write("&nbsp;&nbsp;&nbsp;");
+                                @ClientResources.URClientName ViewContext.Writer.Write("&nbsp;&nbsp;");
+                                @Html.TextBoxFor(model => model.UserOfClient.CompanyName, new { @class = "autoinputvalue width150", @readonly = "readonly" })
+                        ViewContext.Writer.Write("&nbsp;&nbsp;&nbsp");
+                                @ClientResources.URClientPlace ViewContext.Writer.Write("&nbsp;&nbsp;");
+                                @Html.TextBoxFor(model => model.UserOfClient.ClientAddress.CityVillage.Name, new { @class = "autoinputvalue width100", @readonly = "readonly" })
+                    }
+                            }
+                            <br /><br />
+                            <ul class="reset leftfield fl" style="width: 60%;">
+                                
+                                <li>
+                                    <label id="lblFullName" class="width145">@ClientResources.URlblFullName</label>
+                                    @Html.DropDownListFor(model => model.Title,
+                                            new List<SelectListItem> { 
+                                                    new SelectListItem { Text = ClientResources.URMr, Value = ClientResources.URMr, Selected = true },
+                                                    new SelectListItem { Text = ClientResources.URMrs, Value = ClientResources.URMrs },
+                                                    new SelectListItem { Text = ClientResources.URMs, Value = ClientResources.URMs }
+                                                }, new { style = "width:50px; padding:1px;" }) @Html.TextBoxFor(model => model.Name, new { style = "width:141px", @class = "required", id = "txtFullName", name = "txtFullName" })
+                                </li>
+                                <li>
+                                    <label id="lblUserName" class="width145">@ClientResources.URlblUserName</label>
+                                    @if (Model.mode != "Edit")
+                                    {
+                                        @Html.TextBoxFor(model => model.UserName, new { name = "txtUserName", type = "text", @class = "required width195", id = "txtUserName", value = "", maxlength = "15" })
+                                    }
+                                    else
+                                    {
+                                        //used in edit mode
+                                        @Html.TextBoxFor(model => model.UserName, new { @class = "autoinputvalue width195", @readonly = "readonly" })
+                                    }
+                                </li>
+                                <li>
+                                    <label id="lblDateofBirth" class="width145">@ClientResources.URlblDateofBirth</label>
+                                    @Html.Partial("CBPForDOBAndAge",Model.DOB)
+                                </li>
+                                <li>
+                                    <label id="lblStatus" class="width145 label-radio-pad">@ClientResources.URlblStatus</label>
+                                    @Html.RadioButtonFor(model => model.IsActive, ClientResources.URrbtnStatusActive, new { @class = "radio-botton", id = "rbtnActiveStatus", name = "rbtnStatus", @checked = "checked" })
+                                    <label class="label-radio fl">@ClientResources.URActive</label>
+                                    @Html.RadioButtonFor(model => model.IsActive, ClientResources.URrbtnStatusInactive, new { @class = "radio-botton", id = "rbtnInActiveStatus", name = "rbtnStatus" })
+                                    <label class="label-radio fl">@ClientResources.URInactive</label>
+                                    <div class="clr">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label id="lblMothersMaidenName" class="width145">@ClientResources.URlblMothersMaidenName</label>
+                                    @Html.TextBoxFor(model => model.MothersMaidenName, new { @class = "required width195", id = "txtMotherMaidenName", value = "", maxlength = "15" })
+                                </li>
+                            </ul>
+                            <ul class="reset rightfield fr" style="width: 40%;">
+                                <li>
+                                    <div class="profile-img fl">
+                                        @{
+                                                string userimage = Url.Content(Cams.Common.Constants.IMAGEAVATARPATH);
+                                                if(!String.IsNullOrEmpty(Model.Image))
+                                                {
+                                                    userimage = Url.Content(Cams.Common.Constants.IMAGEUPLOADPATH + Model.Image);
+                                                }
+                                            }
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img alt="" id="previewImage" src=@userimage align="left" width="100px" height="110px" />                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.DevExpress().UploadControl(
+                                                    settings =>
+                                                    {
+                                                        settings.Name = "ImageUpload";
+                                                        settings.CallbackRouteValues = new { Controller = "Account", Action = "CallbacksImageUpload" };
+                                                        settings.ShowProgressPanel = true;
+                                                        settings.ClientSideEvents.FileUploadComplete = "RenderImage";
+                                                        settings.BrowseButton.Text = "...";
+                                           
+                                                    }).GetHtml()        
+                                                </td>
+                                                <td>
+                                                    <input type="button" value="Upload" onclick="ImageUpload.Upload()" align="left" />                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clr">
+                        </div>
+                        <div class="groupfieldset" style="padding: 4px 0">
+                            <ul class="reset leftfield fl" style="width: 50%;">
+                                <li>
+                                    <label id="lblUREmail" class="width145">@ClientResources.URlblEmail</label>
+                                    @Html.TextBoxFor(model => model.Email, new { name = "txtEmail", @class = "required width195", id = "txtEmail", value = "", maxlength = "30" })
+                                </li>
+                                <li>
+                                    <table>
+                                            <tr>
+                                                <td>
+                                                    <label id="lblURUserGroup" class="width145">@ClientResources.URlblURUserGroup</label>
+                                                    @Html.HiddenFor(model => model.SelectedUserGroupList, new { id = "SelectedUserGroupList" })
+                                                    @Html.Partial("CallBackPanelUserGroupList", Model.UserGroupList)
+                                                </td>
+                                                <td>
+                                                    @Html.Partial("CallBackPoppupUserGroup")                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                </li>
+                            </ul>
+                            <ul class="reset rightfield fr" style="width: 50%;">
+                                <li>
+                                    <label id="lblURMobileNumber" class="width110">@ClientResources.URlblURMobileNumber</label>
+                                    @Html.TextBoxFor(model => model.CountryCode, new { id = "txtURCountryCode", name = "txtURCountryCode", value = "+91", @class = "vsmlinp" })
+                                    @Html.TextBoxFor(model => model.MobileNo, new { @class = "required", style = "width:155px;", id = "txtURMobileNumber", value = "", maxlength = "15" })
+                                </li>
+                                @{
+                                    bool IsClientUser = false;
+                                    if((Request.QueryString["usertype"] == "CAUser") ||(Model.CAId!=null && Model.CAId > 0))
+                                    {
+                                        IsClientUser = true;    
+                                    }
+                                    //IsClientUser = Request.QueryString["usertype"] == "CAUser" ? true : false;
+                                  if (!IsClientUser)
+                                  {
+                                    <li>
+                                        <label id="lblDesignation" class="width110">@ClientResources.URlblDesignation</label>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    @Html.Partial("CallBackPanelUserDesignationList", Model)
+                                                    @Html.HiddenFor(model => model.SelectedDesignation, new { id = "SelectedDesignation" })
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:UserDesignationModal.Show()" class="addnew"></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <label style="width: 40">
+                                            &nbsp;
+                                        </label>
+                                        @Html.Partial("CallBackPanelUserDesignationPopup") </li>
+                                  }}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panes-data">
+                    @Html.Partial("URPersonalInformation", Model)
+                </div>
+                @{
+               if (!IsClientUser)
+               {
+                    <div class="panes-data">
+                        @Html.Partial("UREmergencyContact", Model)
+                    </div>
+               }}
+            </div>
+            <div class="Form-Wrap">
+                <ul class="reset input-botton">
+                    <li>
+                        <input type="image" src=@Url.Content("~/content/images/control/save.jpg") name="button111"
+                            onclick="" />
+                        <div class="text-link">@ClientResources.PICancelText&nbsp;
+                        @Html.ActionLink(ClientResources.PICancel, "UsersIndex", new { usertype = Request.QueryString["usertype"] })
+                    </li>
+                </ul>
+            </div>
+            @Html.HiddenFor(model => model.UserId, new { id = "EditUserId" })
+            @Html.HiddenFor(model => model.UserProfile.UserProfileId, new { id = "EditUserProfileId" })
+              
+               if(Model.UserProfile.UserAddress!=null)
+                {
+                    if(Model.UserProfile.UserAddress.AddressId!=null)   
+                    {
+                    @Html.HiddenFor(model => model.UserProfile.UserAddress.AddressId, new { id = "EditUserAddressId" });
+                                                                                                                       }
+                }
+               
+
+               if (!IsClientUser)
+               {
+                 if(Model.UserProfile.UserEmergencyContactPerson!=null)
+                 {
+                     if (Model.UserProfile.UserEmergencyContactPerson.UserEmergencyContactPersonId!=null)
+                     {
+                        @Html.HiddenFor(model => model.UserProfile.UserEmergencyContactPerson.UserEmergencyContactPersonId, new { id = "EditUserEmergencyContactPersonId" });
+                    }
+                     if (Model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress != null)         
+                     {
+                         if (Model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.AddressId!= null)         
+                        {
+                         @Html.HiddenFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.AddressId, new { id = "EditUserEmergencyContactPersonAddressId" });
+                        }
+                     }
+                    }
+               }
+               
+            @Html.HiddenFor(model => model.mode);
+            if(Model.UserOfClient !=null)
+            {                                   
+                @Html.HiddenFor(model => model.CAId);
+            }
+             }
+    </div>
+        }

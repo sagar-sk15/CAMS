@@ -1,0 +1,67 @@
+﻿@model Cams.Web.MVCRazor.Models.Masters.APMCModel
+@using Cams.Web.MVCRazor
+@{
+    ViewBag.Title = "APMCList";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+
+@section Scripts{
+    <link href=@Url.Content("~/Content/Css/style.css") rel="stylesheet" type="text/css" />
+    <script type="text/javascript" language="javascript">
+        function OnAPMCListGridViewDataBindingFocusedRowChanged(s, e) {
+            if (s.focusedRowIndex != -1) {
+                if (s.GetRowKey(s.GetFocusedRowIndex()) != null) {
+                    $('#APMCId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+                }
+            }
+        }
+
+        function OnEditClick(s, e) {
+            if ($('#APMCId').val() == null || $('#APMCId').val() == "" || $('#APMCId').val() == "0") {
+                alert("Please select APMC from the list.");
+            }
+            s.SetNavigateUrl(s.GetNavigateUrl() + '&apmcid=' + $('#APMCId').val());
+            return true;
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuMasters');
+        });
+    </script>
+
+
+}
+
+@section MainBody
+{
+      <div class="page-data fl">
+        <div class="panes">
+          <div class="panes-data padbot15">
+            <h1>@ClientResources.APMCListH1</h1>
+            @if (ViewData["Error"] != null)
+                    {
+                        <div class="response-msg error-msg">
+                            <span>@ViewData["Error"].ToString()</span>
+                            <br />
+                            <span>@Html.ValidationSummary(true)</span>
+                        </div>
+                    }
+                    @Html.ValidationSummary(false)
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+            <div class="ListHead">
+              <div class="ListAddNew fr">@Html.ActionLink(" ", "Apmc", "Masters", null, new { @class = "button_Add" })</div>
+              <div class="clr"></div>
+            </div>
+             @Html.Partial("APMCListGridView", Model)            
+          </div>
+        </div>
+      </div>
+      @Html.HiddenFor(model => model.APMCId)
+}

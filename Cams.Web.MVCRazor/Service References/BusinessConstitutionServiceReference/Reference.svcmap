@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31c1a481-ef08-43a0-b4c3-7e0d2c698733" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="5ed575c2-fbcd-46c9-ac49-ab9d7b1eb92c" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="c2c106b5-4764-42fd-9bfc-ec357d400d1a" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="5ce6d0c9-93f5-40d7-a827-a49880fb442f" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7a8c003d-ec8d-41c3-be29-353ad5a10cce" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="c034bf17-75f5-441b-8aac-1ac19999f53e" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="e53d4236-3bc9-4e61-bed3-471dcf0c50b5" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="2178f83b-10bf-4daa-b152-7b52b0879078" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="10668847-7f42-49fe-af34-d9983a319cff" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="74ef1dc9-4e5e-467c-a998-669817d2fc74" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="a439217a-f9ee-4d44-85de-353f1c02e232" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="a011cd78-e34d-4b4b-b05a-af6a4c3a4d3e" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="8fcb6520-896f-4dd4-9654-739e27e14a5a" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="08fc8c0a-a9f3-4ff0-9cb7-1ae77e45b350" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="22f7da85-e2c3-4e6c-b9cc-92b47551f59a" SourceId="1" SourceUrl="http://ack21.ack.com/Cams.WcfService/BusinessConstitutionWcfServices.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

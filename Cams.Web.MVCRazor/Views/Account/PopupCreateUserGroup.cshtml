@@ -1,0 +1,104 @@
+﻿@* Resource keys related to this page have prefix AUGPP == Add UserGroup Popup*@
+
+@{
+    string strRoles = Cams.Common.Constants.MANAGEACKUSERGROUPS +','+ Cams.Common.Constants.MANAGECLIENTUSERGROUP;
+    IList<string> roles = strRoles.Split(',').ToList();
+    if (Cams.Web.MVCRazor.Helpers.CamsAuthorizeAttribute.IsUserInRole(roles, Cams.Web.MVCRazor.Helpers.CamsAuthorizeAttribute.RolePermission.Add, (Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+         <a href="javascript:UserGroupModal.Show()" class="addnew"></a>
+    }
+}
+
+@Html.DevExpress().PopupControl(
+                                    settings =>
+                                    {
+                                        settings.Name = "UserGroupModal";
+                                        settings.Width = 150;
+                                        settings.CloseAction = CloseAction.CloseButton;
+                                        settings.EnableAnimation = false;
+                                        settings.HeaderText = "User Group";
+                                        settings.Modal = true;
+                                        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+                                        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+                                        settings.ControlStyle.CssClass = "fontName";
+                                        settings.SetContent(() =>
+                                        {
+
+                                            ViewContext.Writer.Write("<div class='Form-Wrap' style='width:300px;'>");
+                                            Html.DevExpress().Label(
+                                                labelSettings =>
+                                                {
+                                                    labelSettings.ControlStyle.CssClass = "width85 fontName";
+                                                    labelSettings.Text = "Group Name";
+                                                }
+                                            )
+                                            .Render();
+                                            Html.DevExpress().TextBox(
+                                                textBoxSettings =>
+                                                {
+
+                                                    textBoxSettings.Name = "ppUserGroup";
+
+                                                    textBoxSettings.TabIndex = 1;
+                                                    textBoxSettings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                                                    textBoxSettings.Properties.ValidationSettings.RequiredField.ErrorText = @Cams.Web.MVCRazor.ClientResources.AUGPPUserGroupName;
+                                                    textBoxSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+                                                    textBoxSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                                                    textBoxSettings.ControlStyle.CssClass = "required fontName";
+                                                }
+                                            )
+                                            .Render();
+                                            ViewContext.Writer.Write("</div><div class=\"line\">");
+                                            ViewContext.Writer.Write("<br/>");
+                                            Html.DevExpress().Label(
+                                                labelSettings =>
+                                                {
+                                                    labelSettings.ControlStyle.CssClass = "width85 fontName";
+                                                    labelSettings.Text = "Description";
+                                                }
+                                            )
+                                            .Render();
+                                            Html.DevExpress().Memo(
+                                                memoSettings =>
+                                                {
+                                                    memoSettings.Name = "ppDescription";
+                                                    memoSettings.ControlStyle.CssClass = "textfiled fontName";
+                                                    memoSettings.TabIndex = 2;
+                                                }
+                                            )
+                                            .Render();
+                                            ViewContext.Writer.Write("<br/>");
+                                            Html.DevExpress().Label(
+                                              labelSettings =>
+                                              {
+                                                  labelSettings.ControlStyle.CssClass = "width85 fontName";
+                                              }
+                                          )
+                                          .Render();
+
+                                            Html.DevExpress().Button(
+                                                buttonSettings =>
+                                                {
+                                                    buttonSettings.Name = "button";
+                                                    buttonSettings.Images.Image.Url = "../content/images/control/save.jpg";
+                                                    buttonSettings.Text = "";
+                                                    buttonSettings.TabIndex = 3;
+                                                    buttonSettings.ClientSideEvents.Click = "UserGroupPopupSaveButtonCLick";
+                                                }
+                                            )
+                                            .Render();
+                                            ViewContext.Writer.Write("<br/>");
+                                            Html.DevExpress().Label(
+                                             labelSettings =>
+                                             {
+                                                 labelSettings.ControlStyle.CssClass = "width85 fontName";
+                                             }
+                                         )
+                                         .Render();
+
+                                            ViewContext.Writer.Write("</div><b class=\"Clear\"></b>");
+
+                                        });
+
+                                        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(UserGroupModal, '', true); }";
+                                    }).GetHtml()

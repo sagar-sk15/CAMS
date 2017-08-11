@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="626a360a-ee97-4cf2-9a57-2625030740cc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8dca6ca6-b3fe-47db-a6dd-ad4ea50642cf" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="09055fd8-cd06-4cde-8157-135401e6b9e7" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9a1e8d78-6dd3-4a9a-90e1-72895095f26d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="30c5f7fb-b558-4d8a-943c-fd6b40184513" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="5d850a46-9ac2-4bee-ab63-f8cb74390505" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="f24cb627-194b-4197-82bc-5a74f1102588" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="dc617864-b65d-455a-b67d-deb2044c1faf" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="c9763ca6-c5ed-4166-8065-f7d0f21de763" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="a6d13f6e-4fe2-4dae-b301-e77c43bd8cbd" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="069dcbb7-4c51-4e6f-8d38-606858e8208e" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="651dc762-952b-42d5-9be9-4857066b13ec" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="dc78492e-0a12-4f5f-9180-cf815eef27a8" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="408794d8-3cbc-4e57-a764-3a24025c0249" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="bca75f0d-0100-4a70-8ae9-69d1244ae75f" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/APMCMasterWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

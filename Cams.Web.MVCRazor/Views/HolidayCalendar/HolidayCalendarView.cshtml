@@ -1,0 +1,31 @@
+﻿@using Cams.Web.MVCRazor;
+@{
+    ViewBag.Title = "HolidayCalendarView";
+    Layout = "~/Views/Shared/ClientMaster.cshtml"; 
+}
+<script type="text/javascript">
+    var popupHeaderText;
+
+    function ShowNotes(dateString) {
+        popupHeaderText = dateString;
+        popup.Hide();
+        popup.PerformCallback();
+        popup.SetHeaderText(popupHeaderText);
+    }
+    function OnPopupBeginCallback(s, e) {
+        e.customArgs["DateString"] = popupHeaderText;
+    }
+    function OnPopupEndCallback(s, e) {
+        popup.Show();
+    }
+</script>
+@*using (Html.BeginForm("HolidayCalendar","HolidayCalendar", FormMethod.Post))*@
+<p>
+    Click a highlighted date
+</p>
+<div style="float: left">
+    @Html.Partial("HolidayCalendarPartial")
+</div>
+<div id="popupAnchor" style="float: left; margin-left: 5px">
+</div>
+@Html.Partial("HolidayCalendarPopupPartial")

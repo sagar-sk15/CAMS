@@ -1,0 +1,95 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.BankBranchListModel
+@using Cams.Web.MVCRazor
+@{
+    ViewBag.Title = "BankBranchList";
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts
+{
+    <link href=@Url.Content("~/Content/Css/style.css") rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript">
+    function PanelBankBranchListGridViewBeginCallback(s, e) {
+        e.customArgs['BankId'] = cbbBankBranch.GetValue(); 
+    }
+    function BankBranchListGridViewBeginCallback(s, e) {
+        e.customArgs['BankId'] = cbbBankBranch.GetValue();
+    }
+    function cbbBankBranchIndexChange(s, e) {
+        /*alert('Inside combobox Index Change function');*/
+        PanelBankBranchListGridView.PerformCallback(); 
+    }
+    function cbbBankBranchBeginCallback(s, e) {
+        e.customArgs['BankId'] = cbbBankBranch.GetValue(); 
+    }
+
+    function OnBankBranchListGridViewDataBindingFocusedRowChanged(s, e) {
+        if (s.focusedRowIndex != -1) {
+            if (s.GetRowKey(s.GetFocusedRowIndex()) != null) {
+                $('#BranchId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+            }
+        }
+    }
+
+    function OnEditClick(s, e) {
+        if ($('#BranchId').val() == null || $('#BranchId').val() == "" || $('#BranchId').val() == "0") {
+            alert("Please select Bank Branch.");
+        }
+        s.SetNavigateUrl(s.GetNavigateUrl() + '&branchid=' + $('#BranchId').val());
+        return true;
+    }
+
+    function OnAddClick(s, e) {
+        var BankId = cbbBankBranch.GetValue();
+        s.SetNavigateUrl(s.GetNavigateUrl() + '?bankid=' + BankId);
+        return true;
+    }
+</script>
+}
+@section MainBody{
+<div class="page-data fl">
+        <div class="panes">
+          <div class="panes-data padbot15">
+            <h1>@ClientResources.BBRListH1</h1>
+            @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                                <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+            <div class="ListHead">
+              <div class="ListSearch fl">
+                <div class="ListSearch fl">
+                    <table>
+                        <tr>
+                            <td><label>&nbsp;&nbsp;@ClientResources.BBRBank&nbsp;</label></td>
+                            <td>@Html.Partial("AckAndClientCommonViews\\BankBranchCombo")</td>
+                        </tr>
+                    </table>
+                  
+                </div>
+              </div>
+              <div class="ListAddNew fr">
+              @Html.DevExpress().HyperLink(linkSettings =>
+                            {
+                                linkSettings.Name = "AddButton";
+                                linkSettings.Properties.Style.CssClass = "button_Add";
+                                linkSettings.Properties.ClientSideEvents.Click = "OnAddClick";
+                                linkSettings.NavigateUrl = Url.Action("AddBankBranchIndex", "BankBranch");
+                            }).GetHtml()
+              @*@Html.ActionLink(" ", "AddBankBranchIndex", "BankBranch", null, new { @class = "button_Add" })*@
+              </div>
+              <div class="clr"></div>
+            </div>
+            @Html.Partial("AckAndClientCommonViews\\BankBranchListGridViewPanel")
+          </div>
+        </div>
+      </div>
+      @Html.HiddenFor(model => model.BranchId)
+}

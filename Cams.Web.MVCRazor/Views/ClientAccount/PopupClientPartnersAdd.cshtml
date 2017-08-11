@@ -1,0 +1,221 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Web.MVCRazor
+@using Cams.Common.Dto
+@using Cams.Common.Dto.ClientRegistration
+@using Cams.Common
+@using Cams.Web.MVCRazor.Helpers
+@using System.Web.UI.WebControls
+
+@{ ClientPartnerDetailsDto  NewPartner = new ClientPartnerDetailsDto(); }
+
+@Html.DevExpress().PopupControl(
+                                    settings =>
+                                    {
+                                        settings.Name = "PopupCtrlClientPartnerAdd";
+                                        settings.CloseAction = CloseAction.CloseButton;
+                                        settings.EnableAnimation = false;
+                                        settings.HeaderText = "Add Owner";
+                                        settings.Modal = true;
+                                        settings.ShowSizeGrip = ShowSizeGrip.True;
+                                        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+                                        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+                                        settings.SetContent(() =>
+                                                                {
+                                                                    ViewContext.Writer.Write("<div style=\" padding:15px; width:800px; height:300px; overflow-x: hidden; overflow-y: scroll; background-color:#ffffff;\">");
+                                                                    ViewContext.Writer.Write("<div class=\"panes-data\">");
+                                                                    ViewContext.Writer.Write("<div class=\"Form-Wrap\">");
+                                                                    ViewContext.Writer.Write("<div class=\"groupfieldset\">");
+                                                                    ViewContext.Writer.Write("<ul class=\"reset leftfield fl\" style=\"width:70%\">");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lblName\" class=\"width110\"> Name</label>");
+                                                                    ViewContext.Writer.Write("<select id=\"ddlAOTitle\" style=\"width:50px; padding:1px;\">");
+                                                                    ViewContext.Writer.Write("<option selected=\"selected\">&nbsp;</option>");
+                                                                    ViewContext.Writer.Write("<option value=\"Mr.\">Mr.</option>");
+                                                                    ViewContext.Writer.Write("<option value=\"Mrs.\">Mrs.</option>");
+                                                                    ViewContext.Writer.Write("<option value=\"Ms.\">Ms.</option>");
+                                                                    ViewContext.Writer.Write("</select>");
+                                                                    ViewContext.Writer.Write("<input name=\"txtAOName\" type=\"text\" class=\"required width210\" id=\"txtAOName\" maxlength=\"60\"/>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lblDesignation\" class=\"width110\">Designation</label>");
+                                                                    Html.RenderPartial("SelectDesignation", Model.designationModel[1]);
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lbl_Gender\" class=\"width110 label-radio-pad\">Gender</label>");
+                                                                    ViewContext.Writer.Write("<input type=\"radio\" class=\"radio-botton\" id=\"rbtnAOGenderMale\" value=\"Male\" name=\"rbtnAOGender\" checked=\"checked\" />");
+                                                                    ViewContext.Writer.Write("<label class=\"label-radio fl\">Male</label>");
+                                                                    ViewContext.Writer.Write("<input type=\"radio\" class=\"radio-botton\" id=\"rbtnAOGenderFemale\" value=\"Female\" name=\"rbtnAOGender\" />");
+                                                                    ViewContext.Writer.Write("<label class=\"label-radio fl\">Female</label>");
+                                                                    ViewContext.Writer.Write("<div class=\"clr\"></div>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lblDateofBirth\" class=\"width110\">Date of Birth</label>");
+                                                                    Html.RenderPartial("CBPDOBnAge", Model.dOBnAgeModellist[1]);
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<div class=\"fl\">");
+                                                                    ViewContext.Writer.Write("<label id=\"lblPAN\" class=\"width110\">PAN</label>");
+                                                                    ViewContext.Writer.Write("<input name=\"txtAOPAN\"  type=\"text\" class=\"required width110\" id=\"txtAOPAN\" value=\"\" maxlength=\"10\" />");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("<div class=\"fl\">");
+                                                                    ViewContext.Writer.Write("<label id=\"lblUID\" class=\"width30\">UID</label>");
+                                                                    ViewContext.Writer.Write("<input name=\"txtAOUID\"  type=\"text\" class=\"textfiled width140\" id=\"txtAOUID\" value=\"\" />");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("</ul>");
+                                                                    ViewContext.Writer.Write("<ul class=\"reset rightfield fr\" style=\"width:20%;\">");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<div class=\"fl\" style=\"width:23px;\"> &nbsp;</div>");
+                                                                    ViewContext.Writer.Write("<div class=\"profile-img fl\">");
+                                                                    string AOimagePath = "../../Content/UploadedImages/avatar_blank.jpg";
+
+                                                                    ViewContext.Writer.Write("<img id=\"AOpreviewImage\" width=\"110\" height=\"100\" alt=\"\" src=\"" + AOimagePath + "\"/>");
+                                                                    Html.DevExpress().UploadControl(
+                                                                        UploadControlsettings =>
+                                                                        {
+                                                                            UploadControlsettings.Name = "AOImageUpload";
+                                                                            UploadControlsettings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "CallbacksImageUpload" };
+                                                                            UploadControlsettings.ShowProgressPanel = true;
+                                                                            UploadControlsettings.ClientSideEvents.FileUploadComplete = "RenderImage";
+                                                                            UploadControlsettings.Width = System.Web.UI.WebControls.Unit.Pixel(140);
+                                                                            UploadControlsettings.BrowseButton.Text = "...";
+
+                                                                        }).GetHtml();
+                                                                    ViewContext.Writer.Write("<input type=\"button\" value=\"Upload\" onclick=\"AOImageUpload.Upload()\" align=\"left\" />");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("</ul>");
+                                                                    ViewContext.Writer.Write("<div class=\"clr\"></div>");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("<div class=\"groupfieldset groupfieldsetcol fl\" style=\"min-height:219px;\">");
+                                                                    ViewContext.Writer.Write("<ul class=\"reset onecolfield\">");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lblAddress\" class=\"width110\">Address</label>");
+                                                                    ViewContext.Writer.Write("<textarea cols=\"\" rows=\"\" name=\"txtAOAddress\" id=\"txtAOAddress\" class=\"textarea width195\"></textarea>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lbl_Country\" class=\"width110\">Country</label>");
+                                                                    ViewContext.Writer.Write("<input name=\"txtAOCountryName\"  type=\"text\" class=\"autoinputvalue width90\" id=\"txtAOCountryName\" value=\"India\" maxlength=\"40\"/>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    Html.RenderPartial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[2]);
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lblAOPIN\" class=\"width110\">PIN</label>");
+                                                                    ViewContext.Writer.Write("<input name=\"txtAOPIN\"  type=\"text\" class=\"required width110\" id=\"txtAOPIN\" value=\"\" maxlength=\"10\" />");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("</ul>");
+                                                                    ViewContext.Writer.Write("<div class=\"clr\"></div>");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("<div class=\"groupfieldset groupfieldsetcol fr\" style=\"min-height:219px;\">");
+                                                                    ViewContext.Writer.Write("<ul class=\"reset onecolfield\">");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<input id=\"CLRAOCurrentIndex\" type=\"hidden\" value=\"" + NewPartner.ClientPartnerContacts.Count + "\" />");
+                                                                    ViewContext.Writer.Write("<table id=\"CLRAOContacts\">");
+                                                                    {
+                                                                        if (NewPartner.ClientPartnerContacts == null)
+                                                                        {
+                                                                            NewPartner.ClientPartnerContacts = new List<ContactDetailsDto>();
+                                                                        }
+
+                                                                        if (NewPartner.ClientPartnerContacts.Count == 0)
+                                                                        {
+                                                                            NewPartner.ClientPartnerContacts.Add(new ContactDetailsDto
+                                                                            {
+                                                                                ContactNoType = ContactType.MobileNo,
+                                                                                CountryCallingCode = "+91",
+                                                                                STDCode = "020"
+                                                                            });
+                                                                        }
+
+
+                                                                        for (int i = 0; i < NewPartner.ClientPartnerContacts.Count; i++)
+                                                                        {
+                                                                            Html.HiddenFor(model => NewPartner.ClientPartnerContacts[i].ContactDetailsId);
+                                                                            bool contactTypeMobile = NewPartner.ClientPartnerContacts[i].ContactNoType == ContactType.MobileNo ? true : false;
+                                                                            bool contactTypeOff = NewPartner.ClientPartnerContacts[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                                                                            bool contactTypeRes = NewPartner.ClientPartnerContacts[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                                                                            bool contactTypefax = NewPartner.ClientPartnerContacts[i].ContactNoType == ContactType.Fax ? true : false;
+
+                                                                            ViewContext.Writer.Write("<tr>");
+                                                                            ViewContext.Writer.Write("<td>");
+                                                                            ViewContext.Writer.Write(Html.DropDownListFor(model => NewPartner.ClientPartnerContacts[i].ContactNoType,
+                                                                            new List<SelectListItem> { 
+                                                                                                            new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(),Selected = contactTypeMobile},
+                                                                                                            new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected=contactTypeOff},
+                                                                                                            new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+                                                                                                            new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(),Selected = contactTypefax}
+                                                                                                            }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" }).ToHtmlString());
+                                                                            ViewContext.Writer.Write("</td>");
+                                                                            ViewContext.Writer.Write("<td>");
+                                                                            ViewContext.Writer.Write(Html.TextBoxFor(model => NewPartner.ClientPartnerContacts[i].CountryCallingCode, new { value = "+91", @class = "required", style = "width:28px; text-align:center", disabled = "disabled" }).ToHtmlString());
+                                                                            ViewContext.Writer.Write("</td>");
+                                                                            ViewContext.Writer.Write("<td>");
+                                                                            if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                                                                            {
+                                                                                ViewContext.Writer.Write(Html.TextBoxFor(model => NewPartner.ClientPartnerContacts[i].STDCode, new { value = @NewPartner.ClientPartnerContacts[i].STDCode, @class = "required", style = "width:38px; text-align:center;" }).ToHtmlString());
+                                                                                ViewContext.Writer.Write(Html.TextBoxFor(model => NewPartner.ClientPartnerContacts[i].ContactNo, new { @class = "required width118", value = "", maxlength = "15" }).ToHtmlString());
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                ViewContext.Writer.Write(Html.TextBoxFor(model => NewPartner.ClientPartnerContacts[i].STDCode,
+                                                                                                                            new { value = "020", @class = "required", style = "width:38px; display:none; text-align:center;" }).ToHtmlString());
+                                                                                ViewContext.Writer.Write(Html.TextBoxFor(model => NewPartner.ClientPartnerContacts[i].ContactNo, new { @class = "required width166", value = "", maxlength = "15" }).ToHtmlString());
+                                                                            }
+                                                                            ViewContext.Writer.Write("</td>");
+                                                                            ViewContext.Writer.Write("<td>");
+                                                                            Html.HiddenIndexerInputForModel();
+                                                                            if (i == 0)
+                                                                            {
+                                                                                ViewContext.Writer.Write("<a href=\"#\" class=\"addnew\" onclick=\"javascript:addNewContact('#CLRAOContacts','#CLRAOCurrentIndex','5','NewPartner_ClientPartnerContacts_', 'NewPartner.ClientPartnerContacts')\"></a>");
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                ViewContext.Writer.Write("<a href=\"#\" class=\"remove\" onclick=\"javascript:removeContact('@i')\"></a>");
+                                                                            }
+                                                                            ViewContext.Writer.Write("</td>");
+                                                                            ViewContext.Writer.Write("</tr>");
+                                                                        }
+                                                                    }
+                                                                    ViewContext.Writer.Write("</table>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<label id=\"lblEmail1\" class=\"width83\">");
+                                                                    ViewContext.Writer.Write("Email1</label>");
+                                                                    ViewContext.Writer.Write(Html.TextBoxFor(model => NewPartner.Email1, new { @class = "required width200", id = "txtAOEmail1", name = "txtAOEmail1" }).ToHtmlString());
+                                                                    ViewContext.Writer.Write("<a href=\"#\" class=\"addnew\" onclick=\"javascript:showEmail2('#CLRAOliEmail2')\"></a>");
+                                                                    ViewContext.Writer.Write("</li>");
+
+                                                                    string displaystyle = string.Empty;
+                                                                    if (string.IsNullOrEmpty(NewPartner.Email2))
+                                                                    {
+                                                                        displaystyle = "display: none";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        displaystyle = "display: block";
+                                                                    }
+
+                                                                    ViewContext.Writer.Write("<li id=\"CLRAOliEmail2\" style='" + @displaystyle + "'>");
+                                                                    ViewContext.Writer.Write("<label id=\"lblEmail2\" class=\"width83\" style=\"\">");
+                                                                    ViewContext.Writer.Write("Email2</label>");
+                                                                    ViewContext.Writer.Write(Html.TextBoxFor(model => NewPartner.Email2, new { @class = "generalfield width200", id = "txtAOEmail2", name = "txtAOEmail2" }).ToHtmlString());
+                                                                    ViewContext.Writer.Write("<a href=\"#\" class=\"remove\" onclick=\"javascript:hideEmail2('#CLRAOliEmail2')\"></a>");
+                                                                    ViewContext.Writer.Write("</li>");
+
+                                                                    ViewContext.Writer.Write("</ul>");
+                                                                    ViewContext.Writer.Write("<div class=\"clr\"></div>");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("<div class=\"clr\"></div>");
+                                                                    ViewContext.Writer.Write("<ul class=\"reset input-botton\">");
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    ViewContext.Writer.Write("<input type=\"image\" src=\"../content/images/control/save.jpg\" name=\"button\" onclick=\"AddPartner('" + Model.designationModel[1].HiddenTextboxName + "','" + Model.dOBnAgeModellist[1].cbpDOBnAgeName + "','" + Model.StateDistrictPlacesControlNames[2].PlacesComboName + "')\" />");
+                                                                    //ViewContext.Writer.Write("<div class=\"text-link\">Or Click here to <a href=\"#\" onclick=\"javascript:ASPxClientEdit.ClearEditorsInContainer(PopupCtrlClientPartnerAdd, '', true);\">Cancel</a></div>");
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("</ul>");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("</div></div>");
+
+
+                                                                });
+
+                                        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(PopupCtrlClientPartnerAdd, '', true); }";
+                                    }).GetHtml()

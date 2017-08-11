@@ -1,0 +1,55 @@
+﻿
+@model Cams.Web.MVCRazor.Models.Shared.ContactsReadOnlyViewModel
+@using Cams.Web.MVCRazor
+           
+<ul class="reset onecolfield">     
+        @{                                                                                
+            for (int i = 0; i < Model.Contacts.Count; i++)
+            {     
+                <li style="margin-bottom:0px!important">
+                <label class="@Model.LeftLabelsClassName">
+                    @{if (Model.Contacts[i].ContactNoType == Cams.Common.ContactType.MobileNo)
+                    { @Cams.Web.MVCRazor.ClientResources.ContactNoTypeMobile;
+                    }
+                    else if (Model.Contacts[i].ContactNoType == Cams.Common.ContactType.OfficeNo)
+                    { @ClientResources.ContactNoTypeOfficeNo;
+                    }
+                    else if (Model.Contacts[i].ContactNoType == Cams.Common.ContactType.ResidenceNo)
+                    { @ClientResources.ContactNoTypeResNo;
+                    }
+                    else
+                    { @ClientResources.ContactNoTypeFaxNo;
+                    }
+                    }
+                 
+                </label>                       
+                <span class="@Model.ValueLabelsClassName">@Model.Contacts[i].CountryCallingCode                
+                @if (Model.Contacts[i].ContactNoType != Cams.Common.ContactType.MobileNo)
+                {
+                    @Model.Contacts[i].STDCode
+                }                     
+                @Model.Contacts[i].ContactNo
+                </span>
+                </li>            
+            }
+        }        
+    <li style="margin-bottom:0px!important">
+        <label class="@Model.LeftLabelsClassName">@ClientResources.Email1</label>
+        <span class="@Model.ValueLabelsClassName">@Model.Email1</span> 
+    </li>
+    @if (!String.IsNullOrEmpty(Model.Email2))
+    {
+        <li style="margin-bottom:0px!important">
+            <label class="@Model.LeftLabelsClassName">@ClientResources.Email2</label>
+            <span class="@Model.ValueLabelsClassName">@Model.Email2</span> 
+        </li>
+    }      
+    @if (Model.IsWebsiteApplicable)
+    {
+        <li>
+            <label class="@Model.LeftLabelsClassName">@ClientResources.WebSiteURL</label>            
+            <a href="http://@Model.Website">@Model.Website</a>
+        </li>                               
+    }
+</ul>
+<div class="clr"></div>

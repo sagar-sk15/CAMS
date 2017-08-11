@@ -1,0 +1,103 @@
+﻿@using System.Web.UI.WebControls
+@using Cams.Web.MVCRazor;
+@using Cams.Web.MVCRazor.Models.Masters
+@* Resource keys related to this page have extension Ast*@
+@model Cams.Web.MVCRazor.Models.Masters.AddStateModel
+@{
+    ViewBag.Title = "AddState";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        HighlightSuperAdminMainMenu('#mnuMasters');
+    });
+</script>
+}
+
+@section MainBody {
+    @{
+        string mode = string.Empty;
+        if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+        {
+            mode = Request.QueryString["mode"];
+        }
+    }
+
+
+    <div class="page-data fl">
+        <div class="panes">
+            @using (Html.BeginForm("AddState", "Masters", FormMethod.Post))
+            {
+                <div class="panes-data">
+                    <h1>
+                        @if (!String.IsNullOrEmpty(mode))
+                        {
+                            @ClientResources.AstEditState;
+                        }
+                        else
+                        { 
+                            @ClientResources.AstAddState;
+                        }
+            
+                    </h1>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <div class="response-msg error-msg">
+                            <span>@ViewData["Error"].ToString()</span>
+                            <br />
+                            <span>@Html.ValidationSummary(true)</span>
+                        </div>
+                    }
+                    @Html.ValidationSummary(false)
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+                    <div class="Form-Wrap">
+                        <ul class="reset onecolfield fl">
+                            <li>
+                                <label id="lblCountry" class="width110">
+                                    @ClientResources.AstCountry
+                                </label>
+                                @Html.TextBoxFor(model => model.Country, new {@class = "countryinput", @Value = "India", @readonly = "readonly"})
+                            </li>
+                            <li>
+                                <label class="width110">
+                                    &nbsp;</label>
+                                @Html.RadioButtonFor(model => model.RegionType, "State", new {Checked = "checked"})
+                                @ClientResources.AstState
+                                @Html.RadioButtonFor(model => model.RegionType, "Union Teritorry")
+                                @ClientResources.AstUT
+                                <div class="clr">
+                                </div>
+                            </li>
+                            <li>
+                                <label id="lblStateName" class="width110">
+                                    @ClientResources.AstName</label>
+                                @Html.TextBoxFor(model => model.RegionName, new {@class = "required"})
+                                @*@Html.ValidationMessageFor(model=>model.RegionName)*@ </li>
+                            <li>
+                                <label class="width110">
+                                    &nbsp;</label>
+                                <br />
+                                <input type="image" src=@Url.Content("~/content/images/control/save.jpg") name="imgbtn_save"
+                                       id="imgbtn_save" />
+                            </li>
+                            <li>
+                                <label class="width110">
+                                    &nbsp;</label>
+                                <div class="text-link">
+                                    Click here to @Html.ActionLink("Cancel", "StateList", "Masters")
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,174 @@
+﻿@Html.DevExpress().PopupControl(
+                                    settings =>
+                                    {
+                                        settings.Name = "PopupSearchBank";
+                                        settings.CloseAction = CloseAction.CloseButton;
+                                        settings.EnableAnimation = false;
+                                        settings.HeaderText = "Search Bank";
+                                        settings.Modal = true;
+                                        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+                                        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+                                        settings.ShowLoadingPanelImage = false;
+                                        settings.SetContent(() =>
+                                                                {
+                                                                    ViewContext.Writer.Write("<div style=\" padding:15px; width:800px; height:300px; overflow-x: hidden; overflow-y: scroll; background-color:#ffffff;\">");
+                                                                    ViewContext.Writer.Write("<div class=\"panes-data\">");
+                                                                    ViewContext.Writer.Write("<div class='Form-Wrap'>");
+                                                                    ViewContext.Writer.Write("<div class='groupfieldset'>");
+                                                                    ViewContext.Writer.Write("<ul class='reset leftfield fl'>");
+                                                                    
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName width110";
+                                                                            labelSettings.Text = "Bank";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+
+                                                                    Html.DevExpress().TextBox(textBoxSettings =>
+                                                                        {
+
+                                                                            textBoxSettings.Name = "txtBankName";
+                                                                            textBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                        }).Render();
+
+                                                                    ViewContext.Writer.Write("</li>");
+
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName width110";
+                                                                            labelSettings.Text = "Branch";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+
+                                                                    Html.DevExpress().TextBox(textBoxSettings =>
+                                                                    {
+
+                                                                        textBoxSettings.Name = "txtBranchName";
+                                                                        textBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                    }).Render();
+
+                                                                    ViewContext.Writer.Write("</li>");
+
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName width110";
+                                                                            labelSettings.Text = "Place";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+
+                                                                    Html.DevExpress().TextBox(textBoxSettings =>
+                                                                    {
+
+                                                                        textBoxSettings.Name = "txtPlaceName";
+                                                                        textBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                    }).Render();
+
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("</ul>");
+
+
+                                                                    ViewContext.Writer.Write("<ul class='reset leftfield fr'>");
+                                                                    ViewContext.Writer.Write("<div class='clr'></div>");
+
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName width110";
+                                                                            labelSettings.Text = "IFSC";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+
+                                                                    Html.DevExpress().TextBox(textBoxSettings =>
+                                                                    {
+
+                                                                        textBoxSettings.Name = "txtIFSCName";
+                                                                        textBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                    }).Render();
+
+                                                                    ViewContext.Writer.Write("</li>");
+
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName width110";
+                                                                            labelSettings.Text = "MICR";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+
+                                                                    Html.DevExpress().TextBox(textBoxSettings =>
+                                                                    {
+
+                                                                        textBoxSettings.Name = "txtMICRCode";
+                                                                        textBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                    }).Render();
+
+                                                                    ViewContext.Writer.Write("</li>");
+
+                                                                    ViewContext.Writer.Write("<li>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "fontName width110";
+                                                                            labelSettings.Text = "SWIFT Code";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+
+                                                                    Html.DevExpress().TextBox(textBoxSettings =>
+                                                                    {
+
+                                                                        textBoxSettings.Name = "txtSWIFTCode";
+                                                                        textBoxSettings.ControlStyle.CssClass = "fontName";
+                                                                    }).Render();
+                                                                    
+                                                                    ViewContext.Writer.Write("</li>");
+                                                                    ViewContext.Writer.Write("</ul>");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("<br/>");
+                                                                    Html.DevExpress().Button(buttonSettings =>
+                                                                    {
+                                                                        buttonSettings.Name = "SearchBankButton";
+                                                                        buttonSettings.Text = "Search";
+                                                                        buttonSettings.ClientSideEvents.Click = "SearchBankBranch";
+                                                                    }).Render();
+
+                                                                    ViewContext.Writer.Write("<br/>");
+
+                                                                    Html.RenderPartial("CBPPopupSearchBankBranchGrid", ViewData["SearchBank"]);
+
+                                                                 
+                                                                    ViewContext.Writer.Write("<br/>");
+                                                                    Html.DevExpress().Label(
+                                                                       labelSettings =>
+                                                                       {
+                                                                           labelSettings.ControlStyle.CssClass = "width325";
+                                                                       }
+                                                                   )
+                                                                   .Render();
+                                                                    Html.DevExpress().Button(buttonSettings =>
+                                                                            {
+                                                                                buttonSettings.Name = "BankSelectButton";
+                                                                                buttonSettings.Images.Image.Url = "../../Content/Images/Control/btn-select.jpg";
+                                                                                buttonSettings.ClientSideEvents.Click = "BankSelectButtonClick";
+                                                                                buttonSettings.Text = "";
+
+                                                                            }).Render();
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                    ViewContext.Writer.Write("</div>");
+                                                                });
+                                        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(PopupSearchBank, '', true); }";
+                                    }).GetHtml()

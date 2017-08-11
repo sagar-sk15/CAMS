@@ -1,0 +1,177 @@
+﻿@model Cams.Web.MVCRazor.Models.Account.UserRegistrationModel
+@using Cams.Web.MVCRazor
+@using Cams.Common.Dto
+@using Cams.Common
+@using Cams.Web.MVCRazor.Helpers
+<h1>
+    Personal Information</h1>
+<div class="Form-Wrap">
+    <div class="groupfieldset">
+        <ul class="reset leftfield fl">
+            <li>
+                <label id="lblGender" class="width85 label-radio-pad">@ClientResources.PIlblGender</label>
+                @Html.RadioButtonFor(model => model.UserProfile.Gender, ClientResources.PIrbtnGenderMale, new { @class = "radio-botton", id = "rbtnMaleGender", name = "rbtnPIGender", @checked = "checked" })
+                <label class="label-radio fl">@ClientResources.URMale</label>
+                @Html.RadioButtonFor(model => model.UserProfile.Gender, ClientResources.PIrbtnGenderFemale, new { @class = "radio-botton", id = "rbtnFemaleGender", name = "rbtnPIGender" })
+                <label class="label-radio fl">@ClientResources.URFemale</label>
+                <div class="clr">
+                </div>
+            </li>
+            <li>
+                <label id="lblPIBloodGroup" class="width110">@ClientResources.PIlblBloodGroup</label>
+                @Html.DropDownListFor(model => model.UserProfile.BloodGroup,
+            new List<SelectListItem> { 
+                                        new SelectListItem { Text = ClientResources.URAPositive, Value = ClientResources.URAPositive, Selected = true },
+                                        new SelectListItem { Text =  ClientResources.URANegative,  Value = ClientResources.URANegative, Selected = true },
+                                        new SelectListItem { Text = ClientResources.URBPositive, Value = ClientResources.URBPositive, Selected = true },
+                                        new SelectListItem { Text = ClientResources.URBNegative, Value = ClientResources.URBNegative, Selected = true },
+                                        new SelectListItem { Text =  ClientResources.URABPositive, Value = ClientResources.URABPositive, Selected = true },
+                                        new SelectListItem { Text = ClientResources.URABNegative, Value = ClientResources.URABNegative, Selected = true },
+                                        new SelectListItem { Text = ClientResources.UROPositive, Value = ClientResources.UROPositive, Selected = true },
+                                        new SelectListItem { Text =  ClientResources.URONegative,  Value = ClientResources.URONegative, Selected = true }
+            },
+            new { @class = "textfiled width75", id = "ddlPIBloodGroup" })
+            </li>
+            <li>
+                <label id="lblPAN" class="width110">@ClientResources.PIlblPAN</label>
+                @Html.TextBoxFor(model => model.UserProfile.PAN, new { @class = "textfiled width110", id = "txtPAN", maxlength = "10" })
+            </li>
+        </ul>
+        <ul class="reset rightfield fr" style="width: 50%;">
+            <li>
+                <label id="lblPIMaritalStatus" class="width145 label-radio-pad">@ClientResources.PIlblMaritalStatus</label>
+                @Html.RadioButtonFor(model => model.UserProfile.MaritalStatus, ClientResources.PIrbtnMaritalStatusSingle, new { @class = "radio-botton", id = "rbtnPIMaritalStatusSingle", name = "rbtnPIMaritalStatus", @checked = "checked" })
+                <label class="label-radio fl">@ClientResources.URSingle</label>
+                @Html.RadioButtonFor(model => model.UserProfile.MaritalStatus, ClientResources.PIrbtnMaritalStatusMarried, new { @class = "radio-botton", id = "rbtnPIMaritalStatusMarried", name = "rbtnPIMaritalStatus" })
+                <label class="label-radio fl">@ClientResources.URMarried</label>
+                <div class="clr">
+                </div>
+            </li>
+            <li style="height: 24px;"></li>
+            <li>
+                <label id="lblUID" class="width145">@ClientResources.PIlblUID</label>
+                @Html.TextBoxFor(model => model.UserProfile.UID, new { @class = "textfiled", id = "txtUID", name = "txtUID", value = "", maxlength = "12" })
+            </li>
+        </ul>
+    </div>
+    <div class="groupfieldset groupfieldsetcol fl" style="min-height: 196px;">
+        <ul class="reset onecolfield fl">
+            <li>
+                <label class="width110" id="lblPIAddress">@ClientResources.PIlblAddress</label>
+                @Html.TextAreaFor(model => model.UserProfile.UserAddress.AddressLine1, new { cols = "", rows = "", name = "txtPIAddress", id = "txtPIAddress", @class = "textarea width195" })
+            </li>
+            <li>
+                <label id="lblPICountry" class="width110">@ClientResources.PIlblCountry</label>
+                <span class="countryinput">India</span> </li>
+            @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[0])
+            <li>
+                <label id="lblPIPIPin" class="width110">@ClientResources.PIlblPin</label>
+                @Html.TextBoxFor(model => model.UserProfile.UserAddress.PIN, new { name = "txtPIPin", type = "text", @class = "generalfield width110", id = "txtPIPin", value = "", maxlength = "6" })
+            </li>
+        </ul>
+        <div class="clr">
+        </div>
+    </div>
+    <div class="groupfieldset groupfieldsetcol fr" style="min-height: 196px;">
+        <ul class="reset onecolfield fl">
+            <li>
+                <input id="URPICurrentIndex" type="hidden" value="@Model.UserProfile.ContactNos.Count" />
+                <table id="URPIContacts">
+                    @{ if (Model.UserProfile.ContactNos == null)
+                       {
+                           Model.UserProfile.ContactNos = new List<ContactDetailsDto>();
+                       }
+
+                       if (Model.UserProfile.ContactNos.Count == 0)
+                       {
+                           Model.UserProfile.ContactNos.ToList().Add(new ContactDetailsDto
+                           {
+                               ContactNoType = ContactType.MobileNo,
+                               CountryCallingCode = "+91",
+                               STDCode = "020"
+                           });
+                       }
+
+
+                       for (int i = 0; i < Model.UserProfile.ContactNos.Count; i++)
+                       {
+                        @Html.HiddenFor(model => model.UserProfile.ContactNos[i].ContactDetailsId)
+                           bool contactTypeMobile = Model.UserProfile.ContactNos[i].ContactNoType == ContactType.MobileNo ? true : false;
+                           bool contactTypeOff = Model.UserProfile.ContactNos[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                           bool contactTypeRes = Model.UserProfile.ContactNos[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                           bool contactTypefax = Model.UserProfile.ContactNos[i].ContactNoType == ContactType.Fax ? true : false;
+                
+                        <tr>
+                            <td>
+                                @Html.DropDownListFor(model => Model.UserProfile.ContactNos[i].ContactNoType,
+            new List<SelectListItem> { 
+                            new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(),Selected = contactTypeMobile},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected=contactTypeOff},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(),Selected = contactTypefax}
+            }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.UserProfile.ContactNos[i].CountryCallingCode, new { value = "+91", @class = "textfiled", style = "width:28px; text-align:center", disabled = "disabled" })
+                            </td>
+                            <td>
+                               @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                               {
+                                    @Html.TextBoxFor(model => Model.UserProfile.ContactNos[i].STDCode, new { value = @Model.UserProfile.ContactNos[i].STDCode, @class = "textfiled", style = "width:38px; text-align:center;" })
+                                    @Html.TextBoxFor(model => Model.UserProfile.ContactNos[i].ContactNo, new { @class = "width118", value = "", maxlength = "15" })
+
+                               }
+                               else
+                               {
+                                @Html.TextBoxFor(model => Model.UserProfile.ContactNos[i].STDCode,
+                new { value = "020", @class = "textfiled", style = "width:38px; display:none; text-align:center;" })
+                                @Html.TextBoxFor(model => Model.UserProfile.ContactNos[i].ContactNo, new { @class = "width166", value = "", maxlength = "15" })
+                               }
+                            </td>
+                            <td>
+                                @Html.HiddenIndexerInputForModel()
+                                @if (i == 0)
+                                { 
+                                    <a href="#" class="addnew" onclick="javascript:addNewContact('#URPIContacts','#URPICurrentIndex','5','UserProfile_ContactNos_', 'UserProfile.ContactNos')">
+                                    </a>
+                                }
+                                else
+                                { 
+                                    <a href="#" class="remove" onclick="javascript:removeContact('@i')">
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                       }
+                    }
+                </table>
+            </li>
+            <li>
+                <label id="lblEmail1" class="width83">
+                    Email1</label>
+                @Html.TextBoxFor(model => Model.UserProfile.Email1, new { @class = "generalfield width200" })
+                <a href="#" class="addnew" onclick="javascript:showEmail2('#URPliEmail2')"></a>
+            </li>
+            @{
+                string displaystyle = string.Empty;
+                if (string.IsNullOrEmpty(Model.UserProfile.Email2))
+                {
+                    displaystyle = "display: none";
+                }
+                else
+                {
+                    displaystyle = "display: block";
+                }
+            }
+                <li id="URPliEmail2" style='@displaystyle'>
+                    <label id="lblEmail2" class="width83" style="">
+                        Email2</label>
+                    @Html.TextBoxFor(model => Model.UserProfile.Email2, new { @class = "generalfield width200" })
+                    <a href="#" class="remove" onclick="javascript:hideEmail2('#URPliEmail2')"></a>
+                </li>
+            
+        </ul>
+    </div>
+    <div class="clr">
+    </div>
+</div>

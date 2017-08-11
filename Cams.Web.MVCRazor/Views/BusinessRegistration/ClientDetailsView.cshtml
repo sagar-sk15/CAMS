@@ -1,0 +1,71 @@
+﻿@model Cams.Web.MVCRazor.Models.BusinessRegistration.BusinessRegistrationModel
+<div class="groupfieldset">
+	<ul class="reset leftfield fl" style="width: 60%">
+		<li>
+			<label id="lblCliendID" class="width110">
+				Client ID</label>
+			<span class="non-editable-txt">@Model.DisplayClientId</span>
+		</li>
+		<li>
+			<label id="lblName" class="width110">
+				Name</label><span class="non-editable-txt">M/s. @Model.CompanyName</span>
+		</li>
+		<li>
+			<label id="lblAlias" class="width110">
+				Alias</label>
+			<span class="non-editable-txt">@Model.Alias</span>
+		</li>
+		<li>
+			<label id="lblPAN" class="width110">
+				PAN</label>
+			<span class="non-editable-txt">@Model.PAN</span>
+		</li>
+		<li>
+			<label id="lblTAN" class="width110">
+				TAN</label>
+			<span class="non-editable-txt">@Model.TAN</span>
+		</li>
+	</ul>
+	<ul class="reset rightfield fr" style="width: 32%;">
+		<li>
+			<label id="lbl_RegistrationDate" class="width110">
+				Registration Date</label>
+			@{
+				var sRegDate = Model.RegistrationDate != null ? Convert.ToDateTime(Model.RegistrationDate).ToString(Cams.Common.Constants.DATEFORMATFORDISPAY) : "";
+			}
+			<input name="txtRegistrationDate"  type="text" class="autoinputvalue width90" id="txtRegistrationDate" value="@sRegDate" maxlength="40"/>
+		</li>
+		<li>
+			<div class="profile-img-link fl" style="width: 18px;">
+				&nbsp;</div>
+			@{
+				var imagePath = "../../Content/UploadedImages/ClientAccount/clientlogo.jpg";
+				if (@Model.Image != null)
+				{
+					imagePath = "../../Content/UploadedImages/ClientAccount/" + @Model.Image;
+				}                            
+			}
+			<div class="profile-img fl">
+				<img src="@imagePath" width="160" height="90" alt="" />
+				<!--<br /><a href="#" style="padding-top:5px; display:block; text-align:center">Upload</a>-->
+			</div>
+		</li>
+	</ul>
+	<div class="clr">
+	</div>
+</div>
+<div id="divCompanyAddress" class="groupfieldset groupfieldsetcol fl">
+	@Html.Partial("AddressReadOnlyView", Model.CompanyAddress)
+</div>
+<div id="divCompanyContacts" class="groupfieldset groupfieldsetcol fr">
+	@Html.Partial("ContactsReadOnlyView", Model.CompanyContacts)
+</div>
+<div class="clr">
+</div>
+<ul class="reset">
+	<li>
+		<div class="text-link">
+			<a href="BusinessChangeRequestPopup.html" class='ColorboxFrame email'>
+				Send request to change company profile details</a></div>
+	</li>
+</ul>

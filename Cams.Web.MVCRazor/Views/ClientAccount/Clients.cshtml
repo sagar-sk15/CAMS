@@ -1,0 +1,63 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientsModel
+@using Cams.Web.MVCRazor
+@{
+    ViewBag.Title = "Clients";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuClientSub');
+        });
+
+        function OnClientsGridViewFocusedRowChanged(s, e) {
+            if (s.focusedRowIndex != -1) {
+                if (s.GetRowKey(s.GetFocusedRowIndex()) != null) {
+                    $('#CAId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+                }
+            }
+        }
+
+        function OnEditClick(s, e) {
+            if ($('#CAId').val() == null || $('#CAId').val() == "" || $('#CAId').val() == "0") {
+                alert("Please select Client from the list.");
+            }
+            s.SetNavigateUrl(s.GetNavigateUrl() + '&caid=' + $('#CAId').val());
+            return true;
+        }
+    </script>
+}
+@section MainBody{
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data padbot15">
+                <h1>@ClientResources.Clients</h1>
+                    @if (TempData["GroupSaved"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                                <span>@TempData["GroupSaved"].ToString()</span>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+                <div class="ListHead">
+                    <div class="ListSearch fl">
+                </div>
+                    <div class="ListAddNew fr">
+                        @Html.ActionLink(" ", "ClientRegistrationPageLoad", "ClientAccount", null, new { @id = "addLink", @class = "button_Add" })
+                    </div>
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="myGrid">
+                    @Html.Partial("ClientsGridView", Model.Clients)
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(model => model.CAId)
+}

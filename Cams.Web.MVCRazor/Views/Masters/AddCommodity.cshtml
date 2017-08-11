@@ -1,0 +1,126 @@
+﻿@model Cams.Web.MVCRazor.Models.Masters.CommodityModel
+@using Cams.Web.MVCRazor;
+
+@{
+    ViewBag.Title = "AddCommodity";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/CommonScripts.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        function RenderImage(s, e) {
+            
+            if (e.callbackData != '') {
+                $('#previewImage').attr('src', '../../Content/UploadedImages/Commodities/' + e.callbackData);
+            }
+        }
+
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuMasters');
+        });
+    </script>
+}
+@section MainBody {
+    @{
+        string mode = string.Empty;
+        if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+        {
+            mode = Request.QueryString["mode"];
+        }
+    }
+
+<div class="page-data fl">
+        <div class="panes">
+        @using (Html.BeginForm("AddCommodity", "Masters", new { mode = mode }, FormMethod.Post))
+        {
+          <div class="panes-data">
+            <h1>
+                @if (!String.IsNullOrEmpty(mode))
+                {
+                    @ClientResources.EditCommodityH1;
+                }
+                else
+                { 
+                    @ClientResources.AddCommodityH1;
+                }
+            
+            </h1>
+            @if (ViewData["Error"] != null)
+            {
+                <div class="response-msg error-msg">
+                    <span>@ViewData["Error"].ToString()</span>
+                    <br />
+                    <span>@Html.ValidationSummary(true)</span>
+                </div>
+            }
+            <div style="background:#fffcfc;color:#FF0000">@Html.ValidationSummary(false)</div>
+            @if (TempData["Success"] != null)
+            {
+                <div class="response-msg success-msg">
+                    <span>@TempData["Success"].ToString()</span>
+                </div>
+            }
+            
+            <div class="Form-Wrap">
+                <ul class="reset leftfield addcommodityclass fl" style="width:60%">
+                  <li>
+                    <label id="lblCommodityClass" class="width110">@ClientResources.AddCommoditylblCommodityClass</label>
+                    @Html.DropDownListFor(model => model.CommodityClassId, new SelectList(Model.CommodityClassList, "CommodityClassId", "Name"), "---Select---", new { @class = "required width250", name = "ddlCommodityClass", id = "ddlCommodityClass" })
+                  </li>
+                  <li>
+                    <div class="fl">
+                    
+                      <label id="lblCommodity" class="width110">@ClientResources.AddCommoditylblCommodity</label>
+                      @Html.TextBoxFor(model => model.Name, new { name = "txtCommodity", type = "text", @class = "required", id = "txtCommodity", value = "", maxlength = "60", onkeyup = "ToTitleCase('txtCommodity')" })
+                    </div>
+                    <div class="clr"></div>
+                  </li>
+                  <li>
+                    <div class="fl">
+                      <label id="lblBotinicalName" class="width110">@ClientResources.AddCommoditylblBotinicalName</label>
+                      @Html.TextBoxFor(model => model.BotanicalName, new { name = "txtBotinicalName", type = "text", @class = "required", id = "txtBotinicalName", value = "", maxlength = "60", onkeyup = "ToTitleCase('txtBotinicalName')" })
+                    </div>
+                    <div class="clr"></div>
+                  </li>
+                  <li>
+                    <label id="lblStatus" class="width110 label-radio-pad">@ClientResources.AddCommoditylblStatus</label>
+                    @Html.RadioButtonFor(model => model.IsActive, true, new { @checked = "checked", @class = "radio-botton", id = "rbtnActiveStatus", name = "rbtnStatus" })
+                    <label class="label-radio fl">@ClientResources.AddCommodityrbtnTextActive</label>
+                    @Html.RadioButtonFor(model => model.IsActive, false, new { @class = "radio-botton", id = "rbtnInactiveStatus", name = "rbtnStatus" })
+                    <label class="label-radio fl">@ClientResources.AddCommodityrbtnTextInactive</label>
+                    <div class="clr"></div>
+                  </li>
+                </ul>
+                <ul style="width:40%;" class="reset rightfield fr">
+                    <li>
+                    <div class="profile-img-link fl" style="width:0px;"> &nbsp;</div>
+                    <div style="margin-top:10px;" class="profile-img fl"> 
+                        <img id="previewImage" width="110" height="100" src="@Model.Image" alt="" /><br />@*../../content/images/control/blnk_img.jpg"*@
+                          @Html.DevExpress().UploadControl(
+                                        settings =>
+                                        {
+                                            settings.Name = "ImageUpload";
+                                            settings.CallbackRouteValues = new { Controller = "Masters", Action = "CallbacksImageUpload" };
+                                            settings.ShowProgressPanel = true;
+                                            settings.ClientSideEvents.FileUploadComplete = "RenderImage";
+                                        }).GetHtml()
+                                            <br />
+                        <input type="button" value="Upload" onclick="ImageUpload.Upload()"/>
+                    </div>
+                  </li>
+                </ul>
+                <div class="clr"></div>
+                <ul class="reset input-botton">
+                   <li>
+                      <input type="image" name="button" src=@Url.Content("~/Content/images/control/save.jpg") />
+                      <div class="text-link">@ClientResources.AddCommodityCancelText&nbsp;@Html.ActionLink(ClientResources.AddCommodityCancelBtnText, "CommodityListIndex", "Masters")</div>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        }
+        </div>
+      </div>
+}
+

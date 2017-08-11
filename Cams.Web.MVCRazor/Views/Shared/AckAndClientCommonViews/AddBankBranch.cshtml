@@ -1,0 +1,490 @@
+﻿@using Cams.Common;
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Helpers
+@model Cams.Web.MVCRazor.Models.Shared.BankBranchModel
+           
+@{
+    ViewBag.Title = "AddBankBranch";
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/ContactDetails.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/StateDistrictVillage.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/BankBranchScripts.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        function cmbBankSelect() {
+        var item = cmbBank.GetSelectedItem();
+
+        if (item.texts[1] != null) {
+            $('#BranchOfBank_Alias').val(item.texts[1]);
+            $('#BranchOfBank_URL').val(item.texts[2]);
+        }
+    }
+    </script>
+
+}
+
+@section MainBody
+{
+    @{
+        string mode = string.Empty;
+        if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+        {
+            mode = Request.QueryString["mode"];
+        }
+    }
+
+    <div class="page-data fl">
+        <div class="panes">
+            @using (Html.BeginForm("AddBankBranch", "BankBranch", new { mode = mode }, FormMethod.Post))
+            {
+                <div class="panes-data">
+                    <h1>
+                        @if (!String.IsNullOrEmpty(mode))
+                        {
+                            @ClientResources.BBREdit;
+                        }
+                        else
+                        { 
+                            @ClientResources.BBRAdd;
+                        }
+            
+                    </h1>
+                        @if (ViewData["Error"] != null)
+                        {
+                            <div class="response-msg error-msg">
+                                <span>@ViewData["Error"].ToString()</span>
+                                <br />
+                                <span>@Html.ValidationSummary(true)</span>
+                            </div>
+                        }
+                        <div style="background:#fffcfc;color:#FF0000">@Html.ValidationSummary(false)</div>
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="response-msg success-msg">
+                                <span>@TempData["Success"].ToString()</span>
+                            </div>
+                        }
+                    <div class="Form-Wrap">
+                <div class="groupfieldset">
+                  <ul class="reset onecolfield fl">
+                    <li>
+                      <div class="fl">
+                      <table><tr>
+                      <td>
+                        <label id="lblBank" style="width:78px">@ClientResources.BBRBank</label>
+                        </td>
+                        <td>@Html.Partial("Banks")</td></tr></table>
+                      </div>
+                      <div class="fl">
+                        <label id="lbl_Alias" style="width:63px">@ClientResources.BBRAlias</label>
+                        @*<input name="txt_Alias"  type="text" class="required width135" id="txt_Alias" value="" maxlength="10"/>*@
+                        @Html.TextBoxFor(model => model.BranchOfBank.Alias, new { type = "text", @class = "autoinputvalue width135", value = "", maxlength = "10", @readonly = "readonly" })
+                      </div>
+                    </li>
+                    <li>
+                      <div class="fl">
+                        <label id="lbl_Branch" class="width80">@ClientResources.BBRBranch</label>
+                        @*<input name="txt_Branch"  type="text" class="required width365" id="txt_Branch" value="" maxlength="40"/>*@
+                        @Html.TextBoxFor(model => model.Name, new { type = "text", @class = "required width365", value = "", maxlength = "60" })
+                      </div>
+                    </li>
+
+                    <li>
+                      <div class="fl">
+                        <label id="lbl_IFSC" class="width80">@ClientResources.BBRIFSC</label>
+                        @*<input name="txt_IFSC"  type="text" class="textfiled width135" id="txt_IFSC" value="" maxlength="15"/>*@
+                         @Html.TextBoxFor(model => model.IFSCCode, new { type = "text", @class = "required width135", value = "", maxlength = "11" })
+                      </div>
+                      <div class="fl">
+                        <label id="lbl_MICR" class="width80">@ClientResources.BBRMICR</label>
+                        @*<input name="txt_MICR"  type="text" class="textfiled width135" id="txt_MICR" value="" maxlength="10"/>*@
+                         @Html.TextBoxFor(model => model.MICRCode, new { type = "text", @class = "required width135", value = "", maxlength = "9" })
+                      </div>
+                      <div class="f1">
+                        <label id="lbl_RTGS" class="width80">@ClientResources.BBRSWIFTCode</label>
+                        @*<input name="txt_RTGS"  type="text" class="textfiled width135" id="txt_RTGS" value="" maxlength="11"/>*@
+                        @Html.TextBoxFor(model => model.SWIFTCode, new { type = "text", @class = "required width135", value = "", maxlength = "15" })
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="clr"></div>
+                <div class="groupfieldset groupfieldsetcol fl" style="min-height:190px;" >
+                    <ul class="reset onecolfield">
+                    <li>
+                        <label class="width80" id="lblPIAddress">@ClientResources.PIlblAddress</label>
+                        @Html.TextAreaFor(model => model.BranchAddress.AddressLine1, new { cols = "", rows = "", name = "txtPIAddress", id = "txtPIAddress", @class = "textarea required width195" })
+                    </li>
+                    <li>
+                        <label id="lblPICountry" class="width80">@ClientResources.PIlblCountry</label>
+                        <span class="autoinputvalue width90">@ClientResources.BBRIndia</span>            
+                    </li>  
+                    
+                    @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames)
+                    <li>
+                        <label id="lblPIPIPin" class="width80">@ClientResources.PIlblPin</label>
+                        
+                        @Html.TextBoxFor(model => model.BranchAddress.PIN, new { name = "txtPIPin", type = "text", @class = "required width110", id = "txtPIPin", value = "", maxlength = "6" })
+                    </li>
+                    </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="groupfieldset groupfieldsetcol fr" style="min-height:190px;">
+                 <ul class="reset onecolfield fl">
+                    <li>
+                    <input id="BBrCurrentIndex" type="hidden" value="@Model.BranchContactNos.Count" />
+                    <table id="BBrContacts">
+                        @{ if (Model.BranchContactNos == null)
+                           {
+                               Model.BranchContactNos = new List<Cams.Common.Dto.ContactDetailsDto>();
+                           }
+
+                           if (Model.BranchContactNos.Count == 0)
+                           {
+                               Model.BranchContactNos.Add(new Cams.Common.Dto.ContactDetailsDto
+                               {
+                                   ContactNoType = ContactType.MobileNo,
+                                   CountryCallingCode = "+91",
+                                   STDCode = "020"
+                               });
+                           }
+                           for (int i = 0; i < Model.BranchContactNos.Count; i++)
+                           {
+                               @Html.HiddenFor(model => model.BranchContactNos[i].ContactDetailsId)
+
+                               bool contactTypeMobile = Model.BranchContactNos[i].ContactNoType == ContactType.MobileNo ? true : false;
+                               bool contactTypeOff = Model.BranchContactNos[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                               bool contactTypeRes = Model.BranchContactNos[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                               bool contactTypefax = Model.BranchContactNos[i].ContactNoType == ContactType.Fax ? true : false;
+                
+                        <tr>
+                            <td>
+                                @Html.DropDownListFor(model => Model.BranchContactNos[i].ContactNoType,
+            new List<SelectListItem> { 
+                            new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(),Selected = contactTypeMobile},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected=contactTypeOff},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(),Selected = contactTypefax}
+            }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.BranchContactNos[i].CountryCallingCode, new { value = "+91", @class = "textfiled", style = "width:28px; text-align:center", disabled = "disabled" })
+                            </td>
+                            <td>
+                               @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                               {
+                                    @Html.TextBoxFor(model => Model.BranchContactNos[i].STDCode, new { value = @Model.BranchContactNos[i].STDCode, @class = "textfiled", style = "width:38px; text-align:center;" })
+                                    @Html.TextBoxFor(model => Model.BranchContactNos[i].ContactNo, new { @class = "width118", value = "", maxlength = "15" })
+
+                               }
+                               else
+                               {
+                                @Html.TextBoxFor(model => Model.BranchContactNos[i].STDCode, new { value = "020", @class = "textfiled", style = "width:38px; display:none; text-align:center;" })
+                                @Html.TextBoxFor(model => Model.BranchContactNos[i].ContactNo, new { @class = "width166", value = "", maxlength = "15" })
+                               }
+                            </td>
+                            <td>
+                                @Html.HiddenIndexerInputForModel()
+                                @if (i == 0)
+                                { 
+                                    <a href="#" class="addnew" onclick="javascript:addNewContact('#BBrContacts','#BBrCurrentIndex','3','BranchContactNos_', 'BranchContactNos')"></a>
+                                }
+                                else
+                                { 
+                                    <a href="#" class="remove" onclick="javascript:removeContact('@i')">
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                           }
+                           
+                           
+                       }  
+                    </table>
+                    </li>
+                    <li>
+                        <label id="lblEmail1" class="width83">@ClientResources.Email1</label>
+                        @Html.TextBoxFor(model => Model.Email1, new { @class = "generalfield width203" })
+                        <a href="#" class="addnew" onclick="javascript:showEmail2('#BBrEmail2')"></a>
+                    </li>
+                    <li id="BBrEmail2" style="display:none">
+                        <label id="lblEmail2" class="width83" style="">@ClientResources.Email2</label>
+                        @Html.TextBoxFor(model => Model.Email2, new { @class = "generalfield width203" })
+                        <a href="#" class="remove" onclick="javascript:hideEmail2('#BBrEmail2')"></a>
+                    </li>
+                    <li>
+                        <label id="lblBankUrl" class="width83" style="">@ClientResources.WebSiteURL</label>
+                        @Html.TextBoxFor(model => Model.BranchOfBank.URL, new { @class = "autoinputvalue width203", @readonly = "readonly" })
+                    </li>
+                    
+                    </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="groupfieldset">
+                  <div class="BankFieldborder">
+                  @Html.DevExpress().PageControl(
+                    settings =>
+                    {
+                        settings.Name = "pcFeatures";
+                        //settings.ActivateTabPageAction = options.ActivateTabPageAction;
+                        //settings.EnableHotTrack = options.EnableHotTrack;
+                        //settings.SaveStateToCookies = true;
+                        settings.TabAlign = TabAlign.Left;
+                        settings.TabPosition = TabPosition.Top;
+                        //settings.Tabs.Add("Weekly Off","WeeklyOff").SetTabTemplateContent(
+                        settings.TabPages.Add("Weekly Off").SetContent(() =>
+                        {
+                            ViewContext.Writer.Write("<table width=\"100%\" ><tr ><td width=\"25px\" height=\"5px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsMonday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Monday&nbsp;");
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDaysCHK\" width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsTuesday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Tuesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsWednesday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Wednesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsThursday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Thursday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsFriday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Friday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsSaturday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Saturday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsSunday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Sunday&nbsp;");
+                            ViewContext.Writer.Write("</td><td></tr></table>");
+                        });
+                        settings.TabPages.Add("Half Day").SetContent(() =>
+                        {
+                            ViewContext.Writer.Write("<table width=\"100%\"><tr><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsMonday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Monday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsTuesday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Tuesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsWednesday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Wednesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsThursday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Thursday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsFriday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Friday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsSaturday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Saturday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsSunday));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Sunday&nbsp;");
+                            ViewContext.Writer.Write("</td><td></tr></table>");
+
+                        });
+                    }).GetHtml()
+                                        
+                  </div><div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="groupfieldset">
+                  @*<div class="BankFieldborder">*@
+                  <table class="reset onecolfield fl">
+                    <tr style="margin-bottom:0;"><td>
+                      <label class="width75 fl">@ClientResources.BBRWorkingHours</label>
+                      </td><td>
+                      <table class="BankFieldborder1 fl">
+                      <tr>
+                      <td><span class="width75 inline-block">@ClientResources.BBRFullDay</span></td>
+                      <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teFullDayFrom";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                //settings.DateTime = new DateTime(year: 1900, month: 01, day: 01, hour: 09, minute: 00, second: 00);                               
+                                settings.DateTime = Model.FullDayTimeFrom != null ? DateTime.ParseExact(Model.FullDayTimeFrom.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 09, minute: 00, second: 00);
+
+                            }).GetHtml()  
+                        </td>
+                        <td><label class="reset-label">@ClientResources.BBRTo</label>
+                        </td>
+                        <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teFullDayTo";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                settings.DateTime = Model.FullDayTimeTo != null ? DateTime.ParseExact(Model.FullDayTimeTo.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 18, minute: 00, second: 00);
+                            }).GetHtml()
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><label class="reset-label">@ClientResources.BBRBreak</label></td>
+                        <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teFullDayBreakFrom";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+
+                                settings.DateTime = Model.FullDayBreakFrom != null ? DateTime.ParseExact(Model.FullDayBreakFrom.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 13, minute: 00, second: 00);
+                            }).GetHtml()  
+                        </td>
+                        <td><label class="reset-label">@ClientResources.BBRTo</label>
+                        </td>
+                        <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teFullDayBreakTo";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                settings.DateTime = Model.FullDayBreakTo != null ? DateTime.ParseExact(Model.FullDayBreakTo.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 13, minute: 30, second: 00);
+                            }).GetHtml()
+                        </td>
+                        </tr>
+                        <!--<tr><td>&nbsp</td></tr>-->
+                        <tr>
+                      <td><span class="width75 inline-block">@ClientResources.BBRHalfDay</span></td>
+                      <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teHalfDayFrom";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                settings.DateTime = Model.HalfDayTimeFrom != null ? DateTime.ParseExact(Model.HalfDayTimeFrom.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 09, minute: 00, second: 00);
+                            }).GetHtml()
+                        </td>
+                        <td><label class="reset-label">@ClientResources.BBRTo</label>
+                        </td>
+                        <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teHalfDayTo";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                settings.DateTime = Model.HalfDayTimeTo != null ? DateTime.ParseExact(Model.HalfDayTimeTo.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 16, minute: 00, second: 00);
+                            }).GetHtml()
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><label class="reset-label">@ClientResources.BBRBreak</label></td>
+                        <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teHalfDayBreakFrom";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                settings.DateTime = Model.HalfDayBreakFrom != null ? DateTime.ParseExact(Model.HalfDayBreakFrom.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 13, minute: 00, second: 00);
+                            }).GetHtml()  
+                        </td>
+                        <td><label class="reset-label">@ClientResources.BBRTo</label>
+                        </td>
+                        <td>@Html.DevExpress().TimeEdit(
+                            settings =>
+                            {
+                                settings.Name = "teHalfDayBreakTo";
+                                settings.Properties.DisplayFormatString = "h:mm tt";
+                                settings.Properties.EditFormat = EditFormat.Time;
+                                settings.Properties.AllowUserInput = true;
+                                settings.Properties.ConvertEmptyStringToNull = true;
+                                settings.Properties.AllowMouseWheel = true;
+                                settings.ControlStyle.CssClass = "timeControl";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                settings.DateTime = Model.HalfDayBreakTo != null ? DateTime.ParseExact(Model.HalfDayBreakTo.Value.ToString(@"hh\:mm"), "HH:mm", null) : new DateTime(year: 1900, month: 01, day: 01, hour: 13, minute: 30, second: 00);
+                            }).GetHtml()
+                        </td>
+                        </tr></table>
+                        </td>
+                      </tr>
+                      <tr><td>&nbsp;</td></tr>
+                      </table>
+                     
+                <div class="clr"></div>
+                <ul class="reset input-botton">
+                    <li>
+                        <input type="image" src=@Url.Content("~/content/images/control/save.jpg") name="button111"
+                            onclick="" />
+                        <div class="text-link">@ClientResources.CancelString&nbsp;<a href="#" tabindex = "13">@Html.ActionLink(ClientResources.CancelbtnText, "BankBranchListIndex", "BankBranch")</a></div>
+                    </li>
+                </ul>
+            @*</div>*@
+                </div>
+            
+        </div>
+    </div>
+                @Html.HiddenFor(model => model.BranchAddress.AddressId)
+                @Html.HiddenFor(model => model.WeeklyHalfDay.WeeklyHalfDayId)
+                @Html.HiddenFor(model => model.WeeklyOffDay.WeeklyOffDayId)
+                @Html.HiddenFor(model => model.BaseBranchId)
+                @Html.HiddenFor(model => model.CAId)
+
+                           if (!String.IsNullOrEmpty(Model.Email2))
+                           { 
+                    <script type="text/javascript" language="javascript">
+                        showEmail2('#BBrEmail2');
+                    </script>
+                           }
+            }
+                </div>
+                </div>
+}

@@ -1,0 +1,54 @@
+﻿@model IList<Cams.Web.MVCRazor.Models.Account.RoleModel>   
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "detailGrid_" + ViewData["RoleGroup"];
+        settings.SettingsDetail.MasterGridName = "gvRoleGroups";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "GetRolesList", RoleGroup = ViewData["RoleGroup"] };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.ControlStyle.CssClass = "fontName";
+        settings.SettingsPager.PageSize = 10;
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PermissionForRole.RoleName";
+            column.ReadOnly = true;
+        });
+        settings.KeyFieldName = "RolePermissionId";
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowAdd";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.ReadOnly = true;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowEdit";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.ReadOnly = true;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowView";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.ReadOnly = true;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowDelete";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.ReadOnly = true;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowPrint";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.ReadOnly = true;
+        });
+        settings.ClientSideEvents.BeginCallback = "function(s,e) {e.customArgs['UserName']=$.QueryString['username'];}";
+        settings.Settings.ShowFooter = true;
+    }).Bind(Model).GetHtml()

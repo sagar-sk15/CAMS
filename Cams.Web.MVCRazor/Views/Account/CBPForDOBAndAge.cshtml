@@ -1,0 +1,33 @@
+﻿
+
+@Html.DevExpress().CallbackPanel(
+        s =>
+        {
+            s.Name = "cbpDOB";
+            s.CallbackRouteValues = new { Controller = "Account", Action = "GetURAgeInYearsAndMonths" };
+            s.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+            //s.Height = 50;
+
+            s.SetContent(() =>
+            {
+                ViewContext.Writer.Write("<table><tr><td>");
+                @Html.DevExpress().DateEdit(settings =>
+                {
+                    settings.Name = "txtDateofBirth";
+                    settings.Properties.MinDate = DateTime.Parse("01-01-1900");
+                    settings.Properties.MaxDate = DateTime.Now;
+                    settings.Width = System.Web.UI.WebControls.Unit.Pixel(110);
+                    settings.Properties.NullText = "DD-MM-YYYY";
+                    settings.Properties.EditFormat = DevExpress.Web.ASPxEditors.EditFormat.Custom;
+                    settings.Properties.EditFormatString = Cams.Common.Constants.DATEFORMATFORDISPAY;
+                    settings.Properties.UseMaskBehavior = true;
+                    settings.ControlStyle.Font.Name = "DejaVu Serif";
+                    settings.ControlStyle.BackColor = System.Drawing.Color.White;
+                    settings.Properties.ClientSideEvents.DateChanged = "function(s,e){  newDate = txtDateofBirth.GetText(); cbpDOB.PerformCallback();}";
+                }).Bind(Model).GetHtml();
+
+                ViewContext.Writer.Write("</td><td><label id=\"lblAge\">" + ViewData["AgeinYearsMonths"] + "</label></td></tr></table>");
+            });
+            s.ClientSideEvents.BeginCallback = "function(s,e){ e.customArgs['newDate'] = txtDateofBirth.GetText() ;}";
+        }
+).GetHtml()

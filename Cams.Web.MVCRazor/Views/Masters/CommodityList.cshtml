@@ -1,0 +1,57 @@
+﻿@model Cams.Web.MVCRazor.Models.Masters.CommodityModel
+@using Cams.Web.MVCRazor;
+
+@{
+    ViewBag.Title = "CommodityList";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts{
+    <script type="text/javascript" language="javascript">
+        function OnCommodityListGridViewDataBindingFocusedRowChanged(s, e) {
+            if (s.focusedRowIndex != -1) {
+                if (s.GetRowKey(s.GetFocusedRowIndex()) != null) {
+                    $('#CommodityId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+                }
+            }
+        }
+
+        function OnEditClick(s, e) {
+            if ($('#CommodityId').val() == null || $('#CommodityId').val() == "" || $('#CommodityId').val() == "0") {
+                alert("Please select Commodity from the list.");
+            }
+            s.SetNavigateUrl(s.GetNavigateUrl() + '&commodityid=' + $('#CommodityId').val());
+            return true;
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuMasters');
+        });
+    </script>
+
+
+}
+<div class="page-data fl">
+
+        <div class="panes">
+          <div class="panes-data padbot15">
+            <h1>@ClientResources.CommodityListH1</h1>
+            @if (TempData["StateSaved"] != null)
+            {
+                <div class="response-msg success-msg">
+                        <span>@TempData["StateSaved"].ToString()</span>
+                </div>
+            }
+            <div class="ListHead">
+              <div class="ListSearch fl">
+              </div>
+              <div class="ListAddNew fr">@Html.ActionLink(" ", "AddCommodityIndex", "Masters", null, new { @class = "button_Add" })</div>
+              <div class="clr"></div>
+            </div>
+            @Html.Partial("CommodityListGridView", Model)
+            
+          </div>
+         @Html.HiddenFor(model => model.CommodityId)
+        </div>
+      </div>

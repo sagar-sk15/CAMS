@@ -1,0 +1,49 @@
+﻿@model Cams.Web.MVCRazor.Models.BusinessRegistration.BusinessRegistrationModel
+@using Cams.Common.Dto.ClientMasters;
+<div class="groupfieldset">
+	<ul class="reset onecolfield fl">
+		<li>
+			<div class="fl">
+				<label id="lblAPMC">
+					APMC</label>
+				<span class="non-editable-txt">@Model.ClientAPMC.Name</span></div>
+			<div class="fl">
+				<label id="lblAPMCLicenseNo" class="width165">
+					APMC License No.</label>
+				<span class="non-editable-txt">@Model.APMCLicenseNo</span>
+			</div>
+			@{
+				var sLicenseDate = Model.APMCLicenseValidUpTo != null ? Convert.ToDateTime(Model.APMCLicenseValidUpTo).ToString(Cams.Common.Constants.DATEFORMATFORDISPAY) : "";
+			}
+			<div class="fl">
+				<label id="lblValidupto">
+					Valid upto</label>
+				<span class="non-editable-txt">@sLicenseDate</span></div>
+		</li>
+	</ul>
+</div>
+<div id="divAPMCAdd" class="groupfieldset groupfieldsetcol fl">
+	@Html.Partial("AddressReadOnlyView", Model.ApmcAddress)
+</div>
+<div id="divAPMCCnts" class="groupfieldset groupfieldsetcol fr">
+	@Html.Partial("ContactsReadOnlyView", Model.ApmcContacts)
+</div>
+<div class="clr">
+</div>
+@{
+	var sCommodities="";
+	foreach (CommodityClassDto cl in Model.ClientCommodities)
+	{
+		sCommodities += cl.Name + ", ";
+	}
+	sCommodities = sCommodities.TrimEnd(' ');
+	sCommodities=sCommodities.TrimEnd(',');
+}
+<div class="groupfieldset">
+	<ul class="reset onecolfield fl">
+		<li style="text-align: left;">
+			<label id="lblCommodityClass">
+				Commodity Class</label>
+			<span class="non-editable-txt">@sCommodities</span></li>
+	</ul>
+</div>

@@ -1,0 +1,59 @@
+﻿@model IList<Cams.Common.Dto.User.UserGroupDto>
+@{
+    //View.Title = "UserGroupsView";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section MainBody{
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data padbot15">
+                <h1>
+                    User Group List</h1>
+                <div class="ListHead">
+                    <div class="ListSearch fl">
+                        <label>
+                            Client Id / Name
+                        </label>
+                        <input name="txt_ClientIDName" type="text" class="textfiled nopad" id="txt_ClientIDName"
+                            value="" maxlength="12" />
+                    </div>
+                    <div class="ListAddNew fr">
+                        <input type="image" src=@Url.Content("~/Content/images/control/btn-add-new.jpg") name="button" />
+                    </div>
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="myGrid">
+                    @Html.Partial("UserGroupsGrid", Model)
+                </div>
+                @* <div class="ListFooter">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="left" valign="middle"><a href="#" class="edit"><strong>Edit</strong></a></td>
+                  <td width="60%" align="right" valign="middle"><table border="0" cellspacing="0" cellpadding="3">
+                      <tr>
+                        <td align="left" valign="middle">Show rows:</td>
+                        <td align="left" valign="middle"><select name="select2" class="pagi_slct">
+                            <option selected="selected">Fit &nbsp;to &nbsp;screen</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select></td>
+                        <td align="left" valign="middle"> Go to :</td>
+                        <td align="left" valign="middle"><span class="pagination_controls">
+                          <input type="text" value="1" size="5" class="textfiled listsearch width30" />
+                          </span></td>
+                        <td align="left" valign="middle">1 - 10 of 83</td>
+                        <td align="left" valign="middle"><a title="previous" href="#"><img src="../../content/images/control/button_arrow_left.jpg" width="28" height="17" alt="" /></a></td>
+                        <td align="left" valign="middle"><a title="next" href="#"><img src="../../content/images/control/button_arrow_right.jpg" width="28" height="17" alt="" /></a></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+            </div>
+          *@
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,1494 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="A8FBABDA-DBE1-49C3-962B-1BD6A83239B3/d:Services/f:ClientService.cs" caret="0" fromTop="0" />
+      <File id="5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4/d:ServiceContract/f:IUserService.cs" caret="1304" fromTop="16" />
+      <File id="C9A69E6C-8AE2-4185-8455-59E8EF0EED16/d:Services/d:Wcf/f:UserServiceProxy.cs" caret="2186" fromTop="16" />
+      <File id="C9A69E6C-8AE2-4185-8455-59E8EF0EED16/d:Services/f:UserServiceAdapter.cs" caret="2341" fromTop="18" />
+      <File id="5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4/d:Dto/d:ClientRegistration/f:ClientDto.cs" caret="2908" fromTop="30" />
+      <File id="5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4/f:Helper.cs" caret="7490" fromTop="3" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientRegistrationSaveTabsController.cs" caret="1936" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Scripts/d:JS/f:ClientRegistrationPaymentDetails.js" caret="0" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:ClientRegistrationView.cshtml" caret="6455" fromTop="32" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ViewClientAccountController.cs" caret="12056" fromTop="61" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:ClientSubscriptionPaymentDetailsView.cshtml" caret="1569" fromTop="33" />
+      <File id="A8FBABDA-DBE1-49C3-962B-1BD6A83239B3/d:Services/f:ServiceBase.cs" caret="1229" fromTop="24" />
+      <File id="A8FBABDA-DBE1-49C3-962B-1BD6A83239B3/d:TransManager/f:TransManagerBase.cs" caret="1120" fromTop="4" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientSubscriptionPaymentDetailsController.cs" caret="11223" fromTop="23" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Scripts/d:JS/f:ClientRegistrationSave.js" caret="0" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:ClientPartnersAdd.cshtml" caret="1765" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Content/d:Css/f:style.css" caret="3372" fromTop="17" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:BusinessConstitutionList.cshtml" caret="6634" fromTop="35" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:AccountController.cs" caret="852" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:Account/f:UserRegistration.cshtml" caret="1523" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="2889" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:UserRegistrationController.cs" caret="21197" fromTop="28" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="45018" fromTop="35" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="A8FBABDA-DBE1-49C3-962B-1BD6A83239B3/d:TransManager/f:TransManagerBase.cs" caret="832" fromTop="26" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="31374" fromTop="23" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Content/d:Css/f:style.css" caret="3939" fromTop="23" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="1175" fromTop="15" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="28850" fromTop="21" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="31753" fromTop="43" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="11919" fromTop="24" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="24741" fromTop="33" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="24167" fromTop="27" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="30766" fromTop="40" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="29369" fromTop="21" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Content/d:Css/f:style.css" caret="3372" fromTop="17" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:BusinessConstitutionList.cshtml" caret="6623" fromTop="34" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="48357" fromTop="412" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="31163" fromTop="6" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="31163" fromTop="0" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="940" fromTop="12" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="1987" fromTop="15" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="2584" fromTop="19" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="31163" fromTop="40" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="30084" fromTop="17" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="47095" fromTop="44" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="46897" fromTop="40" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="46539" fromTop="32" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="21757" fromTop="11" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="25426" fromTop="46" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="30002" fromTop="15" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="30579" fromTop="26" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Views/d:ClientAccount/f:CompanyProfile.cshtml" caret="31194" fromTop="36" />
+      <File id="B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B/d:Controllers/f:ClientAccountController.cs" caret="45018" fromTop="35" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="Properties" priority="22" />
+      <Item value="radiobuttonListSettings" priority="63" />
+      <Item value="if" priority="2949" />
+      <Item value="Request" priority="317" />
+      <Item value="else" priority="767" />
+      <Item value="Html" priority="859" />
+      <Item value="OptionsColumnLayout`0" priority="26" />
+      <Item value="labelSettings" priority="117" />
+      <Item value="Html32TextWriter`0" priority="31" />
+      <Item value="Label`0" priority="39" />
+      <Item value="editItem" priority="31" />
+      <Item value="virtual" priority="127" />
+      <Item value="IList" priority="383" />
+      <Item value="APMCDto`0" priority="158" />
+      <Item value="new" priority="1536" />
+      <Item value="x" priority="95" />
+      <Item value="opts" priority="31" />
+      <Item value="query" priority="377" />
+      <Item value="Alias" priority="58" />
+      <Item value="CityVillage`0" priority="31" />
+      <Item value="criteriaType" priority="31" />
+      <Item value="JoinType`0" priority="428" />
+      <Item value="enum" priority="61" />
+      <Item value="DataMember" priority="63" />
+      <Item value="KnownType" priority="31" />
+      <Item value="typeof" priority="63" />
+      <Item value="this" priority="31" />
+      <Item value="JoinType" priority="31" />
+      <Item value="joinType" priority="96" />
+      <Item value="switch" priority="95" />
+      <Item value="case" priority="223" />
+      <Item value="Cams" priority="95" />
+      <Item value="Common" priority="85" />
+      <Item value="Querying" priority="26" />
+      <Item value="NHibernate" priority="31" />
+      <Item value="SqlCommand" priority="26" />
+      <Item value="ErrorMessage" priority="31" />
+      <Item value="ErrorAndValidationMessages`0" priority="149" />
+      <Item value="false" priority="672" />
+      <Item value="settings" priority="501" />
+      <Item value="Web" priority="108" />
+      <Item value="MVCRazor" priority="80" />
+      <Item value="ClientResources`0" priority="274" />
+      <Item value="cbpSettings" priority="90" />
+      <Item value="UserRegistrationIndex" priority="27" />
+      <Item value="Account" priority="164" />
+      <Item value="UserRegistration" priority="65" />
+      <Item value="column" priority="63" />
+      <Item value="c" priority="95" />
+      <Item value="UrlParameter`0" priority="59" />
+      <Item value="urlParameter" priority="32" />
+      <Item value="string" priority="1904" />
+      <Item value="public" priority="1308" />
+      <Item value="ActionResult`0" priority="410" />
+      <Item value="String`0" priority="63" />
+      <Item value="HttpGet" priority="31" />
+      <Item value="CommonController`0" priority="53" />
+      <Item value="DataBinder`0" priority="63" />
+      <Item value="UserServiceReference" priority="63" />
+      <Item value="IUserService`0" priority="26" />
+      <Item value="UserServiceClient" priority="86" />
+      <Item value="userName" priority="63" />
+      <Item value="null" priority="1439" />
+      <Item value="userDto" priority="1787" />
+      <Item value="client" priority="699" />
+      <Item value="UserRegistration`0" priority="31" />
+      <Item value="userRegistrationModel" priority="1115" />
+      <Item value="UserRegistrationModel" priority="86" />
+      <Item value="User" priority="63" />
+      <Item value="View`0" priority="255" />
+      <Item value="LabelFor`2" priority="3" />
+      <Item value="HotTrackEventHandler`0" priority="27" />
+      <Item value="UserRegistrationModel`0" priority="60" />
+      <Item value="DateTime`0" priority="730" />
+      <Item value="NewUser" priority="223" />
+      <Item value="model" priority="1151" />
+      <Item value="Convert`0" priority="63" />
+      <Item value="List" priority="90" />
+      <Item value="imageNamewithGuid" priority="31" />
+      <Item value="imageName" priority="31" />
+      <Item value="imageNameWithGuid" priority="31" />
+      <Item value="static" priority="127" />
+      <Item value="mode" priority="127" />
+      <Item value="linkSettings" priority="58" />
+      <Item value="ViewData" priority="218" />
+      <Item value="var" priority="159" />
+      <Item value="Map`0" priority="31" />
+      <Item value="Version`0" priority="59" />
+      <Item value="locator" priority="63" />
+      <Item value="SessionInstance" priority="95" />
+      <Item value="SessionException`0" priority="31" />
+      <Item value="instance" priority="31" />
+      <Item value="protected" priority="85" />
+      <Item value="abstract" priority="31" />
+      <Item value="void" priority="95" />
+      <Item value="HiddenFor`2" priority="15" />
+      <Item value="object" priority="234" />
+      <Item value="checkMode" priority="127" />
+      <Item value="UserDto`0" priority="225" />
+      <Item value="List&lt;DesignationDto&gt;" priority="57" />
+      <Item value="#endregion" priority="127" />
+      <Item value="IsPost" priority="58" />
+      <Item value="Model" priority="1070" />
+      <Item value="UploadImagePath" priority="31" />
+      <Item value="Criterion" priority="28" />
+      <Item value="Constants`0" priority="127" />
+      <Item value="user" priority="63" />
+      <Item value="criteriaOperator" priority="31" />
+      <Item value="CriteriaOperator`0" priority="31" />
+      <Item value="CreateNewUserGroup`0" priority="31" />
+      <Item value="List&lt;RelationshipDto&gt;" priority="28" />
+      <Item value="Relationship`0" priority="30" />
+      <Item value="PublicWeakEventHandler" priority="31" />
+      <Item value="true" priority="959" />
+      <Item value="contactTypeMobile" priority="27" />
+      <Item value="Selected" priority="32" />
+      <Item value="contactTypeOff" priority="32" />
+      <Item value="contactTypeRes" priority="59" />
+      <Item value="contactTypefax" priority="64" />
+      <Item value="i" priority="439" />
+      <Item value="for" priority="125" />
+      <Item value="UserGroupDto`0" priority="63" />
+      <Item value="in" priority="31" />
+      <Item value="ug" priority="31" />
+      <Item value="System" priority="26" />
+      <Item value="CheckMode" priority="26" />
+      <Item value="nbsp" priority="31" />
+      <Item value="ViewContext" priority="230" />
+      <Item value="HiddenFieldForState" priority="26" />
+      <Item value="HiddenFieldForDistrict" priority="26" />
+      <Item value="HiddenFieldForStateValue" priority="26" />
+      <Item value="HiddenFieldForDistrictValue" priority="26" />
+      <Item value="ClientDto`0" priority="94" />
+      <Item value="Client" priority="32" />
+      <Item value="SiteMapResolveEventArgs`0" priority="31" />
+      <Item value="GetClientList`0" priority="31" />
+      <Item value="ClientDto" priority="29" />
+      <Item value="ClientMaster.cshtml" priority="45" />
+      <Item value="usertype" priority="31" />
+      <Item value="caID" priority="95" />
+      <Item value="ClientServiceReference" priority="31" />
+      <Item value="IClientServiceChannel`0" priority="26" />
+      <Item value="clientService" priority="96" />
+      <Item value="clientDto" priority="257" />
+      <Item value="return" priority="831" />
+      <Item value="int" priority="383" />
+      <Item value="caId" priority="31" />
+      <Item value="Nullable" priority="26" />
+      <Item value="readonly" priority="31" />
+      <Item value="div" priority="119" />
+      <Item value="displayId" priority="32" />
+      <Item value="ViewContext`0" priority="31" />
+      <Item value="currentUser" priority="287" />
+      <Item value="Username" priority="31" />
+      <Item value="Update`0" priority="127" />
+      <Item value="try" priority="511" />
+      <Item value="ErrorPage" priority="93" />
+      <Item value="IDisposable`0" priority="31" />
+      <Item value="finally" priority="159" />
+      <Item value="Redirect`0" priority="31" />
+      <Item value="RedirectToAction`0" priority="250" />
+      <Item value="Error" priority="263" />
+      <Item value="catch" priority="31" />
+      <Item value="Exception`0" priority="31" />
+      <Item value="private" priority="127" />
+      <Item value="bool" priority="255" />
+      <Item value="date" priority="31" />
+      <Item value="IsUserAllowedToLogin" priority="31" />
+      <Item value="const" priority="31" />
+      <Item value="double" priority="31" />
+      <Item value="ReadOnly`0" priority="31" />
+      <Item value="Not" priority="31" />
+      <Item value="Concat`1" priority="26" />
+      <Item value="Session" priority="159" />
+      <Item value="usergroupid" priority="31" />
+      <Item value="DevExpress" priority="90" />
+      <Item value="giGridViewExtension" priority="64" />
+      <Item value="GridViewExtension" priority="28" />
+      <Item value="ClientSideEvents`0" priority="114" />
+      <Item value="UserRolesGrid" priority="65" />
+      <Item value="class" priority="30" />
+      <Item value="UserRolesModel`0" priority="313" />
+      <Item value="UserRoles" priority="32" />
+      <Item value="UserRolesModelList`0" priority="96" />
+      <Item value="UserRolesModelList" priority="31" />
+      <Item value="isReadOnly" priority="26" />
+      <Item value="UserRoleModelList" priority="31" />
+      <Item value="UserRolesModel" priority="173" />
+      <Item value="RoleDto" priority="28" />
+      <Item value="userRolesModelList" priority="215" />
+      <Item value="RoleDto`0" priority="30" />
+      <Item value="AllowAdd" priority="95" />
+      <Item value="AllowEdit" priority="64" />
+      <Item value="AllowDelete" priority="64" />
+      <Item value="asrt" priority="31" />
+      <Item value="AllowPrint" priority="64" />
+      <Item value="AllowView" priority="64" />
+      <Item value="userRolesModel" priority="287" />
+      <Item value="f" priority="159" />
+      <Item value="UserListModel`0" priority="31" />
+      <Item value="newUserRolesModel" priority="31" />
+      <Item value="UserRoleDto" priority="64" />
+      <Item value="SetDefaultValuesToModel`0" priority="31" />
+      <Item value="Url" priority="31" />
+      <Item value="GetUsersRolesList`0" priority="31" />
+      <Item value="UserServiceClient`0" priority="26" />
+      <Item value="username" priority="31" />
+      <Item value="UserRolePermissionDto`0" priority="31" />
+      <Item value="userRolePermissionDtos" priority="32" />
+      <Item value="foreach" priority="31" />
+      <Item value="userRolesModels" priority="96" />
+      <Item value="userRolePermissionDto" priority="197" />
+      <Item value="UserRolePermissionId" priority="32" />
+      <Item value="userType" priority="58" />
+      <Item value="JsonResult`0" priority="63" />
+      <Item value="LogOn`0" priority="31" />
+      <Item value="HttpContext" priority="31" />
+      <Item value="Href`0" priority="97" />
+      <Item value="OperatorNamePatcher`0" priority="26" />
+      <Item value="Page`0" priority="31" />
+      <Item value="section" priority="89" />
+      <Item value="Roles`0" priority="31" />
+      <Item value="entityInstance" priority="31" />
+      <Item value="ChangePassword" priority="98" />
+      <Item value="label" priority="59" />
+      <Item value="Welcome" priority="32" />
+      <Item value="ModelState" priority="63" />
+      <Item value="ChangePasswordModel`0" priority="31" />
+      <Item value="changePasswordModel" priority="160" />
+      <Item value="Helper`0" priority="63" />
+      <Item value="currentUserDto" priority="159" />
+      <Item value="EventArgs`0" priority="31" />
+      <Item value="global" priority="26" />
+      <Item value="Logout`0" priority="31" />
+      <Item value="UploadedImages" priority="22" />
+      <Item value="Content" priority="22" />
+      <Item value="Images" priority="22" />
+      <Item value="Control" priority="22" />
+      <Item value="blnk_img.jpg" priority="22" />
+      <Item value="Authorize" priority="31" />
+      <Item value="Controller`0" priority="31" />
+      <Item value="Controllers" priority="26" />
+      <Item value="isUserLoggedout" priority="31" />
+      <Item value="override" priority="191" />
+      <Item value="ClientRegistration`0" priority="58" />
+      <Item value="ClientContacts" priority="31" />
+      <Item value="ContactDetailsDto`0" priority="30" />
+      <Item value="CompanyProfile" priority="65" />
+      <Item value="ul" priority="29" />
+      <Item value="EntityBase" priority="31" />
+      <Item value="User`0" priority="126" />
+      <Item value="Client`0" priority="180" />
+      <Item value="AccountManagerMap`0" priority="63" />
+      <Item value="CommodityClassMap`0" priority="31" />
+      <Item value="ClassMap" priority="63" />
+      <Item value="HasOne`1" priority="31" />
+      <Item value="ClientAccountManager`0" priority="128" />
+      <Item value="ClientAccountManager" priority="32" />
+      <Item value="References`1" priority="63" />
+      <Item value="AccountManager" priority="31" />
+      <Item value="AccountManagerOfClients" priority="31" />
+      <Item value="Id`0" priority="31" />
+      <Item value="Users" priority="32" />
+      <Item value="currentuser" priority="31" />
+      <Item value="ClientAccount" priority="32" />
+      <Item value="ApmcDto" priority="32" />
+      <Item value="CommodityClassDto" priority="32" />
+      <Item value="APMCDetails" priority="32" />
+      <Item value="ApmcDtos" priority="32" />
+      <Item value="ClientRegistration" priority="82" />
+      <Item value="APMCDetailsModel`0" priority="27" />
+      <Item value="APMCMasterServiceReference" priority="58" />
+      <Item value="APMCServiceClient`0" priority="53" />
+      <Item value="apmcServiceClient" priority="188" />
+      <Item value="APMCServiceClient" priority="57" />
+      <Item value="ApmcDtoList" priority="31" />
+      <Item value="CommodityClassServiceReference" priority="31" />
+      <Item value="CommodityClassServiceClient`0" priority="26" />
+      <Item value="commodityClassServiceClient" priority="32" />
+      <Item value="CommodityClassServiceClient" priority="28" />
+      <Item value="ClientAPMC" priority="90" />
+      <Item value="APMCDto" priority="28" />
+      <Item value="ClientPrimaryContactPersonDto" priority="28" />
+      <Item value="GetAllApmc`0" priority="31" />
+      <Item value="commodityClassDto" priority="32" />
+      <Item value="Models" priority="55" />
+      <Item value="ClientRegistrationModel`0" priority="27" />
+      <Item value="apmcDto" priority="251" />
+      <Item value="apmcId" priority="31" />
+      <Item value="Json`0" priority="63" />
+      <Item value="List&lt;string&gt;" priority="28" />
+      <Item value="jsonResult" priority="95" />
+      <Item value="MobileNo" priority="16" />
+      <Item value="cmbsettings" priority="127" />
+      <Item value="HttpPost" priority="31" />
+      <Item value="PopupAddApmc" priority="32" />
+      <Item value="APMCPartial" priority="60" />
+      <Item value="CallBackPanelAPMCDetailsPopup" priority="65" />
+      <Item value="Masters" priority="26" />
+      <Item value="APMCModel`0" priority="26" />
+      <Item value="ApmcModel" priority="32" />
+      <Item value="APMCModel" priority="28" />
+      <Item value="buttonSettings" priority="95" />
+      <Item value="apmcmodel" priority="53" />
+      <Item value="ClientSubscriptionPaymentDetailsModel" priority="28" />
+      <Item value="PaymentMode`0" priority="150" />
+      <Item value="NoOfChequePayments" priority="97" />
+      <Item value="PaymentMode" priority="176" />
+      <Item value="payment" priority="96" />
+      <Item value="Dto" priority="26" />
+      <Item value="SubscriptionMasterDto`0" priority="49" />
+      <Item value="ClientSubscriptionPaymentDetailsDto`0" priority="22" />
+      <Item value="Cheque" priority="16" />
+      <Item value="break" priority="191" />
+      <Item value="Online" priority="16" />
+      <Item value="DD" priority="16" />
+      <Item value="NoOfDDPayments" priority="31" />
+      <Item value="OnlinePaymentDetailsPartial" priority="32" />
+      <Item value="ChequePaymentDetailsPartial" priority="27" />
+      <Item value="ClientSubscriptionPaymentDetails" priority="32" />
+      <Item value="check" priority="31" />
+      <Item value="DivideByZeroException`0" priority="61" />
+      <Item value="paymentType" priority="62" />
+      <Item value="SettingsBase`0" priority="31" />
+      <Item value="float" priority="31" />
+      <Item value="ClientSubscriptionPaymentDetailsModel`0" priority="30" />
+      <Item value="PartialView`0" priority="63" />
+      <Item value="CBPPaymentDetails" priority="27" />
+      <Item value="modelNo`0" priority="31" />
+      <Item value="chequeType" priority="31" />
+      <Item value="clientSubscriptionPaymentDetailsModel" priority="63" />
+      <Item value="chequeDate" priority="63" />
+      <Item value="clearanceDate" priority="31" />
+      <Item value="chequePaymentDetailsModel" priority="63" />
+      <Item value="amount" priority="31" />
+      <Item value="decimal" priority="31" />
+      <Item value="BankBranchDto" priority="57" />
+      <Item value="BaseBranchId" priority="26" />
+      <Item value="Name" priority="27" />
+      <Item value="BranchId" priority="31" />
+      <Item value="BranchOfBank" priority="88" />
+      <Item value="BankDto" priority="28" />
+      <Item value="BankName" priority="31" />
+      <Item value="DDPaymentDetailsModel" priority="31" />
+      <Item value="dateTimeFormatInfo" priority="160" />
+      <Item value="DateTimeFormatInfo" priority="28" />
+      <Item value="CBPPopupSearchBankBranchGrid" priority="65" />
+      <Item value="ImagePosition`0" priority="26" />
+      <Item value="ColumnCommandButtonType`0" priority="26" />
+      <Item value="GridViewCommandColumnCustomButtonCollection" priority="28" />
+      <Item value="imageSettings" priority="63" />
+      <Item value="gridViewSettings" priority="63" />
+      <Item value="SearchBankBranchGrid" priority="65" />
+      <Item value="TempData" priority="63" />
+      <Item value="totalDays" priority="31" />
+      <Item value="BusinessConstitutionDto`0" priority="26" />
+      <Item value="clientRegistrationModel" priority="487" />
+      <Item value="SortingMode`0" priority="26" />
+      <Item value="XtraGrid" priority="53" />
+      <Item value="ColumnSortMode`0" priority="26" />
+      <Item value="result" priority="159" />
+      <Item value="userGroupDto" priority="32" />
+      <Item value="AddressReadOnlyViewModel" priority="28" />
+      <Item value="APMCCompanyContacts" priority="31" />
+      <Item value="ContactsReadOnlyViewModel" priority="28" />
+      <Item value="RouteValueDictionary" priority="26" />
+      <Item value="businessWarning" priority="32" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.RadioButtonListSettings">
+      <Item value="Properties" priority="76" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.RadioButtonListProperties">
+      <Item value="Style" priority="76" />
+      <Item value="TextSpacing" priority="49" />
+      <Item value="RepeatColumns" priority="26" />
+      <Item value="RepeatLayout" priority="45" />
+      <Item value="TextField" priority="26" />
+      <Item value="RadioButtonStyle" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.EditStyleBase">
+      <Item value="Paddings" priority="26" />
+      <Item value="Border" priority="26" />
+      <Item value="MergeWith`0" priority="26" />
+      <Item value="Width" priority="27" />
+      <Item value="CssClass" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxClasses.Paddings">
+      <Item value="PaddingLeft" priority="26" />
+      <Item value="PaddingRight" priority="26" />
+      <Item value="Padding" priority="53" />
+      <Item value="PaddingBottom" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxClasses.BorderWrapper">
+      <Item value="BorderWidth" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContext">
+      <Item value="debugger" priority="626" />
+      <Item value="var" priority="351" />
+      <Item value="item" priority="21" />
+      <Item value="if" priority="181" />
+      <Item value="cityOrVillage" priority="21" />
+      <Item value="null" priority="54" />
+      <Item value="alert" priority="98" />
+      <Item value="Item" priority="32" />
+      <Item value="Model" priority="5" />
+      <Item value="state" priority="10" />
+      <Item value="designation" priority="10" />
+      <Item value="$" priority="177" />
+      <Item value="values" priority="10" />
+      <Item value="urpId" priority="10" />
+      <Item value="ctrlAdd" priority="10" />
+      <Item value="String" priority="16" />
+      <Item value="function" priority="219" />
+      <Item value="ScriptEngine" priority="10" />
+      <Item value="window" priority="10" />
+      <Item value="setTimeout" priority="10" />
+      <Item value="return" priority="21" />
+      <Item value="false" priority="21" />
+      <Item value="else" priority="142" />
+      <Item value="apmcList" priority="10" />
+      <Item value="ajax" priority="7" />
+      <Item value="data" priority="76" />
+      <Item value="NameList" priority="10" />
+      <Item value="i" priority="153" />
+      <Item value="name" priority="21" />
+      <Item value="ASPxClientCallback" priority="10" />
+      <Item value="ASPxClientCallbackPanel" priority="10" />
+      <Item value="switch" priority="21" />
+      <Item value="toggleDiv" priority="10" />
+      <Item value="showdiv" priority="10" />
+      <Item value="ImageData" priority="10" />
+      <Item value="div" priority="43" />
+      <Item value="showhidediv" priority="21" />
+      <Item value="divCheque" priority="10" />
+      <Item value="Boolean" priority="10" />
+      <Item value="isOnlineChecked" priority="32" />
+      <Item value="isDDChecked" priority="54" />
+      <Item value="isChequeChecked" priority="10" />
+      <Item value="integer" priority="7" />
+      <Item value="parseFloat" priority="21" />
+      <Item value="for" priority="32" />
+      <Item value="open" priority="10" />
+      <Item value="HTMLModElement" priority="32" />
+      <Item value="is_float" priority="21" />
+      <Item value="paymentDetailsCount" priority="10" />
+      <Item value="totalAmount" priority="18" />
+      <Item value="amt" priority="10" />
+      <Item value="chequeType" priority="10" />
+      <Item value="chequeDate" priority="10" />
+      <Item value="Sys$Net$WebRequest$get_url" priority="10" />
+      <Item value="Database" priority="10" />
+      <Item value="ASPxClientComboBox" priority="10" />
+      <Item value="ASPxClientDateEdit" priority="10" />
+      <Item value="IFSCCode" priority="10" />
+      <Item value="s" priority="21" />
+      <Item value="gridSelectedRowIndex" priority="10" />
+      <Item value="SearchBankBranch" priority="5" />
+      <Item value="break" priority="10" />
+      <Item value="popupIndex" priority="21" />
+      <Item value="onDDFieldsValueChange" priority="10" />
+      <Item value="onOnlineFieldsValueChange" priority="10" />
+      <Item value="Date" priority="10" />
+      <Item value="true" priority="43" />
+      <Item value="divdd" priority="10" />
+      <Item value="togglePaymentDetailsDivsAfterPostback" priority="10" />
+      <Item value="mode" priority="9" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpRequestBase">
+      <Item value="Params" priority="217" />
+      <Item value="QueryString" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ToString`0" priority="26" />
+      <Item value="PadLeft`0" priority="26" />
+      <Item value="Contains`0" priority="106" />
+      <Item value="Split`0" priority="27" />
+      <Item value="TrimEnd`0" priority="26" />
+      <Item value="Trim`0" priority="110" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Equals`0" priority="130" />
+      <Item value="IsNullOrEmpty`0" priority="188" />
+      <Item value="Empty" priority="212" />
+      <Item value="Concat`0" priority="26" />
+      <Item value="Format`0" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.CityVillageType">
+      <Item value="Village" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="HtmlCodeCompletionContext">
+      <Item value="div" priority="166" />
+      <Item value="align" priority="5" />
+      <Item value="class" priority="55" />
+      <Item value="Form-Wrapapmc" priority="5" />
+      <Item value="type" priority="41" />
+      <Item value="hidden" priority="34" />
+      <Item value="id" priority="107" />
+      <Item value="value" priority="24" />
+      <Item value="input" priority="18" />
+      <Item value="span" priority="5" />
+      <Item value="autoinputvalue" priority="11" />
+      <Item value="li" priority="96" />
+      <Item value="br" priority="41" />
+      <Item value="b" priority="6" />
+      <Item value="h3" priority="5" />
+      <Item value="error-msg" priority="5" />
+      <Item value="button" priority="5" />
+      <Item value="onclick" priority="17" />
+      <Item value="src" priority="5" />
+      <Item value="~" priority="5" />
+      <Item value="Content" priority="5" />
+      <Item value="Images" priority="5" />
+      <Item value="Control" priority="5" />
+      <Item value="addnew.png" priority="5" />
+      <Item value="image" priority="5" />
+      <Item value="String" priority="8" />
+      <Item value="href" priority="6" />
+      <Item value="width15" priority="17" />
+      <Item value="onload" priority="5" />
+      <Item value="label" priority="27" />
+      <Item value="ul" priority="68" />
+      <Item value="legend" priority="18" />
+      <Item value="style" priority="24" />
+      <Item value="width" priority="20" />
+      <Item value="auto" priority="8" />
+      <Item value="script" priority="13" />
+      <Item value="text/javascript" priority="11" />
+      <Item value="onchange" priority="13" />
+      <Item value="newpasswordlabel" priority="5" />
+      <Item value="width145" priority="23" />
+      <Item value="PanelPartial" priority="4" />
+      <Item value="width110" priority="4" />
+      <Item value="rows" priority="5" />
+      <Item value="cols" priority="5" />
+      <Item value="&amp;nbsp;" priority="0" />
+      <Item value="table" priority="11" />
+      <Item value="td" priority="31" />
+      <Item value="tr" priority="11" />
+      <Item value="itemid" priority="13" />
+      <Item value="DD" priority="6" />
+      <Item value="Cash" priority="5" />
+      <Item value="SearchBankBranch" priority="8" />
+      <Item value="Form-Wrap" priority="5" />
+      <Item value="onecolfield" priority="4" />
+      <Item value="padding-left" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.UI.WebControls.RepeatDirection">
+      <Item value="Vertical" priority="54" />
+      <Item value="Horizontal" priority="108" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.LabelSettings">
+      <Item value="Text" priority="108" />
+      <Item value="Properties" priority="53" />
+      <Item value="Attributes" priority="53" />
+      <Item value="ControlStyle" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.AttributeCollection">
+      <Item value="AddAttributes`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.LabelProperties">
+      <Item value="Assign`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="CssCodeCompletionContext">
+      <Item value="padding" priority="5" />
+      <Item value="padding-bottom" priority="11" />
+      <Item value="padding-right" priority="9" />
+      <Item value="padding-top" priority="5" />
+      <Item value="label" priority="5" />
+      <Item value="width" priority="2" />
+      <Item value="auto" priority="1" />
+      <Item value="newpassword" priority="4" />
+      <Item value="greenyellow" priority="6" />
+      <Item value="text-overflow" priority="17" />
+      <Item value="ellipsis" priority="14" />
+      <Item value="APMCName" priority="4" />
+      <Item value="right" priority="6" />
+      <Item value="chequecheckbox" priority="3" />
+      <Item value="OnlineCheckbox" priority="3" />
+      <Item value="DDCheckbox" priority="3" />
+      <Item value="padding-left" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AutoMapper.IMappingExpression`2">
+      <Item value="ForMember`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.ContactDetails">
+      <Item value="ContactDetailsOfAPMC" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AutoMapper.IMemberConfigurationExpression`1">
+      <Item value="Ignore`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Querying.Query">
+      <Item value="Alias" priority="103" />
+      <Item value="Add`0" priority="53" />
+      <Item value="Alias1" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.Masters.APMC">
+      <Item value="Address" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.Address">
+      <Item value="CityVillage" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.Masters.CityVillage">
+      <Item value="Name" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Querying.Criterion">
+      <Item value="criteriaOperator" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NHibernate.SqlCommand.JoinType">
+      <Item value="InnerJoin" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Querying.Alias">
+      <Item value="JoinType" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Querying.JoinType">
+      <Item value="None" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.Querying.JoinType">
+      <Item value="InnerJoin" priority="53" />
+      <Item value="FullJoin" priority="26" />
+      <Item value="None" priority="27" />
+      <Item value="RightOuterJoin" priority="26" />
+      <Item value="LeftOuterJoin" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.HtmlHelper`1">
+      <Item value="ValidationMessageFor`2" priority="27" />
+      <Item value="ActionLink`0" priority="150" />
+      <Item value="RenderAction`0" priority="27" />
+      <Item value="LabelFor`2" priority="76" />
+      <Item value="Label`0" priority="109" />
+      <Item value="HiddenFor`2" priority="190" />
+      <Item value="DropDownList`0" priority="26" />
+      <Item value="Hidden`0" priority="26" />
+      <Item value="PasswordFor`2" priority="26" />
+      <Item value="Partial`0" priority="83" />
+      <Item value="TextBoxFor`2" priority="26" />
+      <Item value="CheckBoxFor`1" priority="26" />
+      <Item value="RenderPartial`0" priority="80" />
+      <Item value="DisplayFor`2" priority="27" />
+      <Item value="DevExpress`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Masters.APMCModel">
+      <Item value="Address" priority="103" />
+      <Item value="Name" priority="103" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.Address.AddressDto">
+      <Item value="AddressLine1" priority="158" />
+      <Item value="CityVillage" priority="266" />
+      <Item value="AddressLine2" priority="53" />
+      <Item value="AddressId" priority="26" />
+      <Item value="PIN" priority="54" />
+      <Item value="AddressofAPMC" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Web.MVCRazor.ErrorAndValidationMessages">
+      <Item value="BRCityVillageBalidation" priority="26" />
+      <Item value="ValidatePassword" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.Masters.CityVillageDto">
+      <Item value="CityOrVillage" priority="53" />
+      <Item value="CityVillageId" priority="245" />
+      <Item value="Name" priority="80" />
+      <Item value="DistrictOfCityVillage" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.PopupControlSettings">
+      <Item value="ShowLoadingPanelImage" priority="80" />
+      <Item value="ShowLoadingPanel" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Web.MVCRazor.ClientResources">
+      <Item value="PPPLACE" priority="27" />
+      <Item value="PPPlace" priority="26" />
+      <Item value="URlblClientIDName" priority="27" />
+      <Item value="URClientName" priority="27" />
+      <Item value="URClientId" priority="26" />
+      <Item value="PasswordChanged" priority="26" />
+      <Item value="CLRPCPH1" priority="27" />
+      <Item value="CLRAPMCName" priority="26" />
+      <Item value="CLRAPMCLicenseNo" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.CallbackPanelSettings">
+      <Item value="ShowLoadingPanel" priority="26" />
+      <Item value="ShowLoadingPanelImage" priority="53" />
+      <Item value="ClientSideEvents" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.MVCxGridViewColumn">
+      <Item value="Settings" priority="49" />
+      <Item value="SetEditItemTemplateContent`0" priority="26" />
+      <Item value="FieldName" priority="26" />
+      <Item value="ColumnType" priority="26" />
+      <Item value="Visible" priority="22" />
+      <Item value="SortAscending`0" priority="26" />
+      <Item value="SortOrder" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxGridView.GridViewEditItemTemplateContainer">
+      <Item value="GetRouteUrl`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.UI.DataBinder">
+      <Item value="Eval`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxGridView.GridViewDataItemTemplateContainer">
+      <Item value="DataItem" priority="54" />
+      <Item value="KeyValue" priority="49" />
+      <Item value="Column" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.UserServiceReference.IUserService">
+      <Item value="GetByUserName`0" priority="54" />
+      <Item value="Update`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Account.UserRegistrationModel">
+      <Item value="UserDesignation" priority="108" />
+      <Item value="UserGroupList" priority="26" />
+      <Item value="UserName" priority="26" />
+      <Item value="UserProfile" priority="296" />
+      <Item value="DOB" priority="26" />
+      <Item value="Name" priority="26" />
+      <Item value="IsActive" priority="26" />
+      <Item value="MothersMaidenName" priority="26" />
+      <Item value="ModifiedBy" priority="26" />
+      <Item value="ModifiedDate" priority="26" />
+      <Item value="Image" priority="136" />
+      <Item value="Email" priority="26" />
+      <Item value="MobileNo" priority="26" />
+      <Item value="Title" priority="26" />
+      <Item value="CityVillageList" priority="26" />
+      <Item value="UserWithRolePermissions" priority="26" />
+      <Item value="UserWithUserGroups" priority="26" />
+      <Item value="DateOfBirth" priority="26" />
+      <Item value="mode" priority="164" />
+      <Item value="UserId" priority="80" />
+      <Item value="DesignationList" priority="26" />
+      <Item value="ECRelationshipWithUser" priority="82" />
+      <Item value="SelectedUserGroupList" priority="26" />
+      <Item value="SelectedDesignation" priority="53" />
+      <Item value="StateDistrictPlacesControlNames" priority="26" />
+      <Item value="ClientList" priority="54" />
+      <Item value="CAId" priority="80" />
+      <Item value="clientDto" priority="136" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.UserDto">
+      <Item value="UserDesignation" priority="107" />
+      <Item value="UserGroupsCount" priority="26" />
+      <Item value="UserWithUserGroups" priority="107" />
+      <Item value="UserName" priority="26" />
+      <Item value="DateOfBirth" priority="53" />
+      <Item value="Name" priority="26" />
+      <Item value="IsActive" priority="26" />
+      <Item value="MothersMaidenName" priority="26" />
+      <Item value="ModifiedBy" priority="26" />
+      <Item value="Image" priority="134" />
+      <Item value="Email" priority="26" />
+      <Item value="MobileNo" priority="26" />
+      <Item value="Title" priority="26" />
+      <Item value="UserProfile" priority="107" />
+      <Item value="UserWithRolePermissions" priority="53" />
+      <Item value="UserId" priority="53" />
+      <Item value="IsOnLine" priority="215" />
+      <Item value="LastLoginDate" priority="107" />
+      <Item value="FailedPasswordAttemptCount" priority="80" />
+      <Item value="FailedPasswordAttemptWindowStart" priority="134" />
+      <Item value="IsLockedOut" priority="215" />
+      <Item value="AllowEdit" priority="26" />
+      <Item value="Password" priority="134" />
+      <Item value="LastPassword" priority="53" />
+      <Item value="SecondLastPassword" priority="53" />
+      <Item value="LastPasswordChangedDate" priority="54" />
+      <Item value="SecondLastPasswordChangedDate" priority="26" />
+      <Item value="CAId" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="ToList`1" priority="207" />
+      <Item value="Add`0" priority="301" />
+      <Item value="First`1" priority="189" />
+      <Item value="Last`1" priority="53" />
+      <Item value="RemoveAt`0" priority="50" />
+      <Item value="Count" priority="187" />
+      <Item value="Where`1" priority="110" />
+      <Item value="Count`1" priority="26" />
+      <Item value="ElementAt`1" priority="26" />
+      <Item value="Insert`0" priority="26" />
+      <Item value="OrderBy`2" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Now" priority="405" />
+      <Item value="Compare`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.UserProfileDto">
+      <Item value="Gender" priority="53" />
+      <Item value="BloodGroup" priority="53" />
+      <Item value="PassportNo" priority="26" />
+      <Item value="PAN" priority="53" />
+      <Item value="UserAddress" priority="158" />
+      <Item value="UserEmergencyContactPerson" priority="135" />
+      <Item value="UserProfileId" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.Users.User">
+      <Item value="Image" priority="26" />
+      <Item value="Username" priority="26" />
+      <Item value="IsOnLine" priority="26" />
+      <Item value="ClientAccountManager" priority="22" />
+      <Item value="UserId" priority="26" />
+      <Item value="CAId" priority="49" />
+      <Item value="AccountManagerOfClients" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.PropertyPart">
+      <Item value="Column`0" priority="26" />
+      <Item value="UniqueKey`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.HyperLinkSettings">
+      <Item value="Attributes" priority="26" />
+      <Item value="ToolTip" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.IdentityPart">
+      <Item value="UnsavedValue`0" priority="26" />
+      <Item value="GeneratedBy" priority="53" />
+      <Item value="Column`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISession">
+      <Item value="Flush`0" priority="26" />
+      <Item value="Merge`0" priority="50" />
+      <Item value="SaveOrUpdate`0" priority="26" />
+      <Item value="Evict`0" priority="26" />
+      <Item value="Update`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.CollectionCascadeExpression`1">
+      <Item value="SaveUpdate`0" priority="80" />
+      <Item value="None`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.Querying.CriteriaOperator">
+      <Item value="NotEqual" priority="80" />
+      <Item value="IsNullOrZero" priority="22" />
+      <Item value="Equal" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="RazorTransitionCompletionContext">
+      <Item value="Html" priority="153" />
+      <Item value="i" priority="35" />
+      <Item value="Model" priority="43" />
+      <Item value="Request" priority="7" />
+      <Item value="ClientResources`0" priority="35" />
+      <Item value="section" priority="23" />
+      <Item value="DateTime`0" priority="5" />
+      <Item value="for" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToUInt32`0" priority="107" />
+      <Item value="ToDateTime`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.UserEmergencyContactPersonDto">
+      <Item value="UserEmergencyContactPersonId" priority="107" />
+      <Item value="ContactPersonRelationshipWithUser" priority="207" />
+      <Item value="ContactPersonAddress" priority="99" />
+      <Item value="Contacts" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.DesignationDto">
+      <Item value="UsersWithDesignation" priority="53" />
+      <Item value="DesignationId" priority="164" />
+      <Item value="DesignationName" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="83" />
+      <Item value="FindLast`0" priority="54" />
+      <Item value="ElementAt`1" priority="22" />
+      <Item value="FindLastIndex`0" priority="27" />
+      <Item value="Last`1" priority="26" />
+      <Item value="Reverse`0" priority="26" />
+      <Item value="OrderByDescending`2" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.RelationshipDto">
+      <Item value="RelationshipId" priority="216" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Web.MVCRazor.Models.Account.UserRegistrationModel">
+      <Item value="mode" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.Constants">
+      <Item value="TBLFLDUSERNAME" priority="26" />
+      <Item value="PasswordAttemptCount" priority="26" />
+      <Item value="NOOFHOURSUSEDLOCKEDOUT" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.Users.UserEmergencyContactPerson">
+      <Item value="ContactPersonOfUser" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.OneToOnePart`1">
+      <Item value="ForeignKey`0" priority="53" />
+      <Item value="Cascade" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.ComboBoxExtension">
+      <Item value="Bind`0" priority="207" />
+      <Item value="GetHtml`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.ComboBoxSettings">
+      <Item value="ClientEnabled" priority="26" />
+      <Item value="Properties" priority="163" />
+      <Item value="SelectedIndex" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.ContactType">
+      <Item value="MobileNo" priority="26" />
+      <Item value="OfficeNo" priority="27" />
+      <Item value="ResidenceNo" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.UserGroupDto">
+      <Item value="UserGroupId" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.ComboBoxProperties">
+      <Item value="ClientSideEvents" priority="109" />
+      <Item value="ValueType" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.ComboBoxClientSideEvents">
+      <Item value="SelectedIndexChanged" priority="26" />
+      <Item value="ValueChanged" priority="80" />
+      <Item value="Init" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="245" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ContactDetailsDto">
+      <Item value="STDCode" priority="26" />
+      <Item value="ContactDetailsId" priority="26" />
+      <Item value="ContactNoType" priority="26" />
+      <Item value="ContactNo" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ViewContext">
+      <Item value="Writer" priority="244" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.TextWriter">
+      <Item value="Write`0" priority="218" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel">
+      <Item value="HiddenFieldForState" priority="45" />
+      <Item value="HiddenFieldForDistrict" priority="45" />
+      <Item value="HiddenFieldForCityVillage" priority="96" />
+      <Item value="HiddenFieldForCityVillageValue" priority="54" />
+      <Item value="HiddenFieldForStateValue" priority="45" />
+      <Item value="HiddenFieldForDistrictValue" priority="50" />
+      <Item value="DistrictComboName" priority="27" />
+      <Item value="StateComboName" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.Masters.DistrictDto">
+      <Item value="DistrictName" priority="80" />
+      <Item value="StateOfDistrict" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.Masters.StateDto">
+      <Item value="RegionName" priority="53" />
+      <Item value="StateInCountry" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Specialized.NameValueCollection">
+      <Item value="Add`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.ClientServiceReference.IClientServiceChannel">
+      <Item value="GetById`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientDto">
+      <Item value="DisplayID" priority="53" />
+      <Item value="CAName" priority="54" />
+      <Item value="Place" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.UI.ExtensionsFactory">
+      <Item value="Label`0" priority="26" />
+      <Item value="Button`0" priority="136" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxClasses.AppearanceStyleBase">
+      <Item value="CssClass" priority="54" />
+      <Item value="Border" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.LabelExtension">
+      <Item value="Render`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Nullable`1">
+      <Item value="Value" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToShortDateString`0" priority="188" />
+      <Item value="Hour" priority="80" />
+      <Item value="Subtract`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Repository.IRepository`1">
+      <Item value="Update`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.UserServiceReference.UserServiceClient">
+      <Item value="Close`0" priority="215" />
+      <Item value="Update`0" priority="53" />
+      <Item value="GetByUserName`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.RelationShipServiceReference.RelationShipServiceClient">
+      <Item value="Close`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.ClientServiceReference.ClientServiceClient">
+      <Item value="Close`0" priority="53" />
+      <Item value="FindBy`0" priority="26" />
+      <Item value="FindByQuery`0" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.DesignationServiceReference.DesignationServiceClient">
+      <Item value="Close`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.UserGroupServiceReference.UserGroupServiceClient">
+      <Item value="Close`0" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.Message.BusinessWarningEnum">
+      <Item value="Validation" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.TimeSpan">
+      <Item value="TotalHours" priority="26" />
+      <Item value="TotalDays" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.OneToManyPart`1">
+      <Item value="Table`0" priority="80" />
+      <Item value="KeyColumn`0" priority="76" />
+      <Item value="Cascade" priority="49" />
+      <Item value="Inverse`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.ClassMap`1">
+      <Item value="Id`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.IdentityGenerationStrategyBuilder`1">
+      <Item value="Identity`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.RolesServiceReference.RoleServiceClient">
+      <Item value="Close`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.ButtonExtension">
+      <Item value="Render`0" priority="81" />
+      <Item value="GetHtml`0" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.GridViewSettings">
+      <Item value="ClientSideEvents" priority="81" />
+      <Item value="SettingsEditing" priority="27" />
+      <Item value="SettingsBehavior" priority="103" />
+      <Item value="SettingsLoadingPanel" priority="26" />
+      <Item value="CommandColumn" priority="53" />
+      <Item value="Settings" priority="53" />
+      <Item value="CustomJSProperties" priority="22" />
+      <Item value="InitNewRow" priority="22" />
+      <Item value="SettingsDetail" priority="22" />
+      <Item value="CustomColumnSort" priority="26" />
+      <Item value="Columns" priority="22" />
+      <Item value="KeyFieldName" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxGridView.GridViewClientSideEvents">
+      <Item value="Init" priority="26" />
+      <Item value="SelectionChanged" priority="26" />
+      <Item value="BeginCallback" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Account.UserRolesModel">
+      <Item value="UserRoleList" priority="27" />
+      <Item value="UserRolePermissionId" priority="161" />
+      <Item value="UserRoleDto" priority="80" />
+      <Item value="AllowAdd" priority="53" />
+      <Item value="AllowDelete" priority="26" />
+      <Item value="AllowEdit" priority="26" />
+      <Item value="AllowPrint" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Account.UserRolesModelList">
+      <Item value="UserRoleList" priority="53" />
+      <Item value="UserRolePermissionId" priority="103" />
+      <Item value="UserRoleModelList" priority="242" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.MVCxGridViewBehaviorSettings">
+      <Item value="AllowFocusedRow" priority="27" />
+      <Item value="AllowSelectSingleRowOnly" priority="26" />
+      <Item value="SortMode" priority="22" />
+      <Item value="AllowSort" priority="49" />
+      <Item value="EnableRowHotTrack" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Account.ParentUserRolesModel">
+      <Item value="UserRoleModelList" priority="215" />
+      <Item value="UserRoleDtoList" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.RoleDto">
+      <Item value="RolesInUserRolePermissions" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.User.UserRolePermissionDto">
+      <Item value="AllowAdd" priority="81" />
+      <Item value="AllowDelete" priority="54" />
+      <Item value="AllowEdit" priority="54" />
+      <Item value="AllowPrint" priority="54" />
+      <Item value="AllowView" priority="54" />
+      <Item value="PermissionForRole" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.UrlHelper">
+      <Item value="Action`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Web.MVCRazor.Models.Account.UserRolesModel">
+      <Item value="GetAllRoles`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Web.MVCRazor.Helpers.CamsAuthorizeAttribute+RolePermission">
+      <Item value="Add" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="First`1" priority="26" />
+      <Item value="ToString`0" priority="26" />
+      <Item value="ToList`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpSessionStateBase">
+      <Item value="Clear`0" priority="26" />
+      <Item value="Abandon`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpCookieCollection">
+      <Item value="Remove`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Security.FormsAuthentication">
+      <Item value="SignOut`0" priority="26" />
+      <Item value="RedirectToLoginPage`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Security.Roles">
+      <Item value="DeleteCookie`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContextQualified">
+      <Item value="history" priority="9" />
+      <Item value="keyup" priority="17" />
+      <Item value="html" priority="7" />
+      <Item value="toString" priority="80" />
+      <Item value="Cast" priority="26" />
+      <Item value="LostFocus" priority="7" />
+      <Item value="blur" priority="9" />
+      <Item value="val" priority="9" />
+      <Item value="toFixed" priority="62" />
+      <Item value="live" priority="7" />
+      <Item value="ajax" priority="8" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Account.ChangePasswordModel">
+      <Item value="ExistingPassword" priority="80" />
+      <Item value="NewPassword" priority="134" />
+      <Item value="ConfirmNewPassword" priority="54" />
+      <Item value="CurrentPassword" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelStateDictionary">
+      <Item value="IsValid" priority="27" />
+      <Item value="AddModelError`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.Helper">
+      <Item value="Encode`0" priority="26" />
+      <Item value="IsClientExist`0" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Web.MVCRazor.Controllers.CommonController">
+      <Item value="isUserLoggedout" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistration">
+      <Item value="DisplayClientId" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.Users.ClientAccountManager">
+      <Item value="id" priority="26" />
+      <Item value="AccountManagerOfClients" priority="49" />
+      <Item value="AccountManager" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.ManyToOnePart`1">
+      <Item value="Column`0" priority="53" />
+      <Item value="Cascade" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentNHibernate.Mapping.CascadeExpression`1">
+      <Item value="SaveUpdate`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Domain.Entities.ClientRegistration.Client">
+      <Item value="CAId" priority="27" />
+      <Item value="AllowEdit" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.APMCMasterServiceReference.APMCServiceClient">
+      <Item value="FindAll`0" priority="26" />
+      <Item value="Close`0" priority="53" />
+      <Item value="GetById`0" priority="26" />
+      <Item value="State" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.EntityDtos`1">
+      <Item value="Entities" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.ClientRegistration.APMCDetailsModel">
+      <Item value="ApmcLicenseNo" priority="26" />
+      <Item value="ValidUpto" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.CommodityClassServiceReference.CommodityClassServiceClient">
+      <Item value="FindAll`0" priority="26" />
+      <Item value="Close`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel">
+      <Item value="APMCLicenseNo" priority="26" />
+      <Item value="APMCLicenseValidUpTo" priority="53" />
+      <Item value="ClientAPMC" priority="81" />
+      <Item value="CommodityClassDtoList" priority="53" />
+      <Item value="ApmcModel" priority="26" />
+      <Item value="ClientSubscriptionPaymentDetailsModel" priority="22" />
+      <Item value="ClientCommodities" priority="26" />
+      <Item value="IsCashChecked" priority="134" />
+      <Item value="IsChequeChecked" priority="105" />
+      <Item value="IsDDChecked" priority="110" />
+      <Item value="IsOnlineChecked" priority="109" />
+      <Item value="ClientPartners" priority="26" />
+      <Item value="businessConstitutionModel" priority="53" />
+      <Item value="ClientBusinessConstitution" priority="27" />
+      <Item value="CompanyAddress" priority="103" />
+      <Item value="CompanyContacts" priority="22" />
+      <Item value="PrimaryContactsAddress" priority="72" />
+      <Item value="PrimaryContactsContacts" priority="81" />
+      <Item value="APMCCompanyAddress" priority="26" />
+      <Item value="APMCCompanyContacts" priority="26" />
+      <Item value="APMCContacts" priority="54" />
+      <Item value="APMCAddress" priority="27" />
+      <Item value="mode" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.Masters.APMCDto">
+      <Item value="APMCId" priority="99" />
+      <Item value="Name" priority="26" />
+      <Item value="Email1" priority="53" />
+      <Item value="Address" priority="80" />
+      <Item value="ContactNos" priority="135" />
+      <Item value="Website" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientMasters.CommodityClassDto">
+      <Item value="IsActive" priority="81" />
+      <Item value="Name" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Boolean">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel">
+      <Item value="GetAllApmc`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.DateEditSettings">
+      <Item value="ControlStyle" priority="27" />
+      <Item value="Properties" priority="81" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.Masters.CountryDto">
+      <Item value="CountryName" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="HtmlEntityCodeCompletionContext">
+      <Item value="&amp;nbsp;" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.PopupControlExtension">
+      <Item value="GetHtml`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.ButtonSettings">
+      <Item value="RouteValues" priority="26" />
+      <Item value="UseSubmitBehavior" priority="104" />
+      <Item value="ClientEnabled" priority="26" />
+      <Item value="ClientSideEvents" priority="26" />
+      <Item value="Images" priority="53" />
+      <Item value="Text" priority="26" />
+      <Item value="Name" priority="27" />
+      <Item value="EnableTheming" priority="22" />
+      <Item value="ControlStyle" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Mvc.UrlParameter">
+      <Item value="Optional" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.ButtonClientSideEvents">
+      <Item value="Click" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.ClientRegistration.ClientSubscriptionPaymentDetailsModel">
+      <Item value="PaymentMode" priority="53" />
+      <Item value="NoOfChequePayments" priority="81" />
+      <Item value="IsRTGS" priority="26" />
+      <Item value="IsStandardCheque" priority="26" />
+      <Item value="ChequeDDTransationNo" priority="26" />
+      <Item value="ChequeDDTransactionDate" priority="26" />
+      <Item value="ChequeDDClearanceDates" priority="26" />
+      <Item value="ChequeAmount" priority="26" />
+      <Item value="BankBranch" priority="26" />
+      <Item value="HiddenFieldForChequeBankBranch" priority="109" />
+      <Item value="IsNEFT" priority="26" />
+      <Item value="HiddenFieldForOnlineBankBranch" priority="26" />
+      <Item value="HiddenFieldForDDBankBranch" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Cams.Common.PaymentMode">
+      <Item value="Cheque" priority="82" />
+      <Item value="Online" priority="56" />
+      <Item value="Cash" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxClasses.CallbackClientSideEvents">
+      <Item value="EndCallback" priority="26" />
+      <Item value="BeginCallback" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientMasters.BankBranchDto">
+      <Item value="BaseBranchId" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.DateEditProperties">
+      <Item value="Style" priority="26" />
+      <Item value="ClientSideEvents" priority="50" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.EditorExtension">
+      <Item value="GetHtml`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.DateEditClientSideEvents">
+      <Item value="ValueChanged" priority="26" />
+      <Item value="DateChanged" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Globalization.DateTimeFormatInfo">
+      <Item value="ShortDatePattern" priority="27" />
+      <Item value="DateSeparator" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.RadioButtonExtension">
+      <Item value="Bind`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxGridView.GridViewDataColumn">
+      <Item value="FieldName" priority="27" />
+      <Item value="Caption" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.GridViewExtension">
+      <Item value="Render`0" priority="55" />
+      <Item value="GetHtml`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.CallbackPanelExtension">
+      <Item value="GetHtml`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxGridView.ASPxGridViewLoadingPanelSettings">
+      <Item value="ImagePosition" priority="26" />
+      <Item value="ShowImage" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DevExpress.Web.ASPxClasses.ImagePosition">
+      <Item value="Top" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.MVCxGridViewCommandColumn">
+      <Item value="SetHeaderTemplateContent`0" priority="26" />
+      <Item value="SelectButton" priority="22" />
+      <Item value="CustomButtons" priority="26" />
+      <Item value="ShowSelectCheckbox" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxGridView.GridViewHeaderTemplateContainer">
+      <Item value="DataItem" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxGridView.GridViewCommandColumnButton">
+      <Item value="ButtonType" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DevExpress.Web.ASPxGridView.ColumnCommandButtonType">
+      <Item value="Select" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.ImageEditSettings">
+      <Item value="Properties" priority="54" />
+      <Item value="ClientEnabled" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.ImageEditProperties">
+      <Item value="ClientSideEvents" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.StaticEditClientSideEvents">
+      <Item value="Click" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxEditors.ButtonImages">
+      <Item value="Image" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxClasses.CheckedButtonImageProperties">
+      <Item value="Url" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DevExpress.Web.ASPxClasses.PopupHorizontalAlign">
+      <Item value="WindowCenter" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientRegistration.ClientDto">
+      <Item value="ClientSubscription" priority="26" />
+      <Item value="ClientBusinessConstitution" priority="53" />
+      <Item value="ClientPartners" priority="26" />
+      <Item value="Website" priority="26" />
+      <Item value="ClientPrimaryContactPerson" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientRegistration.ClientSubscriptionDto">
+      <Item value="ClientSubscriptionPaymentDetails" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientRegistration.ClientSubscriptionPaymentDetailsDto">
+      <Item value="IsStandardCheque" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientRegistration.BusinessConstitutionDto">
+      <Item value="BusinessConstitutionOfClients" priority="49" />
+      <Item value="BusinessConstitutionName" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.ClientRegistration.BusinessConstitutionModel">
+      <Item value="ClientPartners" priority="53" />
+      <Item value="NoOfClientPartners" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DevExpress.XtraCharts.SortingMode">
+      <Item value="Descending" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.MVCxGridViewSettings">
+      <Item value="GroupFormat" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IOrderedEnumerable`1">
+      <Item value="ToList`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.Mvc.MVCxGridViewColumnCollection">
+      <Item value="Add`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DevExpress.Data.ColumnSortOrder">
+      <Item value="Descending" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Shared.AddressReadOnlyViewModel">
+      <Item value="Address" priority="82" />
+      <Item value="ValueLabelsClassName" priority="26" />
+      <Item value="SetAddress`0" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Web.MVCRazor.Models.Shared.ContactsReadOnlyViewModel">
+      <Item value="Contacts" priority="80" />
+      <Item value="Email1" priority="80" />
+      <Item value="Website" priority="55" />
+      <Item value="IsWebsiteApplicable" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Cams.Common.Dto.ClientRegistration.ClientPrimaryContactPersonDto">
+      <Item value="ClientPrimaryContactPersonAddress" priority="26" />
+      <Item value="ClientPrimaryContacts" priority="26" />
+      <Item value="Email1" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Decimal">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Math">
+      <Item value="Round`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DevExpress.Web.ASPxClasses.StylesBase">
+      <Item value="EnableDefaultAppearance" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <UnitTestSessions>
+    <Session>
+      <Name>Session #1</Name>
+      <Elements>
+        <UnitTestElement Provider="MSTest" Id="Cams.UnitTests.Domain.Services.UserServiceTests" type="MsTestTestClassElement" TypeName="Cams.UnitTests.Domain.Services.UserServiceTests" Project="625D9F18-A145-4DA8-BB6F-A33AF8377DD1" />
+        <UnitTestElement Provider="MSTest" Id="Cams.UnitTests.Domain.Services.UserServiceTests.GetUserById" ParentId="Cams.UnitTests.Domain.Services.UserServiceTests" type="MsTestTestMethodElement" MethodName="GetUserById" Project="625D9F18-A145-4DA8-BB6F-A33AF8377DD1" />
+      </Elements>
+    </Session>
+  </UnitTestSessions>
+</Configuration>

@@ -1,0 +1,23 @@
+﻿@*@model IList<Cams.Common.Dto.User.RoleDto>*@
+    
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "gvRoleGroups";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "GetRoleGroups" };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.ControlStyle.CssClass = "fontName";
+        settings.KeyFieldName = "RoleGroup";
+        settings.Columns.Add("RoleGroup");
+
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
+        settings.SettingsDetail.ShowDetailRow = true;
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+        settings.SetDetailRowTemplateContent(c => {
+            Html.RenderAction("GetRolesList", "Account", new { RoleGroup = DataBinder.Eval(c.DataItem, "RoleGroup"), userGroupId = Request.Params["usergroupId"] });
+        });
+        settings.PreRender = (sender, e) => {
+            ((MVCxGridView)sender).DetailRows.ExpandRow(0);
+        };
+        settings.ClientSideEvents.BeginCallback = "function(s,e) {e.customArgs['userGroupId']=$.QueryString['usergroupid'];}";
+    }).Bind(Model).GetHtml()

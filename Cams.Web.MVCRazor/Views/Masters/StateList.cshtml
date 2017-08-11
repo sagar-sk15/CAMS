@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "StateList";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuMasters');
+        });
+    </script>
+}
+
+@section MainBody {
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data padbot15">
+                <h1>
+                    State List</h1>
+                    @if (TempData["StateSaved"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                                <span>@TempData["StateSaved"].ToString()</span>
+                        </div>
+                    }
+                <div class="ListHead">
+                    <div class="ListSearch fl">
+                         <label id="lbl_Country" class="width75">Country</label>&nbsp;
+                        <span class="countryinput">India</span>
+                         </div>
+                    <div class="ListAddNew fr">
+                           @Html.ActionLink(" ", "State", "Masters", null, new { @class = "button_Add" })
+                    </div>
+                        <div class="clr">
+                        </div>
+                        @Html.Partial("StateListGridView", ViewData["StateList"])
+                </div>
+            </div>
+        </div>
+    </div>
+}

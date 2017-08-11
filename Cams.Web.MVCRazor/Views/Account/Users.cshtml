@@ -1,0 +1,192 @@
+﻿@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Models.Account
+@model UserListModel
+@{
+    //View.Title = "ack Users";if(((Cams.Common.Dto.User.UserDto)Session[Constants.SKCURRENTUSER]).CAId ==null)
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/UserGroupDropdownScript.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/UserGroupsPopup.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        (function ($) { $.QueryString = (function (a) { if (a == "") return {}; var b = {}; for (var i = 0; i < a.length; ++i) { var p = a[i].split('='); if (p.length != 2) continue; b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " ")); } return b; })(window.location.search.substr(1).split('&')) })(jQuery);
+
+        var userGroupIdList = null;
+
+        function userGroupsSelectionChanged(s, e) {
+            var seUGList = $('#SelectedUserGroupList');
+            userGroupIdList = seUGList.val();
+            cbpUsers.PerformCallback();
+        }
+
+        function cbpUsers_OnBeginCallback(s, e) {
+            var seUGList = $('#SelectedUserGroupList');
+            userGroupIdList = seUGList.val();
+            e.customArgs["UserGroupIdList"] = userGroupIdList;
+
+            if ($.QueryString["usertype"] == 'CAUser') {
+                e.customArgs["CAId"] = cmbClient.GetValue();
+            }
+            else
+                e.customArgs["CAId"] = null;
+            e.customArgs["usertype"] = $.QueryString["usertype"];
+            userGroupIdList = null;
+        }
+
+        function gvUsers_OnBeginCallback(s, e) {
+            var seUGList = $('#SelectedUserGroupList');
+            userGroupIdList = seUGList.val();
+            e.customArgs["UserGroupIdList"] = userGroupIdList;
+            if ($.QueryString["usertype"] == 'CAUser') {
+                e.customArgs["CAId"] = cmbClient.GetValue();
+            }
+            e.customArgs["usertype"] = $.QueryString["usertype"];
+            userGroupIdList = null;
+        }
+
+        $(function () {
+            $('#addLink').click(function () {
+                if ($.QueryString["usertype"] == 'CAUser') {
+                    var CaId = cmbClient.GetValue();
+                    if (CaId == 0 || CaId == null ) {
+                        alert("Select Client to Add New User.");
+                        return false;
+                    }
+                    $(this).attr('href', this.href + '&CAId=' + encodeURIComponent(CaId));
+                }
+
+                return true;
+            });
+        });
+
+        $(document).ready(function () {
+            if ($.QueryString["usertype"] == 'CAUser') {
+                if ($.QueryString["CAId"] != null)
+                    cmbClient.SetValue($.QueryString["CAId"]);
+            }
+            HighlightSuperAdminMainMenu('#mnuUserGroups');
+        });
+
+
+        //Region JavaScript Related User Edit
+        function OngvUsersFocusedRowChanged(s, e) {
+            if (s.focusedRowIndex != -1) {
+                s.GetRowValues(s.GetFocusedRowIndex(), "AllowEdit;UserName", OnGetSelectedFieldValues);
+            }
+            if ($.QueryString["usertype"] == 'CAUser') {
+                $('#CAId').val(cmbClient.GetValue());
+            }
+        }
+
+        function OnEditClick(s, e) {
+            if ($('#AllowEdit').val() == "true") {
+
+                var baseUrl = window.location.pathname;
+                baseUrl = baseUrl.substring(0, baseUrl.indexOf("/Account"));
+                s.SetNavigateUrl(baseUrl + '/Account/EditRegisteredUser?mode=Edit');
+                
+                if ($.QueryString["usertype"] == 'CAUser') {
+                    var CaId = cmbClient.GetValue();
+                    if (CaId == 0) {
+                        return false;
+                    }
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&UserName=' + $('#UserName').val() + '&usertype=' + $.QueryString["usertype"].toString() + '&CAId=' + encodeURIComponent(CaId));
+                }
+                else if ($.QueryString["usertype"] == 'AckUser') {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&UserName=' + $('#UserName').val() + '&usertype=' + $.QueryString["usertype"].toString());
+                }
+                else {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&UserName=' + $('#UserName').val());
+                }
+                return true;
+            }
+            else {
+                alert("The User is not editable");
+                return false;
+            }
+        }
+        function OnGetSelectedFieldValues(values) {
+            $('#AllowEdit').val(values[0]);
+            $('#UserName').val(values[1]);
+        }
+        //Endregion JavaScript Related User Edit
+
+    </script>
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/content/css/style.css") />
+}
+@section MainBody{
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data padbot15">
+                <h1>@ClientResources.UListTitle</h1>
+                @if (TempData["UserRegisteredSuccessfully"] != null)
+                {
+                    <div class="response-msg success-msg">
+                        <span>@TempData["UserRegisteredSuccessfully"].ToString()</span>
+                    </div>
+                }
+                <div class="ListHead">
+                    <div class="ListSearch fl">
+                        <table class="userlisttable">
+                            <tr>
+                                @{bool IsClientUser = Request.QueryString["usertype"] == "CAUser" ? true : false;
+                                  if (IsClientUser)
+                                  {
+                                    <td>
+                                        Client
+                                    </td>
+                                    <td>@Html.DevExpress().ComboBox(
+                                          settings =>
+                                          {
+                                              settings.Name = "cmbClient";
+                                              settings.Width = 180;
+                                              settings.SelectedIndex = ViewData["SelectedClient"] != null ? Convert.ToInt32(ViewData["SelectedClient"]) : 0;
+                                              settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                              settings.Properties.CallbackPageSize = 30;
+                                              settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                                              settings.Properties.TextFormatString = "{0}";
+                                              settings.Properties.ValueField = "CAId";
+                                              settings.Properties.ValueType = typeof(string);
+                                              settings.Properties.Columns.Add("CompanyName", "Client");
+                                              settings.Properties.Columns.Add("ClientAddress.CityVillage.Name", "Place");
+                                              settings.Properties.Columns.Add("DisplayClientId", "Client ID");
+                                              settings.ControlStyle.CssClass = "fontName";
+                                              settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                              settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {cbpUserGroupList.PerformCallback(); cbpUsers.PerformCallback();}";
+                                          }).BindList(Model.ClientList).GetHtml()
+                                    </td>
+                                  }}
+                                <td class="userlisttableUgTd">
+                                    <label id="lblURUserGroup">@ClientResources.ULGridUserGroup</label>
+                                </td>
+                                <td>
+                                    @Html.Partial("CallBackPanelUserGroupList", Model.UserGroupList)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    @Html.HiddenFor(model => model.SelectedUserGroupList)
+                    <div class="ListAddNew fr">
+                        @Html.ActionLink(" ", "UserRegistrationIndex", "Account", new { usertype = Request.QueryString["usertype"] }, new { @class = "button_Add", @id = "addLink" })
+                    </div>
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="myGrid">
+                    @Html.Partial("CallbackUserGrid")
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.CAId)
+    @Html.HiddenFor(model => model.AllowEdit)
+}

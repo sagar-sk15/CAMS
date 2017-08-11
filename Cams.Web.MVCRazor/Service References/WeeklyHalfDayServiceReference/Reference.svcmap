@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fc44a228-bf42-474c-a4f0-0c7ed232ad1f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="82e7eae2-8b33-459c-a50f-5c631f99ef00" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="6064af52-1f0a-4aa0-9fc6-09150ad43530" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a29dc85e-af41-4c7d-83c3-b8bc87fb1945" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d850e05d-8da2-4ab6-8005-f138e443d87b" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="8be82b6c-19a7-41d5-961b-927181573f12" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="3c451c99-0d25-4cff-b33e-d05fee3a2c1e" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="1f7f0ccc-7075-4ac5-8658-79cbd5501673" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="5b1473b5-1efa-40d2-ae60-1488a39751e1" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="a6cf4c3e-1d8a-47a5-ba05-6b5d8fc286bd" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="9cbb4cff-3300-4a15-93ac-34f1f29da423" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="1fcaf5aa-ed1d-4d52-b625-38fdbca9f97a" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="c3d9bc59-0d6c-4807-ae24-8ccdb6d67ae2" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="8a135988-e52a-4f7c-b7eb-628ad00c3b25" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="1866e993-20f7-4d1f-ad37-b40f4eb0da31" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyHalfDayWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

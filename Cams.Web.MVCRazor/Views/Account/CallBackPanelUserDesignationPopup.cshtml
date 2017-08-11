@@ -1,0 +1,12 @@
+﻿@Html.DevExpress().CallbackPanel(cbpSettings =>
+{
+    cbpSettings.Name = "cbpUserDesignation";
+    cbpSettings.CallbackRouteValues = new { Controller = "Account", Action = "CreateDesignation" };
+    cbpSettings.SetContent(() =>
+                               {
+                                   Html.RenderPartial("PopupUserDesignation");
+                               });
+    cbpSettings.ClientSideEvents.BeginCallback = "cbpUserDesignation_OnBeginCallback";//+ "$('#" + Model.HiddenAddedValueTextBoxName + "').val(ppUserDesignation.GetText());"
+    
+    cbpSettings.ClientSideEvents.EndCallback = "cbpUserDesignation_OnEndCallback";
+}).GetHtml()

@@ -1,0 +1,200 @@
+﻿@using Cams.Common
+@using Cams.Common.Dto
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Helpers
+@model Cams.Web.MVCRazor.Models.Masters.APMCModel
+@* Resource keys related to this page have extension APMC*@
+@{
+    ViewBag.Title = "APMCView";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/ContactDetails.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/StateDistrictVillage.js") type="text/javascript"></script>   
+    <style type="text/css">
+        .dxeRadioButtonList td.dxe
+        {
+            padding: 0px;
+            padding-right: 5px;
+        }
+        .dxeRadioButtonList label
+        {
+            width: 40px;
+            padding-bottom: 5px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuMasters');
+        });
+    </script>
+
+
+}
+@section MainBody
+{
+    <div class="page-data fl">
+        <div class="panes">
+            @using (Html.BeginForm("EditApmc", "Masters", FormMethod.Post))
+            {
+                <div class="panes-data">
+                    <h1>View</h1>
+                    @*@if (ViewData["Error"] != null)
+                    {
+                        <div class="response-msg error-msg">
+                            <span>@ViewData["Error"].ToString()</span>
+                            <br />
+                            <span>@Html.ValidationSummary(true)</span>
+                        </div>
+                    }
+                    @Html.ValidationSummary(false)
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }*@
+                    <div class="Form-Wrap">
+                        <div class="groupfieldset">
+                            <ul class="reset onecolfield fl">
+                                <div class="fl">
+                                    <li>
+                                        <div class="fl">
+                                            <label id="lbl_APMC" class="width110">
+                                                @ClientResources.APMC</label>
+                                            @Html.TextBoxFor(model => model.Name, new { @Class = "autoinputvalue", @readonly="readonly" })
+                                        </div>
+                                        <div class="fl">
+                                            <label id="lbl_Status" class="label-radio-pad width158">
+                                                @ClientResources.APMCStatus</label>
+                                                @Html.TextBoxFor(model => model.Status, new { @readonly = "readonly", @class = "autoinputvalue", style = "font-size:12px; width:70px;" })
+                                            
+                                            <div class="clr">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </div>
+                            </ul>
+                            <div class="clr">
+                            </div>
+                        </div>
+                        <div class="groupfieldset groupfieldsetcol fl" style="min-height: 196px;">
+                            <ul class="reset onecolfield fl">
+                                
+                                    <li>
+                                        <label class="width110" id="lblAPMCAddress">@ClientResources.APMCAddress</label>
+                                        @Html.TextAreaFor(model => model.Address.AddressLine1, new { cols = "", rows = "", name = "txtAPMCAddress", id = "txtAPMCAddress", @Class = "autoinputvalue width195", style="font-size:12px", @readonly = "readonly" })
+                                    </li>
+                                    <li>
+                                        <label id="PIlblState" class="width110">@ClientResources.PIlblState</label>
+                                        @Html.TextBoxFor(model => model.Address.CityVillage.DistrictOfCityVillage.StateOfDistrict.RegionName, new { name = "txtAPMCPin", type = "text", id = "txtAPMCPin", value = "", maxlength = "6", @Class = "autoinputvalue width195", @readonly = "readonly" })
+                                    </li>
+                                    <li>
+                                        <label id="PIlblDistrict" class="width110">@ClientResources.PIlblDistrict</label>
+                                        @Html.TextBoxFor(model => model.Address.CityVillage.DistrictOfCityVillage.DistrictName, new { name = "txtAPMCPin", type = "text", id = "txtAPMCPin", value = "", maxlength = "6", @Class = "autoinputvalue width195", @readonly = "readonly" })
+                                    </li>
+                                    <li>
+                                        <label id="lblCityOrVillage" class="width110">@Model.Address.CityVillage.CityOrVillage</label>
+                                        @Html.TextBoxFor(model => model.Address.CityVillage.Name, new { name = "txtAPMCPin", type = "text", id = "txtAPMCPin", value = "", maxlength = "6", @Class = "autoinputvalue width195", @readonly = "readonly" })
+                                    </li>
+                                    <li>
+                                        <label id="lblPIAPMCPin" class="width110">@ClientResources.APMCPin</label>
+                                        @Html.TextBoxFor(model => model.Address.PIN, new { name = "txtAPMCPin", type = "text", id = "txtAPMCPin", value = "", maxlength = "6", @Class = "autoinputvalue width110", @readonly = "readonly" })
+                                    </li>
+                            </ul>
+                            <div class="clr">
+                            </div>
+                        </div>
+                        <div class="groupfieldset groupfieldsetcol fr" style="min-height: 196px;">
+                            <ul class="reset onecolfield">
+                               
+                                <li>
+                                    <input id="URPICurrentIndex" type="hidden" value="@Model.ContactNos.Count" />
+                                    <table id="URPIContacts">
+                                    @{
+                                                                                
+                                        for (int i = 0; i < Model.ContactNos.Count; i++)
+                                        {
+                                            <tr>
+                                        <td class="width90">  
+                                            <label class="width80">
+                                            @{if (Model.ContactNos[i].ContactNoType == ContactType.MobileNo)
+                                              { @ClientResources.ContactNoTypeMobile; }
+                                              else if (Model.ContactNos[i].ContactNoType == ContactType.OfficeNo)
+                                              { @ClientResources.ContactNoTypeOfficeNo; }
+                                              else if (Model.ContactNos[i].ContactNoType == ContactType.ResidenceNo)
+                                              { @ClientResources.ContactNoTypeResNo; }
+                                              else { @ClientResources.ContactNoTypeFaxNo; }} 
+                                              </label>       
+                                            @*@Html.TextBoxFor(model => Model.ContactNos[i].ContactNoType, new { @class = "autoinputvalue", style = "width:90px;", @readonly = "readonly" })*@
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.ContactNos[i].CountryCallingCode, new { value = "+91", @class = "autoinputvalue", style = "width:28px;", @readonly = "readonly" })
+                                        </td>
+                                        
+                                            @{string displaystring = string.Empty; if (Model.ContactNos[i].ContactNoType != Cams.Common.ContactType.MobileNo) { displaystring = "display:block;"; } else { displaystring = "display:none;"; }}
+                                            @if (displaystring == "display:block;")
+                                            {
+                                                <td>
+                                                    @Html.TextBoxFor(model => Model.ContactNos[i].STDCode, new { value = "020", @class = "autoinputvalue", style = "width:30px; text-align:center;" + displaystring, @readonly = "readonly" })
+                                                </td>
+                                            }
+                                            @if (displaystring == "display:block;")
+                                            {
+                                                        <td>
+                                                @Html.TextBoxFor(model => Model.ContactNos[i].ContactNo, new { @class = "autoinputvalue", style = "width:130px", maxlength = "15", @readonly = "readonly" })
+                                            </td>
+                                            }
+                                            else
+                                            {
+                                                <td colspan="2">
+                                                    @Html.TextBoxFor(model => Model.ContactNos[i].ContactNo, new { @class = "autoinputvalue", style = "width:169px", maxlength = "15", @readonly = "readonly" })
+                                                </td>
+                                            }
+                                            
+                                        
+                                    </tr>
+                                        }
+                                    }
+                                    </table>
+                                </li>
+                                <li>
+                                    <label id="lblEmail1" class="width83">
+                                        @ClientResources.APMCEmail1</label>
+                                    @Html.TextBoxFor(model => model.Email1, new { @Class = "autoinputvalue width203", @readonly = "readonly" })
+                                </li>
+                                @if (!String.IsNullOrEmpty(Model.Email2))
+                                {
+                                <li id="URPliEmail2">
+                                    <label id="lblEmail2" class="width83" style="">
+                                        @ClientResources.APMCEmail2</label>
+                                    @Html.TextBoxFor(model => model.Email2, new { @Class = "autoinputvalue width203", @readonly = "readonly" })
+                                </li>
+                                }
+                               
+                                <li>
+                                    <label id="lblWebsite" class="width83" style="">
+                                        @ClientResources.APMCWebsite</label>
+                                    @Html.TextBoxFor(model => model.Website, new { @Class = "autoinputvalue width203", @readonly = "readonly" })
+                                </li>
+                               
+                            </ul>
+                            <div class="clr">
+                            </div>
+                        </div>
+                        <div class="clr">
+                        </div>
+                        <ul class="reset input-botton">
+                            <li>
+                                @Html.ActionLink(" ", "Apmc", "Masters", new { mode = "edit", apmcid = Model.APMCId.ToString() }, new { @class = "button_Edit", style = "margin-left:auto; margin-right:auto;" })
+                                <div class="text-link">@ClientResources.CancelString&nbsp;<a href="#" tabindex = "13">@Html.ActionLink(ClientResources.CancelbtnText, "APMCListIndex", "Masters")</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

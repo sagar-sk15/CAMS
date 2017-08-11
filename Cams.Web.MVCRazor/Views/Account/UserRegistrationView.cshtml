@@ -1,0 +1,196 @@
+﻿@model Cams.Web.MVCRazor.Models.Account.UserRegistrationModel
+@using Cams.Web.MVCRazor
+@using Microsoft.Web.Helpers
+@using Cams.Common
+@{
+    ViewBag.Title = "UserRegistrationView";
+    //Cams.Common.Dto.User.UserDto loggedInUser = (Cams.Common.Dto.User.UserDto)Session[Constants.SKCURRENTUSER];
+
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts
+{
+    <script src="../../Scripts/JS/CommonScripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function OnEditClick(s, e) {         
+            if ($('#AllowEdit').val() == "True") {
+                s.SetNavigateUrl('/Account/EditRegisteredUser?mode=Edit');
+                if ($.QueryString["usertype"] == 'CAUser') {
+                    var CaId = $('#CAId').val();
+                    if (CaId == 0) {
+                        return false;
+                    }
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&UserName=' + $('#UserName').val() + '&usertype=' + $.QueryString["usertype"].toString() + '&CAId=' + encodeURIComponent(CaId));
+                }
+                else if ($.QueryString["usertype"] == 'AckUser') {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&UserName=' + $('#UserName').val() + '&usertype=' + $.QueryString["usertype"].toString());
+                }
+                else {
+                    s.SetNavigateUrl(s.GetNavigateUrl() + '&UserName=' + $('#UserName').val());
+                }
+                return true;
+            } else {
+                alert("The User is not editable"); return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuUserGroups');
+        });
+    </script>
+}
+@section TabsPartial{
+    <div class="clr">
+    </div>
+    <!-- the tabs -->
+    <ul class="tabs">
+        <li><a href="#">@ClientResources.URTabRegistration</a></li>
+        <li><a href="#">@ClientResources.URTabPersonalInformation</a></li>
+        @{
+          bool IsClientUser = Request.QueryString["usertype"] == "CAUser" ? true : false;
+          IsClientUser = Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]) ? true : IsClientUser;
+          if (!IsClientUser)
+          {
+            <li><a href="#">@ClientResources.URTabEmergencyContact</a></li>
+          }
+        }
+    </ul>
+}
+@section MainBody
+{
+    <div class="page-data fl">
+        @using (Html.BeginForm("UserRegistration", "Account", new { usertype = Request.QueryString["usertype"] }, FormMethod.Post, new { id = "UserRegistrationForm" }))
+        {
+            <div class="panes">
+                <div class="panes-data">
+                    <h1>
+                        User Registration</h1>
+                    <div style="background: #fffcfc; color: #FF0000">@Html.ValidationSummary(false)</div>
+                    <div class="Form-Wrap">
+                        <div class="groupfieldset" style="padding: 4px 0">
+                            <ul class="reset leftfield fl" style="width: 60%;">
+                                <li>
+                                    <label id="lblFullName" class="width145">@ClientResources.URlblFullName</label>
+                                    @Html.TextBoxFor(model => model.Title, new { name = "txtTitle", type = "text", id = "txtTitle", value = "", maxlength = "5", @readonly = "readonly", @class = "autoinputvalue", style = "width:30px; padding:1px;" })
+                                    @Html.TextBoxFor(model => model.Name, new { style = "width:157px", @class = "autoinputvalue", id = "txtFullName", name = "txtFullName", @readonly = "readonly", type = "text", value = "" })
+                                </li>
+                                <li>
+                                    <label id="lblUserName" class="width145">@ClientResources.URlblUserName</label>
+                                    @Html.TextBoxFor(model => model.UserName, new { name = "txtUserName", type = "text", @class = "autoinputvalue width195", id = "txtUserName", value = "", maxlength = "15", @readonly = "readonly", style = "width:195;" })
+                                </li>
+                                <li>
+                                    <label id="lblDateofBirth" class="width145">@ClientResources.URlblDateofBirth</label>
+                                    @Html.TextBoxFor(model => model.BirthDate, new { id = "txtDOB", type = "text", name = "txtDOB", val = "", @class = "autoinputvalue", @readonly = "readonly", style = "width:75px;" })
+                                    @Html.TextBoxFor(model => model.Age, new { @class = "autoinputvalueaslabel", @readonly = "readonly" })
+                                </li>
+                                <li>
+                                    <label id="lblStatus" class="width145 label-radio-pad">@ClientResources.URlblStatus</label>
+                                    @Html.RadioButtonFor(model => model.IsActive, ClientResources.URrbtnStatusActive, new { @class = "radio-botton", id = "rbtnActiveStatus", name = "rbtnStatus", @readonly = "readonly", disabled = "disabled" })
+                                    <label class="label-radio fl">@ClientResources.URActive</label>
+                                    @Html.RadioButtonFor(model => model.IsActive, ClientResources.URrbtnStatusInactive, new { @class = "radio-botton", id = "rbtnInActiveStatus", name = "rbtnStatus", @readonly = "readonly", disabled = "disabled" })
+                                    <label class="label-radio fl">@ClientResources.URInactive</label>
+                                    <div class="clr">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label id="lblMothersMaidenName" class="width145">@ClientResources.URlblMothersMaidenName</label>
+                                    @Html.TextBoxFor(model => model.MothersMaidenName, new { @class = "autoinputvalue width195", id = "txtMotherMaidenName", name = "txtMotherMaidenName", value = "", maxlength = "15", @readonly = "readonly" })
+                                </li>
+                            </ul>
+                            <ul class="reset rightfield fr" style="width: 40%;">
+                                <li>
+                                    <div class="profile-img fl">
+                                        @*<img id="previewImage" width="110" height="100" src="@Model.Image" alt="" />*@
+                                        @{
+                                            var imagePath = @Url.Content("~/Content/UploadedImages/avatar_blank.jpg");
+                                            if (@Model.Image != null)
+                                            {
+                                                imagePath = @Url.Content("~/Content/UploadedImages/") + @Model.Image;
+                                            }
+                                            <img alt="" id="previewImage" src="@imagePath" align="left" />
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clr">
+                        </div>
+                        <div class="groupfieldset" style="padding: 4px 0">
+                            <ul class="reset leftfield fl" style="width: 50%;">
+                                <li>
+                                    <label id="lblUREmail" class="width145">@ClientResources.URlblEmail</label>
+                                    @Html.TextBoxFor(model => model.Email, new { name = "txtEmail", @class = "autoinputvalue width195", id = "txtEmail", value = "", maxlength = "30", @readonly = "readonly" })
+                                </li>
+                                <li>
+                                    <label id="lblURUserGroup" class="width145">@ClientResources.URlblURUserGroup</label>
+                                    @Html.TextAreaFor(model => model.SelectedUserGroupList, new { id = "txtUserGroup", name = "txtUserGroup", val = "", @class = "autoinputvalue textarea width195", @readonly = "readonly", style = "height:70px;" })
+                                </li>
+                            </ul>
+                            <ul class="reset rightfield fr" style="width: 50%;">
+                                <li>
+                                    <label id="lblURMobileNumber" class="width110">@ClientResources.URlblURMobileNumber</label>
+                                    @Html.TextBoxFor(model => model.CountryCode, new { id = "txtURCountryCode", name = "txtURCountryCode", value = "+91", @class = "autoinputvalue", @readonly = "readonly", style = "width:30px;" })
+                                    @Html.TextBoxFor(model => model.MobileNo, new { @class = "autoinputvalue width155", id = "txtURMobileNumber", value = "", maxlength = "15", @readonly = "readonly" })
+                                </li>
+                                @{
+                                            bool IsClientUser = false;
+                                            if ((Request.QueryString["usertype"] == "CAUser") || (Model.CAId != null && Model.CAId > 0))
+                                            {
+                                                IsClientUser = true;
+                                            }
+                                  if (!IsClientUser)
+                                  {
+                                    <li>
+                                        <label id="lblDesignation" class="width110">@ClientResources.URlblDesignation</label>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    @Html.TextBoxFor(model => model.UserDesignation.DesignationName, new { id = "txtUserDesignation", type = "text", name = "txtUserDesignation", value = "", @class = "autoinputvalue width195", @readonly = "readonly" })
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </li>                                    
+                                  }}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panes-data">
+                    @Html.Partial("URPersonalInformationView", Model)
+                </div>
+                @{
+                if (!IsClientUser)
+                {
+                    <div class="panes-data">
+                        @Html.Partial("UREmergencyContactView", Model)
+                    </div>
+                }}
+            </div>
+            <div class="Form-Wrap">
+                <ul class="reset input-botton">
+                    <li>
+                        @Html.DevExpress().HyperLink(linkSettings =>
+                    {
+                        linkSettings.Name = "EditButton";
+                        linkSettings.Properties.Style.CssClass = "button_Edit CenteredObject";
+                        linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                        linkSettings.NavigateUrl = "";
+                    }).GetHtml()
+                        <div class="text-link">@ClientResources.PICancelText&nbsp;@Html.ActionLink(ClientResources.PICancel, "UsersIndex", "Account", new { usertype = Request.QueryString["usertype"], CaId = Model.CAId}, null)</div>
+                    </li>
+                </ul>
+            </div>
+            @Html.HiddenFor(model => model.AllowEdit);
+            @Html.HiddenFor(model => model.UserName);
+            @Html.HiddenFor(model => model.CAId);
+        }
+    </div>
+}

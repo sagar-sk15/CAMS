@@ -1,0 +1,25 @@
+﻿@using Cams.Web.MVCRazor.Helpers
+@using Cams.Web.MVCRazor;
+@model Cams.Common.Dto.ContactDetailsDto
+
+    <li>
+        <div class="fl">
+            
+            @Html.DropDownListFor(model => model.ContactNoType,
+            new List<SelectListItem> { 
+                            new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ClientResources.ContactNoTypeMobile, Selected = true },
+                            new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ClientResources.ContactNoTypeOfficeNo, Selected = false },
+                            new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ClientResources.ContactNoTypeResNo, Selected = false},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ClientResources.ContactNoTypeFaxNo, Selected = false}
+            }, new { style = "width:90px; border: medium none; padding: 1px; float:left" })
+            <div class="contacts1" style="display:block; float:left; margin-left:15px;">
+                @Html.TextBoxFor(model => model.CountryCallingCode, new { value = "+91", @class = "textfiled", style = "width:28px; text-align:center" })
+                @Html.TextBoxFor(model => model.STDCode, new { value = "20", @class = "textfiled", style = "width:38px; text-align:center; display:none" })
+                @Html.TextBoxFor(model => model.ContactNo, new { @class = "width166 required", style = "width:155px;", value = "", maxlength = "15" })
+                @Html.HiddenIndexerInputForModel()
+                <a href="#" class="remove"></a>
+   
+            </div> 
+        </div>
+    </li>
+  

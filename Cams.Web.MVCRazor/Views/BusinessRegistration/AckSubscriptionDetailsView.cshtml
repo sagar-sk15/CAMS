@@ -1,0 +1,221 @@
+﻿@model Cams.Web.MVCRazor.Models.BusinessRegistration.BusinessRegistrationModel
+@using Cams.Web.MVCRazor;
+@using Cams.Common.Dto;
+
+@{
+	
+	var sFromDt = "";
+	if(Model.ClientSubscription.SubscriptionPeriodFromDate!=null)
+	{
+		sFromDt = Convert.ToDateTime(@Model.ClientSubscription.SubscriptionPeriodFromDate).ToString(Cams.Common.Constants.DATEFORMATFORDISPAY);
+	}
+	var sToDt = "";
+	if (Model.ClientSubscription.SubscriptionPeriodToDate != null)
+	{
+		sToDt = Convert.ToDateTime(@Model.ClientSubscription.SubscriptionPeriodToDate).ToString(Cams.Common.Constants.DATEFORMATFORDISPAY);
+	}
+	var sActivationDt = "";
+	if (Model.ClientSubscription.ActivationDate!= null)
+	{
+		sActivationDt = Convert.ToDateTime(@Model.ClientSubscription.ActivationDate).ToString(Cams.Common.Constants.DATEFORMATFORDISPAY);
+	}
+	
+}
+<div class="panes-data">
+<div class="packages2">
+	<div class="standard_package" style="margin-left: auto !important; margin-right: auto!important">
+		<span class="packge_heading">@Model.ClientSubscription.SubscriptionMaster.SubscriptionType </span>
+		<div class="pckge_dtls fl">
+			<p class="totalusers">
+				<label class="fl packgeinfolbl1">@ClientResources.lblTotalNoofUsers</label>
+				<span class="fl pckgeusers">@Model.ClientSubscription.SubscriptionMaster.TotalNoOfUsers</span></p>
+			<div class="package_subinfo ovfl-hidden">
+				<p>
+					<label class="fl packgeinfolbl">@ClientResources.lblOwnersEmployees</label>
+					<span class="fl pckgeusers">@Model.ClientSubscription.SubscriptionMaster.NoOfEmployees</span></p>
+				<p>
+					<label class="fl packgeinfolbl">@ClientResources.lblAuditors</label>
+					<span class="fl pckgeusers">@Model.ClientSubscription.SubscriptionMaster.NoOfAuditors</span></p>
+				<p>
+					<label class="fl packgeinfolbl">@ClientResources.lblAssociates</label>
+					<span class="fl pckgeusers">@Model.ClientSubscription.SubscriptionMaster.NoOfAssociates</span></p>
+			</div>
+		</div>
+		<div class="stnrd_subscription_fees fl">
+			<span class="subscriptionfeestxt">@ClientResources.lblSubscriptionFees</span> <span
+				class="subscriptionfees">@ClientResources.lblrs&nbsp;@String.Format("{0:0.00}", Model.ClientSubscription.SubscriptionMaster.SubscriptionFees)&nbsp;@ClientResources.lblperannum</span>
+			<span class="renewalfeestext">@ClientResources.lblRenewalFeespa&nbsp;@String.Format("{0:0.00}", Model.ClientSubscription.SubscriptionMaster.RenewalFeesPerAnnum)
+				@ClientResources.PercentSign</span>
+		</div>
+		@*<div class="rel selectpackage">
+			<span class="slctlft_corn"></span>
+			<a class="pckgeselectbtn">
+				<input name="selectpackage" style="position: absolute; top: 5px;
+					left: 0px;" type="radio" value="on" />				
+				<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></a>
+			<span class="slctrgt_corn"></span>
+		</div>*@
+	</div>
+</div>
+<div class="clr"></div>
+
+<div class="subscription-period-info fl ovfl-hidden">
+	<div class="Form-Wrap">
+		<div class="groupfieldset">
+			<ul class="reset onecolfield">
+				<li>
+					<div class="fl">
+						<label class="width155">@ClientResources.lblSubscriptionperiod: </label>
+						<span class="non-editable-txt">@Model.ClientSubscription.SubscriptionPeriod</span>
+						@ClientResources.lblYear</div>
+					<div class="fl">
+						<label class="width90" style="margin-right: 4px">@ClientResources.lblFrom: </label>
+						<span class="non-editable-txt">@sFromDt</span>						
+					</div>
+					<div class="fl">
+						<label class="width60" style="margin-right: 4px">@ClientResources.lblTo: </label>
+						<span class="non-editable-txt">@sToDt</span>
+					</div>
+				</li>
+			</ul>
+			<div class="clr">
+			</div>
+		</div>
+		<div id="divSubDetailsLt" class="groupfieldset groupfieldsetcol fl">
+			<table width="100%" border="0" cellpadding="2">
+				<tr class="vsmltxt">
+					<th align="left">@ClientResources.lblAdditionalUsers
+					</th>
+					<th align="center">@ClientResources.lblNoofUsers
+					</th>
+					<th align="center">@ClientResources.lblAdditionalCost
+					</th>
+				</tr>
+				<tr>
+					<td>@ClientResources.lblOwnersPlusEmployees
+					</td>
+					<td align="center">
+						<span class="non-editable-txt">@Model.ClientSubscription.AdditionalNoOfEmployees</span>						
+					</td>
+					<td align="center">
+						<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+							&nbsp;</span> 
+						<span class="non-editable-nos">@String.Format("{0:0.00}", Model.ClientSubscription.AdditionalCostForEmployees)</span>						
+					</td>
+				</tr>
+				<tr>
+					<td>@ClientResources.Auditors
+					</td>
+					<td align="center">
+						<span class="non-editable-txt">@Model.ClientSubscription.AdditionalNoOfAuditors</span>						
+					</td>
+					<td align="center">
+						<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+							&nbsp;</span> 
+						<span class="non-editable-nos">@String.Format("{0:0.00}", Model.ClientSubscription.AdditionalCostForAuditors)</span>		
+					</td>
+				</tr>
+				<tr>
+					<td>@ClientResources.Associates
+					</td>
+					<td align="center">
+						<span class="non-editable-txt">@Model.ClientSubscription.AdditionalNoOfAssociates</span>						
+					</td>
+					<td align="center">
+						<span class="WebRupee" style="width: 10px; height: 10px;">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+							&nbsp;</span> 
+							<span class="non-editable-nos">@String.Format("{0:0.00}", Model.ClientSubscription.AdditionalCostForAssociates)</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<strong>@ClientResources.Total</strong>
+					</td>
+					<td align="center">
+						<span class="non-editable-txt">0</span>						
+					</td>
+					<td align="center">
+						<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+							&nbsp;</span>
+						<span class="non-editable-nos">@String.Format("{0:0.00}", 0.00)</span>
+					</td>
+				</tr>
+			</table>
+			<div class="clr">
+			</div>
+		</div>
+		<div id="divSubDetailsRt" class="groupfieldset groupfieldsetcol fr">
+			<ul class="reset onecolfield">
+				<li>
+					<label id="lblSubscriptionfees" class="width130" style="margin-right: 50px;">@ClientResources.lblSubscriptionFees</label>
+					<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+						&nbsp;</span>
+					<span class="non-editable-nos">0.00</span>
+				</li>
+				<li>
+					<label id="lblDiscount" class="width130" style="margin-right: 20px;">@ClientResources.Discount</label>
+					<span class="non-editable-txt" style="width:20px;margin-right: 7px;">@Model.ClientSubscription.DiscountInPercentage</span>					
+					<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+						&nbsp;</span> <span class="non-editable-nos">@String.Format("{0:0.00}", Model.ClientSubscription.DiscountInRupees)</span>					
+				</li>
+				<li>
+					<label id="lblServiceTax" class="width130" style="margin-right: 50px;">@ClientResources.ServiceTax</label>
+					<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+						&nbsp;</span>
+					<span class="non-editable-nos">@String.Format("{0:0.00}", Model.ClientSubscription.ServiceTax)</span>
+				</li>
+				<li>
+					<label id="lblOtherTax" class="width130" style="margin-right: 50px;">@ClientResources.OtherTax</label>
+					<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+						&nbsp;</span>
+					<span class="non-editable-nos">@String.Format("{0:0.00}", Model.ClientSubscription.OtherTax)</span>
+				</li>
+				<li>
+					<label id="lblNetAmount" class="width130" style="margin-right: 50px;">@ClientResources.NetAmount</label>
+					<span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+						&nbsp;</span>
+					<span class="non-editable-nos">@String.Format("{0:0.00}", Model.ClientSubscription.NetAmount)</span>
+				</li>
+				
+			</ul>
+			<div class="clr">
+			</div>
+		</div>
+		<div class="clr">
+		</div>
+		<div class="groupfieldset">
+			<ul class="reset onecolfield">
+				<li>
+					<label class="width130">@ClientResources.lblCalculationcolon</label>
+					<p style="padding: 0; margin: 5px 0 0 0; font-size: 12px;">@ClientResources.lblSubscriptionFees
+						- @ClientResources.Discount + @ClientResources.lblAdditionalUsers + Tax = @ClientResources.NetAmount</p>
+				</li>
+			</ul>
+			<div class="clr">
+			</div>
+		</div>
+		<div class="clr">
+		</div>
+		<div class="groupfieldset">
+			<ul class="reset leftfield fl">
+				<li>
+					<label id="lblAccountStatus" class="width155">@ClientResources.lblAccountStatus</label>
+					<span class="non-editable-txt">@Model.ClientSubscription.Status</span>					
+				</li>
+				<li>
+					<label id="lblActivationDate" class="width155">@ClientResources.lblActivationDate</label>
+					<span class="non-editable-txt">@sActivationDt</span>					
+				</li>
+			</ul>
+			<ul class="reset leftfield fr" style="width: 48%">
+				<li>
+					<label id="lblAdditionalInfo" class="width130">@ClientResources.lblAdditionalInfo</label>
+					<span class="non-editable-txt">@Model.ClientSubscription.AdditionalInfo</span>					
+				</li>
+			</ul>
+		</div>
+		<div class="clr">
+		</div>
+	</div>
+</div>
+</div>

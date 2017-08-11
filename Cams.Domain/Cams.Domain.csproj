@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cams.Domain</RootNamespace>
+    <AssemblyName>Cams.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppServices\BusinessNotifier.cs" />
+    <Compile Include="AppServices\Container.cs" />
+    <Compile Include="AppServices\GlobalContext.cs" />
+    <Compile Include="AppServices\IBusinessNotifier.cs" />
+    <Compile Include="AppServices\IGlobalContext.cs" />
+    <Compile Include="AppServices\IRequestContext.cs" />
+    <Compile Include="AppServices\WcfRequestContext\InstanceCreationAttribute.cs" />
+    <Compile Include="AppServices\WcfRequestContext\InstanceCreationExtension.cs" />
+    <Compile Include="AppServices\WcfRequestContext\InstanceCreationInitializer.cs" />
+    <Compile Include="AppServices\WcfRequestContext\RequestContext.cs" />
+    <Compile Include="Entities\ActivityLog.cs" />
+    <Compile Include="Entities\ClientRegistration\BusinessConstitution.cs" />
+    <Compile Include="Entities\ClientRegistration\Client.cs" />
+    <Compile Include="Entities\ClientMasters\Bank.cs" />
+    <Compile Include="Entities\ClientMasters\BankBranch.cs" />
+    <Compile Include="Entities\ClientMasters\ChargesPayableTo.cs" />
+    <Compile Include="Entities\ClientMasters\ClientMasterBusinessRule.cs" />
+    <Compile Include="Entities\ClientMasters\Commodity.cs" />
+    <Compile Include="Entities\ClientMasters\CommodityBusinessRule.cs" />
+    <Compile Include="Entities\ClientMasters\CommodityClass.cs" />
+    <Compile Include="Entities\ClientMasters\LabourChargeType.cs" />
+    <Compile Include="Entities\ClientMasters\LabourChargeTypeBusinessRule.cs" />
+    <Compile Include="Entities\ClientMasters\MeasuringUnit.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientBusinessConstitutionHistory.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientCommoditiesHistory.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientHolidayCalender.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPartnerBankDetails.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPartnerDetails.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPartnerGuardianDetails.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPartnerHistory.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPartnerNomineeDetails.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPhoneCharges.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPhoneChargesHistory.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientPrimaryContactPerson.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientRegistrationBusinessRules.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientSisterConcern.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientSubscription.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientSubscriptionPaymentDetails.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientTaxationAndLicenses.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientWeeklyOffDay.cs" />
+    <Compile Include="Entities\ClientRegistration\ClientWeeklyOffDayHistory.cs" />
+    <Compile Include="Entities\ClientRegistration\SubscriptionMaster.cs" />
+    <Compile Include="Entities\ContactDetails.cs" />
+    <Compile Include="Entities\Email\ClientProfileChangeRequestFields.cs" />
+    <Compile Include="Entities\Email\ClientProfileChangeRequests.cs" />
+    <Compile Include="Entities\Email\EmailAttachment.cs" />
+    <Compile Include="Entities\Email\EmailMessages.cs" />
+    <Compile Include="Entities\Masters\APMC.cs" />
+    <Compile Include="Entities\Masters\CityVillage.cs" />
+    <Compile Include="Entities\Masters\Country.cs" />
+    <Compile Include="Entities\Masters\District.cs" />
+    <Compile Include="Entities\Masters\MastersBusinessRule.cs" />
+    <Compile Include="Entities\Masters\State.cs" />
+    <Compile Include="Entities\Masters\Zone.cs" />
+    <Compile Include="Entities\Menu\Menus.cs" />
+    <Compile Include="Entities\Menu\ParentChildMenus.cs" />
+    <Compile Include="Entities\Users\Designation.cs" />
+    <Compile Include="Entities\Users\DesignationBusinessRules.cs" />
+    <Compile Include="Entities\Users\Relationship.cs" />
+    <Compile Include="Entities\Users\UserEmergencyContactPerson.cs" />
+    <Compile Include="Entities\Users\UserGroupRolePermission.cs" />
+    <Compile Include="Entities\Users\UserProfile.cs" />
+    <Compile Include="Entities\Users\UserRolePermission.cs" />
+    <Compile Include="Entities\Users\viewUserUserGroupRolePermissions.cs" />
+    <Compile Include="Entities\WeekDays.cs" />
+    <Compile Include="Entities\WeeklyHalfDay.cs" />
+    <Compile Include="Entities\WeeklyOffDays.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\AddressBusinessRules.cs" />
+    <Compile Include="AutoMapper\AutoMapperConfigurator.cs" />
+    <Compile Include="Entities\BusinessRule.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\Users\EmailValidationSpecification.cs" />
+    <Compile Include="Entities\Users\Role.cs" />
+    <Compile Include="Entities\Users\User.cs" />
+    <Compile Include="Entities\Users\UserBusinessRules.cs" />
+    <Compile Include="Entities\Users\UserGroup.cs" />
+    <Compile Include="Entities\Users\UserGroupBusinessRules.cs" />
+    <Compile Include="Entities\Users\RelationshipBusinessRules.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IRepositoryLocator.cs" />
+    <Compile Include="Repository\IResetable.cs" />
+    <Compile Include="Repository\RepositoryLocatorBase.cs" />
+    <Compile Include="Services\ActivityLogService .cs" />
+    <Compile Include="Services\AddressService.cs" />
+    <Compile Include="Services\APMCService.cs" />
+    <Compile Include="Services\BankBranchService.cs" />
+    <Compile Include="Services\BankService.cs" />
+    <Compile Include="Services\BusinessConstitutionService.cs" />
+    <Compile Include="Services\ChargesPayableToService.cs" />
+    <Compile Include="Services\CityVillageService.cs" />
+    <Compile Include="Services\ClientBusinessConstitutionHistoryService.cs" />
+    <Compile Include="Services\ClientCommoditiesHistoryService.cs" />
+    <Compile Include="Services\ClientHolidayCalenderService.cs" />
+    <Compile Include="Services\ClientPartnerHistoryService.cs" />
+    <Compile Include="Services\ClientPhoneChargesHistoryService.cs" />
+    <Compile Include="Services\ClientPrimaryContactPersonService.cs" />
+    <Compile Include="Services\ClientProfileChangeRequestsService.cs" />
+    <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\ClientWeeklyOffDayHistoryService.cs" />
+    <Compile Include="Services\ClientWeeklyOffDayService.cs" />
+    <Compile Include="Services\CommodityClassService.cs" />
+    <Compile Include="Services\CommodityService.cs" />
+    <Compile Include="Services\CountryMasterService.cs" />
+    <Compile Include="Services\DesignationService.cs" />
+    <Compile Include="Services\DistrictService.cs" />
+    <Compile Include="Services\LabourChargeTypeService.cs" />
+    <Compile Include="Services\MeasuringUnitService.cs" />
+    <Compile Include="Services\RelationshipService.cs" />
+    <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\ServiceBaseReadOnly.cs" />
+    <Compile Include="Services\StateService.cs" />
+    <Compile Include="Services\SubscriptionMasterService.cs" />
+    <Compile Include="Services\UserGroupService.cs" />
+    <Compile Include="Services\UserRolePermissionService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\ServerContractLocator.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\WeeklyHalfDayService.cs" />
+    <Compile Include="Services\WeeklyOffDaysService.cs" />
+    <Compile Include="Services\ZoneService.cs" />
+    <Compile Include="TransManager\ITransFactory.cs" />
+    <Compile Include="TransManager\ITransManager.cs" />
+    <Compile Include="TransManager\TransManagerBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cams.Common\Cams.Common.csproj">
+      <Project>{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}</Project>
+      <Name>Cams.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

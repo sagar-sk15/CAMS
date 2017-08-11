@@ -1,0 +1,143 @@
+﻿@using Cams.Common.Dto.ClientMasters
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Models.ClientRegistration
+
+@*Resource Key related to this page have prefix CLRAPMC*@
+
+@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+<div class="panes-data">
+    <h1>
+        APMC Details</h1>
+    <div class="Form-Wrap">
+        <div class="groupfieldset">
+            <ul class="reset leftfield fl" style="width: 100%">
+                <li>
+                    <label id="lblAPMCList" class="width120">
+                        @ClientResources.CLRAPMCName</label>
+                    <table>
+                        <tr>
+                            <td>
+                                @Html.DevExpress().ComboBox(cmbsettings =>
+                                {
+                                    cmbsettings.Name = "APMCList";
+                                    cmbsettings.Properties.DropDownStyle = DevExpress.Web.ASPxEditors.DropDownStyle.DropDownList;
+                                    cmbsettings.Width = System.Web.UI.WebControls.Unit.Pixel(250);
+                                    cmbsettings.SelectedIndex = 0;
+                                    cmbsettings.ControlStyle.Font.Name = "DejaVu Serif";
+                                    cmbsettings.ControlStyle.Font.Size = System.Web.UI.WebControls.FontUnit.Point(10);
+                                    cmbsettings.ControlStyle.CssClass = "comboBoxControl";
+                                    cmbsettings.CallbackRouteValues = new { Controller = "Masters", Action = "GetUpdatedApmcList" };
+                                    cmbsettings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                                    cmbsettings.Properties.TextFormatString = "{0}";
+                                    cmbsettings.Properties.ValueField = "APMCId";
+                                    cmbsettings.Properties.TextField = "Name";
+                                    cmbsettings.Properties.ClientSideEvents.SelectedIndexChanged = "APMCSelect";
+                                    cmbsettings.Properties.ClientSideEvents.Init = "APMCSelect";
+                                    cmbsettings.Properties.Columns.Add("Name");
+                                    cmbsettings.Properties.ValueType = typeof(int);
+                                    cmbsettings.Properties.CallbackPageSize = 30;
+                                    cmbsettings.Properties.ClientSideEvents.BeginCallback = "APMCList_OnBeginCallback";
+                                    cmbsettings.Properties.ClientSideEvents.EndCallback = "APMCList_OnEndCallback";
+
+                                }).BindList(ClientRegistrationModel.GetAllApmc()).Bind(Model.HiddenFieldForAPMCValue).GetHtml()
+                            </td>
+                            @*<td>
+                                <a href="javascript:PopupAddApmc.Show();" class="addnew"></a>
+                            </td>*@
+                        </tr>
+                    </table>
+                    @*@Html.Partial("CallBackPopupAddApmc", Model.ApmcModel)*@
+                </li>
+                <li>
+                    <label id="lblAPMCLicenseNo" class="width120">
+                        @ClientResources.CLRAPMCLicenseNo</label>
+                    @Html.TextBoxFor(model => model.APMCLicenseNo, new { @class = "required width145" })
+                </li>
+                <li>
+                    <label id="lblAPMCValidUpto" class="width120">
+                        @ClientResources.CLRAPMCValidupto</label>
+                        @Html.DevExpress().DateEdit(settings =>
+                        {
+                            settings.Width = System.Web.UI.WebControls.Unit.Pixel(110);
+                            settings.Name = "APMCLicenseValidUpToDate";
+                            settings.Properties.NullText = "DD-MM-YYYY";
+                            settings.Properties.EditFormat = DevExpress.Web.ASPxEditors.EditFormat.Custom;
+                            settings.Properties.EditFormatString = Cams.Common.Constants.DATEFORMATFORDISPAY;
+                            settings.Properties.UseMaskBehavior = true;
+                            settings.ControlStyle.Font.Name = "DejaVu Serif";
+                            settings.ControlStyle.CssClass = "required width145";
+                            settings.ControlStyle.BackColor = System.Drawing.Color.White;
+                            settings.Date = DateTime.Today;
+                            settings.Properties.MinDate = DateTime.Now;
+                        }).Bind(Model.APMCLicenseValidUpTo).GetHtml()
+
+                </li>
+            </ul>
+        </div>
+        <div class="groupfieldset">
+            <ul class="reset leftfield fl" style="width: 50%">
+                <li>
+                    <label id="lblAPMCAddress" class="width120">
+                        @ClientResources.CLRAPMCAddress</label>
+                        <span id="APMCAddress" class="non-editable-txt"></span>                    
+                </li>
+                <li>
+                    <label id="lblAPMCState" class="width120">
+                        @ClientResources.CLRAPMCState</label>
+                        <span id="APMCState" class="non-editable-txt"></span>
+                </li>
+                <li>
+                    <label id="lblAPMCCountry" class="width120">
+                        @ClientResources.CLRAPMCCountry</label>
+                        <span id="APMCCountry" class="non-editable-txt"></span>                    
+                </li>
+            </ul>
+            <ul class="reset rightfield fr" style="width: 50%;">
+                <li>
+                    <label id="lblEmail" class="width120">
+                        @ClientResources.CLRAPMCEmail</label>
+                    <span id="APMCEmail" class="non-editable-txt"></span>                    
+                </li>
+                <li>
+                    <label id="lblMobileNo" class="width120">
+                        @ClientResources.CLRAPMCMobileNo</label>
+                    <span id="APMCMobileNo" class="non-editable-txt"></span>                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="groupfieldset">
+           <label id="lblCommodity" class="width120">@ClientResources.CLRAPMCCommodityClass</label>
+        <br />
+        <div class="ApmcCommodityCheckboxBorder">
+       
+        @Html.Hidden("hdnCommodityClassCount",Model.CommodityClassDtoList.Count)
+            @for (int i = 0; i < Model.CommodityClassDtoList.Count; i++)
+            {
+                @Html.Hidden("hdnCommodityClassId" + @i, @Model.CommodityClassDtoList[i].CommodityClassId)
+                if (i != (Model.CommodityClassDtoList.Count / 2))
+                {
+                <ul class="reset leftfield fl" style="width: 50%">
+                    <li>
+                        @Html.CheckBoxFor(model => model.CommodityClassDtoList[i].IsActive, new { @id = "chkCommodityClass" + @i, @name = "chkCommodityClass" + @i })                                              
+                        <label class="CommodityClassLabels">@Model.CommodityClassDtoList[i].Name
+                        </label>
+                    </li>
+                </ul>
+                }
+                else
+                {
+                <ul class="reset rightfield fr" style="width: 50%">
+                    <li>
+                        @Html.CheckBoxFor(model => model.CommodityClassDtoList[i].IsActive, new { @id = "chkCommodityClass" + @i, @name = "chkCommodityClass" + @i })
+                        <label class="CommodityClassLabels">@Model.CommodityClassDtoList[i].Name
+                        </label>
+                    </li>
+                </ul>
+                }
+            }
+        </div>
+    
+    </div>
+</div>
+@Html.HiddenFor(model=>model.HiddenFieldForAPMCValue)

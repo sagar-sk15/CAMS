@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  NHibernate Configuration
+  ========================
+-->
+  <objects xmlns="http://www.springframework.net">
+
+     <!--CLIENT SERVICE LOCATOR--> 
+    <object 
+            id="ClientServiceLocatorRef" 
+            type="Cams.Extension.Services.ClientServiceLocator, Cams.Extension"  
+            factory-method="Instance" 
+            singleton="true">
+      
+      <property name="ContractLocator" ref="ClientContractLocatorRef" />
+    </object>
+    
+     <!--Client Contract Locator--> 
+    <object 
+            id="ClientContractLocatorRef" 
+            type="Cams.Extension.Services.ClientContractLocator, Cams.Extension">
+      
+      <property name="NextAdapterLocator" ref="ContractLocatorRef" />
+    </object>
+    
+    <!-- Next Adapter Locator -->
+    <object
+            id="ContractLocatorRef"
+            type="Cams.Domain.Services.ServerContractLocator, Cams.Domain" />
+
+
+    <!-- SERVER CONTAINER -->
+    <object
+        id="ServerContainerRef"
+        type="Cams.Domain.AppServices.Container, Cams.Domain"
+        singleton="true">
+
+      <property name="RequestContext" ref="RequestContextRef" />
+    </object>
+
+     <!--Request Context-->
+    <object
+            id="RequestContextRef"
+            type="Cams.Extension.AppServices.RequestContextExtension, Cams.Extension" />
+
+
+    <!-- Global Context -->
+    <object
+            id="GlobalContextRef"
+            type="Cams.Domain.AppServices.GlobalContext, Cams.Domain"
+            factory-method="Instance"
+            singleton="true">
+
+      <property name="TransFactory" ref="TransFactoryRef" />
+    </object>
+
+    <!-- Transaction Factory -->
+    <object
+            id="TransFactoryRef"
+            type="Cams.Dal.TransManager.TransManagerFactoryNh, Cams.Dal">
+      
+      <!--<property name="ConfigurationFileName" value="nhibernate.cfg.xml" />-->
+      <!--"Server=ack7\SQLEXPRESS;;Database=CAMS.DataBase;Trusted_Connection=True;"-->
+      <property name="ConnectionString" value="Server=(local);Database=CAMS;Trusted_Connection=True;" />
+    </object>
+
+    <!-- AutoMapper -->
+    <object
+            id="AutoMapperConfiguratorRef"
+            type="Cams.Domain.Entities.AutoMapperConfigurator, Cams.Domain"
+            init-method="Install" />
+
+    
+  </objects>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6ac1e883-a1d5-4cbb-96e9-86fd4d800607" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ae167188-c28c-4b16-b340-429331f9c338" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="b1ab2687-5948-403f-b107-38e0722c733e" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="84cb0b83-aa62-422a-aa7d-940b83062845" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="946afc43-20ff-478f-89d4-4dae769b4318" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="333772b9-bf51-4c11-9c54-17ab28f057f5" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="9d1a61a3-b84c-4877-a1bb-42375beb1225" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="32a23f86-7a55-4af9-8e9c-d24c96027c4c" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="2f164657-a1a8-4163-a103-774b4842068e" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="7238eb7f-c5aa-407b-9a9b-0d9898a3ed9c" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="f173e1bf-8a0b-4045-9846-50c63af4d7a2" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/LabourChargeTypesWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

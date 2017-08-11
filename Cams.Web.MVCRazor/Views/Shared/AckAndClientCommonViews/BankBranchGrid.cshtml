@@ -1,0 +1,155 @@
+﻿@using Cams.Web.MVCRazor
+@using Cams.Common.Dto
+
+@Html.DevExpress().GridView(
+                    settings =>
+                    {
+                        settings.Name = "BankBranchListGridViewDataBinding";
+                        settings.CallbackRouteValues = new { Controller = "BankBranch", Action = "BankBranchListGridView" };
+                        settings.ClientSideEvents.BeginCallback = "BankBranchListGridViewBeginCallback";
+                        settings.Settings.ShowTitlePanel = false;
+                        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                        settings.ControlStyle.CssClass = "fontName";
+                        settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+                        settings.SettingsPager.ShowEmptyDataRows = true;
+                        settings.SettingsPager.AlwaysShowPager = true;
+                        settings.SettingsPager.PageSize = 10;
+                        settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+                        settings.SettingsPager.FirstPageButton.Visible = true;
+                        settings.SettingsPager.LastPageButton.Visible = true;
+                        settings.Settings.ShowFilterRow = true;
+                        settings.Settings.ShowGroupPanel = true;
+                        settings.Styles.Header.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                        settings.KeyFieldName = "BranchId";
+                        settings.SettingsBehavior.AllowFocusedRow = true;
+                        
+                        settings.ClientSideEvents.FocusedRowChanged = "OnBankBranchListGridViewDataBindingFocusedRowChanged";
+
+                        settings.CustomCallback = (sender, e) =>
+                        {
+                            int layoutIndex = Int32.Parse(e.Parameters);
+                            MVCxGridView grid = (MVCxGridView)sender;
+
+                            grid.BeginUpdate();
+                            try
+                            {
+                                grid.ClearSort();
+                                switch (layoutIndex)
+                                {
+                                    case 0:
+                                        grid.GroupBy(grid.Columns["BranchOfBank.BankName"]);
+                                        break;
+                                    case 1:
+                                        grid.GroupBy(grid.Columns["BranchAddress.CityVillage.Name"]);
+                                        break;
+                                    case 2:
+                                        grid.GroupBy(grid.Columns["IFSC"]);
+                                        break;
+                                    case 3:
+                                        grid.GroupBy(grid.Columns["MICR"]);
+                                        break;
+                                    case 4:
+                                        grid.GroupBy(grid.Columns["SWIFT"]);
+                                        break;
+                                }
+                            }
+                            finally
+                            {
+                                grid.EndUpdate();
+                            }
+                            grid.ExpandAll();
+                        };
+
+                        settings.Columns.Add(column =>
+                        {
+                            column.FieldName = "BranchId";
+                            column.Caption = "Branch";
+                            column.CellStyle.CssClass = "fontName";
+                            column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Left;
+                            column.Settings.AllowAutoFilter = DefaultBoolean.True;
+                            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                            column.ColumnType = MVCxGridViewColumnType.HyperLink;
+                            HyperLinkProperties properties = column.PropertiesEdit as HyperLinkProperties;
+                            String urlFormatString = Url.Action("GetBankBranchView", "BankBranch", new RouteValueDictionary(new { branchid = "{0}" }));
+                            properties.Style.Font.Name = "DejaVu Serif";
+                            properties.NavigateUrlFormatString = HttpUtility.UrlDecode(urlFormatString);
+                            properties.TextField = "Name";
+                        });
+                        settings.Columns.Add("BranchAddress.CityVillage.Name", "City").CellStyle.CssClass = "fontName";
+                        settings.Columns.Add("IFSCCode", "IFSC").CellStyle.CssClass = "fontName";
+                        settings.Columns.Add("MICRCode", "MICR").CellStyle.CssClass = "fontName";
+                        settings.Columns.Add("SWIFTCode", "SWIFT").CellStyle.CssClass = "fontName";
+                                        
+
+                        settings.Columns.Add(column =>
+                        {
+                            column.Caption = "Contacts";
+                            column.CellStyle.CssClass = "fontName";
+                            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                            column.Width = System.Web.UI.WebControls.Unit.Percentage(30);
+                            column.SetDataItemTemplateContent(c =>
+                            {
+                                Html.DevExpress().Label(editSettings =>
+                                {
+                                    editSettings.Text = string.Empty;
+                                    editSettings.ControlStyle.CssClass = "fontName";
+
+                                    foreach (ContactDetailsDto contact in (ContactDetailsDto[])DataBinder.Eval(c.DataItem, "BranchContactNos"))
+                                    {
+                                        editSettings.Text += contact.ContactNoType.ToString() + ": (" + contact.CountryCallingCode + ") " + ((contact.ContactNoType.ToString() != Cams.Common.ContactType.MobileNo.ToString()) ? contact.STDCode + " - " : string.Empty) + contact.ContactNo + "\n";
+                                    }
+                                    editSettings.Text += ((ContactDetailsDto[])DataBinder.Eval(c.DataItem, "BranchContactNos")).Length > 0 ? "\n" : string.Empty;
+
+                                    //editSettings.Text += (!String.IsNullOrEmpty(website) ? "Website: " + website : string.Empty) + (!String.IsNullOrEmpty(email1) ? "\neMail1: " + email1 : string.Empty) + (!String.IsNullOrEmpty(email2) ? "\neMail2: " + email2 : string.Empty);
+                                }).GetHtml().ToHtmlString();
+                                
+                                string website = (string)DataBinder.Eval(c.DataItem, "BranchOfBank.URL");
+                                string email1 = (string)DataBinder.Eval(c.DataItem, "Email1");
+                                string email2 = (string)DataBinder.Eval(c.DataItem, "Email2");
+                                
+                                website = !String.IsNullOrEmpty(website) ?
+                                   Html.DevExpress().HyperLink(linksetting =>
+                                   {
+                                       linksetting.Properties.Text = website;
+                                       linksetting.Properties.Style.CssClass = "fontName";
+                                       linksetting.Properties.Target = "_blank";
+                                       linksetting.NavigateUrl = website.Contains(Cams.Common.Constants.HTTP) ? website : Cams.Common.Constants.HTTP + website;
+                                   }).GetHtml().ToString()
+                                   : string.Empty;
+
+                                if (!String.IsNullOrEmpty(email1)) { ViewContext.Writer.Write("<br />"); }
+                                email1 = !String.IsNullOrEmpty(email1) ? 
+                                    Html.DevExpress().HyperLink(linksetting =>
+                                    {
+                                        linksetting.Properties.Text = email1;
+                                        linksetting.Properties.Style.CssClass = "fontName";
+                                        linksetting.NavigateUrl = Cams.Common.Constants.MAILTO + email1;
+                                    }).GetHtml().ToString()
+                                    : string.Empty;
+
+                                if (!String.IsNullOrEmpty(email2)) { ViewContext.Writer.Write("<br />"); }
+                                email2 = !String.IsNullOrEmpty(email2) ? 
+                                    Html.DevExpress().HyperLink(linksetting =>
+                                    {
+                                        linksetting.Properties.Text = email2;
+                                        linksetting.Properties.Style.CssClass = "fontName";
+                                        linksetting.NavigateUrl = Cams.Common.Constants.MAILTO + email2;
+                                    }).GetHtml().ToString()
+                                    : string.Empty;
+                            });
+                        });
+
+                        settings.Settings.ShowFooter = true;
+                        settings.SetFooterRowTemplateContent(footer =>
+                        {
+                            Html.DevExpress().HyperLink(linkSettings =>
+                            {
+                                linkSettings.Name = "EditButton";
+                                linkSettings.Properties.Style.CssClass = "button_Edit";
+                                linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                                linkSettings.NavigateUrl = Url.Action("AddBankBranchIndex", "BankBranch", new { mode = "edit" });
+                            }).Render();
+                        });
+                        
+                    }).Bind(ViewData["BankBranchListGrid"]).GetHtml()

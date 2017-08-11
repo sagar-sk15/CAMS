@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0c8ea4ff-6cb9-4b41-bf29-976713a42542" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2454ef1f-fe02-498f-bfa1-d54023354aea" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="03f5e311-d7e5-44ff-9dce-af1753bf65b3" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="20ce4efd-e75d-420b-83d7-2cf424d9f22e" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="927f7c4e-8e3c-4f21-8746-8d5a12a8238d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="9a6f9473-893a-47bb-b99f-fa57545d104e" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="9db4393d-24de-42c0-bbd5-a2b82facf2ec" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="3ea556fc-2a9a-440f-be7a-0b6a43c4c01d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="97b6647a-ebc8-4dd9-a5cb-d744a6a5c42b" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="89fd9de5-80e1-4f49-8c17-b492a09a6c74" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="f7b7c3c0-9c15-4568-afe5-0f536b8ca6c6" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="b07d2a50-8089-4629-8f49-a2ffa4c1c16d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="88b68384-0ec8-4ba5-a95e-959812f7ad67" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="30fd2b8c-473f-4e82-91d6-ded55e268264" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="eae8b51a-faba-4526-b944-8a2acb8318e1" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/RoleWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

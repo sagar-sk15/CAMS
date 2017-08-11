@@ -1,0 +1,96 @@
+﻿@using Cams.Web.MVCRazor;
+@model Cams.Web.MVCRazor.Models.ClientMasters.ZoneModel
+
+@{
+    ViewBag.Title = "AddZone";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+
+@section Scripts{
+    $(document).ready(function () {
+            HighlightClientAdminMainMenu('#mnuMasters');
+    });
+}
+
+
+@section MainBody
+{
+    @{
+        string mode = string.Empty;
+        if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+        {
+            mode = Request.QueryString["mode"];
+        }
+    }
+      <div class="page-data fl">
+      @using (Html.BeginForm("AddZone", "ClientMasters", new {mode = mode}, FormMethod.Post))
+      {
+        <div class="panes">
+          <div class="panes-data">
+            <h1>
+                @if (!String.IsNullOrEmpty(mode))
+                {
+                    @ClientResources.EditZoneH1;
+                }
+                else
+                { 
+                    @ClientResources.AddZoneH1;
+                }
+            
+            </h1>
+            @if (ViewData["Error"] != null)
+            {
+                <div class="response-msg error-msg">
+                    <span>@ViewData["Error"].ToString()</span>
+                    <br />
+                    <span>@Html.ValidationSummary(true)</span>
+                </div>
+            }
+            <div style="background:#fffcfc;color:#FF0000">@Html.ValidationSummary(false)</div>
+            <div class="Form-Wrap">
+              
+                <ul class="reset onecolfield fl">
+                  <li>
+                    <label id="lblZonefor" class="width75">@ClientResources.AddZonelblZonefor</label>
+                    @Html.DropDownListFor(model => model.ZoneFor,
+                    new List<SelectListItem> { 
+                            new SelectListItem { Text = Cams.Common.ZoneFor.Customer.ToString(), Value = Cams.Common.ZoneFor.Customer.ToString()},
+                            new SelectListItem { Text = Cams.Common.ZoneFor.Supplier_Farmer.ToString(), Value = Cams.Common.ZoneFor.Supplier_Farmer.ToString() },
+                            new SelectListItem { Text = Cams.Common.ZoneFor.Supplier_Trader.ToString(), Value = Cams.Common.ZoneFor.Supplier_Trader.ToString()},
+                            new SelectListItem { Text = Cams.Common.ZoneFor.Transporter.ToString(), Value = Cams.Common.ZoneFor.Transporter.ToString()}
+                    },"---Please Select---", new { @class = "required", name = "ddlZonefor", id = "ddlZonefor" })
+                  </li>
+                  <li>
+                    <div class="fl">
+                      <label id="lblZone" class="width75">@ClientResources.AddZonelblZone</label>
+                      @Html.TextBoxFor(model => model.Name, new { name = "txtZone", type = "text", @class = "required", id = "txtZone", value = "", maxlength = "60" })
+                    </div>
+                    <div class="clr"></div>
+                  </li>
+                  <li>
+                    <label id="lblStatus" class="width85 label-radio-pad">@ClientResources.AddZonelblStatus</label>
+                    @Html.RadioButtonFor(model => model.IsActive, true, new { @class = "radio-botton", id = "rbtnActiveStatus", name = "rbtnStatus", @checked = "checked" })
+                    <label class="label-radio fl">@ClientResources.AddZonerbtnTextActive</label>
+                    @Html.RadioButtonFor(model => model.IsActive, false, new { @class = "radio-botton", id = "rbtnInactiveStatus", name = "rbtnStatus" })
+                    <label class="label-radio fl">@ClientResources.AddZonerbtnTextInactive</label>
+                    <div class="clr"></div>
+                  </li>
+                  </ul>
+                  <div class="clr"></div>
+                    <ul class="reset input-botton">
+                  <li>
+                    <label class="width75">&nbsp;</label>
+                    <input type="image" src=@Url.Content("~/Content/images/control/save.jpg") name="imgbtnSave" id="imgbtnSave" />
+                  </li>
+                  <li>
+                    <label class="width75">&nbsp;</label>
+                    <div class="text-link">@ClientResources.AddZoneCancelText&nbsp;<a href="#">@Html.ActionLink(ClientResources.AddZoneCancelLinkText, "ZoneListIndex", "ClientMasters")</a></div>
+                  </li>
+                </ul>
+              
+            </div>
+          </div>
+        </div>
+      }
+      </div>
+}

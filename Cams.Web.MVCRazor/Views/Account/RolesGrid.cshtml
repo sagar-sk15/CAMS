@@ -1,0 +1,130 @@
+﻿@model IList<Cams.Web.MVCRazor.Models.Account.RoleModel>   
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "detailGrid_" + ViewData["RoleGroup"];
+        settings.SettingsDetail.MasterGridName = "gvRoleGroups";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "GetRolesList", RoleGroup = ViewData["RoleGroup"] };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.ControlStyle.CssClass = "fontName";
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PermissionForRole.RoleName";
+            column.ReadOnly = true;
+        });
+        settings.KeyFieldName = "RolePermissionId";
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowAdd";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+                        {
+                            bool isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "PermissionForRole.IsAddApplicable");
+                            c.Column.ReadOnly = isReadOnly;
+                            ViewContext.Writer.Write("<input type='hidden' value='"
+                                        + DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId") + "' "
+                                        + " id='hdnRoleId" + DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId") + "' />");
+                            Html.DevExpress().CheckBox(chkSettings =>
+                            {
+                                chkSettings.Name = "detailGrid_" + ViewData["RoleGroup"] + "chkAdd" + c.KeyValue;
+                                chkSettings.ReadOnly = isReadOnly;
+                                if (isReadOnly)
+                                {
+                                    chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+
+                                }
+                                chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChanged(s, '{0}', {1}, '{2}','{3}','{4}','{5}'); }}",
+                                                    c.Column.FieldName, c.KeyValue, DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId"), ViewData["RoleGroup"], Request.Params["usergroupid"], Url.Action("UpdateRoleValue", "Account", null));
+                                
+
+                            }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+                        });
+
+
+        });
+        //settings.Columns.Add("PermissionForRole.RoleId");
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowEdit";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "PermissionForRole.IsEditApplicable");
+                c.Column.ReadOnly = isReadOnly;
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkEdit" + DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId");
+                    chkSettings.ReadOnly = isReadOnly;
+                    if (isReadOnly)
+                        chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChanged(s, '{0}', {1}, '{2}','{3}','{4}','{5}'); }}",
+                                                    c.Column.FieldName, c.KeyValue, DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId"), ViewData["RoleGroup"], Request.Params["usergroupid"],Url.Action("UpdateRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowView";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "PermissionForRole.IsViewApplicable");
+                c.Column.ReadOnly = isReadOnly;
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkView" + DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId");
+                    chkSettings.ReadOnly = isReadOnly;
+                    if (isReadOnly)
+                        chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChanged(s, '{0}', {1}, '{2}','{3}','{4}','{5}'); }}",
+                                                    c.Column.FieldName, c.KeyValue, DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId"), ViewData["RoleGroup"], Request.Params["usergroupid"], Url.Action("UpdateRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowDelete";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "PermissionForRole.IsDeleteApplicable");
+                c.Column.ReadOnly = isReadOnly;
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkDelete" + DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId");
+                    chkSettings.ReadOnly = isReadOnly;
+                    if (isReadOnly)
+                        chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChanged(s, '{0}', {1}, '{2}','{3}','{4}','{5}'); }}",
+                                                    c.Column.FieldName, c.KeyValue, DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId"), ViewData["RoleGroup"], Request.Params["usergroupid"], Url.Action("UpdateRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowPrint";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "PermissionForRole.IsPrintApplicable");
+                c.Column.ReadOnly = isReadOnly;
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkPrint" + DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId");
+                    chkSettings.ReadOnly = isReadOnly;
+                    if (isReadOnly)
+                        chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChanged(s, '{0}', {1}, '{2}','{3}','{4}','{5}'); }}",
+                                                    c.Column.FieldName, c.KeyValue, DataBinder.Eval(c.DataItem, "PermissionForRole.RoleId"), ViewData["RoleGroup"], Request.Params["usergroupid"], Url.Action("UpdateRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+        });
+
+        settings.ClientSideEvents.BeginCallback = "function(s,e) {e.customArgs['userGroupId']=$.QueryString['usergroupid'];}";
+        settings.Settings.ShowFooter = true;
+    }).Bind(Model).GetHtml()

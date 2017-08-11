@@ -1,0 +1,111 @@
+﻿@using Cams.Web.MVCRazor.Models.ClientRegistration
+@using Cams.Web.MVCRazor
+@*Resource kay related to this page have prefix CSPD*@
+@model IList<ClientSubscriptionPaymentDetailsModel>
+@{
+    string[] check = new string[4];
+    string strcheck = "checked";
+    check[0] = Model[0].Amount > 0 ? strcheck : string.Empty;
+    check[1] = Model[1].Amount > 0 ? strcheck : string.Empty;
+    check[2] = Model[2].Amount > 0 ? strcheck : string.Empty;
+    check[3] = Model[3].Amount > 0 ? strcheck : string.Empty;
+}
+<div class="panes-data">
+    <h1>
+        Payment Details</h1>
+    <div class="Form-Wrap">
+        <div class="groupfieldset">
+            <ul class="reset onecolfield fl" style="width: 100%">
+                <li>
+                    <div class="fl">
+                        <label id="lblTotalUser" class="width100">
+                            @ClientResources.CSPDPaidBy</label>
+                        @{
+                            if (Model[0].CashAmount != 0)
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('Cash');" id="Cashcheckbox" checked=@check[0] />
+                            }
+                            else
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('Cash');" id="Cashcheckbox" />
+                            }
+                            @ClientResources.CSPDCash 
+                            if (Model[1].ChequeAmount != 0)
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('Cheque');" id="Chequecheckbox" checked=@check[1] />
+                            }
+                            else
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('Cheque');" id="Chequecheckbox" />
+                            }
+                            @ClientResources.CSPDCheque 
+                            if (Model[2].OnlineAmount != 0)
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('Online');" id="Onlinecheckbox" checked=@check[2] />
+                            }
+                            else
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('Online');" id="Onlinecheckbox" />
+                            }
+                            @ClientResources.CSPDOnline 
+                            if (Model[3].DDAmount != 0)
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('DD');" id="DDcheckbox" checked=@check[3]  />
+                            }
+                            else
+                            {
+                            <input type="checkbox" onclick="javascript:toggleDiv('DD');" id="DDcheckbox" />
+                            }
+                                
+                        }
+                        @ClientResources.CSPDDD &nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="Cash" class="groupfieldset" style="display: none;">
+            @Html.Partial("CashPaymentDetailsPartial", Model)
+        </div>
+        @Html.Partial("cbpPaymentDetails", Model)
+        <div class="clr">
+        </div>
+        <div class="groupfieldset">
+            <ul class="reset leftfield fl" style="width: 60%">
+                <li>
+                    <label id="lblAdditionalInfo" class="width100">
+                        @ClientResources.CSPDAdditionalInfo</label>
+                    @Html.TextAreaFor(model => model[0].AdditionalInfo, new { @class = "textarea width195", name = "txtAdditionalInfo", @style = "height: 65px", cols = "", rows = "", id = "AdditionalInfo", @onchange = "onAdditionalFieldValueChange()" })
+                </li>
+            </ul>
+            <ul class="reset leftfield fr" style="width: 37%">
+                <li>
+                    <label id="lblAmount" class="width89">
+                        @ClientResources.CSPDTotalAmount</label>
+                    <span class="WebRupee">
+                        <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png") />
+                    </span>
+                    @Html.TextBoxFor(model => model[0].TotalAmount, new { @class = "autoinputvalue width75", @maxlength = "10", id = "TotalAmount", @readonly = "readonly" })
+                </li>
+                <li>
+                    <label id="lblTaxes" class="width89">
+                        @ClientResources.CSPDTDS</label>
+                    <span class="WebRupee">
+                        <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png")>
+                    </span>
+                    @Html.TextBoxFor(model => model[0].TDS, new { @class = "clsAmount required width75", @maxlength = "10", id = "TDS", @onchange = "onTDSValueChange()" })
+                </li>
+                <li>
+                    <label id="lblTotalCost" class="width89">
+                        @ClientResources.CSPDNetAmount</label>
+                    <span class="WebRupee">
+                        <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png") />
+                    </span>
+                    @Html.TextBoxFor(model => model[0].NetAmount, new { @class = "autoinputvalue width75", @maxlength = "10", id = "NetAmount", @readonly = "readonly" })
+                </li>
+            </ul>
+            <div class="clr">
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("PopupSearchBank")

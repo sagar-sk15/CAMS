@@ -1,0 +1,140 @@
+﻿@using System.Web.UI.WebControls
+@using Cams.Web.MVCRazor;
+@using DevExpress.Web.ASPxGridView
+@using DevExpress.Web.ASPxHtmlEditor.Internal
+@using DevExpress.Web.Mvc
+@using DevExpress.Web.Mvc.UI
+@* Resource keys related to this page have extension UG*@
+@model Cams.Web.MVCRazor.Models.Account.UserGroupModel
+@{
+    //View.Title = "UserRegistration";
+    //ViewBag.Title = "UserRegistration";
+    //Cams.Common.Dto.User.UserDto loggedInUser = (Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER];
+
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        HighlightSuperAdminMainMenu('#mnuUserGroups');
+    });
+</script>
+}
+
+@section MainBody{
+    @{
+            Nullable<int> caId = null;
+            if (!string.IsNullOrEmpty(Request.QueryString["CAId"]))
+            {
+                caId = Convert.ToInt32(Request.QueryString["CAId"]);
+            }
+
+            string UserType = string.Empty;
+            if (!string.IsNullOrEmpty(Request.QueryString["userType"]))
+            {
+                UserType = Request.QueryString["userType"]; 
+            }
+            string mode = string.Empty;
+            if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+            {
+                mode = Request.QueryString["mode"];
+            }
+            
+        }
+    @using (Html.BeginForm("CreateUserGroup", "Account", new { usertype = UserType, CAId = caId, mode = mode }, FormMethod.Post))
+    {
+        <div class="page-data fl">
+            <div class="panes">
+                <div class="panes-data">
+                    <h1>
+                        @if (!String.IsNullOrEmpty(mode))
+                        {
+                            @ClientResources.UGEditUserGroup;
+                        }
+                        else
+                        {       
+                            @ClientResources.UGCreateUserGroup;
+                        }
+                    </h1>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <div class="response-msg error-msg">
+                            <span>@ViewData["Error"].ToString()</span>
+                            <br />
+                            <span>@Html.ValidationSummary(true)</span>
+                        </div>
+                    }
+                     <div style="background: #fffcfc; color: #FF0000">@Html.ValidationSummary(false)</div>
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+                    <div class="Form-Wrap">
+                    
+                    
+                     @{
+                        bool issClientUser = Request.QueryString["usertype"] == "CAUser" ? true : false;
+
+                        if (issClientUser && Model.Client != null)
+                        {
+                            <div>
+                                <label id="lblClientId" class="width85">@ClientResources.URClientId</label>
+                                @Html.TextBoxFor(model => model.Client.DisplayClientId, new { @class = "autoinputvalue width110", @readonly = "readonly" })
+                                @ClientResources.URClientName
+                                @Html.TextBoxFor(model => model.Client.CompanyName, new { @class = "autoinputvalue width150", @readonly = "readonly" })
+                                @ClientResources.URClientPlace 
+                                @Html.TextBoxFor(model => model.Client.ClientAddress.CityVillage.Name, new { @class = "autoinputvalue width100", @readonly = "readonly" })
+                            </div>
+                        }
+                    }
+                    <br /><br />
+                    <ul class="reset leftfield fl">
+                            <li>
+                                <label id="lblGroupName" class="width85">
+                                    @ClientResources.UGGroupName
+                                </label>
+                                @Html.TextBoxFor(model => model.UserGroupName, new { @class = "required", @maxlength = 30 })
+                            </li>
+                            <li>
+                                <label id="lblDescription" class="width85">
+                                    @ClientResources.UGDescription</label>
+                                @Html.TextAreaFor(model => model.Description, new { @class = "textarea width185", @maxlength=150 })
+                            </li>
+                            <li>
+                                <label class="width85">@ClientResources.UGStatus</label>
+                                @Html.RadioButtonFor(model => model.IsActive, true, new { @checked = "checked" })
+                                @ClientResources.UGActive
+                                @Html.RadioButtonFor(model => model.IsActive, false)
+                                @ClientResources.UGInActive
+                                <div class="clr">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="middlefield fl">
+                        </div>
+                        <div class="clr">
+                        </div>
+                        <div class="text-link" align="center">
+                            <input type="image" src=@Url.Content("~/content/images/control/save.jpg") name="button" />
+                        </div>
+                        <div class="text-link" align="center">
+                            <br />
+                            @ClientResources.PICancelText @Html.ActionLink(ClientResources.PICancel, "UserGroupsIndex", new { usertype = Request.QueryString["usertype"], CAId = caId })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.CAId)
+    }
+}

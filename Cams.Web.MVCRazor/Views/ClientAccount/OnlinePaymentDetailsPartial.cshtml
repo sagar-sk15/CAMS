@@ -1,0 +1,123 @@
+﻿@using Cams.Common
+@using Cams.Web.MVCRazor.Models.ClientRegistration
+@using Cams.Web.MVCRazor
+
+@*Resource kay related to this page have prefix OPD*@
+
+@model IList<ClientSubscriptionPaymentDetailsModel>
+           
+           <div id="Online" class="groupfieldset" style="display: none;">
+           &nbsp;Online
+           @Html.Hidden("hdnPaymentDetailsCount",Model.Count())
+@for (int i = 0; i < Model.Count(); i++)
+{
+    if (Model[i].PaymentMode == PaymentMode.Online)
+    {
+    <ul class="reset onecolfield fl">
+        <li>         
+            <label id="lbl" class="width100">
+                &nbsp;</label>
+                 @if (Model[i].IsRTGS)
+                  {
+                      @Html.RadioButtonFor(model => model[i].TransactionType, "RTGS", new {@Checked = "checked", id = "OnlineRTGS" + i.ToString(), @onchange = string.Format("onOnlineFieldsValueChange({0})", i)})
+                  }
+                  else
+                  {
+                     @Html.RadioButtonFor(model => model[i].TransactionType, "RTGS", new {id = "OnlineRTGS" + i.ToString(), @onchange = string.Format("onOnlineFieldsValueChange({0})", i) })
+                  }                   
+                     
+            <span>@ClientResources.OPDRTGS </span>
+            @if(Model[i].IsNEFT)
+            {
+            @Html.RadioButtonFor(model => model[i].TransactionType, "NEFT", new { @Checked = "checked", id = "OnlineNEFT" + i.ToString(), @onchange = string.Format("onOnlineFieldsValueChange({0})", i) })
+            }
+            else
+            {
+               @Html.RadioButtonFor(model => model[i].TransactionType, "NEFT", new { id = "OnlineNEFT" + i.ToString(), @onchange = string.Format("onOnlineFieldsValueChange({0})", i) }) 
+            }
+            <span>@ClientResources.OPDNEFT</span> 
+             <div class="fr" style="padding-right: 28px">
+                        <label id="lblOnlineAmount" class="width90">
+                            @ClientResources.OPDAmount</label>
+                       <span class="WebRupee">
+                        <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png") />
+                        </span>                        
+                        @Html.TextBoxFor(model => model[i].OnlineAmount, new { @class = "clsAmount required width75", @maxlength = "10", id = "txtAmount" + i.ToString(), @onchange = string.Format("onOnlineFieldsValueChange({0})", i) })
+                    </div>
+            </li>
+    </ul>
+    <ul class="reset leftfield fl" style="width: 100%">
+        <li>
+            <div class="fl">
+                <label id="lblChequeNo" class="width100">
+                    @ClientResources.OPDTransactionNo</label>
+                @Html.TextBoxFor(model => model[i].ChequeDDTransationNo, new { @class = "required width75", @maxlength = "10", id = "OnlineTransactionNo" + i.ToString(), @onchange = string.Format("onOnlineFieldsValueChange({0})", i) })
+            </div>
+        </li>
+    </ul>
+    <ul class="reset leftfield fl" style="width: 100%">
+        <li>
+            <label id="lblChequeDate" class="width100">
+                 @ClientResources.OPDReceiptDate
+            </label>
+            @Html.DevExpress().DateEdit(settings =>
+       {
+           settings.Width = System.Web.UI.WebControls.Unit.Pixel(110);
+           settings.Name = "OnlineTransactionDate" + i.ToString();
+           settings.Properties.NullText = "DD-MM-YYYY";
+           settings.Properties.EditFormat = DevExpress.Web.ASPxEditors.EditFormat.Custom;
+           settings.Properties.EditFormatString = Cams.Common.Constants.DATEFORMATFORDISPAY;
+           settings.Properties.UseMaskBehavior = true;
+           settings.ControlStyle.Font.Name = "DejaVu Serif";
+           settings.ControlStyle.CssClass = "required";
+           settings.ControlStyle.BackColor = System.Drawing.Color.White;
+           settings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{onOnlineFieldsValueChange('{0}');}}", i);
+       }).Bind(Model[i].ChequeDDTransactionDate).GetHtml()
+        </li>
+    </ul>
+     <ul class="reset leftfield fl" style="width:52%">
+        <li>
+            <label id="lbl_Bank" class="width100">
+               @ClientResources.OPDBank
+            </label>
+             @Html.DevExpress().ComboBox(cmbsettings =>
+        {
+            cmbsettings.Name = "BankandBranch" + Model[i].PaymentMode + i.ToString();
+            cmbsettings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+            cmbsettings.Width = System.Web.UI.WebControls.Unit.Pixel(250);
+            cmbsettings.SelectedIndex = 0;
+            cmbsettings.ControlStyle.Font.Name = "DejaVu Serif";
+            cmbsettings.ControlStyle.Font.Size = System.Web.UI.WebControls.FontUnit.Point(10);
+            cmbsettings.ControlStyle.CssClass = "comboBoxControl";
+            cmbsettings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+            cmbsettings.Properties.TextFormatString = "{0},{1}";
+            cmbsettings.Properties.ValueField = "BranchId";
+            cmbsettings.Properties.ValueType = typeof(int);
+            cmbsettings.Properties.TextField = "Name";
+            cmbsettings.Properties.Columns.Add("BranchOfBank.BankName", "Bank Name");
+            cmbsettings.Properties.Columns.Add("Name", "Branch");
+            cmbsettings.Properties.Columns.Add("BranchAddress.CityVillage.Name", "Place");
+            cmbsettings.Properties.CallbackPageSize = 30;
+            cmbsettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{onOnlineFieldsValueChange('{0}');}}", i);
+        }).BindList(ClientSubscriptionPaymentDetailsModel.GetAllBankandBranche()).Bind(Model[i].HiddenFieldForOnlineBankBranch).GetHtml()
+           </li>
+    </ul>
+    <ul class="reset leftfield fr" style="width: 48%">
+        <li>
+         <a class="search-data" href="#" onclick="SearchBankBranchImageClick(@i,'Online')"></a></li>
+         </ul>
+        if (i == 2)
+        {
+    <ul class="reset rightfield fr" style="width: 15%">
+        <li><a class="button_Add" href="javascript:OnlineAddNewButtonClick(@Model.Count)"></a></li>
+    </ul>
+        }
+        else
+        {
+    <ul class="reset rightfield fr" style="width: 15%">
+        <li><a class="remove" href="javascript:OnlineRemoveButtonClick(@i)" id="onlineDetailsRemove"></a></li>
+    </ul>
+        }
+    }
+} 
+</div>

@@ -1,0 +1,34 @@
+﻿@model UserDto
+@using Cams.Common.Dto.User
+@using Cams.Web.MVCRazor
+<div class="panes-data">
+    <h1>@ClientResources.lblAccountManager</h1>
+    <div class="Form-Wrap">
+        <div class="groupfieldset">
+            <ul class="reset leftfield fl" style="width: 100%;">
+                <li>
+                    <label id="lblAMName" class="width75">@ClientResources.lblName</label>
+                    <span class="non-editable-txt">
+                        @Html.DisplayFor(model => model.Name, new { @class = "non-editable-txt width110", @readonly = "readonly" })
+                    </span></li>
+                <li>
+                    <label id="lblAMUserName" class="width75">@ClientResources.URlblUserName</label>
+                    <span class="non-editable-txt">
+                        @Html.DisplayFor(model => model.UserName, new { @class = "non-editable-txt width110", @readonly = "readonly" })
+                    </span></li>
+                <li>
+                    <label id="lblAMEmail" class="width75">@ClientResources.lblEmail</label>
+                    <span class="non-editable-txt">
+                        @Html.DisplayFor(model => model.Email, new { @class = "non-editable-txt", @readonly = "readonly" })
+                    </span></li>
+                <li>
+                    <label id="lblAMMobileNo" class="width75">@ClientResources.PIlblPIMobileNumber</label>
+                    <span class="non-editable-txt">
+                        @Html.DisplayFor(model => model.MobileNo, new { @class = "non-editable-txt width110", @readonly = "readonly" })
+                    </span></li>
+            </ul>
+            <div class="clr">
+            </div>
+        </div>
+    </div>
+</div>

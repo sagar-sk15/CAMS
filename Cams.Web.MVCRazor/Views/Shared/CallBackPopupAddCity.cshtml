@@ -1,0 +1,21 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel
+           
+@Html.DevExpress().CallbackPanel(cbpSettings => {
+    cbpSettings.Name = Model.AddPlacesPopupCallBackPanelName;//"cbpAddCity";
+    cbpSettings.CallbackRouteValues = new { Controller = "Common", Action = "AddNewCity" };
+    cbpSettings.ShowLoadingPanel = false;
+    cbpSettings.ShowLoadingPanelImage = false;
+        cbpSettings.SetContent(() =>
+        {
+            Html.RenderPartial("PopupAddCity");
+        });
+        //cbpSettings.ClientSideEvents.BeginCallback = "function(s,e) { }";
+        cbpSettings.ClientSideEvents.BeginCallback = "function (s,e) { var districtid = " + Model.DistrictComboName + ".GetValue(); " 
+                                                        + " e.customArgs['ppPlace'] = " + Model.AddPlacesPopupPlaceTextBoxName + ".GetText();" 
+                                                        + " e.customArgs['ppSTDCode'] = " + Model.AddPlacesPopupSTDCodeTextBoxName + ".GetText();" 
+                                                        + " e.customArgs['ppdistrictId'] = districtid;" 
+                                                        + " var item = " + Model.AddPlacesPopupCityVillageRadioButtonName + ".GetSelectedItem();"
+                                                        + " e.customArgs['ppCityVillage'] = item.text;" 
+                                                        + "e.customArgs['CommonControlPrefix'] ='" + Model.ControlNamePrefix + "'; }";
+        cbpSettings.ClientSideEvents.EndCallback= "function (s,e) {" + Model.PlacesCallBackPanelName + ".PerformCallback();}";
+}).GetHtml()

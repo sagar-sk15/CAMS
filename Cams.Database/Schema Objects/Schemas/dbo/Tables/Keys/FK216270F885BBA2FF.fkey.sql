@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[UserContacts]
+    ADD CONSTRAINT [FK216270F885BBA2FF] FOREIGN KEY ([UserProfileId]) REFERENCES [dbo].[UserProfiles] ([UserProfileId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

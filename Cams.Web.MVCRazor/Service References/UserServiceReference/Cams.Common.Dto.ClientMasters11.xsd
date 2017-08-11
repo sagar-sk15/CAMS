@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Message" />
+  <xs:complexType name="ArrayOfBankBranchDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankBranchDto" nillable="true" type="tns:BankBranchDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankBranchDto" nillable="true" type="tns:ArrayOfBankBranchDto" />
+  <xs:complexType name="BankBranchDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q1:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaseBranchId" nillable="true" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" minOccurs="0" name="BranchAddress" nillable="true" type="q2:AddressDto" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" minOccurs="0" name="BranchContactNos" nillable="true" type="q3:ArrayOfContactDetailsDto" />
+          <xs:element minOccurs="0" name="BranchId" type="xs:int" />
+          <xs:element minOccurs="0" name="BranchOfBank" nillable="true" type="tns:BankDto" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="BranchOfClientPartner" nillable="true" type="q4:ArrayOfClientPartnerBankDetailsDto" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="BranchOfClientSubscriptionPayment" nillable="true" type="q5:ArrayOfClientSubscriptionPaymentDetailsDto" />
+          <xs:element minOccurs="0" name="CAId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullDayBreakFrom" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="FullDayBreakTo" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="FullDayTimeFrom" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="FullDayTimeTo" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="HalfDayBreakFrom" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="HalfDayBreakTo" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="HalfDayTimeFrom" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="HalfDayTimeTo" nillable="true" type="ser:duration" />
+          <xs:element minOccurs="0" name="IFSCCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MICRCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SWIFTCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" minOccurs="0" name="WeeklyHalfDay" nillable="true" type="q6:WeeklyHalfDayDto" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" minOccurs="0" name="WeeklyOffDay" nillable="true" type="q7:WeeklyOffDaysDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BankBranchDto" nillable="true" type="tns:BankBranchDto" />
+  <xs:complexType name="BankDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q8:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BankId" type="xs:int" />
+          <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaseBankId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Branches" nillable="true" type="tns:ArrayOfBankBranchDto" />
+          <xs:element minOccurs="0" name="CAId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BankDto" nillable="true" type="tns:BankDto" />
+  <xs:complexType name="ArrayOfCommodityClassDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommodityClassDto" nillable="true" type="tns:CommodityClassDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommodityClassDto" nillable="true" type="tns:ArrayOfCommodityClassDto" />
+  <xs:complexType name="CommodityClassDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q9:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Commodities" nillable="true" type="tns:ArrayOfCommodityDto" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="CommoditiesofClients" nillable="true" type="q10:ArrayOfClientDto" />
+          <xs:element minOccurs="0" name="CommodityClassId" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CommodityClassDto" nillable="true" type="tns:CommodityClassDto" />
+  <xs:complexType name="ArrayOfCommodityDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommodityDto" nillable="true" type="tns:CommodityDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommodityDto" nillable="true" type="tns:ArrayOfCommodityDto" />
+  <xs:complexType name="CommodityDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q11:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BotanicalName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommoditiesInCommodityClass" nillable="true" type="tns:CommodityClassDto" />
+          <xs:element minOccurs="0" name="CommodityId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CommodityDto" nillable="true" type="tns:CommodityDto" />
+</xs:schema>

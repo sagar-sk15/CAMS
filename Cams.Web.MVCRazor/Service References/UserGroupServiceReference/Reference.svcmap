@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="672f285b-3271-4275-b6eb-ea6a293fae9e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d3a44edb-5a2a-4385-9bdc-955f842ce167" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="d03f4f75-3913-4cc2-adf5-1e961e2437ea" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4189f69e-622b-4857-9b7c-379235073224" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2f79554f-bca0-462a-998c-f7615b1bb27e" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="94682035-65f8-4e52-8105-449e85cf337a" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="a91bd387-ecc7-42ed-9a1e-efc6c551f581" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="b7702b13-e30b-40d9-b738-533efbf44e80" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="088886b9-fe51-4abb-a135-40e5995c4967" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="ec64c21b-13d1-4277-acde-fdfca254ed3d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="650c45a5-de1c-4a48-bb47-6de5cf206c0b" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="b12f4011-ff1c-4481-bd72-f7501add34ce" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="ec8acb1d-7429-47e1-b965-5f1d22e53a33" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="0a416291-35d2-4f4f-9eee-cd0a2e23db75" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="ef88866b-cbfd-4413-a6fd-6882f4cfec75" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/UserGroupServices.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

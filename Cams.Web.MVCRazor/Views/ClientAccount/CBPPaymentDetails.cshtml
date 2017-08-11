@@ -1,0 +1,21 @@
+﻿@using Cams.Web.MVCRazor.Models.ClientRegistration
+@model IList<ClientSubscriptionPaymentDetailsModel>        
+@Html.DevExpress().CallbackPanel(cbpSettings =>
+                    {
+
+                        cbpSettings.Name = "cbpPaymentDetails";
+                        cbpSettings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "AddRemovePaymentDetails" };
+                        cbpSettings.ShowLoadingPanelImage = false;
+                        cbpSettings.ControlStyle.Font.Name = "DejaVu Serif";
+                        cbpSettings.SetContent(() =>
+                                                    {
+                                                        if (Model != null)
+                                                        {
+                                                            Html.RenderPartial("ChequePaymentDetailsPartial", Model);
+                                                            Html.RenderPartial("OnlinePaymentDetailsPartial", Model);
+                                                            Html.RenderPartial("DDPaymentDetailsPartial", Model);
+                                                        }
+
+                                                    });
+                        cbpSettings.ClientSideEvents.EndCallback = "cbpPaymentDetails_EndCallback";
+                    }).GetHtml()

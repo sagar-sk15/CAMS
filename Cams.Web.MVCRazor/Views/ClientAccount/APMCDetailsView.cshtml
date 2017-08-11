@@ -1,0 +1,73 @@
+﻿@using Cams.Common
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Models.ClientRegistration
+@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+<div class="panes-data">
+    <h1>
+        APMC Details</h1>
+    <div class="Form-Wrap">
+        <div class="groupfieldset">
+            <ul class="reset leftfield fl" style="width: 100%">
+                <li>
+                    <label id="lblAPMCList" class="width120">
+                        @ClientResources.CLRAPMCName</label>
+                    <table>
+                        <tr>
+                            <td>
+                                @Html.TextBoxFor(model => model.ClientAPMC.Name, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    <label id="lblAPMCLicenseNo" class="width120">
+                        @ClientResources.CLRAPMCLicenseNo</label>
+                    @Html.TextBoxFor(model => model.APMCLicenseNo, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                </li>
+                <li>
+                    <label id="lblAPMCValidUpto" class="width120">
+                        @ClientResources.CLRAPMCValidupto</label>
+                    @Html.TextBoxFor(model => model.APMCValiduptoString, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                </li>
+            </ul>
+        </div>
+        <div id="divAPMCAddress" class="groupfieldset groupfieldsetcol fl">
+            @Html.Partial("AddressReadOnlyView", Model.APMCAddress)
+        </div>
+        <div id="divAPMCContacts" class="groupfieldset groupfieldsetcol fr">
+            @Html.Partial("ContactsReadOnlyView", Model.APMCContacts)
+        </div>      
+    </div>
+
+
+    <div class="groupfieldset groupfieldsetcol" style="width: 98.5% !important">
+        <label id="lblCommodity" class="width120">@ClientResources.CLRAPMCCommodityClass</label>
+        <br />
+       
+        <div class="ApmcCommodityCheckboxBorder">
+            @for (int i = 0; i < Model.CommodityClassDtoList.Count; i++)
+            {
+                if (i != (Model.CommodityClassDtoList.Count / 2))
+                {
+                <ul class="reset leftfield fl" style="width: 50%">
+                    <li>
+                        @Html.CheckBoxFor(model => model.CommodityClassDtoList[i].IsActive, new { @class = "autoinputvalue", @id = "chkCommodityClass" + @i, @name = "chkCommodityClass" + @i, disabled = "disabled" })
+                        <label class="CommodityClassLabels">@Model.CommodityClassDtoList[i].Name
+                        </label>
+                    </li>
+                </ul>
+                }
+                else
+                {
+                <ul class="reset rightfield fr" style="width: 50%">
+                    <li>
+                        @Html.CheckBoxFor(model => model.CommodityClassDtoList[i].IsActive, new { @class = "autoinputvalue", @id = "chkCommodityClass" + @i, @name = "chkCommodityClass" + @i, disabled = "disabled" })
+                        <label class="CommodityClassLabels">@Model.CommodityClassDtoList[i].Name
+                        </label>
+                    </li>
+                </ul>
+                }
+            }
+        </div>       
+    </div>
+</div>

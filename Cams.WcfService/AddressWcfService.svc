@@ -1,0 +1,5 @@
+﻿<%@ ServiceHost Language="C#" 
+                Debug="true" 
+                Service="Cams.WcfService.AddressWcfService" 
+                CodeBehind="AddressWcfService.svc.cs"
+                Factory="Cams.WcfService.ServiceFactory" %>

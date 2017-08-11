@@ -1,0 +1,49 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.AddressReadOnlyViewModel
+
+<ul class="@Model.OuterULClassName">
+    <li>
+        <label class="@Model.LeftLabelsClassName">@Model.TextForAddressLabelOnLeft &nbsp;</label>
+            <ul class="@Model.ValueLabelsClassName">
+            @{
+                string address = Model.Address.AddressLine1; //.Replace(",", ", <br/>"); 
+
+				while (address!=null && address.Length > 0)
+				{
+					int noOfCharsPerLine = (address.Length < Model.NoOfCharsPerLine) ? address.Length : Model.NoOfCharsPerLine;
+					noOfCharsPerLine = address.IndexOf(' ', noOfCharsPerLine - 1, 1) != -1 ? address.IndexOf(' ', noOfCharsPerLine - 1, 1) : noOfCharsPerLine;
+					string add1 = address.Substring(0, noOfCharsPerLine);
+					<li>
+					@add1 <span>,</span>
+					</li>
+					address = address.Substring(add1.Length - 1, address.Length - add1.Length);
+				}
+            }
+            
+            <li>
+            @Model.Address.CityVillage.Name
+			@if (!String.IsNullOrEmpty(Model.Address.PIN))
+			{	
+				<span>&nbsp;-&nbsp;</span>@Model.Address.PIN <span>,</span>
+			}
+            </li>
+            @if(Model.Address.CityVillage.Name!=Model.Address.CityVillage.DistrictOfCityVillage.DistrictName)
+            {
+                <li>
+                @Model.Address.CityVillage.DistrictOfCityVillage.DistrictName<span>,</span>
+                </li>
+            }
+            <li>
+			@if (!String.IsNullOrEmpty(Model.Address.CityVillage.DistrictOfCityVillage.StateOfDistrict.RegionName))
+			{
+				@Model.Address.CityVillage.DistrictOfCityVillage.StateOfDistrict.RegionName <span>,</span>
+			}
+            </li>
+            <li>
+			@if (!String.IsNullOrEmpty(Model.Address.CityVillage.DistrictOfCityVillage.StateOfDistrict.StateInCountry.CountryName))
+			{
+					@Model.Address.CityVillage.DistrictOfCityVillage.StateOfDistrict.StateInCountry.CountryName
+			}
+            </li>
+            </ul>        
+    </li>
+</ul>

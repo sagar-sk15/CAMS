@@ -1,0 +1,226 @@
+﻿@model Cams.Web.MVCRazor.Models.BusinessRegistration.BusinessRegistrationModel
+@using Cams.Web.MVCRazor
+@using Cams.Common.Dto
+@using Cams.Common
+@using Cams.Web.MVCRazor.Helpers
+@*Resources related to this page have extension BR*@
+@{
+	ViewBag.Title = "CompanyProfile";
+	Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+@section Scripts
+{
+	<script src=@Url.Content("~/Scripts/JS/ContactDetails.js") type="text/javascript"></script>
+	<script src=@Url.Content("~/Scripts/JS/StateDistrictVillage.js") type="text/javascript"></script>
+	<script src=@Url.Content("~/Scripts/JS/UserDesignation.js") type="text/javascript"></script>
+	<script src=@Url.Content("~/Scripts/JS/DateOfBirth.js") type="text/javascript"></script>
+	<script src=@Url.Content("~/Scripts/JS/CommonScript.js") type="text/javascript"></script>
+	<script type="text/javascript">
+		function SetAddressContactDivHeight(divCmpnyAddClientId, divCmpnyCntsClientId) {
+			var divCmpnyAdd = $('#' + divCmpnyAddClientId);
+			var divCmpnyCnts = $('#' + divCmpnyCntsClientId);
+			var height = divCmpnyCnts.height();
+			if (divCmpnyAdd.height() > height)
+				height = divCmpnyAdd.height();
+
+			divCmpnyAdd.height(height);
+			divCmpnyCnts.height(height);
+		}
+	</script>
+	<script type="text/javascript">
+
+		var currentIndex;
+		$(document).ready(function () {
+
+			SetAddressContactDivHeight('divCompanyAddress', 'divCompanyContacts');
+			SetAddressContactDivHeight('divPCPAdd', 'divPCPCnts');
+			SetAddressContactDivHeight('divAPMCAdd', 'divAPMCCnts');
+			SetAddressContactDivHeight('divSubDetailsLt', 'divSubDetailsRt');
+			
+			var currentIndex = $('#hdnCurrentTab').val();
+			var activeTab = currentIndex;
+			if (activeTab != null) {
+				$("ul.tabs").tabs("div.panes > div.panes-data", {
+					initialIndex: parseInt(activeTab),
+					onBeforeClick: function (event, tabIndex) {
+						currentIndex = this.getIndex();
+						$('#hdnCurrentTab').val(parseInt(tabIndex));
+						SaveTab(currentIndex);
+					}
+				});
+			}
+		});
+
+		function SaveTab(tabIndex) {
+			switch (tabIndex) {
+				case 0: SaveCompanyProfile();
+					break;
+				case 1: SavePrimaryContactDetails();
+					break;
+				case 2: SaveAPMCDetails();
+					break;
+				case 3: SaveBusinessConstitution();
+					break;
+				case 4: SaveSubscriptionDetails();
+					break;
+				case 5: SavePaymentDetails();
+					break;
+				case 6: SaveAccountManager();
+					break;
+			}
+		}
+
+		function nextTab() {
+			var currentIndex = $('#hdnCurrentTab').val();
+			SaveTab(parseInt(currentIndex));
+			var nextTabIndex = (currentIndex && currentIndex != '') ? parseInt(currentIndex) + 1 : 0;
+			nextTabIndex = (nextTabIndex == 7) ? 6 : nextTabIndex
+			$('#hdnCurrentTab').val(nextTabIndex);
+			$("ul.tabs").tabs("div.panes > div.panes-data",
+                {
+                	initialIndex: parseInt(nextTabIndex)
+                });
+		}
+
+		function previousTab() {
+			var currentIndex = $('#hdnCurrentTab').val();
+			SaveTab(parseInt(currentIndex));
+			var prevTabIndex = (currentIndex && currentIndex != '') ? parseInt(currentIndex) - 1 : 0;
+			prevTabIndex = (prevTabIndex == -1) ? 0 : prevTabIndex
+			$('#hdnCurrentTab').val(prevTabIndex);
+			$("ul.tabs").tabs("div.panes > div.panes-data",
+                {
+                	initialIndex: parseInt(prevTabIndex)
+                });
+		}
+                      
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//Set default open/close settings
+			$('.acc_container_3').hide(); //Hide/close all containers
+			$('.acc_trigger_3:first').addClass('active').next().show(); //Add "active" class to first trigger, then show/open the immediate next container
+			//On Click
+			$('.acc_trigger_3').click(function () {
+				if ($(this).next().is(':hidden')) { //If immediate next container is closed...
+					$('.acc_trigger_3').removeClass('active').next().slideUp(); //Remove all .acc_trigger classes and slide up the immediate next container
+					$(this).toggleClass('active').next().slideDown(); //Add .acc_trigger class to clicked trigger and slide down the immediate next container
+				}
+				return false; //Prevent the browser jump to the link anchor
+			});
+		});
+	</script>
+}
+@section PanelPartial
+{
+	<!-- the tabs -->
+	<ul class="tabs">
+		<li>
+			<a href="#">@ClientResources.BRTabClientProfile</a>
+		</li>
+		<li>
+
+		</li>
+		<li>
+			<a href="#">@ClientResources.BRTabTaxation</a></li>
+		<li>
+			<a href="#">@ClientResources.BRTabPhoneCharges</a></li>
+		<li>
+			<a href="#">@ClientResources.BRTabSisterConcerns</a></li>
+	</ul>
+}
+@section MainBody
+{
+	<div class="page-data fl">
+		@using (Html.BeginForm("BusinessRegistration", "BusinessRegistration", new { usertype = Request.QueryString["usertype"] }, FormMethod.Post, new { id = "BusinessRegistrationForm" }))
+  {
+			<div class="panes">
+				<div class="panes-data">
+					<h1>
+						Business Profile</h1>
+					<div class="Form-Wrap">
+						<div class="container_3">
+							<h2 class="acc_trigger_3 active">
+								<a href="#">
+									Company Profile</a></h2>
+							<div class="acc_container_3" style="display: block;">
+								@Html.Partial("ClientDetailsView", Model)
+							</div>
+						
+							<h2 class="acc_trigger_3">
+								<a href="#">
+									APMC Details</a></h2>
+							<div class="acc_container_3" style="display: block;">
+								@Html.Partial("APMCView", Model)
+							</div>
+						
+							<h2 class="acc_trigger_3">
+								<a href="#">
+									Primary Contact Person</a></h2>
+							<div class="acc_container_3" style="display: block;">
+								@Html.Partial("PrimaryContactPersonView", Model)
+							</div>
+							<h2 class="acc_trigger_3">
+								<a href="#">
+									ack' Relationship Account Manager</a></h2>
+							<div class="acc_container_3" style="display: block;">
+								@Html.Partial("AckAccountManagerView", Model.AccountManager)
+							</div>
+						
+							
+						</div>
+					</div>
+					<!--<div class="container_3">-->
+						<h2 class="acc_trigger_3">
+							<a href="#">@ClientResources.BRTabSubscription</a>
+						</h2>
+						<div class="acc_container_3" style="display: block;">
+							@Html.Partial("AckSubscriptionDetailsView", Model)
+						</div>
+					<!--</div>-->
+					<div class="clr">
+					</div>
+					<div class="clr">
+					</div>
+																																								<div>
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 20%">
+								<ul class="reset input-botton" style="text-align: left;">
+									<li>
+										<a href="javascript:previousTab()">
+											Previous</a>
+									</li>
+								</ul>
+							</td>
+							<td style="width: 60%">
+								<ul class="reset input-botton" style="text-align: center;">
+									<li>
+										<br />
+									</li>
+									<li>
+										<input type="submit" class="button_Save button_Submit" name="action:Save" value="" />
+										<br />
+										<div class="text-link">@ClientResources.CancelString&nbsp;
+											@Html.ActionLink(ClientResources.CancelbtnText, "ClientsIndex", "ClientAccount")
+										</div>
+									</li>
+								</ul>
+							</td>
+							<td style="width: 20%">
+								<ul class="reset input-botton" style="text-align: right;">
+									<li>
+										<a href="javascript:nextTab()">
+											Next</a>
+									</li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</div>
+					@Html.HiddenFor(model => model.hdnCurrentTab)
+				</div>				
+			</div>
+  }
+	</div>
+}

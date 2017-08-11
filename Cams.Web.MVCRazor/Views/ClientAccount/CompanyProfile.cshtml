@@ -1,0 +1,580 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Web.MVCRazor
+@using Cams.Common.Dto
+@using Cams.Common
+@using Cams.Web.MVCRazor.Helpers
+@*Resources related to this page have extension CLR*@
+@{
+    ViewBag.Title = "CompanyProfile";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/UserGroupDropdownScript.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/ContactDetails.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/StateDistrictVillage.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/UserDesignation.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/ClientRegistration.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/ClientRegistrationSave.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/ClientRegistrationPaymentDetails.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/DateOfBirth.js") type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function RenderImage(s, e) {
+            if (e.callbackData != '') {
+                $('#previewLogo').attr('src', '../../Content/UploadedImages/ClientAccount/' + e.callbackData);
+            }
+        }
+
+        function PrimaryContactPersonRenderImage(s, e) {
+            if (e.callbackData != '') {
+                $('#PCPpreviewImage').attr('src', '../../Content/UploadedImages/ClientAccount/PrimaryContactPerson/' + e.callbackData);
+            }
+        }
+
+        //Combobox APMCList SelectedIndexChanged event handler
+        function APMCSelect(s, e) {
+            var apmcId = s.GetValue();
+            $('#HiddenFieldForAPMCValue').val(apmcId);
+            GetApmcDetails(apmcId);
+
+        }
+        //Ajax call to action GetSelectedApmcDetails to get details of APMC
+        function GetApmcDetails(apmcId) {
+            $.ajax({
+                type: "POST",
+                url: "/ClientAccount/GetSelectedApmcDetails",
+                data: { apmcId: apmcId },
+                success: function (data) {
+                    if (data) {
+                        //debugger
+                        var email = data[0] == undefined ? '' : data[0];
+                        var mobileNo = data[1] == undefined ? '' : data[1];
+                        var address = data[2] == undefined ? '' : data[2];
+                        var state = data[3] == undefined ? '' : data[3];
+                        var country = data[4] == undefined ? '' : data[4];
+                        $('#APMCEmail').html(email);
+                        $('#APMCMobileNo').html(mobileNo);
+                        $('#APMCAddress').html(address);
+                        $('#APMCState').html(state);
+                        $('#APMCCountry').html(country);
+                    }
+                    else {
+                        $('#APMCEmail').html('');
+                        $('#APMCMobileNo').html('');
+                        $('#APMCAddress').html('');
+                        $('#APMCState').html('');
+                        $('#APMCCountry').html('');
+                    }
+                }
+            });
+        }
+        //APMC popup begincallback(Refer view:shared\CallBackPopupAddApmc.cshtml)
+        function CBPPopupAddApmc_BeginCallback(s, e) {
+            e.customArgs['ApmcName'] = $('#Name').val();
+            e.customArgs['APMCAddress'] = $('#txtAPMCAddress').val();
+
+            e.customArgs['ApmcState'] = CAcmbStates.GetText();
+            e.customArgs['ApmcDistrict'] = CAcmbDistricts.GetText();
+            e.customArgs['ApmcPlace'] = CAcmbCityVillage.GetText();
+
+            e.customArgs['ApmcPin'] = $('#txtAPMCPin').val();
+            e.customArgs['ApmcWebsite'] = $('#Website').val();
+
+            e.customArgs['ApmcEmail1'] = $('#APMCEmail1').val();
+            e.customArgs['ApmcEmail2'] = $('#APMCEmail2').val();
+
+            e.customArgs['ApmcContactNos0'] = $('#ContactNos_0__ContactNo').val();
+            e.customArgs['ContactNos_0__STDCode'] = $('#ContactNos_0__STDCode').val();
+            e.customArgs['ApmcContactNos0_ContactType'] = $('#ContactNos_0__ContactNoType').val();
+
+            e.customArgs['ApmcContactNos1'] = $('#ContactNos_1__ContactNo').val();
+            e.customArgs['ContactNos_1__STDCode'] = $('#ContactNos_0__STDCode').val();
+            e.customArgs['ApmcContactNos1_ContactType'] = $('#ContactNos_1__ContactNoType').val();
+
+            e.customArgs['ApmcContactNos2'] = $('#ContactNos_2__ContactNo').val();
+            e.customArgs['ContactNos_2__STDCode'] = $('#ContactNos_0__STDCode').val();
+            e.customArgs['ApmcContactNos2_ContactType'] = $('#ContactNos_2__ContactNoType').val();
+
+            e.customArgs['ApmcContactNos3'] = $('#ContactNos_3__ContactNo').val();
+            e.customArgs['ContactNos_3__STDCode'] = $('#ContactNos_0__STDCode').val();
+            e.customArgs['ApmcContactNos3_ContactType'] = $('#ContactNos_3__ContactNoType').val();
+
+            if ($('#Status').attr("checked")) {
+                e.customArgs['Status'] = "Active";
+            }
+            else {
+                e.customArgs['Status'] = "Inactive";
+            }
+        }
+
+        //APMC popup endcallback
+        function CBPPopupAddApmc_EndCallback(s, e) {
+            APMCList.PerformCallback();
+        }
+
+        //APMCList combobox begincallback (Refer view :APMCListPartial in shared)
+        function APMCList_OnBeginCallback(s, e) {
+        }
+
+        //APMCList combobox endcallback (sets selectedindex of apmcList to newly added APMC) 
+        function APMCList_OnEndCallback(s, e) {
+            var apmcName = $('#Name').val();
+            if (apmcName != "") {
+                var item = APMCList.FindItemByText(apmcName);
+                APMCList.SetSelectedIndex(item.value);
+                APMCList.SetText(item.text);
+                GetApmcDetails(item.value);
+            }
+        }
+
+        //On popup show
+        function PopupAddApmc_OnPopUp(s, e) {
+            $('#liApmcNameBlank').hide();
+            $('#liApmcAddressBlank').hide();
+            $('#liApmcCityVillage').hide();
+        }
+        var currentIndex;
+
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuClientSub');
+            /*Set Current Active tab*/
+            var currentIndex = $('#hdnCurrentTab').val();
+            var activeTab = currentIndex;
+            if (activeTab != null) {
+                $("ul.tabs").tabs("div.panes > div.panes-data", {
+                    initialIndex: parseInt(activeTab),
+                    onBeforeClick: function (event, tabIndex) {
+                        currentIndex = this.getIndex();
+                        $('#hdnCurrentTab').val(parseInt(tabIndex));
+                        SaveTab(currentIndex);
+                    }
+                });
+            }
+            /*---------------------------------------------------------------------------------------*/
+
+            /*Set values of Subscription details tab*/
+            var rbtnStandardPackage = $('#rbtnSelectStandardPackage');
+            var rbtnPremiumPackage = $('#rbtnSelectPremiumPackage');
+
+            if (rbtnStandardPackage[0].checked) {
+                $('#HiddentxtSelectedFees').val($('#HiddentxtStandardFees').val());
+                $('#HiddentxtSelectedRenewalFees').val($('#HiddentxtStandardRenewalFees').val());
+            }
+            if (rbtnPremiumPackage[0].checked) {
+                $('#HiddentxtSelectedFees').val($('#HiddentxtPremiumFees').val());
+                $('#HiddentxtSelectedRenewalFees').val($('#HiddentxtPremiumRenewalFees').val());
+            }
+            SetTotalAdditionalUsers();
+            SetTotalAdditionalCost();
+            UpdateSubscriptionFees();
+            /*---------------------------------------------------------------------------------------*/
+
+            /*Set values of Subscription Payment details tab*/
+            var CashCheckbox = $('#Cashcheckbox')[0].checked;
+            var Chequecheckbox = $('#Chequecheckbox')[0].checked;
+            var Onlinecheckbox = $('#Onlinecheckbox')[0].checked;
+            var DDcheckbox = $('#DDcheckbox')[0].checked;
+
+            if (CashCheckbox) {
+                toggleDiv('Cash');
+            }
+            if (Chequecheckbox) {
+                toggleDiv('Cheque');
+            }
+            if (Onlinecheckbox) {
+                toggleDiv('Online');
+            }
+            if (DDcheckbox) {
+                toggleDiv('DD');
+            }
+
+            togglePaymentDetailsDivs();
+
+            /*Calculations*/
+            calculateSubscriptionPaymentTotalAmount();
+
+            /*---------------------------------------------------------------------------------------*/
+
+            /*Set values of Account manager*/
+            cmbAccountManager_SelectedIndexChanged();
+            /*---------------------------------------------------------------------------------------*/
+        });
+
+        function SaveTab(tabIndex) {
+            switch (tabIndex) {
+                case 0: SaveCompanyProfile();
+                    break;
+                case 1: SavePrimaryContactDetails();
+                    break;
+                case 2: SaveAPMCDetails();
+                    break;
+                case 3: SaveBusinessConstitution();
+                    break;
+                case 4: SaveSubscriptionDetails();
+                    break;
+                case 5: SavePaymentDetails();
+                    break;
+                case 6: SaveAccountManager();
+                    break;
+            }
+        }
+
+        function nextTab() {
+            var currentIndex = $('#hdnCurrentTab').val();
+            SaveTab(parseInt(currentIndex));
+            var nextTabIndex = (currentIndex && currentIndex != '') ? parseInt(currentIndex) + 1 : 0;
+            nextTabIndex = (nextTabIndex == 7) ? 6 : nextTabIndex;
+            $('#hdnCurrentTab').val(nextTabIndex);
+            $("ul.tabs").tabs("div.panes > div.panes-data",
+                {
+                    initialIndex: parseInt(nextTabIndex)
+                });
+
+        }
+
+        function previousTab() {
+            var currentIndex = $('#hdnCurrentTab').val();
+            SaveTab(parseInt(currentIndex));
+            var prevTabIndex = (currentIndex && currentIndex != '') ? parseInt(currentIndex) - 1 : 0;
+            prevTabIndex = (prevTabIndex == -1) ? 0 : prevTabIndex;
+            $('#hdnCurrentTab').val(prevTabIndex);
+            $("ul.tabs").tabs("div.panes > div.panes-data",
+                {
+                    initialIndex: parseInt(prevTabIndex)
+                });
+        }
+
+
+
+        $(function () { $('#PAN').keyup(function () { this.value = this.value.toUpperCase(); }); });
+
+        $(function () { $('#TAN').keyup(function () { this.value = this.value.toUpperCase(); }); });
+
+        $(function () { $('#txtPAN').keyup(function () { this.value = this.value.toUpperCase(); }); });
+        $(function () { $('#txtCLRPCPUID').keyup(function () { this.value = this.value.toUpperCase(); }); });
+        $(function () { $('#txtCLRPCPPAN').keyup(function () { this.value = this.value.toUpperCase(); }); });
+
+
+
+        jQuery.fn.delay = function (time, func) {
+            return this.each(function () {
+                setTimeout(func, time);
+            });
+        };
+
+
+        function dropdownHide() {
+            $("#Save-butonlist").hide();
+        }
+
+        $(document).ready(function () {
+
+            $("#Save-buton").click(function () {
+                //debugger;
+                $("#Save-butonlist").show();
+            });
+            $("#Save-butonlist").mouseleave(function () {
+                $("#Save-butonlist").hide();
+            });
+
+        });
+    </script>
+}
+@section PanelPartial
+{
+    <!-- the tabs -->
+    <ul class="tabs">
+        <li><a href="#">@ClientResources.CLRCompanyProfile</a></li>
+        <li><a href="#">@ClientResources.CLRPCPH1</a></li>
+        <li><a href="#">@ClientResources.CLRApmcDetails</a></li>
+        <li><a href="#">@ClientResources.CLRBusinessConstitution</a></li>
+        <li><a href="#">@ClientResources.CLRSubscriptionDetails</a></li>
+        <li><a href="#">@ClientResources.CLRPaymentDetails</a></li>
+        <li><a href="#">@ClientResources.CLRAccountManager</a></li>
+    </ul>
+}
+@section MainBody
+{
+    @{
+        string mode = string.Empty;
+        if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+        {
+            mode = Request.QueryString["mode"];
+        }
+        Nullable<int> Caid = null;
+        if (!string.IsNullOrEmpty(Request.QueryString["caid"]))
+        {
+            Caid = Convert.ToInt32(Request.QueryString["caid"]);
+        }
+    }
+    <div class="page-data fl">
+        @using (Html.BeginForm("ClientRegistration", "ClientAccount", new { mode = mode, caid = Caid }, FormMethod.Post, new { id = "ClientRegistrationForm" }))
+        {
+            <div class="panes">
+                <div class="panes-data" id="CompanyProfile">
+                    <h1>
+                        Client Registration
+                    </h1>
+                    <div style="background: #fffcfc; color: #FF0000">@Html.ValidationSummary(false)</div>
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+                    <div class="Form-Wrap">
+                        <div class="groupfieldset">
+                            <ul class="reset leftfield fl" style="width: 60%;">
+                                <li>
+                                    <label id="lblDisplayClientId" class="width110">@ClientResources.CLRClientID
+                                    </label>
+                                    @Html.TextBoxFor(model => model.DisplayClientId, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                                </li>
+                                <li>
+                                    <label id="lblName" class="width110">@ClientResources.CLRName</label>
+                                    <input type="text" value="M/s." style="width: 24px" class="autoinputvalue" readonly="readonly" />
+                                    @Html.TextBoxFor(model => model.CompanyName, new { @class = "required width145", name = "txtCompanyName", maxlength = "100" })
+                                </li>
+                                <li>
+                                    <label id="lblCompanyAlias" class="width110">@ClientResources.CLRAlias</label>
+                                    @Html.TextBoxFor(model => model.Alias, new { @class = "required width145", name = "txtCompanyAlias", maxlength = "60" })
+                                </li>
+                                <li>
+                                    <label id="lblCompanyPAN" class="width110">@ClientResources.CLRPAN</label>
+                                    @Html.TextBoxFor(model => model.PAN, new { @class = "required width145", name = "txtCompanyPAN", maxlength = "10" })
+                                </li>
+                                <li>
+                                    <label id="lblCompanyTAN" class="width110">@ClientResources.CLRTAN</label>
+                                    @Html.TextBoxFor(model => model.TAN, new { @class = "required width145", name = "txtCompanyTAN", maxlength = "15" })
+                                </li>
+                            </ul>
+                            <ul class="reset rightfield fr" style="width: 40%;">
+                                <li>
+                                    <label id="lblCompanyRegistrationDate" class="width110">@ClientResources.CLRRegistrationDate</label>
+                                    @Html.TextBoxFor(model => model.RegistrationDate, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                                    @*<label id="lblDefaultRegistrationDate" class="autoinputvalue width65">@DateTime.Now.ToShortDateString()</label>*@
+                                </li>
+                                <li>
+                                    <div class="profile-img fl">
+                                        @{
+                               var imagePath = "../../Content/UploadedImages/ClientAccount/clientlogo.jpg";
+                               if (@Model.Image != null)
+                               {
+                                   imagePath = "../../Content/UploadedImages/ClientAccount/" + @Model.Image;
+                               }
+                                            <img alt="" id="previewLogo" src="@imagePath" align="left" />
+                                        }
+                                        @Html.DevExpress().UploadControl(
+                                            settings =>
+                                            {
+                                                settings.Name = "ClientLogoUpload";
+                                                settings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "CallbacksImageUpload" };
+                                                settings.ShowProgressPanel = true;
+                                                settings.ClientSideEvents.FileUploadComplete = "RenderImage";
+                                                settings.BrowseButton.Text = "...";
+                                                //settings.AddUploadButtonsHorizontalPosition = AddUploadButtonsHorizontalPosition.InputRightSide;
+                                                //settings.ShowUploadButton = true;
+
+                                            }).GetHtml()
+                                        <input type="button" value="Upload" onclick="ClientLogoUpload.Upload()" align="left" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="groupfieldset groupfieldsetcol fl" style="min-height: 196px;">
+                            <ul class="reset onecolfield fl">
+                                <li>
+                                    <label class="width110" id="lblCompanyAddress">@ClientResources.CLRAddress</label>
+                                    @Html.TextAreaFor(model => model.ClientAddress.AddressLine1, new { cols = "", rows = "", @class = "textarea width195" })
+                                </li>
+                                <li>
+                                    <label id="lblCompanyCountry" class="width110">@ClientResources.CLRCountry</label>
+                                    <span class="countryinput">India</span> </li>
+                                @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[0])
+                                <li>
+                                    <label id="lblPIPIPin" class="width110">@ClientResources.CLRPin</label>
+                                    @Html.TextBoxFor(model => model.ClientAddress.PIN, new { type = "text", @class = "generalfield width110", value = "", maxlength = "6" })
+                                </li>
+                            </ul>
+                            <div class="clr">
+                            </div>
+                        </div>
+                        <div class="groupfieldset groupfieldsetcol fr" style="min-height: 196px;">
+                            <ul class="reset onecolfield fl">
+                                <li>
+                                    <input id="CompanyContactsCurrentIndex" type="hidden" value="@Model.ClientContacts.Count" />
+                                    <table id="CompanyContacts">
+                                        @{ if (Model.ClientContacts == null)
+                                           {
+                                               Model.ClientContacts = new List<ContactDetailsDto>();
+                                           }
+
+                                           if (Model.ClientContacts.Count == 0)
+                                           {
+                                               Model.ClientContacts.ToList().Add(new ContactDetailsDto
+                                               {
+                                                   ContactNoType = ContactType.MobileNo,
+                                                   CountryCallingCode = "+91",
+                                                   STDCode = "020"
+                                               });
+                                           }
+
+
+                                           for (int i = 0; i < Model.ClientContacts.Count; i++)
+                                           {
+                                            @Html.HiddenFor(model => model.ClientContacts[i].ContactDetailsId)
+                                       bool contactTypeMobile = Model.ClientContacts[i].ContactNoType == ContactType.MobileNo ? true : false;
+                                       bool contactTypeOff = Model.ClientContacts[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                                       bool contactTypeRes = Model.ClientContacts[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                                       bool contactTypefax = Model.ClientContacts[i].ContactNoType == ContactType.Fax ? true : false;
+                                            <tr>
+                                                <td>
+                                                    @Html.DropDownListFor(model => Model.ClientContacts[i].ContactNoType, new List<SelectListItem> { 
+                                                            new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(),Selected = contactTypeMobile},
+                                                            new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected=contactTypeOff},
+                                                            new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+                                                            new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(),Selected = contactTypefax}}, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(model => Model.ClientContacts[i].CountryCallingCode, new { value = "+91", @class = "textfiled", style = "width:28px; text-align:center", disabled = "disabled" })
+                                                </td>
+                                                <td>
+                                                    @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                                                    {
+                                                        @Html.TextBoxFor(model => Model.ClientContacts[i].STDCode, new { value = @Model.ClientContacts[i].STDCode, @class = "textfiled", style = "width:38px; text-align:center;" })
+                                                        @Html.TextBoxFor(model => Model.ClientContacts[i].ContactNo, new { @class = "textfiled width118", value = "", maxlength = "15" })
+
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.TextBoxFor(model => Model.ClientContacts[i].STDCode, new { value = "020", @class = "textfiled", style = "width:38px; display:none; text-align:center;" })
+                                                        @Html.TextBoxFor(model => Model.ClientContacts[i].ContactNo, new { @class = "textfiled width166", value = "", maxlength = "15" })
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @Html.HiddenIndexerInputForModel()
+                                                    @if (i == 0)
+                                                    { 
+                                                        <a href="#" class="addnew" onclick="javascript:addNewContact('#CompanyContacts','#CompanyContactsCurrentIndex','5','ClientContacts_', 'ClientContacts')">
+                                                        </a>
+                                                    }
+                                                    else
+                                                    { 
+                                                        <a href="#" class="remove" onclick="javascript:removeContact('@i')"></a>
+                                                    }
+                                                </td>
+                                            </tr>
+                                           }
+                                        }
+                                    </table>
+                                </li>
+                                <li>
+                                    <label id="lblEmail1" class="width83">@ClientResources.Email1</label>
+                                    @Html.TextBoxFor(model => Model.Email1, new { @class = "generalfield width200" })
+                                    <a href="#" class="addnew" onclick="javascript:showEmail2('#CompanyEmail2')"></a>
+                                </li>
+                                @{
+                               string displaystyle = string.Empty;
+                               if (string.IsNullOrEmpty(Model.Email2))
+                               {
+                                   displaystyle = "display: none";
+                               }
+                               else
+                               {
+                                   displaystyle = "display: block";
+                               }
+                                }
+                                <li id="CompanyEmail2" style='@displaystyle'>
+                                    <label id="lblEmail2" class="width83" style="">@ClientResources.Email2</label>
+                                    @Html.TextBoxFor(model => Model.Email2, new { @class = "generalfield width200", @id = "CompanyEmail2" })
+                                    <a href="#" class="remove" onclick="javascript:hideEmail2('#CompanyEmail2')"></a>
+                                </li>
+                                <li>
+                                    <label id="lblCompanyWebsite" class="width83">@ClientResources.WebSiteURL</label>
+                                    @Html.TextBoxFor(model => model.Website, new { @class = "generalfield width200", name = "txtCompanyWebsite" })
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("PrimaryContactPerson", Model)
+                @Html.Partial("APMCDetails", Model)
+                @Html.Partial("BusinessConstitutionList", Model)
+                @Html.Partial("SubscriptionDetails", Model)
+                @Html.Partial("ClientSubscriptionPaymentDetails", Model.ClientSubscriptionPaymentDetailsModel)
+                @Html.Partial("AccountManager", Model)
+            </div>
+            <div class="clr">
+            </div>
+            <div class="clr">
+            </div>
+            <div>
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 40%">
+                            <ul class="reset input-botton" style="text-align: left;">
+                                <li><a href="javascript:previousTab()">
+                                    <img src="../../Content/Images/Control/btn-previous-icon.gif" alt="previous" /></a>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width: 25%"><br/>                         
+                            <div id="Save-buton">
+                                <span style="padding-left: 0px; padding-top: 2px">SAVE </span>
+                                <ul id="Save-butonlist">
+                                    <li>@Html.DevExpress().Button(settings =>
+                                    {
+                                        settings.UseSubmitBehavior = true;
+                                        settings.Text = ClientResources.CLRSaveasdraft;
+                                        settings.Name = "action:SaveasDraft";
+                                        settings.EnableTheming = false;
+                                        settings.Styles.EnableDefaultAppearance = false;
+
+
+
+                                    }).GetHtml()</li>
+                                    <li>@Html.DevExpress().Button(settings =>
+                                    {
+                                        settings.UseSubmitBehavior = true;
+                                        settings.Text = ClientResources.CLRSaveAndContinue;
+                                        settings.Name = "action:Savecontinue";
+                                        settings.EnableTheming = false;
+                                        settings.Styles.EnableDefaultAppearance = false;
+
+
+                                    }).GetHtml()</li>
+                                    <li>@Html.DevExpress().Button(settings =>
+                                    {
+                                        settings.UseSubmitBehavior = true;
+                                        settings.Text = ClientResources.CLRSaveAndSubmit;
+                                        settings.Name = "action:Savesubmit";
+                                        settings.EnableTheming = false;
+                                        settings.Styles.EnableDefaultAppearance = false;
+
+                                    }).GetHtml()</li>
+                                </ul>
+                            </div>                           
+                            <div class="text-link">@ClientResources.CancelString&nbsp;
+                                @Html.ActionLink(ClientResources.CancelbtnText, "ClientsIndex", "ClientAccount")
+                            </div>
+                        </td>
+                        <td style="width: 35%">
+                            <ul class="reset input-botton" style="text-align: right;">
+                                <li><a href="javascript:nextTab()">
+                                    <img src="../../Content/Images/Control/btn-next-icon.gif" alt="next"/></a> </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            @Html.HiddenFor(model => model.hdnCurrentTab)   
+            @Html.HiddenFor(model => model.IsDDChecked, new { id = "IsDDChecked" })
+            @Html.HiddenFor(model => model.IsCashChecked, new { id = "IsCashChecked" })
+            @Html.HiddenFor(model => model.IsOnlineChecked, new { id = "IsOnlineChecked" })
+            @Html.HiddenFor(model => model.IsChequeChecked, new { id = "IsChequeChecked" }) 
+            @Html.HiddenFor(model => model.mode, new { id = "HdnMode" }) 
+        }
+    </div>
+}

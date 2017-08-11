@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Cams.WcfService.SubscriptionMasterWcfServices" CodeBehind="SubscriptionMasterWcfServices.svc.cs" %>

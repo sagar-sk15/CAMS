@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[BankBranches]
+    ADD CONSTRAINT [FKCCCAB1B4200A2312] FOREIGN KEY ([WeeklyOffDayId]) REFERENCES [dbo].[BankBranchWeeklyOffs] ([WeeklyOffDayId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

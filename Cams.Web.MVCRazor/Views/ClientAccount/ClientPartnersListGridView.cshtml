@@ -1,0 +1,145 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using System.Web.UI.WebControls
+@using DevExpress.Data
+@using Cams.Common.Dto
+@using Cams.Web.MVCRazor;
+ @Html.DevExpress().GridView(
+                                    settings =>
+                                    {
+                                        settings.Name = "ClientPartnersListGridViewDataBinding";
+                                        settings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "ClientPartnersListGridView" };
+                                        settings.ControlStyle.CssClass = "fontName";
+                                        settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+                                        settings.Settings.ShowTitlePanel = false;
+                                        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                                        settings.KeyFieldName = "PartnerId";
+                                        settings.Settings.ShowFilterRow = true;
+                                        settings.CommandColumn.ClearFilterButton.Visible = true;
+                                        settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+                                        settings.SettingsPager.FirstPageButton.Visible = true;
+                                        settings.SettingsPager.LastPageButton.Visible = true;
+                                        settings.SettingsPager.AlwaysShowPager = true;
+                                        settings.SettingsPager.PageSize = 5;
+                                        settings.SettingsPager.ShowEmptyDataRows = true;
+                                        settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+                                        settings.Settings.ShowGroupPanel = true;
+                                        settings.SettingsBehavior.AllowFocusedRow = true;
+                                        settings.ClientSideEvents.FocusedRowChanged = "OnCPLGridViewFocusedRowChanged";
+
+                                        settings.SettingsBehavior.AllowFocusedRow = true;
+
+                                        settings.Columns.Add("PartnerName", "Name");
+                                        settings.Columns.Add("ClientPartnerDesignation.DesignationName", "Designation");
+                                        settings.Columns.Add("ClientPartnerAddress.CityVillage.Name", "Place");
+                                        settings.Columns.Add(column =>
+                                        {
+                                            column.Caption = "Contacts";
+                                            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                                            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                                            column.Width = System.Web.UI.WebControls.Unit.Percentage(40);
+                                            column.SetDataItemTemplateContent(c =>
+                                            {
+                                                    foreach (ContactDetailsDto contact in (List<ContactDetailsDto>)DataBinder.Eval(c.DataItem, "ClientPartnerContacts"))
+                                                    {
+                                                        ViewContext.Writer.Write(contact.ContactNoType.ToString() + ": (" + contact.CountryCallingCode + ") " + ((contact.ContactNoType.ToString() != Cams.Common.ContactType.MobileNo.ToString()) ? contact.STDCode + " - " : string.Empty) + contact.ContactNo + "<br />");    
+                                                    }
+
+                                                string email1 = (string)DataBinder.Eval(c.DataItem, "Email1");
+                                                string email2 = (string)DataBinder.Eval(c.DataItem, "Email2");
+
+                                                if (!String.IsNullOrEmpty(email1)) { ViewContext.Writer.Write("<br />"); }
+                                                if (!String.IsNullOrEmpty(email1))
+                                                {
+                                                    Html.DevExpress().HyperLink(linksetting =>
+                                                    {
+                                                        linksetting.Properties.Text = email1;
+                                                        linksetting.ControlStyle.CssClass = "fontName";
+                                                        linksetting.NavigateUrl = Cams.Common.Constants.MAILTO + email1;
+                                                    }).Render();
+                                                }
+                                                    
+
+                                                if (!String.IsNullOrEmpty(email2)) { ViewContext.Writer.Write("<br />"); }
+                                                if (!String.IsNullOrEmpty(email2))
+                                                {
+                                                    Html.DevExpress().HyperLink(linksetting =>
+                                                    {
+                                                        linksetting.Properties.Text = email2;
+                                                        linksetting.ControlStyle.CssClass = "fontName";
+                                                        linksetting.NavigateUrl = Cams.Common.Constants.MAILTO + email2;
+                                                    }).Render();
+                                                }
+                                            });
+                                        });
+
+                                        settings.Columns.Add(column =>
+                                        {
+                                            column.FieldName = "IsActive";
+                                            column.Caption = "Status";
+                                            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                                            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                                            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                                            column.SetDataItemTemplateContent(c =>
+                                            {
+                                                ViewContext.Writer.Write(
+                                                    Html.DevExpress().Label(editSettings =>
+                                                    {
+                                                        bool isActive = (bool)DataBinder.Eval(c.DataItem, "IsActive");
+                                                        editSettings.Text = (isActive) ? ClientResources.UGLGridActive : ClientResources.UGLGridInActive;
+                                                        editSettings.ControlStyle.CssClass = (!isActive) ? "UserLocked fontName" : "fontName";
+                                                        editSettings.AssociatedControlName = "IsActive";
+                                                    }).GetHtml().ToHtmlString()
+                                                    );
+                                            });
+                                        });
+
+                                        settings.Settings.ShowFooter = true;
+                                        settings.SetFooterRowTemplateContent(footer =>
+                                        {
+                                            ViewContext.Writer.Write("<input type=\"submit\" name=\"action:EditBusinessConstitution\" class=\"button_Edit\" value=\"\" style=\" width:100px; height:25px; text-decoration:none; border-style: none;\" />");
+                                            //Html.DevExpress().Button(buttonSettings =>
+                                            //{
+                                            //    buttonSettings.Name = "action:EditBusinessConstitution";
+                                            //    buttonSettings.Text = "";
+                                            //    buttonSettings.ClientVisible = ((List<Cams.Common.Dto.ClientRegistration.ClientPartnerDetailsDto>)Model.businessConstitutionModel.ClientPartners).Count() == 0 ? false : true;
+                                            //    buttonSettings.ControlStyle.CssClass = "button_Edit";
+                                            //    buttonSettings.Styles.Style.CssClass = "button_Edit";
+                                            //    buttonSettings.Styles.Style.BackgroundImage = DevExpress.Web.ASPxClasses.BackgroundImage();
+                                            //    buttonSettings.ControlStyle.Border.BorderStyle = BorderStyle.None;
+                                            //    buttonSettings.Width = System.Web.UI.WebControls.Unit.Pixel(100);
+                                            //    buttonSettings.Height = System.Web.UI.WebControls.Unit.Pixel(25);
+                                            //    buttonSettings.UseSubmitBehavior = true;
+                                            //}).Render();
+                                        });
+                                        
+                                        settings.CustomCallback = (sender, e) =>
+                                        {
+                                            int layoutIndex = Int32.Parse(e.Parameters);
+                                            MVCxGridView grid = (MVCxGridView)sender;
+
+                                            grid.BeginUpdate();
+                                            try
+                                            {
+                                                grid.ClearSort();
+                                                switch (layoutIndex)
+                                                {
+                                                    case 0:
+                                                        grid.GroupBy(grid.Columns["PartnerName"]);
+                                                        break;
+                                                    case 1:
+                                                        grid.GroupBy(grid.Columns["ClientPartnerDesignation.DesignationName"]);
+                                                        break;
+                                                    case 2:
+                                                        grid.GroupBy(grid.Columns["ClientPartnerAddress.CityVillage.Name"]);
+                                                        break;
+                                                }
+                                            }
+                                            finally
+                                            {
+                                                grid.EndUpdate();
+                                            }
+                                            grid.ExpandAll();
+                                        };
+
+                                    }).Bind(Model.businessConstitutionModel.ClientPartners).GetHtml()
+

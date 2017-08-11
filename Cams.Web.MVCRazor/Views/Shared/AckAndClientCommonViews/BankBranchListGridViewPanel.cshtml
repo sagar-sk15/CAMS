@@ -1,0 +1,14 @@
+﻿
+@Html.DevExpress().CallbackPanel(s => {
+    s.Name = "PanelBankBranchListGridView";
+    s.CallbackRouteValues = new { Controller = "BankBranch", Action = "GetBankBranchListOnBankId" };
+    s.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    //s.Height = 50;
+
+                s.SetContent(() => 
+                {
+                    @Html.RenderPartial("AckAndClientCommonViews\\BankBranchGrid");
+                });
+                s.ClientSideEvents.BeginCallback = "PanelBankBranchListGridViewBeginCallback";
+    }
+    ).GetHtml()

@@ -1,0 +1,204 @@
+﻿@using Cams.Web.MVCRazor.Models.Account
+@model IList<UserRolesModel>
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "gvUserRoles";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "UserRolePermissionsGrid", };
+        //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Account", Action = "UserRolePermissionsGrid" };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.ControlStyle.CssClass = "fontName";
+        settings.KeyFieldName = "UserRolePermissionId";
+        settings.SettingsPager.PageSize = 5;
+        
+        settings.Columns.Add(column =>
+                                 {
+                                    column.FieldName = "UserRoleDto";
+                                    column.ColumnType = MVCxGridViewColumnType.ComboBox;
+                                    column.Caption = "Select Role";                                    
+                                    column.SetDataItemTemplateContent(c =>
+                                            {
+                                                Html.DevExpress().ComboBox(cmbsettings =>
+                                                                {
+                                                                    cmbsettings.Name = "cmbUserRoles" + (DataBinder.Eval(c.DataItem, "UserRolePermissionId"));
+                                                                    cmbsettings.SelectedIndex = 0;
+                                                                    cmbsettings.Properties.DropDownStyle = DevExpress.Web.ASPxEditors.DropDownStyle.DropDownList;
+                                                                    cmbsettings.Width = System.Web.UI.WebControls.Unit.Pixel(250);
+                                                                    cmbsettings.ControlStyle.Font.Name = "DejaVu Serif";
+                                                                    cmbsettings.ControlStyle.Font.Size = System.Web.UI.WebControls.FontUnit.Point(10);
+                                                                    cmbsettings.ControlStyle.CssClass = "comboBoxControl";
+                                                                    cmbsettings.CallbackRouteValues = new {Controller = "Account", Action = "GetUsersRolesList"};
+                                                                    cmbsettings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                                                                    cmbsettings.Properties.TextFormatString = "{0}";
+                                                                    cmbsettings.Properties.ValueField = "RoleId";
+                                                                    cmbsettings.Properties.ValueType = typeof (int);
+                                                                    cmbsettings.Properties.TextField = "RoleName";
+                                                                    cmbsettings.Properties.ClientSideEvents.SelectedIndexChanged = "cmbUserRolesSelect";
+                                                                    cmbsettings.Properties.Columns.Add("RoleName");
+                                                                    cmbsettings.Properties.CallbackPageSize = 30;
+                                                                }).BindList(Cams.Web.MVCRazor.Models.Account.UserRolesModel.GetAllRoles(Request.Params["usertype"]))
+                                                                .Bind(DataBinder.Eval(c.DataItem, "UserRoleDto.RoleName")).GetHtml();
+                                            });
+            });
+
+        settings.Columns.Add(column =>
+       {
+           column.FieldName = "AllowAdd";
+           column.ColumnType = MVCxGridViewColumnType.CheckBox;
+           column.SetDataItemTemplateContent(c =>
+               {
+                   bool isReadOnly = false;
+                   if (DataBinder.Eval(c.DataItem, "UserRoleDto.IsAddApplicable") != null)
+                   {
+                       isReadOnly = !(bool) DataBinder.Eval(c.DataItem, "UserRoleDto.IsAddApplicable");
+                   }
+                   Html.DevExpress().CheckBox(chkSettings =>
+                               {
+                                   chkSettings.Name = "chkAdd_" + c.KeyValue;
+                                   //if (isReadOnly)
+                                   //{
+                                   //    chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                                   //}
+                                   
+                                   // Enable or Disable the controls using client API as if disable serverside the controls are not available for client script
+                                   chkSettings.Properties.ClientSideEvents.Init = "function(s,e) {  s.SetEnabled(" + (!isReadOnly).ToString().ToLower() + ")}";
+                                   chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChangedinUserRolesGrid(s, '{0}','{1}','{2}'); }}",
+                                                                           c.Column.FieldName, c.KeyValue, Url.Action("UpdateUserRoleValue", "Account", null));
+                               }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+               });
+
+       });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowEdit";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = false;
+                if (DataBinder.Eval(c.DataItem, "UserRoleDto.IsEditApplicable") != null)
+                {
+                    isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "UserRoleDto.IsEditApplicable");
+                }
+                //c.Column.ReadOnly = isReadOnly;
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkEdit_" + c.KeyValue;
+                    //chkSettings.ReadOnly = isReadOnly;
+                    //chkSettings.Enabled = !isReadOnly;
+                    //if (isReadOnly)
+                    //{
+                    //    chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                    //}
+                    chkSettings.Properties.ClientSideEvents.Init = "function(s,e) { s.SetEnabled(" + (!isReadOnly).ToString().ToLower() + ")}";
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChangedinUserRolesGrid(s, '{0}','{1}','{2}'); }}",
+                                                                          c.Column.FieldName, c.KeyValue, Url.Action("UpdateUserRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowView";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = false;
+                if (DataBinder.Eval(c.DataItem, "UserRoleDto.IsViewApplicable") != null)
+                {
+                    isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "UserRoleDto.IsViewApplicable");
+                }
+                //c.Column.ReadOnly = isReadOnly;
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkView_" + c.KeyValue;
+                    //chkSettings.ReadOnly = isReadOnly;
+                    //chkSettings.Enabled = !isReadOnly;
+                    //if (isReadOnly)
+                    //{
+                    //    chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                    //}
+                    chkSettings.Properties.ClientSideEvents.Init = "function(s,e) { s.SetEnabled(" + (!isReadOnly).ToString().ToLower() + ")}";
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChangedinUserRolesGrid(s, '{0}','{1}','{2}'); }}",
+                                                                          c.Column.FieldName, c.KeyValue, Url.Action("UpdateUserRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowDelete";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = false;
+                if(DataBinder.Eval(c.DataItem, "UserRoleDto.IsDeleteApplicable")!=null)
+                {
+                isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "UserRoleDto.IsDeleteApplicable");
+                }
+                //c.Column.ReadOnly = isReadOnly;
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkDelete_" + c.KeyValue;
+                    //chkSettings.ReadOnly = isReadOnly;
+                    //chkSettings.Enabled = !isReadOnly;
+                    //if (isReadOnly)
+                    //{
+                    //    chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                    //}
+                    chkSettings.Properties.ClientSideEvents.Init = "function(s,e) { s.SetEnabled(" + (!isReadOnly).ToString().ToLower() + ")}";
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChangedinUserRolesGrid(s, '{0}','{1}','{2}'); }}",
+                                                                           c.Column.FieldName, c.KeyValue, Url.Action("UpdateUserRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "AllowPrint";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.SetDataItemTemplateContent(c =>
+            {
+                bool isReadOnly = false;
+                if (DataBinder.Eval(c.DataItem, "UserRoleDto.IsPrintApplicable") != null)
+                {
+                    isReadOnly = !(bool)DataBinder.Eval(c.DataItem, "UserRoleDto.IsPrintApplicable");
+                }
+                //c.Column.ReadOnly = isReadOnly;
+                
+                Html.DevExpress().CheckBox(chkSettings =>
+                {
+                    chkSettings.Name = "chkPrint_" + c.KeyValue;
+                    //chkSettings.ReadOnly = isReadOnly;
+                    //chkSettings.Enabled = !isReadOnly;
+                    //if (isReadOnly)
+                    //{
+                    //    chkSettings.ControlStyle.BackColor = System.Drawing.Color.Gray;
+                    //}
+                    chkSettings.Properties.ClientSideEvents.Init = "function(s,e) { s.SetEnabled(" + (!isReadOnly).ToString().ToLower() + ")}";
+                    chkSettings.Properties.ClientSideEvents.ValueChanged = String.Format("function (s, e) {{ OnValueChangedinUserRolesGrid(s, '{0}','{1}','{2}'); }}",
+                                                                          c.Column.FieldName, c.KeyValue, Url.Action("UpdateUserRoleValue", "Account", null));
+                }).Bind(DataBinder.Eval(c.DataItem, c.Column.FieldName)).Render();
+            });
+        });
+        settings.Columns.Add(column =>
+        {
+            //column.FieldName = "AddDeleteRole";
+            column.SetDataItemTemplateContent(c =>
+                {
+                    
+                    if (c.VisibleIndex == 0)
+                    {
+                        ViewContext.Writer.Write("<a class=\"addnew\" href=\"javascript:OnNewButtonClick()\"></a>");
+                    }
+                    else
+                    {
+                        ViewContext.Writer.Write("<a class=\"remove\" href=\"javascript:OnDelete('" + c.KeyValue + "')\"></a>");
+                    }
+                });
+        });
+        settings.ClientSideEvents.BeginCallback = "function(s,e){ e.customArgs['username'] = $.QueryString['username']}";
+    }).Bind(Model).GetHtml()
+       
+    @Html.Hidden("hdnUrpId")

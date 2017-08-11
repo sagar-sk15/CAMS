@@ -1,0 +1,54 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientMasters.LabourChargeTypeModel
+@using System.Web.UI.WebControls
+@using DevExpress.Data
+ @Html.DevExpress().GridView(
+                                    settings =>
+                                    {
+                                        settings.Name = "LabourChargeTypeListGridViewDataBinding";
+                                        settings.CallbackRouteValues = new { Controller = "ClientMasters", Action = "LabourChargeTypeListGridView" };
+                                        settings.Settings.ShowTitlePanel = false;
+                                        settings.Width = 500;
+                                        settings.KeyFieldName = "LabourChargeId";
+                                        settings.Settings.ShowFilterRow = true;
+                                        settings.CommandColumn.ClearFilterButton.Visible = true;
+                                        settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+                                        settings.SettingsPager.FirstPageButton.Visible = true;
+                                        settings.SettingsPager.LastPageButton.Visible = true;
+                                        settings.SettingsPager.AlwaysShowPager = true;
+                                        settings.SettingsPager.PageSize = 10;
+                                        settings.SettingsPager.ShowEmptyDataRows = true;
+                                        settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+                                        settings.Settings.ShowGroupPanel = true;
+
+                                        settings.SettingsBehavior.AllowFocusedRow = true;
+                                        settings.ClientSideEvents.FocusedRowChanged = "OnLabourChargeTypeListGridViewDataBindingFocusedRowChanged";
+                                        
+                                        settings.Columns.Add(column =>
+                                        {
+                                            column.FieldName = "LabourChargeId";
+                                            column.Caption = "Labour Charge";
+                                            column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Left;
+                                            column.Settings.AllowAutoFilter = DefaultBoolean.True;
+                                            column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                                            column.ColumnType = MVCxGridViewColumnType.HyperLink;
+                                            HyperLinkProperties properties = column.PropertiesEdit as HyperLinkProperties;
+                                            String urlFormatString = Url.Action("GetLabourChargeTypeView", "ClientMasters", new RouteValueDictionary(new { labourchargeid = "{0}" }));
+                                            properties.NavigateUrlFormatString = HttpUtility.UrlDecode(urlFormatString);
+                                            properties.TextField = "LabourCharge";
+                                        });
+
+                                        settings.Settings.ShowFooter = true;
+                                        settings.SetFooterRowTemplateContent(footer =>
+                                        {
+                                            Html.DevExpress().HyperLink(linkSettings =>
+                                            {
+                                                linkSettings.Name = "EditButton";
+                                                linkSettings.ClientVisible = ((List<Cams.Common.Dto.ClientMasters.LabourChargeTypeDto>)Model.LabourChargeTypeList).Count() == 0 ? false : true;
+                                                linkSettings.Properties.Style.CssClass = "button_Edit";
+                                                linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                                                linkSettings.NavigateUrl = Url.Action("AddLabourChargeTypeIndex", "ClientMasters", new { mode = "edit" });
+                                            }).Render();
+                                        });
+                                        
+                                    }).Bind(Model.LabourChargeTypeList).GetHtml()
+

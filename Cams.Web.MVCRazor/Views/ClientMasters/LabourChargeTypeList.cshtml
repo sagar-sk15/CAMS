@@ -1,0 +1,51 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientMasters.LabourChargeTypeModel
+@using Cams.Web.MVCRazor;
+
+@{
+    ViewBag.Title = "LabourChargeTypeList";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+
+@section Scripts{
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        HighlightClientAdminMainMenu('#mnuMasters');
+    });
+
+    function OnLabourChargeTypeListGridViewDataBindingFocusedRowChanged(s, e) {
+        if (s.focusedRowIndex != -1) {
+            if (s.GetRowKey(s.GetFocusedRowIndex()) != null) {
+                $('#LabourChargeId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+            }
+        }
+    }
+
+    function OnEditClick(s, e) {
+        if ($('#LabourChargeId').val() == null || $('#LabourChargeId').val() == "" || $('#LabourChargeId').val() == "0") {
+            alert("Please select Labour Charge type from the list.");
+        }
+        s.SetNavigateUrl(s.GetNavigateUrl() + '&labourchargeid=' + $('#LabourChargeId').val());
+        return true;
+    }
+</script>
+}
+
+<div class="page-data fl">
+        <div class="panes">
+          <div class="panes-data padbot15">
+            <h1>@ClientResources.LCTLH1</h1>
+            @if (TempData["LabourChargeSaved"] != null)
+            {
+                <div class="response-msg success-msg">
+                        <span>@TempData["LabourChargeSaved"].ToString()</span>
+                </div>
+            }
+            <div class="ListHead">
+              <div class="ListAddNew fr">@Html.ActionLink(" ", "AddLabourChargeTypeIndex", "ClientMasters", null, new { @class = "button_Add" })</div>
+              <div class="clr"></div>
+            </div>
+            @Html.Partial("LabourChargeTypeGridView", Model)
+          </div>
+        </div>
+      </div>
+      @Html.HiddenFor(model=>model.LabourChargeId)

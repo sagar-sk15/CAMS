@@ -1,0 +1,95 @@
+﻿@using Cams.Web.MVCRazor;
+@* Resource keys related to this page have extension Cnt*@
+@model Cams.Web.MVCRazor.Models.Masters.CountryModel
+@{
+    ViewBag.Title = "AddCountry";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        HighlightSuperAdminMainMenu('#mnuMasters');
+    });
+</script>
+}
+
+@section MainBody {
+    <div class="page-data fl">
+        <div class="panes">
+            @using (Html.BeginForm("Country", "Masters", FormMethod.Post))
+            {
+                <div class="panes-data">
+                    <h1>
+                        @ClientResources.CntCountryDetails</h1>
+                    @Html.ValidationSummary(true)
+                    <div class="Form-Wrap">
+                        <ul class="reset onecolfield fl">
+                            <li>
+                                <label id="lblCountry" class="width110">@ClientResources.CntCountryName
+                                </label>
+                                @Html.TextBoxFor(model => model.CountryName, new { @class = "autoinputvalue", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblCallingCode" class="width110">
+                                    @ClientResources.CntCallingCode</label>
+                                @Html.TextBoxFor(model => model.CallingCode, new { @class = "autoinputvalue width50", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblAgeStandard" class="width110">
+                                    @ClientResources.CntAgeStd</label>
+                                <span class="smltxt non-editable-txt">Minor</span><a href="#" class="minorarrow">&nbsp;</a>
+                                @Html.TextBoxFor(model => model.AgeStd, new { @class = "autoinputvalue txt_twodigi", @readonly = "readonly" })
+                                <a href="#" class="majorarrow">&nbsp;</a> <span class="smltxt non-editable-txt">Major</span></li>
+                            <li>
+                                <label id="lblCurrency" class="width110">
+                                    @ClientResources.CntCurrency</label>
+                                @Html.TextBoxFor(model => model.Currency, new { @class = "autoinputvalue txtwidth235", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblCurrencyCode" class="width110 fl">
+                                    @ClientResources.CntCurrencyCode</label>
+                                @Html.TextBoxFor(model => model.CurrencyCode, new { @class = "autoinputvalue width50", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblCurrencySymbol" class="width110 fl">
+                                    @ClientResources.CntSymbol</label>
+                                <img src=@Url.Content("~/Content/Images/Control/RupeeImage.png") alt="Rupees Symbol" height="12" width="12" style="padding-top: 5px">
+                            </li>
+                            <li>
+                                <label id="lbl_PlaceType" class="width110">
+                                    @ClientResources.CntTimeZone</label>
+                                @Html.TextBoxFor(model => model.TimeZone, new { @class = "autoinputvalue txtwidth235", @readonly = "readonly", @Width = "325" })
+                            </li>
+                            <li>
+                                <label class="width110 fl">
+                                    @ClientResources.CntFinancialYear</label>
+                                <span class="fl smltxt non-editable-txt" style="padding-top: 5px; display: block">From&nbsp;&nbsp;&nbsp;</span>
+                                @Html.TextBoxFor(model => model.FinancialYearStart, new { @class = "autoinputvalue  width75 fl", @readonly = "readonly" })
+                                <span class="vsmlspan fl smltxt non-editable-txt">&nbsp;&nbsp;To&nbsp;</span>
+                                @Html.TextBoxFor(model => model.FinancialYearEnd, new { @class = "autoinputvalue width75 fl", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label class="width110 fl">
+                                    @ClientResources.CntStatus</label>
+                                @Html.TextBoxFor(model => model.Status, new { @class = "autoinputvalue", @readonly = "readonly" })
+                                <div class="clr">
+                                </div>
+                            </li>
+                            <li>
+                                <br />
+                                <br />
+                                <div class="text-link" align="center">
+                                    @*@ClientResources.CntMsg*@</div>
+                            </li>
+                            <li>
+                                <div class="text-link" align="center">
+                                    @Html.ActionLink("Cancel", "WelCome", "Account")
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="142d97fc-01ea-4ddc-9599-5fe5c454c66f" name="Sagar.Kulkarni@ACKCEZIONE7 2012-03-20 14:56:31" runUser="ACKCEZIONE\Sagar.Kulkarni" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="2f3ab211-9129-46ab-87e4-4332742e1f1b">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Sagar.Kulkarni_ACKCEZIONE7 2012-03-20 14_56_31">
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Extension\bin\Debug\Cams.Extension.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\FluentNHibernate.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Common\bin\Debug\Cams.Common.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Libs\Iesi.Collections.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.WcfService\bin\Cams.WcfService.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\NHibernate.ByteCode.Castle.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\Common.Logging.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\Spring.Core.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Libs\Castle.Core.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\NHibernate.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Domain\bin\Debug\Cams.Domain.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Dal.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\log4net.dll" />
+    </Deployment>
+    <Execution hostProcessPlatform="MSIL">
+      <Hosts>
+        <AspNet name="ASP.NET" executionType="WebDev" />
+      </Hosts>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+      </TestTypeSpecific>
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-20T14:56:31.3710000+05:30" queuing="2012-03-20T14:56:31.4510000+05:30" start="2012-03-20T14:56:31.4690000+05:30" finish="2012-03-20T14:56:41.1690000+05:30" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <DebugTrace>Unable to read configuration section common/logging.  Using no-op implemenation.
+</DebugTrace>
+    </Output>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetUserById" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="d165b5d0-298b-55b7-da96-f7ff4b902a59">
+      <Execution id="55b32b6a-e810-402a-9f76-d4741143ddef" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetUserById" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="d165b5d0-298b-55b7-da96-f7ff4b902a59" executionId="55b32b6a-e810-402a-9f76-d4741143ddef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="55b32b6a-e810-402a-9f76-d4741143ddef" testId="d165b5d0-298b-55b7-da96-f7ff4b902a59" testName="GetUserById" computerName="ACKCEZIONE7" duration="00:00:04.7392978" startTime="2012-03-20T14:56:31.4790000+05:30" endTime="2012-03-20T14:56:40.8040000+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55b32b6a-e810-402a-9f76-d4741143ddef">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method Cams.UnitTests.Domain.Services.UserServiceTests.TestsInitialize threw exception. FluentNHibernate.Cfg.FluentConfigurationException: FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+ ---&gt; FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+ ---&gt; NHibernate.MappingException: An association from the table ClientPartners refers to an unmapped class: Cams.Domain.Entities.ClientRegistration.Client.</Message>
+          <StackTrace>    at NHibernate.Cfg.Configuration.LogAndThrow(Exception exception)
+   at NHibernate.Cfg.Configuration.SecondPassCompileForeignKeys(Table table, ISet done)
+   at NHibernate.Cfg.Configuration.SecondPassCompile()
+   at NHibernate.Cfg.Configuration.GenerateDropSchemaScript(Dialect dialect)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Initialize()
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Action`1 scriptAction, Boolean export, Boolean justDrop)
+   at Cams.Dal.BootStrapper.NhBootStrapper.&lt;CamsSchemaExport&gt;b__2(Configuration cfg) in D:\DND\CAMS\CAMS\Cams.Dal\BootStrapper\NhBootStrapper.cs:line 30
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+ --- End of inner exception stack trace ---
+    at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+ --- End of inner exception stack trace ---
+    at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Cams.Dal.BootStrapper.NhBootStrapper.CamsSchemaExport() in D:\DND\CAMS\CAMS\Cams.Dal\BootStrapper\NhBootStrapper.cs:line 28
+   at Cams.UnitTests.CamsTestBase.InitialiseDatabase() in D:\DND\CAMS\CAMS\Cams.UnitTests\CamsTestBase.cs:line 34
+   at Cams.UnitTests.CamsTestBase.TestsInitialize() in D:\DND\CAMS\CAMS\Cams.UnitTests\CamsTestBase.cs:line 21
+   at Cams.UnitTests.Domain.Services.UserServiceTests.TestsInitialize() in D:\DND\CAMS\CAMS\Cams.UnitTests\Domain\Services\UserServiceTests.cs:line 48
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

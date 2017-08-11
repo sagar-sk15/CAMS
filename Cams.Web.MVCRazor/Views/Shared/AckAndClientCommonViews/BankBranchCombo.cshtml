@@ -1,0 +1,31 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.BankBranchListModel
+@using Cams.Web.MVCRazor
+
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "cbbBankBranch";
+        settings.Width = System.Web.UI.WebControls.Unit.Pixel(180);
+        settings.SelectedIndex = 0;
+        settings.Properties.DropDownWidth = System.Web.UI.WebControls.Unit.Pixel(550);
+        settings.Properties.DropDownStyle= DevExpress.Web.ASPxEditors.DropDownStyle.DropDownList;
+        settings.CallbackRouteValues = new { Controller = "BankBranch", Action = "GetBanks" };
+        
+        settings.Properties.EnableCallbackMode = true;
+        settings.Properties.CallbackPageSize = 30;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+        settings.Properties.TextFormatString = "{0}";
+        settings.Properties.ValueField = "BankId";
+        settings.Properties.ValueType = typeof(string);
+        settings.Properties.TextField = "BankName";
+        
+        //settings.Properties.Columns.Add("BankName");
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = "cbbBankBranchIndexChange";
+        settings.Properties.ClientSideEvents.BeginCallback = "cbbBankBranchBeginCallback";
+    }
+    ).BindList(Model.BankList).GetHtml()
+   
+
+
+

@@ -1,0 +1,59 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientMasters.LabourChargeTypeModel
+@using Cams.Web.MVCRazor;
+
+@{
+    ViewBag.Title = "LabourChargeTypeView";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+@section Scripts{
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/content/css/style.css") />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightClientAdminMainMenu('#mnuMasters');
+        });
+    </script>
+}
+@section MainBody
+{
+<div class="page-data fl">
+     @using (Html.BeginForm("EditLabourChargeType", "ClientMasters", FormMethod.Post))
+      {
+            <div class="panes">
+          <div class="panes-data">
+            <h1>@ClientResources.LCTViewH1</h1>
+            @if (ViewData["Error"] != null)
+            {
+                <div class="response-msg error-msg">
+                    <span>@ViewData["Error"].ToString()</span>
+                    <br />
+                    <span>@Html.ValidationSummary(true)</span>
+                </div>
+            }
+            <div style="background:#fffcfc;color:#FF0000">@Html.ValidationSummary(false)</div>
+            @if (TempData["Success"] != null)
+            {
+                <div class="response-msg success-msg">
+                    <span>@TempData["Success"].ToString()</span>
+                </div>
+            }
+            <div class="Form-Wrap">
+                <ul class="reset onecolfield fl">
+                  <li>
+                    <div class="fl">
+                      <label id="lblLabourCharge">@ClientResources.AddLCTlblLabourCharge </label>
+                      @Html.TextBoxFor(model => model.LabourCharge, new { name = "txtLabourCharge", id = "txtLabourCharge", value = "", maxlength = "30", @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                    </div>
+                     </ul>
+                  <div class="clr"></div>
+                    <ul class="reset input-botton">
+                   <li>
+                      @Html.ActionLink(" ", "AddLabourChargeTypeIndex", "ClientMasters", new { mode = "edit", labourchargeid = Model.LabourChargeId.ToString() }, new { @class = "button_Edit", style = "margin-left:auto; margin-right:auto;" })
+                      <div class="text-link">@ClientResources.CancelString&nbsp;@Html.ActionLink(ClientResources.CancelbtnText, "LabourChargeTypesListIndex", "ClientMasters")</div>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      }
+      </div>
+}

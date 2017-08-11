@@ -1,0 +1,10 @@
+﻿
+@Html.DevExpress().CallbackPanel(cbpSettings => {
+        cbpSettings.Name = "cbpUsers";
+        cbpSettings.CallbackRouteValues = new { Controller = "Account", Action = "CBPPartialUsers" };
+        cbpSettings.SetContent(() =>
+        {
+            Html.RenderPartial("UsersGrid");
+        });
+        cbpSettings.ClientSideEvents.BeginCallback = "cbpUsers_OnBeginCallback";
+}).GetHtml()

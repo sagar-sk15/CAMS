@@ -1,0 +1,70 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientMasters.MeasuringUnitModel
+@using Cams.Web.MVCRazor
+@using Cams.Common;
+@{
+    ViewBag.Title = "MeasuringUnitList";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+
+@section Scripts{
+<script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            HighlightClientAdminMainMenu('#mnuMasters');
+        });
+
+        function SubmitForm() {
+            document.forms["MeasuringUnitListForm"].submit();
+        }
+        function OnMeasuringUnitListGridViewDataBindingFocusedRowChanged(s, e) {
+            if (s.focusedRowIndex != -1) {
+                if (s.GetRowKey(s.GetFocusedRowIndex()) != null) {
+                    $('#UnitId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+                }
+            }
+        }
+
+        function OnEditClick(s, e) {
+            if ($('#UnitId').val() == null || $('#UnitId').val() == "" || $('#UnitId').val() == "0") {
+                alert("Please select Measuring Unit from the list.");
+            }
+            s.SetNavigateUrl(s.GetNavigateUrl() + '&measuringunitid=' + $('#UnitId').val());
+            return true;
+        }
+</script>
+}
+
+@section MainBody
+{
+    <div class="page-data fl">
+     @using (Html.BeginForm("MeasuringUnitList", "ClientMasters", FormMethod.Post, new { id = "MeasuringUnitListForm", name = "MeasuringUnitListForm" }))
+     {
+        <div class="panes">
+          <div class="panes-data padbot15">
+            <h1>@ClientResources.AddMUH1</h1>
+            @if (TempData["StateSaved"] != null)
+            {
+                <div class="response-msg success-msg">
+                        <span>@TempData["StateSaved"].ToString()</span>
+                </div>
+            }
+            <div class="ListHead">
+                <div class="ListSearch fl">
+                    <label id="lblUnitType" class="label-radio-pad width75 fl">@ClientResources.AddMUlblUnitType</label>
+                    @Html.RadioButtonFor(model => model.UnitType, Cams.Common.UnitType.Weight, new { @class = "radio-botton fl nomarg", id = "rbtnWeight", name = "rbtnUnitType", @checked = "checked", onClick = "SubmitForm()" })
+                    <label class="label-radio fl">&nbsp;@Cams.Common.UnitType.Weight.ToString()&nbsp;&nbsp;</label>
+                    @Html.RadioButtonFor(model => model.UnitType, Cams.Common.UnitType.Quantity, new { @class = "radio-botton nomarg fl", id = "rbtnQuantity", name = "rbtnUnitType", onClick = "SubmitForm()" })
+                    <label class="label-radio fl">&nbsp;@Cams.Common.UnitType.Quantity.ToString()</label>
+                    
+              </div>
+              <div class="ListAddNew fr">@Html.ActionLink(" ", "AddMeasuringUnitIndex", "ClientMasters", null, new { @class = "button_Add" })</div>
+              <div class="clr"></div>
+            </div>
+            @Html.Partial("MeasuringUnitListGridView", Model)
+            
+          </div>
+         @Html.HiddenFor(model=>model.UnitId)
+        </div>
+     }
+      </div>
+}
+

@@ -1,0 +1,15 @@
+﻿@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "popup";
+        settings.CallbackRouteValues = new { Controller = "HolidayCalendar", Action = "HolidayCalendarPopupPartial" }; 
+        settings.PopupElementID = "popupAnchor";
+        settings.PopupAction = PopupAction.None;
+        settings.CloseAction = CloseAction.CloseButton;
+
+        if (ViewData["PopupContent"] != null)
+            settings.SetContent(ViewData["PopupContent"].ToString());
+
+        settings.ClientSideEvents.BeginCallback = "OnPopupBeginCallback";
+        settings.ClientSideEvents.EndCallback = "OnPopupEndCallback";
+    }).GetHtml()

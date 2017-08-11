@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[ClientPartnerGuardianDetails]
+    ADD CONSTRAINT [FK7F595BBC30A8D0DB] FOREIGN KEY ([AddressId]) REFERENCES [dbo].[Addresses] ([AddressId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

@@ -1,0 +1,348 @@
+﻿@model Cams.Web.MVCRazor.Models.Masters.ClientRegistration 
+@{
+    //View.Title = "ClientRegistration";
+    Layout = "~/Views/Shared/ClientMaster.cshtml"; 
+}
+@section MainBody{
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data">
+                <h1>
+                    Company Profile</h1>
+                <div class="Form-Wrap">
+                    <form name="try" id="try">
+                    <ul class="reset leftfield fl">
+                        <li>
+                            <label id="lblName" class="width75">
+                                Name</label>
+                            <select style="width: 50px; padding: 1px;">
+                                <option>&nbsp;</option>
+                                <option selected="selected">M/s.</option>
+                            </select>
+                            <input name="txtName" type="text" class="required" id="txtName" style="width: 141px"
+                                value="" maxlength="60" />
+                        </li>
+                        <li>
+                            <label id="lblAlias" class="width75">
+                                Alias</label>
+                            <input name="txtAlias" type="text" class="required width195" id="txtAlias" value=""
+                                maxlength="10" />
+                        </li>
+                        <li>
+                            <label id="lblAddress" class="width75">
+                                Address</label>
+                            <textarea cols="" rows="" name="txtAddress" id="txtAddress" class="textarea width195"></textarea>
+                        </li>
+                        <li>
+                            <label id="lblCountry" class="width75">
+                                Country</label>
+                            <select class="required width200" id="ddlCountry">
+                                <option selected="selected">India</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label id="lblDistrict" class="width75">
+                                District</label>
+                            <input name="txtDistrict" type="text" class="required width195" id="txtDistrict"
+                                value="" />
+                        </li>
+                        <li>
+                            <label id="lblPIN" class="width75">
+                                PIN</label>
+                            <input name="txtPIN" type="text" class="required width195" id="txtPIN" value="" maxlength="10" />
+                        </li>
+                        <li>
+                            <label id="lblContactNumber" class="width75">
+                                Contact No.</label>
+                            <input type="text" class="vsmlinp" id="txtContactNumber" value="+91" maxlength="6" />
+                            <input type="text" class="vsmlinp" id="txtContactNumber" value="20" maxlength="6" />
+                            <input type="text" class="required" id="txtContactNumber" style="width: 115px;" value=""
+                                maxlength="10" />
+                            &nbsp;<a href="#" class="addnew"></a>
+                            <table width="100%" border="0" cellpadding="5" cellspacing="0" style="margin-top: 5px;">
+                                <tr>
+                                    <td width="75">
+                                        &nbsp;
+                                    </td>
+                                    <td width="170">
+                                        +91-20-12345678
+                                    </td>
+                                    <td>
+                                        <a href="#" class="remove"></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        +91-20-12345678
+                                    </td>
+                                    <td>
+                                        <a href="#" class="remove"></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        +91-20-12345678
+                                    </td>
+                                    <td>
+                                        <a href="#" class="remove"></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <label id="lblPAN" class="width75">
+                                PAN</label>
+                            <input name="txtPAN" type="text" class="required width195" id="txtPAN" value="" maxlength="10" />
+                        </li>
+                    </ul>
+                    <ul class="reset rightfield fr" style="width: 48%;">
+                        <li>
+                            <div class="profile-img-link fl" style="width: 110px;">
+                                <a href="#">Upload</a>
+                                <br />
+                                <a href="#">Capture</a></div>
+                            <div class="profile-img fl">
+                                <img src="../content/images/control/clientlogo.jpg" width="160" height="110" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <label id="lblStateUT" class="width110">
+                                State / UT</label>
+                            <input name="txtStateUT2" type="text" class="required width195" id="txtStateUT2"
+                                value="" />
+                        </li>
+                        <li>
+                            <label id="lblCityVillageTown" class="width110">
+                                City / Village</label>
+                            <input name="txtCityVillageTown" type="text" class="required width195" id="txtCityVillageTown"
+                                value="" />
+                        </li>
+                        <li style="height: 25px;"></li>
+                        <li>
+                            <label id="lblEmail" class="width110">
+                                Email</label>
+                            <input name="txtEmail" type="text" class="required width190" id="txtEmail" value="" />
+                            &nbsp;<a href="#" class="addnew"></a>
+                            <table width="100%" border="0" cellpadding="5" cellspacing="0" style="margin-top: 5px;">
+                                <tr>
+                                    <td width="110">
+                                        &nbsp;
+                                    </td>
+                                    <td width="170">
+                                        acb@gmail.com
+                                    </td>
+                                    <td>
+                                        <a href="#" class="remove"></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        abc.xyz01@hotmail.co.in
+                                    </td>
+                                    <td>
+                                        <a href="#" class="remove"></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        xyz@yahoo.co.in
+                                    </td>
+                                    <td>
+                                        <a href="#" class="remove"></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <label id="lblTAN" class="width110">
+                                TAN</label>
+                            <input name="txtTAN" type="text" class="required width195" id="txtTAN" value="" />
+                        </li>
+                    </ul>
+                    <div class="clr">
+                    </div>
+                    <!--<ul class="reset input-botton">
+                  <li>
+                    <input type="image" src="../content/images/control/save.jpg" name="button" />
+                    <div class="text-link">Or Click here to <a href="#">Cancel</a></div>
+                  </li>
+                </ul>-->
+                    </form>
+                </div>
+            </div>
+            <div class="panes-data">
+                <h1>
+                    Primary Contact Person</h1>
+                <div class="Form-Wrap">
+                    <form name="try" id="try">
+                    <ul class="reset leftfield fl">
+                        <li>
+                            <label id="lblName" class="width85">
+                                Name</label>
+                            <select style="width: 50px; padding: 1px;">
+                                <option selected="selected">&nbsp;</option>
+                                <option>M/s.</option>
+                                <option>Mr.</option>
+                                <option>Mrs.</option>
+                                <option>Ms.</option>
+                            </select>
+                            <input name="txtName" type="text" class="required" id="txtName" style="width: 141px"
+                                value="" maxlength="60" />
+                        </li>
+                        <li>
+                            <label id="lblDesignation" class="width85">
+                                Designation</label>
+                            <input name="txtDesignation" type="text" class="required width195" id="txtDesignation"
+                                value="" maxlength="40" />
+                        </li>
+                        <li>
+                            <label id="lblDateofBirth" class="width85">
+                                Date of Birth</label>
+                            <input name="txtDateofBirth" type="text" class="required width110" id="txtDateofBirth"
+                                value="" maxlength="10" />
+                            &nbsp;&nbsp;Age : <span class="non-editable-txt">XX</span> </li>
+                        <li>
+                            <label class="width85" id="lblAddress">
+                                Address</label>
+                            <textarea class="textarea width195" id="txtAddress" name="txtAddress" rows="" cols="150"></textarea>
+                        </li>
+                        <li>
+                            <label id="lblCountry" class="width85">
+                                Country</label>
+                            <select id="ddlCountry" class="width200">
+                                <option selected="selected">India</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label id="lblPlace" class="width85">
+                                Place</label>
+                            <input name="txtPlace" type="text" class="required width195" id="txtPlace" value=""
+                                maxlength="40" />
+                        </li>
+                        <li>
+                            <label id="lblContactNumber" class="width85">
+                                Contact No.</label>
+                            <input type="text" class="vsmlinp" id="txtContactNumber" value="+91" maxlength="6" />
+                            <input type="text" class="vsmlinp" id="txtContactNumber" value="20" maxlength="6" />
+                            <input type="text" class="required" id="txtContactNumber" style="width: 115px;" value=""
+                                maxlength="10" />
+                            &nbsp;<a href="#" class="addnew"></a> </li>
+                        <li>
+                            <label id="lblPan" class="width85">
+                                PAN</label>
+                            <input name="txtPan" type="text" class="required width195" id="txtPan" value="" maxlength="10" />
+                        </li>
+                    </ul>
+                    <ul class="reset rightfield fr" style="width: 48%;">
+                        <li>
+                            <div class="profile-img-link fl" style="width: 110px">
+                                <a href="#">Upload</a>
+                                <br />
+                                <a href="#">Capture</a></div>
+                            <div class="profile-img fl">
+                                <img src="../content/images/control/blnk_img.jpg" width="110" height="110" alt="" />
+                            </div>
+                        </li>
+                        <li style="height: 25px;"></li>
+                        <li>
+                            <label id="lblState" class="width110">
+                                State</label>
+                            <input name="txtState" type="text" class="required width195" id="txtState" value="" />
+                        </li>
+                        <li>
+                            <label id="lblPin" class="width110">
+                                PIN</label>
+                            <input name="txtPin" type="text" class="required width195" id="txtPin" value="" maxlength="6" />
+                        </li>
+                        <li>
+                            <label id="lblEmail" class="width110">
+                                Email</label>
+                            <input name="txtEmail" type="text" class="required width190" id="txtEmail" value=""
+                                maxlength="60" />
+                            &nbsp;<a href="#" class="addnew"></a> </li>
+                        <li>
+                            <label id="lblUID" class="width110">
+                                UID</label>
+                            <input name="txtUID" type="text" class="required width195" id="txtUID" value="" maxlength="20" />
+                        </li>
+                    </ul>
+                    <div class="clr">
+                    </div>
+                    <!--<ul class="reset input-botton">
+                  <li>
+                    <input type="image" src="../content/images/control/save.jpg" name="button" />
+                    <div class="text-link">Or Click here to <a href="#">Cancel</a></div>
+                  </li>
+                </ul>-->
+                    </form>
+                </div>
+            </div>
+            <div class="panes-data">
+                <h1>
+                    Constitution</h1>
+            </div>
+            <div class="panes-data">
+                <h1>
+                    APMC Details</h1>
+                <div class="Form-Wrap">
+                    <form name="try" id="try">
+                    <ul class="reset onecolfield fl">
+                        <li>
+                            <label id="lblAPMC">
+                                APMC</label>
+                            <input name="txtAPMC" type="text" class="required width195" id="txtAPMC" value=""
+                                maxlength="10" />
+                        </li>
+                        <li>
+                            <label id="lblAPMCLicenseNo">
+                                APMC License No.</label>
+                            <input name="txtAPMCLicenseNo" type="text" class="required width195" id="txtAPMCLicenseNo"
+                                value="" />
+                        </li>
+                        <li>
+                            <label id="lblValidupto">
+                                Valid upto</label>
+                            <input name="txtValidupto" type="text" class="required width195" id="txtValidupto"
+                                value="" />
+                        </li>
+                        <li>
+                            <label id="lblCommodityClass">
+                                Commodity Class</label>
+                            <select class="required width200" id="ddlCommodityClass">
+                                <option selected="selected">Select</option>
+                                <option>Fruits</option>
+                                <option>Vegetables</option>
+                            </select>&nbsp;<a href="#" class="addnew">+</a> </li>
+                        <!--<li>
+                    <label>&nbsp;</label>
+                    <input type="image" src="../content/images/control/save.jpg" name="button" />
+                  </li>
+                  <li>
+                    <label>&nbsp;</label>
+                    <div class="text-link">Or Click here to <a href="#">Cancel</a></div>
+                  </li>-->
+                    </ul>
+                    <div class="clr">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panes-data">
+                <h1>
+                    Subscription Details</h1>
+            </div>
+        </div>
+    </div>
+}

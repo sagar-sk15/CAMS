@@ -1,0 +1,1299 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b1f8a916-5508-4c04-a160-91ec9ab561d8" name="Sagar.Kulkarni@ACKCEZIONE7 2012-03-20 15:02:58" runUser="ACKCEZIONE\Sagar.Kulkarni" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="2f3ab211-9129-46ab-87e4-4332742e1f1b">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Sagar.Kulkarni_ACKCEZIONE7 2012-03-20 15_02_58">
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Extension\bin\Debug\Cams.Extension.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\FluentNHibernate.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Common\bin\Debug\Cams.Common.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Libs\Iesi.Collections.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.WcfService\bin\Cams.WcfService.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\NHibernate.ByteCode.Castle.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\Common.Logging.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\Spring.Core.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Libs\Castle.Core.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\NHibernate.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Domain\bin\Debug\Cams.Domain.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Dal.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\log4net.dll" />
+    </Deployment>
+    <Execution hostProcessPlatform="MSIL">
+      <Hosts>
+        <AspNet name="ASP.NET" executionType="WebDev" />
+      </Hosts>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+      </TestTypeSpecific>
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-20T15:02:58.4440000+05:30" queuing="2012-03-20T15:02:58.4750000+05:30" start="2012-03-20T15:02:58.4970000+05:30" finish="2012-03-20T15:03:10.0120000+05:30" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <DebugTrace>Unable to read configuration section common/logging.  Using no-op implemenation.
+</DebugTrace>
+    </Output>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetUserById" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="d165b5d0-298b-55b7-da96-f7ff4b902a59">
+      <Execution id="4440f72a-ab05-44bd-a3fd-e40205267e53" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetUserById" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="d165b5d0-298b-55b7-da96-f7ff4b902a59" executionId="4440f72a-ab05-44bd-a3fd-e40205267e53" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4440f72a-ab05-44bd-a3fd-e40205267e53" testId="d165b5d0-298b-55b7-da96-f7ff4b902a59" testName="GetUserById" computerName="ACKCEZIONE7" duration="00:00:06.7783099" startTime="2012-03-20T15:02:58.5080000+05:30" endTime="2012-03-20T15:03:09.9180000+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4440f72a-ab05-44bd-a3fd-e40205267e53">
+      <Output>
+        <StdOut>if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKEBD48A9EB3F09352]') AND parent_object_id = OBJECT_ID('Addresses'))
+alter table Addresses  drop constraint FKEBD48A9EB3F09352
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK9DA4BC9730A8D0DB]') AND parent_object_id = OBJECT_ID('APMC'))
+alter table APMC  drop constraint FK9DA4BC9730A8D0DB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKFE634FC217810183]') AND parent_object_id = OBJECT_ID('APMCContacts'))
+alter table APMCContacts  drop constraint FKFE634FC217810183
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKFE634FC2220FDEAE]') AND parent_object_id = OBJECT_ID('APMCContacts'))
+alter table APMCContacts  drop constraint FKFE634FC2220FDEAE
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKCCCAB1B4B5CBFC9B]') AND parent_object_id = OBJECT_ID('BankBranches'))
+alter table BankBranches  drop constraint FKCCCAB1B4B5CBFC9B
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKCCCAB1B430A8D0DB]') AND parent_object_id = OBJECT_ID('BankBranches'))
+alter table BankBranches  drop constraint FKCCCAB1B430A8D0DB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKCCCAB1B4806E8EBB]') AND parent_object_id = OBJECT_ID('BankBranches'))
+alter table BankBranches  drop constraint FKCCCAB1B4806E8EBB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKCCCAB1B4200A2312]') AND parent_object_id = OBJECT_ID('BankBranches'))
+alter table BankBranches  drop constraint FKCCCAB1B4200A2312
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK7621088117810183]') AND parent_object_id = OBJECT_ID('BankBranchContacts'))
+alter table BankBranchContacts  drop constraint FK7621088117810183
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK762108815A66D8C5]') AND parent_object_id = OBJECT_ID('BankBranchContacts'))
+alter table BankBranchContacts  drop constraint FK762108815A66D8C5
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKE2E64D00EE4A24FE]') AND parent_object_id = OBJECT_ID('CityVillages'))
+alter table CityVillages  drop constraint FKE2E64D00EE4A24FE
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK3A1EFBEA30A8D0DB]') AND parent_object_id = OBJECT_ID('Clients'))
+alter table Clients  drop constraint FK3A1EFBEA30A8D0DB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK3A1EFBEA220FDEAE]') AND parent_object_id = OBJECT_ID('Clients'))
+alter table Clients  drop constraint FK3A1EFBEA220FDEAE
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK3A1EFBEA4ACC66F9]') AND parent_object_id = OBJECT_ID('Clients'))
+alter table Clients  drop constraint FK3A1EFBEA4ACC66F9
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK3A1EFBEA1E36A4A1]') AND parent_object_id = OBJECT_ID('Clients'))
+alter table Clients  drop constraint FK3A1EFBEA1E36A4A1
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK3A1EFBEAEB56B3B4]') AND parent_object_id = OBJECT_ID('Clients'))
+alter table Clients  drop constraint FK3A1EFBEAEB56B3B4
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKEE45DE5817810183]') AND parent_object_id = OBJECT_ID('ClientContacts'))
+alter table ClientContacts  drop constraint FKEE45DE5817810183
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKEE45DE58F3AA38D2]') AND parent_object_id = OBJECT_ID('ClientContacts'))
+alter table ClientContacts  drop constraint FKEE45DE58F3AA38D2
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKF4CF05863078D16]') AND parent_object_id = OBJECT_ID('ClientPartners'))
+alter table ClientPartners  drop constraint FKF4CF05863078D16
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKF4CF0586F3AA38D2]') AND parent_object_id = OBJECT_ID('ClientPartners'))
+alter table ClientPartners  drop constraint FKF4CF0586F3AA38D2
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKBBD37C1EFC01A4B3]') AND parent_object_id = OBJECT_ID('ClientCommodities'))
+alter table ClientCommodities  drop constraint FKBBD37C1EFC01A4B3
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKBBD37C1EF3AA38D2]') AND parent_object_id = OBJECT_ID('ClientCommodities'))
+alter table ClientCommodities  drop constraint FKBBD37C1EF3AA38D2
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK667CA0E130A8D0DB]') AND parent_object_id = OBJECT_ID('ClientPartnerDetails'))
+alter table ClientPartnerDetails  drop constraint FK667CA0E130A8D0DB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK667CA0E1934218F7]') AND parent_object_id = OBJECT_ID('ClientPartnerDetails'))
+alter table ClientPartnerDetails  drop constraint FK667CA0E1934218F7
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK262FA82417810183]') AND parent_object_id = OBJECT_ID('ClientPartnerContacts'))
+alter table ClientPartnerContacts  drop constraint FK262FA82417810183
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK262FA8243078D16]') AND parent_object_id = OBJECT_ID('ClientPartnerContacts'))
+alter table ClientPartnerContacts  drop constraint FK262FA8243078D16
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK277CD4DE30A8D0DB]') AND parent_object_id = OBJECT_ID('ClientPrimaryContactPerson'))
+alter table ClientPrimaryContactPerson  drop constraint FK277CD4DE30A8D0DB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK277CD4DE934218F7]') AND parent_object_id = OBJECT_ID('ClientPrimaryContactPerson'))
+alter table ClientPrimaryContactPerson  drop constraint FK277CD4DE934218F7
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK68CC536C17810183]') AND parent_object_id = OBJECT_ID('ClientPrimaryContacts'))
+alter table ClientPrimaryContacts  drop constraint FK68CC536C17810183
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK68CC536CEB56B3B4]') AND parent_object_id = OBJECT_ID('ClientPrimaryContacts'))
+alter table ClientPrimaryContacts  drop constraint FK68CC536CEB56B3B4
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKAD39CFB93E88979F]') AND parent_object_id = OBJECT_ID('ClientSubscriptions'))
+alter table ClientSubscriptions  drop constraint FKAD39CFB93E88979F
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK13B864905A66D8C5]') AND parent_object_id = OBJECT_ID('ClientSubscriptionPaymentDetails'))
+alter table ClientSubscriptionPaymentDetails  drop constraint FK13B864905A66D8C5
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK13B864901E36A4A1]') AND parent_object_id = OBJECT_ID('ClientSubscriptionPaymentDetails'))
+alter table ClientSubscriptionPaymentDetails  drop constraint FK13B864901E36A4A1
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKD9D9B611FC01A4B3]') AND parent_object_id = OBJECT_ID('Commodities'))
+alter table Commodities  drop constraint FKD9D9B611FC01A4B3
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK216270F885BBA2FF]') AND parent_object_id = OBJECT_ID('UserContacts'))
+alter table UserContacts  drop constraint FK216270F885BBA2FF
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK216270F817810183]') AND parent_object_id = OBJECT_ID('UserContacts'))
+alter table UserContacts  drop constraint FK216270F817810183
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKED9B3FC7A82E65]') AND parent_object_id = OBJECT_ID('UserEmergencyContacts'))
+alter table UserEmergencyContacts  drop constraint FKED9B3FC7A82E65
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKED9B3FC717810183]') AND parent_object_id = OBJECT_ID('UserEmergencyContacts'))
+alter table UserEmergencyContacts  drop constraint FKED9B3FC717810183
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKEF9C46696BB1821E]') AND parent_object_id = OBJECT_ID('Districts'))
+alter table Districts  drop constraint FKEF9C46696BB1821E
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKFB0619BC7C97897E]') AND parent_object_id = OBJECT_ID('ParentChildMenus'))
+alter table ParentChildMenus  drop constraint FKFB0619BC7C97897E
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKFB0619BCC6318172]') AND parent_object_id = OBJECT_ID('ParentChildMenus'))
+alter table ParentChildMenus  drop constraint FKFB0619BCC6318172
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKFB0619BC40604BAC]') AND parent_object_id = OBJECT_ID('ParentChildMenus'))
+alter table ParentChildMenus  drop constraint FKFB0619BC40604BAC
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK4256C649F1130D47]') AND parent_object_id = OBJECT_ID('UserRolePermissions'))
+alter table UserRolePermissions  drop constraint FK4256C649F1130D47
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK4256C649451CEFCF]') AND parent_object_id = OBJECT_ID('UserRolePermissions'))
+alter table UserRolePermissions  drop constraint FK4256C649451CEFCF
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKDD28E238F1130D47]') AND parent_object_id = OBJECT_ID('UserGroupRolePermissions'))
+alter table UserGroupRolePermissions  drop constraint FKDD28E238F1130D47
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKDD28E238E80F2A03]') AND parent_object_id = OBJECT_ID('UserGroupRolePermissions'))
+alter table UserGroupRolePermissions  drop constraint FKDD28E238E80F2A03
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK74CFC3C0423BF3B4]') AND parent_object_id = OBJECT_ID('States'))
+alter table States  drop constraint FK74CFC3C0423BF3B4
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK5B1BEC2430A8D0DB]') AND parent_object_id = OBJECT_ID('UsersEmergencyContactPerson'))
+alter table UsersEmergencyContactPerson  drop constraint FK5B1BEC2430A8D0DB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK5B1BEC24E2720DC7]') AND parent_object_id = OBJECT_ID('UsersEmergencyContactPerson'))
+alter table UsersEmergencyContactPerson  drop constraint FK5B1BEC24E2720DC7
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK969171B293C772A1]') AND parent_object_id = OBJECT_ID('UserUserGroups'))
+alter table UserUserGroups  drop constraint FK969171B293C772A1
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK969171B26E3B9873]') AND parent_object_id = OBJECT_ID('UserUserGroups'))
+alter table UserUserGroups  drop constraint FK969171B26E3B9873
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK54344AADE80F2A03]') AND parent_object_id = OBJECT_ID('UserGroupRoles'))
+alter table UserGroupRoles  drop constraint FK54344AADE80F2A03
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK54344AAD6E3B9873]') AND parent_object_id = OBJECT_ID('UserGroupRoles'))
+alter table UserGroupRoles  drop constraint FK54344AAD6E3B9873
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK617D3C3A934218F7]') AND parent_object_id = OBJECT_ID('Users'))
+alter table Users  drop constraint FK617D3C3A934218F7
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK617D3C3A85BBA2FF]') AND parent_object_id = OBJECT_ID('Users'))
+alter table Users  drop constraint FK617D3C3A85BBA2FF
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKDFBBDE7E451CEFCF]') AND parent_object_id = OBJECT_ID('UserRoles'))
+alter table UserRoles  drop constraint FKDFBBDE7E451CEFCF
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKDFBBDE7E93C772A1]') AND parent_object_id = OBJECT_ID('UserRoles'))
+alter table UserRoles  drop constraint FKDFBBDE7E93C772A1
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK15F395D130A8D0DB]') AND parent_object_id = OBJECT_ID('UserProfiles'))
+alter table UserProfiles  drop constraint FK15F395D130A8D0DB
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK15F395D1A82E65]') AND parent_object_id = OBJECT_ID('UserProfiles'))
+alter table UserProfiles  drop constraint FK15F395D1A82E65
+
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ActivityLogs') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ActivityLogs
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Addresses') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Addresses
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'APMC') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table APMC
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'APMCContacts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table APMCContacts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'BankBranches') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table BankBranches
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'BankBranchContacts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table BankBranchContacts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Banks') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Banks
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'BusinessConstitutions') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table BusinessConstitutions
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ChargesPayableTo') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ChargesPayableTo
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'CityVillages') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table CityVillages
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Clients') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Clients
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientContacts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientContacts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientPartners') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientPartners
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientCommodities') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientCommodities
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientPartnerDetails') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientPartnerDetails
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientPartnerContacts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientPartnerContacts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientPrimaryContactPerson') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientPrimaryContactPerson
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientPrimaryContacts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientPrimaryContacts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientSubscriptions') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientSubscriptions
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ClientSubscriptionPaymentDetails') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ClientSubscriptionPaymentDetails
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'CommodityClasses') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table CommodityClasses
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Commodities') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Commodities
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ContactDetails') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ContactDetails
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserContacts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserContacts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserEmergencyContacts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserEmergencyContacts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Country') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Country
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Designations') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Designations
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Districts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Districts
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'LabourChargeTypes') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table LabourChargeTypes
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'MeasuringUnit') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table MeasuringUnit
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Menus') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Menus
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'ParentChildMenus') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table ParentChildMenus
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'RelationShips') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table RelationShips
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Roles') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Roles
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserRolePermissions') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserRolePermissions
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserGroupRolePermissions') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserGroupRolePermissions
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'States') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table States
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'SubscriptionMaster') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table SubscriptionMaster
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UsersEmergencyContactPerson') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UsersEmergencyContactPerson
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserGroups') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserGroups
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserUserGroups') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserUserGroups
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserGroupRoles') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserGroupRoles
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Users') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Users
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserRoles') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserRoles
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'UserProfiles') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table UserProfiles
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'BankBranchWeeklyHalfDays') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table BankBranchWeeklyHalfDays
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'BankBranchWeeklyOffs') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table BankBranchWeeklyOffs
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'Zones') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Zones
+
+    create table ActivityLogs (
+        LogId INT IDENTITY NOT NULL,
+       LoggedBy NVARCHAR(255) not null,
+       LoggedDate datetime default getdate()  not null,
+       ActivityRelatedTo NVARCHAR(50) not null,
+       Description NVARCHAR(255) null,
+       primary key (LogId)
+    )
+
+    create table Addresses (
+        AddressId BIGINT IDENTITY NOT NULL,
+       AddressLine1 NVARCHAR(255) null,
+       AddressLine2 NVARCHAR(255) null,
+       PIN NVARCHAR(10) null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       CityVillageId INT null,
+       primary key (AddressId)
+    )
+
+    create table APMC (
+        APMCId INT IDENTITY NOT NULL,
+       Name NVARCHAR(80) not null,
+       Email1 NVARCHAR(50) null,
+       Email2 NVARCHAR(50) null,
+       Website NVARCHAR(100) not null,
+       Status NVARCHAR(10) not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       AddressId BIGINT null,
+       primary key (APMCId)
+    )
+
+    create table APMCContacts (
+        APMCId INT not null,
+       ContactDetailsId BIGINT not null
+    )
+
+    create table BankBranches (
+        BranchId INT IDENTITY NOT NULL,
+       Name NVARCHAR(255) not null,
+       CAId INT null,
+       IFSCCode NVARCHAR(50) null,
+       MICRCode NVARCHAR(50) null,
+       SWIFTCode NVARCHAR(50) null,
+       Email1 NVARCHAR(100) null,
+       Email2 NVARCHAR(100) null,
+       FullDayTimeFrom TIME null,
+       FullDayTimeTo TIME null,
+       HalfDayTimeFrom TIME null,
+       HalfDayTimeTo TIME null,
+       FullDayBreakFrom TIME null,
+       FullDayBreakTo TIME null,
+       HalfDayBreakFrom TIME null,
+       HalfDayBreakTo TIME null,
+       BaseBranchId INT null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       BankId INT null,
+       AddressId BIGINT null,
+       WeeklyHalfDayId INT null,
+       WeeklyOffDayId INT null,
+       primary key (BranchId)
+    )
+
+    create table BankBranchContacts (
+        BranchId INT not null,
+       ContactDetailsId BIGINT not null
+    )
+
+    create table Banks (
+        BankId INT IDENTITY NOT NULL,
+       BankName NVARCHAR(255) not null,
+       Alias NVARCHAR(15) null,
+       CAId INT null,
+       URL NVARCHAR(100) null,
+       BaseBankId INT null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       primary key (BankId)
+    )
+
+    create table BusinessConstitutions (
+        BusinessConstitutionId INT IDENTITY NOT NULL,
+       BusinessConstitutionName NVARCHAR(50) not null,
+       IsActive BIT not null,
+       primary key (BusinessConstitutionId)
+    )
+
+    create table ChargesPayableTo (
+        ChargesPayableToId INT IDENTITY NOT NULL,
+       PayableTo NVARCHAR(30) not null,
+       IsActive BIT not null,
+       primary key (ChargesPayableToId)
+    )
+
+    create table CityVillages (
+        CityVillageId INT IDENTITY NOT NULL,
+       Name NVARCHAR(255) not null,
+       CityOrVillage NVARCHAR(255) not null,
+       STDCode NVARCHAR(30) null,
+       CAId INT null,
+       BaseCityVillageId INT null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       DistrictId INT null,
+       primary key (CityVillageId)
+    )
+
+    create table Clients (
+        CAId INT IDENTITY NOT NULL,
+       DisplayClientId NVARCHAR(30) not null,
+       CompanyName NVARCHAR(200) not null,
+       RegistrationDate datetime not null,
+       Alias NVARCHAR(10) not null,
+       Image NVARCHAR(255) null,
+       PAN NVARCHAR(20) not null,
+       TAN NVARCHAR(20) null,
+       Email1 NVARCHAR(100) null,
+       Email2 NVARCHAR(100) null,
+       Website NVARCHAR(100) null,
+       IsActive BIT not null,
+       IsDeleted BIT not null,
+       Status NVARCHAR(15) not null,
+       AllowEdit BIT null,
+       APMCLicenseNo NVARCHAR(255) not null,
+       APMCLicenseValidUpTo datetime not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime not null,
+       ModifiedBy BIGINT not null,
+       ModifiedDate datetime not null,
+       AddressId BIGINT null,
+       APMCId INT null,
+       BusinessConstitutionId INT null,
+       ClientSubscriptionId INT null,
+       CAPrimaryContactPersonId INT null,
+       primary key (CAId)
+    )
+
+    create table ClientContacts (
+        CAId INT not null,
+       ContactDetailsId BIGINT not null
+    )
+
+    create table ClientPartners (
+        CAId INT not null,
+       PartnerId INT not null
+    )
+
+    create table ClientCommodities (
+        CAId INT not null,
+       CommodityClassId INT not null
+    )
+
+    create table ClientPartnerDetails (
+        PartnerId INT IDENTITY NOT NULL,
+       Title NVARCHAR(10) not null,
+       PartnerName NVARCHAR(255) not null,
+       Gender NVARCHAR(5) not null,
+       DateOfBirth datetime default getdate()  not null,
+       PAN NVARCHAR(20) not null,
+       UID NVARCHAR(20) not null,
+       Image NVARCHAR(255) not null,
+       Email1 NVARCHAR(100) not null,
+       Email2 NVARCHAR(100) not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT not null,
+       ModifiedDate datetime default getdate()  not null,
+       AddressId BIGINT null,
+       DesignationId INT null,
+       primary key (PartnerId)
+    )
+
+    create table ClientPartnerContacts (
+        PartnerId INT not null,
+       ContactDetailsId BIGINT not null
+    )
+
+    create table ClientPrimaryContactPerson (
+        CAPrimaryContactPersonId INT IDENTITY NOT NULL,
+       Title NVARCHAR(5) not null,
+       CAPrimaryConatactPersonName NVARCHAR(255) not null,
+       Gender NVARCHAR(5) not null,
+       DateOfBirth datetime default getdate()  not null,
+       MothersMaidenName NVARCHAR(255) not null,
+       PAN NVARCHAR(20) not null,
+       UID NVARCHAR(20) null,
+       Image NVARCHAR(255) null,
+       Email1 NVARCHAR(100) null,
+       Email2 NVARCHAR(100) null,
+       IsSameAsCompanyAddress BIT null,
+       IsSameAsCompanyContact BIT null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT not null,
+       ModifiedDate datetime default getdate()  not null,
+       AddressId BIGINT null,
+       DesignationId INT null,
+       primary key (CAPrimaryContactPersonId)
+    )
+
+    create table ClientPrimaryContacts (
+        CAPrimaryContactPersonId INT not null,
+       ContactDetailsId BIGINT not null
+    )
+
+    create table ClientSubscriptions (
+        ClientSubscriptionId INT IDENTITY NOT NULL,
+       SubscriptionPeriod INT not null,
+       SubscriptionPeriodFromDate datetime default getdate()  not null,
+       SubscriptionPeriodToDate datetime default getdate()  not null,
+       AdditionalNoOfEmployees INT not null,
+       AdditionalNoOfAuditors INT not null,
+       AdditionalNoOfAssociates INT not null,
+       AdditionalCostForEmployees DECIMAL(19,5) not null,
+       AdditionalCostForAuditors DECIMAL(19,5) not null,
+       AdditionalCostForAssociates DECIMAL(19,5) not null,
+       DiscountInPercentage INT not null,
+       DiscountInRupees DECIMAL(19,5) not null,
+       ServiceTax DECIMAL(19,5) not null,
+       OtherTax DECIMAL(19,5) not null,
+       Status NVARCHAR(15) not null,
+       AdditionalInfo NVARCHAR(255) null,
+       AllowEdit BIT null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT not null,
+       ModifiedDate datetime default getdate()  not null,
+       SubscriptionId INT not null,
+       primary key (ClientSubscriptionId)
+    )
+
+    create table ClientSubscriptionPaymentDetails (
+        CASubscriptionPaymentDetailsId INT IDENTITY NOT NULL,
+       PaymentMode NVARCHAR(10) not null,
+       Amount DECIMAL(19,5) not null,
+       IsRTGS BIT null,
+       IsStandardCheque BIT null,
+       IsNEFT BIT null,
+       ChequeDDTransationNo INT null,
+       ChequeDDTransactionDate datetime default getdate()  null,
+       TDS DECIMAL(19,5) null,
+       AdditionalInfo NVARCHAR(255) null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT not null,
+       ModifiedDate datetime default getdate()  not null,
+       BranchId INT null,
+       ClientSubscriptionId INT not null,
+       primary key (CASubscriptionPaymentDetailsId)
+    )
+
+    create table CommodityClasses (
+        CommodityClassId INT IDENTITY NOT NULL,
+       Name NVARCHAR(255) not null,
+       IsActive BIT not null,
+       primary key (CommodityClassId)
+    )
+
+    create table Commodities (
+        CommodityId INT IDENTITY NOT NULL,
+       Name NVARCHAR(255) not null,
+       BotanicalName NVARCHAR(255) not null,
+       Image NVARCHAR(255) null,
+       IsActive BIT not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       CommodityClassId INT null,
+       primary key (CommodityId)
+    )
+
+    create table ContactDetails (
+        ContactDetailsId BIGINT IDENTITY NOT NULL,
+       ContactNo NVARCHAR(15) not null,
+       ContactNoType NVARCHAR(255) null,
+       CountryCallingCode NVARCHAR(5) not null,
+       STDCode NVARCHAR(10) null,
+       primary key (ContactDetailsId)
+    )
+
+    create table UserContacts (
+        ContactDetailsId BIGINT not null,
+       UserProfileId BIGINT not null
+    )
+
+    create table UserEmergencyContacts (
+        ContactDetailsId BIGINT not null,
+       UserEmergencyContactPersonId BIGINT not null
+    )
+
+    create table Country (
+        CountryId INT IDENTITY NOT NULL,
+       CountryName NVARCHAR(50) not null,
+       CallingCode NVARCHAR(10) not null,
+       AgeStd INT not null,
+       Currency NVARCHAR(20) not null,
+       CurrencyCode NVARCHAR(10) not null,
+       Symbol NVARCHAR(10) not null,
+       TimeZone NVARCHAR(255) not null,
+       FinancialYearStart NVARCHAR(50) not null,
+       FinancialYearEnd NVARCHAR(50) not null,
+       Status NVARCHAR(10) not null,
+       primary key (CountryId)
+    )
+
+    create table Designations (
+        DesignationId INT IDENTITY NOT NULL,
+       DesignationName NVARCHAR(255) not null,
+       CAId INT null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       primary key (DesignationId)
+    )
+
+    create table Districts (
+        DistrictId INT IDENTITY NOT NULL,
+       DistrictName NVARCHAR(255) not null,
+       StateId INT null,
+       primary key (DistrictId)
+    )
+
+    create table LabourChargeTypes (
+        LabourChargeId INT IDENTITY NOT NULL,
+       LabourCharge NVARCHAR(50) not null,
+       CAId INT not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       primary key (LabourChargeId)
+    )
+
+    create table MeasuringUnit (
+        UnitId INT IDENTITY NOT NULL,
+       UnitType NVARCHAR(20) not null,
+       MeasurementUnit NVARCHAR(30) not null,
+       EquivalentUnit NVARCHAR(30) not null,
+       CAId INT not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       primary key (UnitId)
+    )
+
+    create table Menus (
+        MenuId BIGINT IDENTITY NOT NULL,
+       MenuName NVARCHAR(50) not null,
+       MenuDescription NVARCHAR(255) null,
+       IsMenuActive BIT not null,
+       IsAckcezioneUser BIT not null,
+       primary key (MenuId)
+    )
+
+    create table ParentChildMenus (
+        MenuId BIGINT not null,
+       MenuOrder INT not null,
+       ParentMenuId BIGINT null,
+       ChildMenuId BIGINT null,
+       primary key (MenuId)
+    )
+
+    create table RelationShips (
+        RelationshipId INT IDENTITY NOT NULL,
+       Name NVARCHAR(255) not null,
+       CAId INT null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       primary key (RelationshipId)
+    )
+
+    create table Roles (
+        RoleId INT IDENTITY NOT NULL,
+       RoleName NVARCHAR(255) not null,
+       RoleGroup NVARCHAR(255) null,
+       IsApplicableForAckUsers BIT null,
+       IsAddApplicable BIT null,
+       IsEditApplicable BIT null,
+       IsViewApplicable BIT null,
+       IsDeleteApplicable BIT null,
+       IsPrintApplicable BIT null,
+       primary key (RoleId)
+    )
+
+    create table UserRolePermissions (
+        UserRolePermissionId BIGINT IDENTITY NOT NULL,
+       AllowAdd BIT not null,
+       AllowEdit BIT not null,
+       AllowView BIT not null,
+       AllowDelete BIT not null,
+       AllowPrint BIT not null,
+       RoleId INT not null,
+       primary key (UserRolePermissionId)
+    )
+
+    create table UserGroupRolePermissions (
+        UserGroupRolePermissionId BIGINT IDENTITY NOT NULL,
+       AllowAdd BIT not null,
+       AllowEdit BIT not null,
+       AllowView BIT not null,
+       AllowDelete BIT not null,
+       AllowPrint BIT not null,
+       RoleId INT not null,
+       primary key (UserGroupRolePermissionId)
+    )
+
+    create table States (
+        StateId INT IDENTITY NOT NULL,
+       RegionType NVARCHAR(50) not null,
+       RegionName NVARCHAR(50) not null,
+       CountryId INT null,
+       primary key (StateId)
+    )
+
+    create table SubscriptionMaster (
+        SubscriptionId INT IDENTITY NOT NULL,
+       SubscriptionType NVARCHAR(50) not null,
+       TotalNoOfUsers INT not null,
+       NoOfEmployees INT not null,
+       NoOfAuditors INT not null,
+       NoOfAssociates INT not null,
+       SubscriptionFees DECIMAL(19,5) not null,
+       RenewalFeesPerAnnum DECIMAL(19,5) not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT not null,
+       ModifiedDate datetime default getdate()  not null,
+       primary key (SubscriptionId)
+    )
+
+    create table UsersEmergencyContactPerson (
+        UserEmergencyContactPersonId BIGINT IDENTITY NOT NULL,
+       Name NVARCHAR(255) not null,
+       Email1 NVARCHAR(100) null,
+       Email2 NVARCHAR(100) null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       AddressId BIGINT null,
+       RelationshipId INT null,
+       primary key (UserEmergencyContactPersonId)
+    )
+
+    create table UserGroups (
+        UserGroupId INT IDENTITY NOT NULL,
+       UserGroupName NVARCHAR(255) not null,
+       Description NVARCHAR(255) null,
+       CAId INT null,
+       IsActive BIT null,
+       IsDeleted BIT null,
+       AllowEdit BIT null,
+       AllowDelete BIT null,
+       CreatedBy BIGINT null,
+       CreatedDate datetime default getdate()  null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       primary key (UserGroupId)
+    )
+
+    create table UserUserGroups (
+        UserGroupId INT not null,
+       UserId BIGINT not null
+    )
+
+    create table UserGroupRoles (
+        UserGroupId INT not null,
+       UserGroupRolePermissionId BIGINT not null
+    )
+
+    create table Users (
+        UserId BIGINT IDENTITY NOT NULL,
+       Username NVARCHAR(255) not null,
+       Title NVARCHAR(5) not null,
+       Name NVARCHAR(255) not null,
+       Email NVARCHAR(255) not null,
+       MobileNo NVARCHAR(255) not null,
+       Password NVARCHAR(255) not null,
+       MothersMaidenName NVARCHAR(255) not null,
+       CAId INT null,
+       CountryCode NVARCHAR(255) not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       DateOfBirth datetime default getdate()  not null,
+       FailedPasswordAttemptCount INT null,
+       FailedPasswordAttemptWindowStart datetime null,
+       IsActive BIT not null,
+       IsLockedOut BIT null,
+       IsOnLine BIT null,
+       LastActivityDate datetime default getdate()  null,
+       LastLockedOutDate datetime default getdate()  null,
+       LastLoginDate datetime default getdate()  null,
+       LastPasswordChangedDate datetime default getdate()  null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       LastPassword NVARCHAR(255) null,
+       SecondLastPassword NVARCHAR(255) null,
+       SecondLastPasswordChangedDate datetime default getdate()  null,
+       IsDeleted BIT null,
+       AllowEdit BIT null,
+       AllowDelete BIT null,
+       Image NVARCHAR(255) null,
+       DesignationId INT null,
+       UserProfileId BIGINT null,
+       primary key (UserId)
+    )
+
+    create table UserRoles (
+        UserId BIGINT not null,
+       UserRolePermissionId BIGINT not null
+    )
+
+    create table UserProfiles (
+        UserProfileId BIGINT IDENTITY NOT NULL,
+       Gender NVARCHAR(255) null,
+       MaritalStatus NVARCHAR(255) null,
+       UID NVARCHAR(30) null,
+       PAN NVARCHAR(20) null,
+       PassportNo NVARCHAR(20) null,
+       PassportPlace NVARCHAR(255) null,
+       PassportValidFromDate datetime default getdate()  null,
+       PassportValidToDate datetime default getdate()  null,
+       BloodGroup NVARCHAR(255) null,
+       DateOfJoining datetime default getdate()  null,
+       PFNo NVARCHAR(30) null,
+       Email1 NVARCHAR(100) null,
+       Email2 NVARCHAR(100) null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       AddressId BIGINT null,
+       UserEmergencyContactPersonId BIGINT null,
+       primary key (UserProfileId)
+    )
+
+    create table BankBranchWeeklyHalfDays (
+        WeeklyHalfDayId INT IDENTITY NOT NULL,
+       IsMonday BIT null,
+       IsTuesday BIT null,
+       IsWednesday BIT null,
+       IsThursday BIT null,
+       IsFriday BIT null,
+       IsSaturday BIT null,
+       IsSunday BIT null,
+       primary key (WeeklyHalfDayId)
+    )
+
+    create table BankBranchWeeklyOffs (
+        WeeklyOffDayId INT IDENTITY NOT NULL,
+       IsMonday BIT null,
+       IsTuesday BIT null,
+       IsWednesday BIT null,
+       IsThursday BIT null,
+       IsFriday BIT null,
+       IsSaturday BIT null,
+       IsSunday BIT null,
+       primary key (WeeklyOffDayId)
+    )
+
+    create table Zones (
+        ZoneId BIGINT IDENTITY NOT NULL,
+       ZoneFor NVARCHAR(20) not null,
+       Name NVARCHAR(255) not null,
+       IsActive BIT not null,
+       CAId INT not null,
+       CreatedBy BIGINT not null,
+       CreatedDate datetime default getdate()  not null,
+       ModifiedBy BIGINT null,
+       ModifiedDate datetime default getdate()  null,
+       primary key (ZoneId)
+    )
+
+    alter table Addresses 
+        add constraint FKEBD48A9EB3F09352 
+        foreign key (CityVillageId) 
+        references CityVillages
+
+    alter table APMC 
+        add constraint FK9DA4BC9730A8D0DB 
+        foreign key (AddressId) 
+        references Addresses
+
+    alter table APMCContacts 
+        add constraint FKFE634FC217810183 
+        foreign key (ContactDetailsId) 
+        references ContactDetails
+
+    alter table APMCContacts 
+        add constraint FKFE634FC2220FDEAE 
+        foreign key (APMCId) 
+        references APMC
+
+    alter table BankBranches 
+        add constraint FKCCCAB1B4B5CBFC9B 
+        foreign key (BankId) 
+        references Banks
+
+    alter table BankBranches 
+        add constraint FKCCCAB1B430A8D0DB 
+        foreign key (AddressId) 
+        references Addresses
+
+    alter table BankBranches 
+        add constraint FKCCCAB1B4806E8EBB 
+        foreign key (WeeklyHalfDayId) 
+        references BankBranchWeeklyHalfDays
+
+    alter table BankBranches 
+        add constraint FKCCCAB1B4200A2312 
+        foreign key (WeeklyOffDayId) 
+        references BankBranchWeeklyOffs
+
+    alter table BankBranchContacts 
+        add constraint FK7621088117810183 
+        foreign key (ContactDetailsId) 
+        references ContactDetails
+
+    alter table BankBranchContacts 
+        add constraint FK762108815A66D8C5 
+        foreign key (BranchId) 
+        references BankBranches
+
+    alter table CityVillages 
+        add constraint FKE2E64D00EE4A24FE 
+        foreign key (DistrictId) 
+        references Districts
+
+    alter table Clients 
+        add constraint FK3A1EFBEA30A8D0DB 
+        foreign key (AddressId) 
+        references Addresses
+
+    alter table Clients 
+        add constraint FK3A1EFBEA220FDEAE 
+        foreign key (APMCId) 
+        references APMC
+
+    alter table Clients 
+        add constraint FK3A1EFBEA4ACC66F9 
+        foreign key (BusinessConstitutionId) 
+        references BusinessConstitutions
+
+    alter table Clients 
+        add constraint FK3A1EFBEA1E36A4A1 
+        foreign key (ClientSubscriptionId) 
+        references ClientSubscriptions
+
+    alter table Clients 
+        add constraint FK3A1EFBEAEB56B3B4 
+        foreign key (CAPrimaryContactPersonId) 
+        references ClientPrimaryContactPerson
+
+    alter table ClientContacts 
+        add constraint FKEE45DE5817810183 
+        foreign key (ContactDetailsId) 
+        references ContactDetails
+
+    alter table ClientContacts 
+        add constraint FKEE45DE58F3AA38D2 
+        foreign key (CAId) 
+        references Clients
+
+    alter table ClientPartners 
+        add constraint FKF4CF05863078D16 
+        foreign key (PartnerId) 
+        references ClientPartnerDetails
+
+    alter table ClientPartners 
+        add constraint FKF4CF0586F3AA38D2 
+        foreign key (CAId) 
+        references Clients
+
+    alter table ClientCommodities 
+        add constraint FKBBD37C1EFC01A4B3 
+        foreign key (CommodityClassId) 
+        references CommodityClasses
+
+    alter table ClientCommodities 
+        add constraint FKBBD37C1EF3AA38D2 
+        foreign key (CAId) 
+        references Clients
+
+    alter table ClientPartnerDetails 
+        add constraint FK667CA0E130A8D0DB 
+        foreign key (AddressId) 
+        references Addresses
+
+    alter table ClientPartnerDetails 
+        add constraint FK667CA0E1934218F7 
+        foreign key (DesignationId) 
+        references Designations
+
+    alter table ClientPartnerContacts 
+        add constraint FK262FA82417810183 
+        foreign key (ContactDetailsId) 
+        references ContactDetails
+
+    alter table ClientPartnerContacts 
+        add constraint FK262FA8243078D16 
+        foreign key (PartnerId) 
+        references ClientPartnerDetails
+
+    alter table ClientPrimaryContactPerson 
+        add constraint FK277CD4DE30A8D0DB 
+        foreign key (AddressId) 
+        references Addresses
+
+    alter table ClientPrimaryContactPerson 
+        add constraint FK277CD4DE934218F7 
+        foreign key (DesignationId) 
+        references Designations
+
+    alter table ClientPrimaryContacts 
+        add constraint FK68CC536C17810183 
+        foreign key (ContactDetailsId) 
+        references ContactDetails
+
+    alter table ClientPrimaryContacts 
+        add constraint FK68CC536CEB56B3B4 
+        foreign key (CAPrimaryContactPersonId) 
+        references ClientPrimaryContactPerson
+
+    alter table ClientSubscriptions 
+        add constraint FKAD39CFB93E88979F 
+        foreign key (SubscriptionId) 
+        references SubscriptionMaster
+
+    alter table ClientSubscriptionPaymentDetails 
+        add constraint FK13B864905A66D8C5 
+        foreign key (BranchId) 
+        references BankBranches
+
+    alter table ClientSubscriptionPaymentDetails 
+        add constraint FK13B864901E36A4A1 
+        foreign key (ClientSubscriptionId) 
+        references ClientSubscriptions
+
+    alter table Commodities 
+        add constraint FKD9D9B611FC01A4B3 
+        foreign key (CommodityClassId) 
+        references CommodityClasses
+
+    alter table UserContacts 
+        add constraint FK216270F885BBA2FF 
+        foreign key (UserProfileId) 
+        references UserProfiles
+
+    alter table UserContacts 
+        add constraint FK216270F817810183 
+        foreign key (ContactDetailsId) 
+        references ContactDetails
+
+    alter table UserEmergencyContacts 
+        add constraint FKED9B3FC7A82E65 
+        foreign key (UserEmergencyContactPersonId) 
+        references UsersEmergencyContactPerson
+
+    alter table UserEmergencyContacts 
+        add constraint FKED9B3FC717810183 
+        foreign key (ContactDetailsId) 
+        references ContactDetails
+
+    alter table Districts 
+        add constraint FKEF9C46696BB1821E 
+        foreign key (StateId) 
+        references States
+
+    alter table ParentChildMenus 
+        add constraint FKFB0619BC7C97897E 
+        foreign key (MenuId) 
+        references Menus
+
+    alter table ParentChildMenus 
+        add constraint FKFB0619BCC6318172 
+        foreign key (ParentMenuId) 
+        references Menus
+
+    alter table ParentChildMenus 
+        add constraint FKFB0619BC40604BAC 
+        foreign key (ChildMenuId) 
+        references Menus
+
+    alter table UserRolePermissions 
+        add constraint FK4256C649F1130D47 
+        foreign key (RoleId) 
+        references Roles
+
+    alter table UserRolePermissions 
+        add constraint FK4256C649451CEFCF 
+        foreign key (UserRolePermissionId) 
+        references UserRolePermissions
+
+    alter table UserGroupRolePermissions 
+        add constraint FKDD28E238F1130D47 
+        foreign key (RoleId) 
+        references Roles
+
+    alter table UserGroupRolePermissions 
+        add constraint FKDD28E238E80F2A03 
+        foreign key (UserGroupRolePermissionId) 
+        references UserGroupRolePermissions
+
+    alter table States 
+        add constraint FK74CFC3C0423BF3B4 
+        foreign key (CountryId) 
+        references Country
+
+    alter table UsersEmergencyContactPerson 
+        add constraint FK5B1BEC2430A8D0DB 
+        foreign key (AddressId) 
+        references Addresses
+
+    alter table UsersEmergencyContactPerson 
+        add constraint FK5B1BEC24E2720DC7 
+        foreign key (RelationshipId) 
+        references RelationShips
+
+    alter table UserUserGroups 
+        add constraint FK969171B293C772A1 
+        foreign key (UserId) 
+        references Users
+
+    alter table UserUserGroups 
+        add constraint FK969171B26E3B9873 
+        foreign key (UserGroupId) 
+        references UserGroups
+
+    alter table UserGroupRoles 
+        add constraint FK54344AADE80F2A03 
+        foreign key (UserGroupRolePermissionId) 
+        references UserGroupRolePermissions
+
+    alter table UserGroupRoles 
+        add constraint FK54344AAD6E3B9873 
+        foreign key (UserGroupId) 
+        references UserGroups
+
+    alter table Users 
+        add constraint FK617D3C3A934218F7 
+        foreign key (DesignationId) 
+        references Designations
+
+    alter table Users 
+        add constraint FK617D3C3A85BBA2FF 
+        foreign key (UserProfileId) 
+        references UserProfiles
+
+    alter table UserRoles 
+        add constraint FKDFBBDE7E451CEFCF 
+        foreign key (UserRolePermissionId) 
+        references UserRolePermissions
+
+    alter table UserRoles 
+        add constraint FKDFBBDE7E93C772A1 
+        foreign key (UserId) 
+        references Users
+
+    alter table UserProfiles 
+        add constraint FK15F395D130A8D0DB 
+        foreign key (AddressId) 
+        references Addresses
+
+    alter table UserProfiles 
+        add constraint FK15F395D1A82E65 
+        foreign key (UserEmergencyContactPersonId) 
+        references UsersEmergencyContactPerson</StdOut>
+        <ErrorInfo>
+          <Message>Initialization method Cams.UnitTests.Domain.Services.UserServiceTests.TestsInitialize threw exception. FluentNHibernate.Cfg.FluentConfigurationException: FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+ ---&gt; NHibernate.MappingException: persistent class not known: System.Collections.Generic.IList`1[[Cams.Domain.Entities.ClientRegistration.Client, Cams.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].</Message>
+          <StackTrace>    at NHibernate.Cfg.Configuration.Mapping.GetIdentifierType(String className)
+   at NHibernate.Persister.Entity.AbstractPropertyMapping.InitIdentifierPropertyPaths(String path, EntityType etype, String[] columns, IMapping factory)
+   at NHibernate.Persister.Entity.AbstractPropertyMapping.InitPropertyPaths(String path, IType type, String[] columns, String[] formulaTemplates, IMapping factory)
+   at NHibernate.Persister.Entity.AbstractEntityPersister.InitOrdinaryPropertyPaths(IMapping mapping)
+   at NHibernate.Persister.Entity.AbstractEntityPersister.InitPropertyPaths(IMapping mapping)
+   at NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   at NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   at NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+ --- End of inner exception stack trace ---
+    at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Cams.Dal.BootStrapper.NhBootStrapper.CamsSchemaExport() in D:\DND\CAMS\CAMS\Cams.Dal\BootStrapper\NhBootStrapper.cs:line 28
+   at Cams.UnitTests.CamsTestBase.InitialiseDatabase() in D:\DND\CAMS\CAMS\Cams.UnitTests\CamsTestBase.cs:line 34
+   at Cams.UnitTests.CamsTestBase.TestsInitialize() in D:\DND\CAMS\CAMS\Cams.UnitTests\CamsTestBase.cs:line 21
+   at Cams.UnitTests.Domain.Services.UserServiceTests.TestsInitialize() in D:\DND\CAMS\CAMS\Cams.UnitTests\Domain\Services\UserServiceTests.cs:line 48
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="MesuringUnitType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Weight" />
+      <xs:enumeration value="Quantity" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MesuringUnitType" nillable="true" type="tns:MesuringUnitType" />
+  <xs:simpleType name="AccountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CurrentAccount" />
+      <xs:enumeration value="SavingAccount" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AccountType" nillable="true" type="tns:AccountType" />
+  <xs:simpleType name="BalanceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cr" />
+      <xs:enumeration value="Dr" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BalanceType" nillable="true" type="tns:BalanceType" />
+  <xs:simpleType name="PartnerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Working" />
+      <xs:enumeration value="NonWorking" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PartnerType" nillable="true" type="tns:PartnerType" />
+  <xs:simpleType name="ClientStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Operational" />
+      <xs:enumeration value="OnHold" />
+      <xs:enumeration value="InActive" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClientStatus" nillable="true" type="tns:ClientStatus" />
+  <xs:simpleType name="SubscriptionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="Premium" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubscriptionType" nillable="true" type="tns:SubscriptionType" />
+  <xs:simpleType name="PaymentMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cash" />
+      <xs:enumeration value="Cheque" />
+      <xs:enumeration value="Online" />
+      <xs:enumeration value="DD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentMode" nillable="true" type="tns:PaymentMode" />
+  <xs:simpleType name="ContactType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MobileNo" />
+      <xs:enumeration value="OfficeNo" />
+      <xs:enumeration value="ResidenceNo" />
+      <xs:enumeration value="Fax" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ContactType" nillable="true" type="tns:ContactType" />
+  <xs:simpleType name="CityVillageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="City" />
+      <xs:enumeration value="Village" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CityVillageType" nillable="true" type="tns:CityVillageType" />
+  <xs:simpleType name="ClientSisterConcernBusinessRelation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Supplier" />
+      <xs:enumeration value="Customer" />
+      <xs:enumeration value="Transporter" />
+      <xs:enumeration value="Vendor" />
+      <xs:enumeration value="AssociateAndConsultants" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClientSisterConcernBusinessRelation" nillable="true" type="tns:ClientSisterConcernBusinessRelation" />
+</xs:schema>

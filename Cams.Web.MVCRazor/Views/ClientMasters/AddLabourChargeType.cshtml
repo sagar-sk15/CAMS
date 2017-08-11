@@ -1,0 +1,158 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientMasters.LabourChargeTypeModel
+@using Cams.Web.MVCRazor;
+
+@{
+    ViewBag.Title = "AddLabourChargeType";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+
+@section Scripts
+{
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            HighlightClientAdminMainMenu('#mnuMasters');
+        });
+
+        function D1showhide(id) {
+            if (id == "divD1") {
+                document.getElementById('divD1').style.display = "block";
+                document.getElementById('otherf').style.display = "none";
+            }
+            else {
+                document.getElementById('divD1').style.display = "none";
+                document.getElementById('otherf').style.display = "block";
+            }
+        }
+        function D2showhide(id) {
+            if (id == "divD2") {
+                document.getElementById('divD2').style.display = "block";
+            }
+            else {
+                document.getElementById('divD2').style.display = "none";
+            }
+        }
+    </script>
+    
+}
+
+@section MainBody
+{
+    @{
+        string mode = string.Empty;
+        if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+        {
+            mode = Request.QueryString["mode"];
+        }
+    }
+<div class="page-data fl">
+     @using (Html.BeginForm("AddLabourChargeType", "ClientMasters", new { mode = mode }, FormMethod.Post))
+      {
+            <div class="panes">
+          <div class="panes-data">
+            <h1>
+                @if (!String.IsNullOrEmpty(mode))
+                {
+                    @ClientResources.EditLCTH1;
+                }
+                else
+                { 
+                    @ClientResources.AddLCTH1;
+                }
+            
+            </h1>
+            @if (ViewData["Error"] != null)
+            {
+                <div class="response-msg error-msg">
+                    <span>@ViewData["Error"].ToString()</span>
+                    <br />
+                    <span>@Html.ValidationSummary(true)</span>
+                </div>
+            }
+            <div style="background:#fffcfc;color:#FF0000">@Html.ValidationSummary(false)</div>
+            @if (TempData["Success"] != null)
+            {
+                <div class="response-msg success-msg">
+                    <span>@TempData["Success"].ToString()</span>
+                </div>
+            }
+            <div class="Form-Wrap">
+                <ul class="reset onecolfield fl">
+                  <li>
+                    <div class="fl">
+                      <label id="lblLabourCharge">@ClientResources.AddLCTlblLabourCharge </label>
+                      @Html.TextBoxFor(model => model.LabourCharge, new { name = "txtLabourCharge", @class = "required", id = "txtLabourCharge", value = "", maxlength = "30", tabindex = "1" })
+                    </div>
+                    @*<div class="fl">
+                      <label id="lblPayableto">@ClientResources.lblPayableto</label>
+                      <span class="rel" style="display:inline-block; ">
+                      <div class="ddl-required"></div>
+                      @Html.DropDownListFor(model => model.LabourChargesPayableTo.ChargesPayableToId, new SelectList(Model.ChargesPayableToList, "ChargesPayableToId", "PayableTo"), new { @class = "textfiled", tabindex = "2" })
+                      </span> </div>*@
+                  </li>
+                  @*<li style="padding:0; margin:0">
+                    <label id="lblStatus" class="label-radio-pad">@ClientResources.lblDerivative</label>
+                    @Html.RadioButtonFor(model => model.IsDerivative, true, new { @class = "radio-botton", id = "rbtnYes", name = "rbtnDerivative", tabindex = "3", onClick = "D1showhide('divD1')" })
+                    <label class="label-radio fl">@ClientResources.RadiobtnYes</label>
+                    @Html.RadioButtonFor(model => model.IsDerivative, false, new { @class = "radio-botton", id = "rbtnNo", name = "rbtnDerivative", tabindex = "4", @checked = "checked", onClick = "D1showhide('other')" })
+                    <label class="label-radio fl">@ClientResources.RadiobtnNo</label>
+                    <div class="clr"></div>
+                  </li>*@
+                  @*<li>
+                    <div id="divD1" style="display:none;">
+                      <div style="margin-bottom:10px;">
+                        <div class="fl" >
+                          <label id="lblDerivative1">@ClientResources.LCTlblDerivative1</label>
+                          @Html.TextBoxFor(model => model.Derivative1, new { name = "txtDerivative1", @class = "textfiled", id = "txtDerivative1", tabindex = "5", value = "", maxlength = "30" })
+                        </div>
+                        <div class="fl">
+                          <label id="lblD1Payableto">@ClientResources.lblPayableto</label>
+                          @Html.DropDownListFor(model => model.D2PayableTo.ChargesPayableToId, new SelectList(Model.ChargesPayableToList, "ChargesPayableToId", "PayableTo"), new { @class = "textfiled", tabindex = "6" })
+                          <a href="#" class="addnew" onclick="D2showhide('divD2')" tabindex = "7"></a></div>
+                        <div class="clr"></div>
+                      </div>
+                      
+                      <div id="divD2" style="display:none;">
+                          <div class="fl">
+                            <label for="lblDerivative2">@ClientResources.LCTDerivative2</label>
+                            @Html.TextBoxFor(model => model.Derivative2, new { name = "txtDerivative2", @class = "textfiled", id = "txtDerivative2", value = "", maxlength = "30", tabindex = "8" })
+                          </div>
+                          <div class="fl">
+                            <label id="lblD2Payableto">@ClientResources.lblPayableto</label>
+                            @Html.DropDownListFor(model => model.D1PayableTo.ChargesPayableToId, new SelectList(Model.ChargesPayableToList, "ChargesPayableToId", "PayableTo"), new { @class = "textfiled", tabindex = "9" })
+                            <a href="#" class="remove" onclick="D2showhide('other')" tabindex = "10"></a></div>
+                          </div>
+                      <div id="otherf" style="display:none;"></div>
+                    </div>
+                    <div class="clr"></div>
+                  </li>*@
+                  @*<li>
+                    <label id="lblStatus" class="label-radio-pad">@ClientResources.lblStatus</label>
+                    @Html.RadioButtonFor(model => model.IsActive, true, new { @class = "radio-botton", id = "rbtnActiveStatus", name = "rbtnStatus", @checked = "checked", tabindex = "11" })
+                    <label class="label-radio fl">@ClientResources.RadiobtnActive</label>
+                    @Html.RadioButtonFor(model => model.IsActive, false, new { @class = "radio-botton", id = "rbtnInactiveStatus", name = "rbtnStatus", tabindex = "12" })
+                    <label class="label-radio fl">@ClientResources.RadiobtnInactive</label>
+                    <div class="clr"></div>
+                  </li>*@
+                   </ul>
+                  <div class="clr"></div>
+                    <ul class="reset input-botton" style="text-align:center; padding-bottom:10px">
+                   <li>
+                      <input type="image" src=@Url.Content("~/Content/images/control/save.jpg") name="imgbtn_save" id="imgbtn_save" tabindex = "12" />
+                      <div class="text-link">@ClientResources.CancelString&nbsp;<a href="#" tabindex = "13">@Html.ActionLink(ClientResources.CancelbtnText, "LabourChargeTypesListIndex", "ClientMasters")</a></div>
+                  </li>
+                </ul>
+                  @*<ul class="reset input-botton">
+                  <li>
+                    
+                  </li>
+                  <li>
+                    <label>&nbsp;</label>
+                    <div class="text-link">@ClientResources.CancelString&nbsp;<a href="#" tabindex = "13">@Html.ActionLink(ClientResources.CancelbtnText, "LabourChargeTypesListIndex", "ClientMasters")</a></div>
+                  </li>
+                </ul>*@
+            </div>
+          </div>
+        </div>
+      }
+      </div>
+}

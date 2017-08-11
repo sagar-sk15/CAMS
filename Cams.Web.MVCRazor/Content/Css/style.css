@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;
+	font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif;
+	font-size:12px;
+}
+img{
+	border:none;
+}
+a{outline:none; color:#00F; text-decoration:none;}
+a:hover{color:#000;text-decoration:underline;}
+.green-link{
+	color:#275614;
+}
+.login_wrap{background:#E5E5E5; padding:10px 20px; width:230px; margin:0px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -o-border-radius:5px}
+
+.userlisttable
+{
+    width:100%;
+}
+
+.userlisttableUgTd
+{
+    width :100px;
+}
+
+.UserLocked
+{
+    font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif !important;
+    font-size:12px !important;
+    color:Red;
+}
+
+.BankWorkingDays
+{
+    vertical-align:bottom;
+    font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif;
+    font-size:12px;
+    padding-bottom:2px;
+}
+.BankWorkingDaysCHK
+{
+    vertical-align:top;
+}
+
+.dxtc-text
+{
+    font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif !important;
+    font-size:12px !important;
+}
+
+.dxtc-leftIndent
+{
+    display:none !important;
+}
+
+.timeControl
+{
+    font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif !important;
+    font-size:12px !important;
+    width:90px !important;
+    height:15px;
+    padding-bottom: 2px;
+}
+
+.comboBoxControl
+{
+    font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif !important;
+    height:15px !important;
+    font-size:12px !important;
+}
+
+.button_Edit{background: url(../images/control/btn-edit.gif); background-repeat:no-repeat; display:block; height:25px; color:White; text-align:center; width:100px;}
+.button_Edit:hover{color:White; text-decoration:none;}
+
+
+.fontName{font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif !important;}
+.AddBankLableClass{width:50px !important; float:left !important; text-align:left !important;}
+.width211{width: 211px !important;}
+.width84{width: 84px !important;}
+
+.autoinputvalueaslabel{text-align:left; border: 0; 
+                padding:2px; display:inline-block;
+                font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif;}
+.dxgvFocusedRow
+{
+    background-color:#E1E1E1!important;
+    color:Black!important;
+}
+
+.CommodityList
+{
+    vertical-align:bottom;
+    font-family:"DejaVu Serif", Georgia, Times New Roman, Times, serif;
+    font-size:12px;
+    padding-bottom:25px;    
+}
+
+.button_Save{background: url(../images/control/save.jpg); background-repeat:no-repeat; display:block; height:25px; color:White; text-align:left;}
+.button_Save:hover{color:White; text-decoration:none;}
+.button_Submit{width:100px; height:25px; text-decoration:none; border-style: none; text-align:center; margin-left:auto; margin-right:auto;}
+.CenteredObject{margin-left:auto; margin-right:auto;}
+.noIndentUL{margin-left:0 !important;padding-left:0 !important;list-style-type: none !important;}
+
+#Save-buton { position: relative; background:url(../Images/Control/btn-save-dropdown.gif) top left no-repeat; height:30px; width:120px; margin:15px 0 0 0px; padding:6px 0 0 0px; color:#5D8F46; font-weight:bold; cursor:pointer; font-size:11px; text-align:center; }
+#Save-butonlist { display:none; position: relative; background-color:#fff; border:#BDBDBD solid 1px; margin:4px 0 0 0px; width:140px; text-decoration:none; font-size:11px; overflow:auto; height:77px; }
+#Save-buton ul, #Save-buton li { margin:0; padding:0; }
+#Save-buton li{text-decoration:none; line-height:20px; list-style:none; text-align:left; width:110px; padding-top:5px;  }
+#Save-buton li span{ text-decoration:none; color:#5D8F46; border-bottom:#BDBDBD solid 1px; display:block; padding-left:8px;width: 110px; } 
+#Save-buton li span:active{ text-decoration:none; color:#000; border-bottom:#6d6d6d dotted 1px; display:block;} 

@@ -1,0 +1,246 @@
+﻿@using ThisController = Cams.Web.MVCRazor.Controllers.AccountController
+@using Cams.Web.MVCRazor
+@using Cams.Common.Dto.User
+@{
+    string UserType = string.Empty;
+    if (Request.QueryString["usertype"] != null)
+    {
+        UserType = Request.QueryString["usertype"];
+    }
+
+}
+@Html.DevExpress().GridView(settings =>
+            {
+                settings.Name = "gvUsers";
+                settings.CallbackRouteValues = new { Controller = "Account", Action = "UsersGrid", };
+                settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                settings.Settings.ShowGroupPanel = true;
+                settings.Styles.Header.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                settings.Settings.ShowFilterRow = true;
+                settings.CommandColumn.ClearFilterButton.Visible = true;
+                settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+                settings.SettingsPager.FirstPageButton.Visible = true;
+                settings.SettingsPager.LastPageButton.Visible = true;
+                settings.SettingsPager.AlwaysShowPager = true;
+                settings.SettingsPager.PageSize = 10;
+                settings.SettingsPager.ShowEmptyDataRows = true;
+                settings.KeyFieldName = "UserId";
+                settings.ClientSideEvents.BeginCallback = "gvUsers_OnBeginCallback";
+                settings.SettingsBehavior.AllowFocusedRow = true;
+                settings.ClientSideEvents.FocusedRowChanged = "OngvUsersFocusedRowChanged";
+                settings.Settings.ShowHorizontalScrollBar = true;
+                settings.ControlStyle.CssClass = "fontName";
+                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                settings.CustomUnboundColumnData = (sender, e) =>
+                {
+                    if (e.Column.FieldName == "Roles")
+                    {
+                        var linkProperties = e.Column.PropertiesEdit as HyperLinkProperties;
+                        int noOfRolesAssigned = (int)e.GetListSourceFieldValue("UserRolesCount");
+                        linkProperties.Text = (noOfRolesAssigned > 0) ? @ClientResources.ULGridUpdateRoles : @ClientResources.ULGridAssignRoles;
+                    }
+                };
+
+                settings.CustomCallback = (sender, e) =>
+                {
+                    int layoutIndex = Int32.Parse(e.Parameters);
+                    MVCxGridView grid = (MVCxGridView)sender;
+
+                    grid.BeginUpdate();
+                    try
+                    {
+                        grid.ClearSort();
+                        switch (layoutIndex)
+                        {
+                            case 0:
+                                grid.GroupBy(grid.Columns["UserName"]);
+                                break;
+                            case 1:
+                                grid.GroupBy(grid.Columns["Name"]);
+                                break;
+                            case 2:
+                                grid.GroupBy(grid.Columns["Email"]);
+                                break;
+                            case 3:
+                                grid.GroupBy(grid.Columns["MobileNo"]);
+                                break;
+                            case 4:
+                                grid.GroupBy(grid.Columns["UserGroupsCount"]);
+                                break;
+                            case 5:
+                                grid.GroupBy(grid.Columns["Roles"]);
+                                break;
+                            case 6:
+                                grid.GroupBy(grid.Columns["IsLockedOut"]);
+                                break;
+                            case 7:
+                                grid.GroupBy(grid.Columns["IsActive"]);
+                                break;
+                        }
+                    }
+                    finally
+                    {
+                        grid.EndUpdate();
+                    }
+                    grid.ExpandAll();
+                };
+
+
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "UserName";
+                    column.Caption = "UserName";
+                    column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                    column.Settings.FilterMode = ColumnFilterMode.DisplayText;
+                    column.Width = 150;
+                    column.SetDataItemTemplateContent(c =>
+                        {
+                            Html.DevExpress().HyperLink(linksettings =>
+                                {
+                                    linksettings.Properties.Text = DataBinder.Eval(c.DataItem, "UserName").ToString();
+                                    linksettings.ControlStyle.CssClass = "fontName";
+                                    linksettings.NavigateUrl = Url.Action("UserRegistrationView", "Account", new { mode = "View", usertype = Request.Params["usertype"], userName = DataBinder.Eval(c.DataItem, "UserName"), CAId = DataBinder.Eval(c.DataItem, "UserOfClient.CAId") });
+                                }).Render();
+                        });
+                });
+                
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "Name";
+                    column.Caption = ClientResources.ULGridFullName;
+                    column.Width = 150;
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "Email";
+                    column.Caption = ClientResources.ULGridEmail;
+                    column.Width = 200;
+                });
+                
+                //settings.Columns.Add("Name", ClientResources.ULGridFullName);
+                //settings.Columns.Add("Email", ClientResources.ULGridEmail);
+                settings.Columns.Add("MobileNo", ClientResources.ULGridMobileNo);
+
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "UserGroupsCount";
+                    column.Caption = @ClientResources.ULGridUserGroups;
+                    column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                    column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                    column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                    column.SetDataItemTemplateContent(c =>
+                        {
+                            System.Text.StringBuilder ugList = new System.Text.StringBuilder();
+                            IList<UserGroupDto> usersGroups = new List<UserGroupDto>((IList<UserGroupDto>)DataBinder.Eval(c.DataItem, "UserWithUserGroups"));
+
+                            foreach (UserGroupDto ug in usersGroups)
+                            {
+                                ugList = ugList.AppendLine(ug.UserGroupName);
+                            }
+
+                            Html.DevExpress().HyperLink(linkSettings =>
+                            {
+                                linkSettings.Properties.Text = (usersGroups.Count == 0) ? @ClientResources.ULGridAssignGroups : @ClientResources.ULGridUpdateGroups;
+                                linkSettings.NavigateUrl = "";
+                                linkSettings.ControlStyle.CssClass = "fontName";
+                                linkSettings.ToolTip = ugList != null ? ugList.ToString() : "";
+                            }).Render();
+
+                            //);
+
+                        });
+                });
+
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "Roles";
+                    column.Caption = @ClientResources.ULGridRoles;
+                    column.ColumnType = MVCxGridViewColumnType.HyperLink;
+                    column.UnboundType = DevExpress.Data.UnboundColumnType.String;
+                    column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                    column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                    column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                    //column.Width = 100;
+                    column.SetDataItemTemplateContent(c =>
+                    {
+                        Html.DevExpress().HyperLink(linkSettings =>
+                        {
+                            linkSettings.Properties.Text = "Assign";
+                            linkSettings.ControlStyle.CssClass = "fontName";
+                            linkSettings.NavigateUrl = Url.Action("UserRolesIndex", "Account", new RouteValueDictionary(new { usertype = UserType, username = DataBinder.Eval(c.DataItem, "Username") }));
+                        }).Render();
+                    });
+                });
+
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "IsLockedOut";
+                    column.Caption = @ClientResources.ULGridLoginStatus;
+                    column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                    column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                    column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                    column.SetDataItemTemplateContent(c =>
+                        {
+                            ViewContext.Writer.Write(
+                                Html.DevExpress().Label(editSettings =>
+                                    {
+                                        bool isLocked = (bool)DataBinder.Eval(c.DataItem, "IsLockedOut");
+                                        editSettings.Text = (isLocked) ? @ClientResources.ULGridLocked : @ClientResources.ULGridOpen;
+                                        editSettings.ControlStyle.CssClass = "fontName";
+                                        editSettings.ControlStyle.CssClass = (isLocked) ? "UserLocked" : "fontName";
+                                        
+                                        editSettings.AssociatedControlName = "IsLockedOut";
+                                    }).GetHtml().ToHtmlString()
+                                );
+                        });
+                });
+
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "IsActive";
+                    column.Caption = "Status";
+                    column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                    column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                    column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                    column.SetDataItemTemplateContent(c =>
+                    {
+                        ViewContext.Writer.Write(
+                            Html.DevExpress().Label(editSettings =>
+                            {
+                                bool isActive = (bool)DataBinder.Eval(c.DataItem, "IsActive");
+                                editSettings.Text = (isActive) ? @ClientResources.ULGridActive : @ClientResources.ULGridInActive;
+                                editSettings.ControlStyle.CssClass = "fontName";
+                                editSettings.ControlStyle.CssClass = (!isActive) ? "UserLocked" : "fontName";
+                                editSettings.AssociatedControlName = "IsActive";
+                                
+                            }).GetHtml().ToHtmlString()
+                            );
+                    });
+                });
+
+                settings.Columns.Add(column =>
+                     {
+                         column.Name = "IsUserEditable";
+                         column.FieldName = "AllowEdit";
+                         column.Caption = "Allow Edit";
+                         column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                         column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                         column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                     });
+
+                settings.Settings.ShowFooter = true;
+                settings.SetFooterRowTemplateContent(footer =>
+                {
+                    Html.DevExpress().HyperLink(linkSettings =>
+                    {
+                        linkSettings.Name = "EditButton";
+                        linkSettings.Properties.Style.CssClass = "button_Edit";
+                        linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                        linkSettings.NavigateUrl = "";
+                        //Url.Action("EditRegisteredUser", "Account", new { mode = "Edit" });
+                        linkSettings.ClientVisible = ((List<UserDto>)ViewData["FilteredUsers"]).Count() == 0 ? false : true;
+                    }).Render();
+
+                });
+
+            }).Bind(ViewData["FilteredUsers"]).GetHtml()

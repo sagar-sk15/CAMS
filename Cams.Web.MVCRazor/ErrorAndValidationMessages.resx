@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddCommodityAddError" xml:space="preserve">
+    <value>Commodity already exists.</value>
+  </data>
+  <data name="AddCommodityImageRequired" xml:space="preserve">
+    <value>Commodity Image is required.</value>
+  </data>
+  <data name="AddLCTFailed" xml:space="preserve">
+    <value>Labour charge already exists.</value>
+  </data>
+  <data name="AddZoneAddZoneFailed" xml:space="preserve">
+    <value>Cannot add {0} to {1}.  Zone already exist.</value>
+  </data>
+  <data name="APMCExists" xml:space="preserve">
+    <value>APMC already exists.</value>
+  </data>
+  <data name="BRBotanicalNameValidation" xml:space="preserve">
+    <value>Botanical name already used for commodity {0}.</value>
+  </data>
+  <data name="BRCityVillageNameValidation" xml:space="preserve">
+    <value>Place already exists.</value>
+  </data>
+  <data name="BRCommodityNameValidation" xml:space="preserve">
+    <value>Commodity already exists.</value>
+  </data>
+  <data name="BRCountryValidation" xml:space="preserve">
+    <value>Country not found.</value>
+  </data>
+  <data name="BRDateOfBirth" xml:space="preserve">
+    <value>Date of birth is required.</value>
+  </data>
+  <data name="BRDesignationName" xml:space="preserve">
+    <value>Designation is required.</value>
+  </data>
+  <data name="BRDesignationUnique" xml:space="preserve">
+    <value>Designation already exist.</value>
+  </data>
+  <data name="BRDistrictNameValidation" xml:space="preserve">
+    <value>District already exists.</value>
+  </data>
+  <data name="BREmail" xml:space="preserve">
+    <value>Email address is required.</value>
+  </data>
+  <data name="BRLabourChargeAllowedValidation" xml:space="preserve">
+    <value>Cannot create new labour charges.</value>
+  </data>
+  <data name="BRLabourChargeValidation" xml:space="preserve">
+    <value>Labour charge already exist.</value>
+  </data>
+  <data name="BRMobileNo" xml:space="preserve">
+    <value>Mobile number is required.</value>
+  </data>
+  <data name="BRMothersMaidenName" xml:space="preserve">
+    <value>Mother's maiden name is required.</value>
+  </data>
+  <data name="BRName" xml:space="preserve">
+    <value>Full name is required.</value>
+  </data>
+  <data name="BRPassword" xml:space="preserve">
+    <value>Enter Password</value>
+  </data>
+  <data name="BRRelationshipName" xml:space="preserve">
+    <value>Relationship is required.</value>
+  </data>
+  <data name="BRRelationshipUnique" xml:space="preserve">
+    <value>Relationship already exist.</value>
+  </data>
+  <data name="BRStateSaved" xml:space="preserve">
+    <value>State/Union Teritorry Saved.</value>
+  </data>
+  <data name="BRStateValidation" xml:space="preserve">
+    <value>State/Union Teritorry already exists.</value>
+  </data>
+  <data name="BRUserGroupNameDisplay" xml:space="preserve">
+    <value>User Group is required.</value>
+  </data>
+  <data name="BRUserGroupNameRequired" xml:space="preserve">
+    <value>User Group is required.</value>
+  </data>
+  <data name="BRUserGroupNameUnique" xml:space="preserve">
+    <value>User Group already exist.</value>
+  </data>
+  <data name="BRUserName" xml:space="preserve">
+    <value>Username is required.</value>
+  </data>
+  <data name="BRZoneNameValidation" xml:space="preserve">
+    <value>Zone already exists.</value>
+  </data>
+  <data name="CommmodityRequiredCommodityClassId" xml:space="preserve">
+    <value>Commodity Class is required</value>
+  </data>
+  <data name="CommodityRegXBotnicalName" xml:space="preserve">
+    <value>Botnical Name: Only alphabets and numbers are allowed. Length should not exceed 20 characters.</value>
+  </data>
+  <data name="CommodityRegXName" xml:space="preserve">
+    <value>Commodity: Only alphabets and numbers are allowed. Length should not be exceed 20 characters.</value>
+  </data>
+  <data name="CommodityRequiredBotnicalName" xml:space="preserve">
+    <value>Botnical Name is required.</value>
+  </data>
+  <data name="CommodityRequiredName" xml:space="preserve">
+    <value>Commodity is required.</value>
+  </data>
+  <data name="ERLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error has occurred. Go to</value>
+  </data>
+  <data name="LCTErrorRegExLabourCharge" xml:space="preserve">
+    <value>Invalid Labour Charge: Only alphabets and numbers are allowed. Length should not be exceed 30 characters.</value>
+  </data>
+  <data name="LCTRequiredLabourCharge" xml:space="preserve">
+    <value>Labour charge required.</value>
+  </data>
+  <data name="MUFailed" xml:space="preserve">
+    <value>Failed to save.</value>
+  </data>
+  <data name="MURegExEquivalentUnit" xml:space="preserve">
+    <value>Invalid Measurement Unit: Only decimal numbers are allowed.</value>
+  </data>
+  <data name="MURegExMeasurementUnit" xml:space="preserve">
+    <value>Invalid Equivalent Unit:  Only alphabets and numbers are allowed. Length should not exceed 20 characters.</value>
+  </data>
+  <data name="UGErrorRegExGroupname" xml:space="preserve">
+    <value>Invalid Groupname. Only alphabets and numbers are allowed. Length should not exceed 30 characters.</value>
+  </data>
+  <data name="URAgeCheckMsg" xml:space="preserve">
+    <value>Age is less than 18 years.</value>
+  </data>
+  <data name="URErrorRegExClientID" xml:space="preserve">
+    <value>Client ID: should be 4 digit number.</value>
+  </data>
+  <data name="URErrorRegExDOB" xml:space="preserve">
+    <value>Date of Birth: Date should be in format DD-MM-YYYY.</value>
+  </data>
+  <data name="URErrorRegExEmail" xml:space="preserve">
+    <value>Invalid Email: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="URErrorRegExFullName" xml:space="preserve">
+    <value>Full name: Only alphabets and numbers are allowed.</value>
+  </data>
+  <data name="URErrorRegExMobileNumber" xml:space="preserve">
+    <value>Mobile No. should be 10-15 digit long.</value>
+  </data>
+  <data name="URErrorRegExMothersMaidenName" xml:space="preserve">
+    <value>Mother's Maiden Name: Alphabets and numbers are allowed. Length should not exceed 15 characters.</value>
+  </data>
+  <data name="URErrorRegExUsername" xml:space="preserve">
+    <value>Invalid Username. Only alphabets and numbers are allowed. Length should be 8-15 characters long.</value>
+  </data>
+  <data name="URErrorRequiredClientID" xml:space="preserve">
+    <value>Client Name/ID is required.</value>
+  </data>
+  <data name="URErrorRequiredDOB" xml:space="preserve">
+    <value>Date of birth is required.</value>
+  </data>
+  <data name="URErrorRequiredEmail" xml:space="preserve">
+    <value>Email is required.</value>
+  </data>
+  <data name="URErrorRequiredFullName" xml:space="preserve">
+    <value>Full Name is required.</value>
+  </data>
+  <data name="URErrorRequiredMobileNumber" xml:space="preserve">
+    <value>Mobile Number is required.</value>
+  </data>
+  <data name="URErrorRequiredMothersMaidenName" xml:space="preserve">
+    <value>Mother's Maiden Name is required.</value>
+  </data>
+  <data name="URErrorRequiredUsername" xml:space="preserve">
+    <value>Username is required.</value>
+  </data>
+  <data name="URRegistrationFailed" xml:space="preserve">
+    <value>User registration failed.  Please correct the following fields:</value>
+  </data>
+  <data name="URRegistrationSuccessful" xml:space="preserve">
+    <value>User registered successfully.</value>
+  </data>
+  <data name="URSuggestedUsername" xml:space="preserve">
+    <value>{0} is not available.&lt;br /&gt;Some suggested Usernames: {1}{2}</value>
+  </data>
+  <data name="URUserAlreadyExist" xml:space="preserve">
+    <value>Username already exists.</value>
+  </data>
+  <data name="ZoneRegXZone" xml:space="preserve">
+    <value>Invalid Zone. Only alphabets and numbers are allowed.</value>
+  </data>
+  <data name="ZoneRequiredZone" xml:space="preserve">
+    <value>Zone is required.</value>
+  </data>
+  <data name="ZoneRequiredZoneFor" xml:space="preserve">
+    <value>Zone For is required.</value>
+  </data>
+  <data name="AddMUDataRequired" xml:space="preserve">
+    <value>Measuring Unit and it's Equivalent unit value are required.</value>
+  </data>
+  <data name="APMCValidateAddress" xml:space="preserve">
+    <value>APMC address is required.</value>
+  </data>
+  <data name="APMCValidateNAME" xml:space="preserve">
+    <value>APMC name is required.</value>
+  </data>
+  <data name="BRBankNameValidation" xml:space="preserve">
+    <value>Bank already exists.</value>
+  </data>
+  <data name="BBRAddFailed" xml:space="preserve">
+    <value>Failed to create {0} branch of {1} bank.</value>
+  </data>
+  <data name="BRMUMeasuringUnitValidation" xml:space="preserve">
+    <value>Measuring Unit already exist.</value>
+  </data>
+  <data name="BRBankBranchNameValidation" xml:space="preserve">
+    <value>Bank &amp; branch already registered.</value>
+  </data>
+  <data name="BRIFSCCode" xml:space="preserve">
+    <value>IFSC code already used for bank {0} and branch {1}.</value>
+  </data>
+  <data name="BRMICRCode" xml:space="preserve">
+    <value>MICR code already used for bank {0} and branch {1}.</value>
+  </data>
+  <data name="BRSWIFTCode" xml:space="preserve">
+    <value>SWIFT code already used for bank {0} and branch {1}.</value>
+  </data>
+  <data name="ABMtxtppAlias" xml:space="preserve">
+    <value>Alias name of bank is required.</value>
+  </data>
+  <data name="ABMtxtppBankName" xml:space="preserve">
+    <value>Bank Name is required.</value>
+  </data>
+  <data name="ABMtxtppURL" xml:space="preserve">
+    <value>Bank website URL is required.</value>
+  </data>
+  <data name="ABMtxtppURLRegEx" xml:space="preserve">
+    <value>Invalid URL.  Enter proper website address.</value>
+  </data>
+  <data name="BBErrorRegExBranchName" xml:space="preserve">
+    <value>Invalid Branch name.  Only alphabets and numbers are allowed. Length should not exceed 60 characters.</value>
+  </data>
+  <data name="BBErrorRegExEmail1" xml:space="preserve">
+    <value>Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="BBErrorRegExIFSC" xml:space="preserve">
+    <value>Invalid IFSC Code.  Only alphabets and numbers are allowed. Length should be 11 characters long.</value>
+  </data>
+  <data name="BBErrorRegExMICR" xml:space="preserve">
+    <value>Invalid MICR Code.  Only numbers are allowed.  Length should be 9 digit long.</value>
+  </data>
+  <data name="BBErrorRegExSWIFT" xml:space="preserve">
+    <value>Invalid SWIFT Code.  Only alphabets and numbers are allowed. Length should not exceed 15 characters.</value>
+  </data>
+  <data name="BBRequiredBranchName" xml:space="preserve">
+    <value>Branch Name required.</value>
+  </data>
+  <data name="BBRequiredEmail1" xml:space="preserve">
+    <value>Email1 is required.</value>
+  </data>
+  <data name="BBRequiredIFSC" xml:space="preserve">
+    <value>IFSC Code required.</value>
+  </data>
+  <data name="BBRequiredMICR" xml:space="preserve">
+    <value>MICR Code required.</value>
+  </data>
+  <data name="BBRequiredSWIFT" xml:space="preserve">
+    <value>SWIFT Code required.</value>
+  </data>
+  <data name="BBErrorRegExEmail2" xml:space="preserve">
+    <value>Invalid Email2: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="BBErrorRegExPIN" xml:space="preserve">
+    <value>Invalid PIN. Only numbers are allowed.  Length should be 6 digits long.</value>
+  </data>
+  <data name="BBErrorRequiredAddressLine1" xml:space="preserve">
+    <value>Address is required.</value>
+  </data>
+  <data name="BBErrorRequiredCityVillage" xml:space="preserve">
+    <value>City / Village is required.</value>
+  </data>
+  <data name="BBErrorRequiredPIN" xml:space="preserve">
+    <value>PIN is required.</value>
+  </data>
+  <data name="BBErrorRegExContactNo" xml:space="preserve">
+    <value>Contact Number(s) should be numeric and atleast 5 digit long.</value>
+  </data>
+  <data name="BBErrorRegExSTDCode" xml:space="preserve">
+    <value>STD code should be numeric and atleast 3 digit long.</value>
+  </data>
+  <data name="BBErrorRequiredBank" xml:space="preserve">
+    <value>Bank is required.</value>
+  </data>
+  <data name="ValidateConfirmPassword" xml:space="preserve">
+    <value>Confirm New Password is required</value>
+  </data>
+  <data name="ValidateNewPassword" xml:space="preserve">
+    <value>New Password is required</value>
+  </data>
+  <data name="ValidatePassword" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="RegExpForNewPassword" xml:space="preserve">
+    <value>New Password should contain 6 – 12 characters and should include Uppercase/Lowercase letters, Numerals and Symbols.Space is not allowed.</value>
+  </data>
+  <data name="ValidateExistingPassword" xml:space="preserve">
+    <value>The password you gave is incorrect</value>
+  </data>
+  <data name="ValidatePasswordMatch" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="ValidatePasswordWithExistingPassword" xml:space="preserve">
+    <value>New password should not be same as existing password</value>
+  </data>
+  <data name="ValidatePasswordWithLastTwoPasswords" xml:space="preserve">
+    <value>New password should not be same as last two passwords</value>
+  </data>
+  <data name="URPIRegExContactNo" xml:space="preserve">
+    <value>Personal Information: Contact Number(s) should be numeric and atleast 6 digit long.</value>
+  </data>
+  <data name="URPIRegExEmail1" xml:space="preserve">
+    <value>Personal Information: Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="URPIRegExEmail2" xml:space="preserve">
+    <value>Personal Information: Invalid Email2: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="URRegExPAN" xml:space="preserve">
+    <value>PAN should be 10 characters long.</value>
+  </data>
+  <data name="URRegExPIN" xml:space="preserve">
+    <value>Invalid PIN: Should be numeric and atleast 6 digit long.</value>
+  </data>
+  <data name="URRegExUID" xml:space="preserve">
+    <value>Personal Information: Invalid UID: Should be numeric and atleast 12 digit long.</value>
+  </data>
+  <data name="CLRCompanyAliasNameRequired" xml:space="preserve">
+    <value>Alias name required.</value>
+  </data>
+  <data name="CLRCompanyEmailRegEx" xml:space="preserve">
+    <value>Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="CLRCompanyEmailRequired" xml:space="preserve">
+    <value>Email1 is required.</value>
+  </data>
+  <data name="CLRCompanyNameRegEx" xml:space="preserve">
+    <value>Invalid Company name.Only alphabets and numbers are allowed.</value>
+  </data>
+  <data name="CLRCompanyNameRequired" xml:space="preserve">
+    <value>Company name is required.</value>
+  </data>
+  <data name="CLRCompanyPANRequired" xml:space="preserve">
+    <value>PAN is required.</value>
+  </data>
+  <data name="CLRCompanyTANRequired" xml:space="preserve">
+    <value>TAN is required</value>
+  </data>
+  <data name="CLRACPRequiredName" xml:space="preserve">
+    <value>Name is required</value>
+  </data>
+  <data name="AOErrorRegExEmail1" xml:space="preserve">
+    <value>Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="AOErrorRegExPAN" xml:space="preserve">
+    <value>Invalid PAN.  Only alphabets and numbers are allowed. Length should be 10 characters long.</value>
+  </data>
+  <data name="AOErrorRegExPartnerName" xml:space="preserve">
+    <value>Partner Name: Only alphabets and numbers are allowed.</value>
+  </data>
+  <data name="AOErrorRequiredDOB" xml:space="preserve">
+    <value>Date of Birth is required</value>
+  </data>
+  <data name="AOErrorRequiredEmail1" xml:space="preserve">
+    <value>Email1 is required.</value>
+  </data>
+  <data name="AOErrorRequiredPAN" xml:space="preserve">
+    <value>PAN is required</value>
+  </data>
+  <data name="AOErrorRequiredPartnerName" xml:space="preserve">
+    <value>Name is required.</value>
+  </data>
+  <data name="AOPIRegExContactNo" xml:space="preserve">
+    <value>Contact Number(s) should be numeric and atleast 6 digit long.</value>
+  </data>
+  <data name="AOPIReqMobNo" xml:space="preserve">
+    <value>Atleast one Mobile number is required.</value>
+  </data>
+  <data name="AORegExPIN" xml:space="preserve">
+    <value>Invalid PIN: Should be numeric and atleast 6 digit long.</value>
+  </data>
+  <data name="AORegExUID" xml:space="preserve">
+    <value>Invalid UID: Should be numeric and atleast 12 digit long.</value>
+  </data>
+  <data name="AOReqAddr1" xml:space="preserve">
+    <value>Address is required.</value>
+  </data>
+  <data name="AOErrorRegExUID" xml:space="preserve">
+    <value>Invalid UID: Should be numeric and atleast 12 digit long.</value>
+  </data>
+  <data name="AOPIReqCity" xml:space="preserve">
+    <value>City/Village is required.</value>
+  </data>
+  <data name="BRClientPANUnique" xml:space="preserve">
+    <value>PAN number already exists for client {0} {1}</value>
+  </data>
+  <data name="AOPIRegXExDOB" xml:space="preserve">
+    <value>Invalid Date of Birth</value>
+  </data>
+  <data name="AOPIReqDesignation" xml:space="preserve">
+    <value>Designation is required</value>
+  </data>
+  <data name="AOPIReqExDOB" xml:space="preserve">
+    <value>Date of Birth is required</value>
+  </data>
+  <data name="BRClientTANUnique" xml:space="preserve">
+    <value>TAN number already exists for client {0} {1}</value>
+  </data>
+  <data name="BRClientUnique" xml:space="preserve">
+    <value>Client already registered.</value>
+  </data>
+  <data name="BRClientAPMCLicNoUnique" xml:space="preserve">
+    <value>APMC license no. already exists for {0} {1}</value>
+  </data>
+  <data name="AddClientPartnerError" xml:space="preserve">
+    <value>Required no. of partners already added. To add more partners, please update no. of partners.</value>
+  </data>
+  <data name="ClientErrorRegExPAN" xml:space="preserve">
+    <value>PAN should be 10 characters long.</value>
+  </data>
+  <data name="ClientErrorRegExTAN" xml:space="preserve">
+    <value>TAN should be 10 characters long.</value>
+  </data>
+  <data name="ClientErrorRegExPIN" xml:space="preserve">
+    <value>Invalid PIN. Only numbers are allowed.  Length should be 6 digits long.</value>
+  </data>
+  <data name="ClientErrorRegExEmail1" xml:space="preserve">
+    <value>Company Profile: Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="ClientErrorRegExEmail2" xml:space="preserve">
+    <value>Company Profile: Invalid Email2: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="ClientErrorRegExContactNo" xml:space="preserve">
+    <value>Contact Number(s) should be numeric and atleast 6 digit long.</value>
+  </data>
+  <data name="ClientErrorRegExSTDCode" xml:space="preserve">
+    <value>STD code should be numeric and atleast 3 digit long.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRegExPAN" xml:space="preserve">
+    <value>Primary Contact Person: PAN should be 10 characters long.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRegExUID" xml:space="preserve">
+    <value>Primary Contact Person: Invalid UID: Should be numeric and atleast 12 digit long.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRegExPIN" xml:space="preserve">
+    <value>Invalid PIN. Only numbers are allowed.  Length should be 6 digits long.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRegExEmail1" xml:space="preserve">
+    <value>Primary Contact Person: Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRegExEmail2" xml:space="preserve">
+    <value>Primary Contact Person: Invalid Email2: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRegExContactNo" xml:space="preserve">
+    <value>Contact Number(s) should be numeric and atleast 6 digit long.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRegExSTDCode" xml:space="preserve">
+    <value>STD code should be numeric and atleast 3 digit long.</value>
+  </data>
+  <data name="ClientErrorAPMCLicenseNoDate" xml:space="preserve">
+    <value>APMC license already expired.</value>
+  </data>
+  <data name="ClientErrorCommodityClass" xml:space="preserve">
+    <value>Maximum 3 commodity classes can be selected at a time.</value>
+  </data>
+  <data name="ClientErrorRequiredAPMCLicenseNo" xml:space="preserve">
+    <value>APMC license number is required.</value>
+  </data>
+  <data name="ClientErrorRequiredAPMCLicenseNoDate" xml:space="preserve">
+    <value>APMC license validity date is required.</value>
+  </data>
+  <data name="ClientErrorRequiredAPMCName" xml:space="preserve">
+    <value>APMC is required.</value>
+  </data>
+  <data name="ClientErrorRequiredCommodityClass" xml:space="preserve">
+    <value>Commodity Class is required.</value>
+  </data>
+  <data name="ClientErrorRequiredEmail1" xml:space="preserve">
+    <value>Email1 is required.</value>
+  </data>
+  <data name="ClientErrorRequiredPAN" xml:space="preserve">
+    <value>PAN is required.</value>
+  </data>
+  <data name="ClientErrorRequiredPIN" xml:space="preserve">
+    <value>PIN is required.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRequiredDOB" xml:space="preserve">
+    <value>Primary Contact Person: Date of birth is required.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRequiredMobileNo" xml:space="preserve">
+    <value>Mobile Number is required.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRequiredPAN" xml:space="preserve">
+    <value>PAN is required.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorRequiredPIN" xml:space="preserve">
+    <value>PIN is required.</value>
+  </data>
+  <data name="ClientPrimaryContactMothersMaidenName" xml:space="preserve">
+    <value>Mother's maiden name is required.</value>
+  </data>
+  <data name="ClientPrimaryContactRequiredDesignationName" xml:space="preserve">
+    <value>Primary contact person designationis requied.</value>
+  </data>
+  <data name="ClientPrimaryContactRequiredName" xml:space="preserve">
+    <value>Primary contact person name is requied.</value>
+  </data>
+  <data name="ClientPrimaryContactErrorMobileNo" xml:space="preserve">
+    <value>Primary contact person mobile no. already exist.</value>
+  </data>
+  <data name="ClientErrorRequiredAccountManagerId" xml:space="preserve">
+    <value>Account relationship manager is required.</value>
+  </data>
+  <data name="AOErrorRegExEmail2" xml:space="preserve">
+    <value>Guardian Details: Invalid Email2: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="AOGardianErrorRegExEmail1" xml:space="preserve">
+    <value>Guardian Details: Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="AOGardianErrorRegExEmail2" xml:space="preserve">
+    <value>Guardian Details: Invalid Email2: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="AOGardianErrorRegExGardianName" xml:space="preserve">
+    <value>Guardian Details: Guardian Name: Only alphabets and numbers are allowed.</value>
+  </data>
+  <data name="AOGardianErrorRegExPAN" xml:space="preserve">
+    <value>Invalid PAN.  Only alphabets and numbers are allowed. Length should be 10 characters long.</value>
+  </data>
+  <data name="AOGardianErrorRegExUID" xml:space="preserve">
+    <value>Invalid UID: Should be numeric and atleast 12 digit long.</value>
+  </data>
+  <data name="GardianReqName" xml:space="preserve">
+    <value>Guardian Details: Guardian name is required</value>
+  </data>
+  <data name="AOGPIReqCity" xml:space="preserve">
+    <value>Guardian Details: City/Village is required.</value>
+  </data>
+  <data name="AOGRegExPIN" xml:space="preserve">
+    <value>Guardian Details: Invalid PIN: Should be numeric and atleast 6 digit long.</value>
+  </data>
+  <data name="AOGRegExUID" xml:space="preserve">
+    <value>Guardian Details: Invalid UID: Should be numeric and atleast 12 digit long.</value>
+  </data>
+  <data name="AOGReqAddr1" xml:space="preserve">
+    <value>Guardian Details: Address is required.</value>
+  </data>
+  <data name="AOGReqMobNo" xml:space="preserve">
+    <value>Guardian Details: Atleast one Mobile number is required.</value>
+  </data>
+  <data name="ErrorMinorClientPartner" xml:space="preserve">
+    <value>Atleast two partners should have age above 18</value>
+  </data>
+  <data name="ErrorMinorSPClientPartner" xml:space="preserve">
+    <value>Invalid Date of Birth: Age should be above 18</value>
+  </data>
+  <data name="AOReqPIN" xml:space="preserve">
+    <value>PIN is required.</value>
+  </data>
+  <data name="AOGRegExEmail1" xml:space="preserve">
+    <value>Gardian Details: Invalid Email1: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="AOGRegExEmail2" xml:space="preserve">
+    <value>Gardian Details: Invalid Email2: Enter proper email address(eg: example@abc.com).</value>
+  </data>
+  <data name="AOGRegExPAN" xml:space="preserve">
+    <value>Guardian Details: Invalid PAN: Should be 10 characters long.</value>
+  </data>
+  <data name="AOGReqEmail1" xml:space="preserve">
+    <value>Guardian Details: Email1 is required.</value>
+  </data>
+  <data name="AOGReqPAN" xml:space="preserve">
+    <value>Gardian Details: PAN is required.</value>
+  </data>
+  <data name="AOGReqPIN" xml:space="preserve">
+    <value>Gardian Details: PIN is required.</value>
+  </data>
+  <data name="GardianReqgExName" xml:space="preserve">
+    <value>Guardian Details: Invalid Guardian Name: Only alphabets and numbers are allowed.</value>
+  </data>
+  <data name="AOPIFarewellDateError" xml:space="preserve">
+    <value>Invalid Farewell date</value>
+  </data>
+  <data name="APMCCityRequired" xml:space="preserve">
+    <value>Select the State, District and City for APMC</value>
+  </data>
+  <data name="BBReqAddress" xml:space="preserve">
+    <value>Address is required.</value>
+  </data>
+  <data name="UGValidateDescription" xml:space="preserve">
+    <value>The description should not be greater than 150 characters.</value>
+  </data>
+  <data name="URReqDesignation" xml:space="preserve">
+    <value>Designation is required.</value>
+  </data>
+  <data name="URReqUserGroup" xml:space="preserve">
+    <value>User should belong to atleast one user group.</value>
+  </data>
+  <data name="BRClientMissingCityVillage" xml:space="preserve">
+    <value>City is required.</value>
+  </data>
+</root>

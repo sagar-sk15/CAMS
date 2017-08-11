@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Message" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common" />
+  <xs:complexType name="APMCDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q1:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APMCId" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="APMCOfClients" nillable="true" type="q2:ArrayOfClientDto" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" minOccurs="0" name="Address" nillable="true" type="q3:AddressDto" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" minOccurs="0" name="ContactNos" nillable="true" type="q4:ArrayOfContactDetailsDto" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="APMCDto" nillable="true" type="tns:APMCDto" />
+  <xs:complexType name="ArrayOfAPMCDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APMCDto" nillable="true" type="tns:APMCDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAPMCDto" nillable="true" type="tns:ArrayOfAPMCDto" />
+  <xs:complexType name="CityVillageDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q5:DtoBase">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" minOccurs="0" name="Addresses" nillable="true" type="q6:ArrayOfAddressDto" />
+          <xs:element minOccurs="0" name="BaseCityVillageId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CAId" nillable="true" type="xs:int" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Cams.Common" minOccurs="0" name="CityOrVillage" type="q7:CityVillageType" />
+          <xs:element minOccurs="0" name="CityVillageId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DistrictOfCityVillage" nillable="true" type="tns:DistrictDto" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STDCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CityVillageDto" nillable="true" type="tns:CityVillageDto" />
+  <xs:complexType name="DistrictDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q8:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CitiesOrVillages" nillable="true" type="tns:ArrayOfCityVillageDto" />
+          <xs:element minOccurs="0" name="DistrictId" type="xs:int" />
+          <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateOfDistrict" nillable="true" type="tns:StateDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DistrictDto" nillable="true" type="tns:DistrictDto" />
+  <xs:complexType name="ArrayOfCityVillageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CityVillageDto" nillable="true" type="tns:CityVillageDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCityVillageDto" nillable="true" type="tns:ArrayOfCityVillageDto" />
+  <xs:complexType name="StateDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q9:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DistrictsInState" nillable="true" type="tns:ArrayOfDistrictDto" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateId" type="xs:int" />
+          <xs:element minOccurs="0" name="StateInCountry" nillable="true" type="tns:CountryDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StateDto" nillable="true" type="tns:StateDto" />
+  <xs:complexType name="ArrayOfDistrictDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DistrictDto" nillable="true" type="tns:DistrictDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDistrictDto" nillable="true" type="tns:ArrayOfDistrictDto" />
+  <xs:complexType name="CountryDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q10:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgeStd" type="xs:int" />
+          <xs:element minOccurs="0" name="CallingCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FinancialYearEnd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FinancialYearStart" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="States" nillable="true" type="tns:ArrayOfStateDto" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CountryDto" nillable="true" type="tns:CountryDto" />
+  <xs:complexType name="ArrayOfStateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StateDto" nillable="true" type="tns:StateDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStateDto" nillable="true" type="tns:ArrayOfStateDto" />
+</xs:schema>

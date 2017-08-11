@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA636BBF-2D66-4C39-B137-EB1117AFC9C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cams.Dal</RootNamespace>
+    <AssemblyName>Cams.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.2.0.712, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mappings\ActivityLogMap.cs" />
+    <Compile Include="Mappings\AddressMap.cs" />
+    <Compile Include="Mappings\APMCMap.cs" />
+    <Compile Include="Mappings\BankBranchMap.cs" />
+    <Compile Include="Mappings\BankMap.cs" />
+    <Compile Include="Mappings\BusinessConstitutionMap.cs" />
+    <Compile Include="Mappings\ChargesPayableToMap.cs" />
+    <Compile Include="Mappings\CityVillageMap.cs" />
+    <Compile Include="Mappings\ClientBusinessConstitutionHistoryMap.cs" />
+    <Compile Include="Mappings\ClientCommoditiesHistoryMap.cs" />
+    <Compile Include="Mappings\ClientHolidayCalenderMap.cs" />
+    <Compile Include="Mappings\ClientMap.cs" />
+    <Compile Include="Mappings\ClientPartnerBankDetailsMap.cs" />
+    <Compile Include="Mappings\ClientPartnerDetailsMap.cs" />
+    <Compile Include="Mappings\ClientPartnerGuardianDetailsMap.cs" />
+    <Compile Include="Mappings\ClientPartnerHistoryMap.cs" />
+    <Compile Include="Mappings\ClientPartnerNomineeDetailsMap.cs" />
+    <Compile Include="Mappings\ClientPhoneChargesHistoryMap.cs" />
+    <Compile Include="Mappings\ClientPhoneChargesMap.cs" />
+    <Compile Include="Mappings\ClientPrimaryContactPersonMap.cs" />
+    <Compile Include="Mappings\ClientProfileChangeRequestFieldsMap.cs" />
+    <Compile Include="Mappings\ClientProfileChangeRequestsMap.cs" />
+    <Compile Include="Mappings\ClientSisterConcernMap.cs" />
+    <Compile Include="Mappings\ClientSubscriptionMap.cs" />
+    <Compile Include="Mappings\ClientSubscriptionPaymentDetailsMap.cs" />
+    <Compile Include="Mappings\ClientTaxationAndLicensesMap.cs" />
+    <Compile Include="Mappings\ClientWeeklyOffDayHistoryMap.cs" />
+    <Compile Include="Mappings\ClientWeeklyOffDayMap.cs" />
+    <Compile Include="Mappings\CommodityClassMap.cs" />
+    <Compile Include="Mappings\CommodityMap.cs" />
+    <Compile Include="Mappings\ContactDetailsMap.cs" />
+    <Compile Include="Mappings\CountryMap.cs" />
+    <Compile Include="Mappings\DesignationMap.cs" />
+    <Compile Include="Mappings\DistrictMap.cs" />
+    <Compile Include="Mappings\EmailAttachmentMap.cs" />
+    <Compile Include="Mappings\EmailMessagesMap.cs" />
+    <Compile Include="Mappings\LabourChargeTypeMap.cs" />
+    <Compile Include="Mappings\MeasuringUnitMap.cs" />
+    <Compile Include="Mappings\MenuMap.cs" />
+    <Compile Include="Mappings\ParentChildMenuMap.cs" />
+    <Compile Include="Mappings\RelationshipMap.cs" />
+    <Compile Include="Mappings\RoleMap.cs" />
+    <Compile Include="Mappings\StateMap.cs" />
+    <Compile Include="Mappings\SubscriptionMasterMap.cs" />
+    <Compile Include="Mappings\UserEmergencyContactPersonMap.cs" />
+    <Compile Include="Mappings\UserGroupMap.cs" />
+    <Compile Include="Mappings\UserGroupRolePermissionMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Mappings\UserProfileMap.cs" />
+    <Compile Include="Mappings\UserRolePermissionMap.cs" />
+    <Compile Include="Mappings\viewUserUserGroupRolePermissionsMap.cs" />
+    <Compile Include="Mappings\WeeklyHalfDayMap.cs" />
+    <Compile Include="Mappings\WeeklyOffDayMap.cs" />
+    <Compile Include="Mappings\ZoneMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BootStrapper\NhBootStrapper.cs" />
+    <Compile Include="Repository\QueryTranslator.cs" />
+    <Compile Include="Repository\RepositoryLocatorNh.cs" />
+    <Compile Include="Repository\RepositoryNh.cs" />
+    <Compile Include="TransManager\TransManagerFactoryNh.cs" />
+    <Compile Include="TransManager\TransManagerNh.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cams.Common\Cams.Common.csproj">
+      <Project>{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}</Project>
+      <Name>Cams.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cams.Domain\Cams.Domain.csproj">
+      <Project>{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}</Project>
+      <Name>Cams.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

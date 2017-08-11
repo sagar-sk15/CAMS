@@ -1,0 +1,24 @@
+﻿@*Resource kay related to this page have prefix CPD*@
+
+@using Cams.Web.MVCRazor.Models.ClientRegistration
+@using Cams.Web.MVCRazor
+
+@model IList<ClientSubscriptionPaymentDetailsModel>
+ <ul class="reset onecolfield fl">
+                <li>               
+                    <div class="fl">
+                        <label id="lblCash" class="width100">
+                            Cash</label>
+                    </div>
+                    <div class="fr" style="padding-right: 28px">
+                        <label id="lblCashAmount" class="width90">
+                            @ClientResources.CPDAmount</label>
+                       <span class="WebRupee">
+                        <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png") />
+                        </span>
+                        @Html.TextBoxFor(model => model[0].CashAmount, new { @class = "clsAmount required width75", @maxlength = "10", id = "txtAmount", @onchange = "onCashFieldsValueChange()" })
+                    </div>
+                </li>
+            </ul>
+            <br/>
+          

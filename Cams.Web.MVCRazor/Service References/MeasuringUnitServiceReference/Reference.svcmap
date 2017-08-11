@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f7f9d74a-b9ae-4199-b1d2-0b8231688431" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f2e30363-4387-43f1-ba2b-2ffc3c074183" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="8fa9be8e-755d-482a-a5fa-1255cf98c738" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="e19081a9-10c7-4b23-b91c-dab32c9f4bee" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="5032db24-4d38-401e-b86a-f4e374fdaa8f" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="21a7cc16-acef-4299-a28d-4df8c7df7416" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="71de2e35-6f92-4892-9392-c1be8fb78567" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="c989f6cb-62b4-471d-a20b-ded5cf64ef68" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="d8519102-5b5b-4f77-b0b7-9694a8e9ab89" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="0f0b43d6-36a0-4358-83bc-47296918f135" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="96fb476d-0ed3-423a-a137-e3cd3e6e5cce" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/MeasuringUnitWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,27 @@
+﻿@using Cams.Web.MVCRazor.Models.Account
+@model UserRegistrationModel
+
+@Html.DevExpress().CallbackPanel(cbpSettings =>
+{
+    cbpSettings.Name = "cbpUserDesignationList";
+    cbpSettings.CallbackRouteValues = new { Controller = "Account", Action = "GetUpdatedDesignations" };
+    cbpSettings.SetContent(() =>
+                               {
+                                   @Html.DevExpress().ComboBox(
+                      settings =>
+                      {
+                          settings.Name = "ddlECDesignation";
+                          settings.Width = 180;
+                          settings.Properties.ValueType = typeof(int);
+                          settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                          settings.Properties.CallbackPageSize = 30;
+                          settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                          settings.Properties.TextFormatString = "{0}";
+                          settings.Properties.ValueField = "DesignationId";
+                          settings.Properties.TextField = "DesignationName";
+                          settings.ControlStyle.CssClass = "fontName";
+                          settings.ControlStyle.Font.Name = "DejaVu Serif";
+                      }).BindList(ViewData["DesignationList"]).Bind(ViewData["SelectedDesignationId"]).Render();
+                               });
+    cbpSettings.ClientSideEvents.BeginCallback = "cbpUserDesignationList_OnBeginCallback";
+}).GetHtml()

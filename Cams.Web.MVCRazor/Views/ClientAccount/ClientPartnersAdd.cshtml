@@ -1,0 +1,345 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientPartnersModel
+@using Cams.Web.MVCRazor
+@using Cams.Common.Dto
+@using Cams.Common.Dto.ClientRegistration
+@using Cams.Common
+@using Cams.Web.MVCRazor.Helpers
+@using System.Web.UI.WebControls
+@{
+    ViewBag.Title = "ClientPartnersAdd";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+
+}
+@section Scripts{
+    <script src=@Url.Content("~/Scripts/JS/UserDesignation.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/StateDistrictVillage.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/CommonScripts.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/ContactDetails.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/DateOfBirth.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            cbpDOBnAge_EndCallback('PartnertxtDOBnAgeName', 'Partner');
+        });
+        function AORenderImage(s, e) {
+            if (e.callbackData != '') {
+                $('#AOpreviewImage').attr('src', '../../Content/UploadedImages/ClientAccount/ClientPartners/' + e.callbackData);
+            }
+        }
+
+        function AOGuardianRenderImage(s, e) {
+            if (e.callbackData != '') {
+                $('#AOGuardianpreviewImage').attr('src', '../../Content/UploadedImages/ClientAccount/ClientPartnerGardian/' + e.callbackData);
+            }
+        }
+
+        $(function () { $('#txtAOPAN').keyup(function () { this.value = this.value.toUpperCase(); }); });
+    </script>
+}
+@{
+    string cpmode = string.Empty;
+    if (!string.IsNullOrEmpty(Request.QueryString["cpmode"]))
+    {
+        cpmode = Request.QueryString["cpmode"];
+    }
+    string mode = string.Empty;
+    if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
+    {
+        mode = Request.QueryString["mode"];
+    }
+    string partnerid = string.Empty;
+    if (!string.IsNullOrEmpty(Request.QueryString["partnerid"]))
+    {
+        partnerid = Request.QueryString["partnerid"];
+    }
+    string IsPartner = string.Empty;
+    if (!string.IsNullOrEmpty(Request.QueryString["ispartner"]))
+    {
+        IsPartner = Request.QueryString["ispartner"];
+    }
+}
+@section PanelPartial
+{
+    <!-- the tabs -->
+    <ul class="tabs">
+        <li><a href="#">@ClientResources.AOPartnerDetails</a></li>
+        <li id="liGardian" style="display: block;"><a href="#">@ClientResources.AOGardianDetails</a></li>
+    </ul>
+}
+@section MainBody{
+    @using (Html.BeginForm("AddClientPartnerToSession", "ClientAccount", new { mode = mode, cpmode = cpmode, partnerid = partnerid }, FormMethod.Post))
+    {
+        <div class="page-data fl">
+            <div class="panes">
+                <h1>@ClientResources.AddOwner</h1>
+                @if (ViewData["Error"] != null)
+                {
+                    <div class="response-msg error-msg">
+                        <span>@Html.ValidationSummary(false)</span>
+                    </div>
+                }
+                <div class="panes-data">
+                    <div class="Form-Wrap">
+                        <div class="groupfieldset">
+                            <ul class="reset leftfield fl" style="width: 70%">
+                                <li>
+                                    <label id="lblName" class="width110">
+                                        Name</label>
+                                    @Html.DropDownListFor(model => model.Title,
+            new List<SelectListItem> { 
+                    new SelectListItem { Text = ClientResources.URMr, Value = ClientResources.URMr, Selected = true },
+                    new SelectListItem { Text = ClientResources.URMrs, Value = ClientResources.URMrs },
+                    new SelectListItem { Text = ClientResources.URMs, Value = ClientResources.URMs }
+                }, new { style = "width:50px; padding:1px;", id = "ddlAOTitle" })
+                                    @Html.TextBoxFor(model => model.PartnerName, new { name = "txtAOName", @class = "required width210", id = "txtAOName", maxlength = "60" })
+                                </li>
+                                <li>
+                                    <label id="lblDesignation" class="width110">
+                                        Designation</label>
+                                    @Html.Partial("SelectDesignation", Model.designationModel[0])
+                                </li>
+                                <li>
+                                    <label id="lblCLRPCPGender" class="width100 label-radio-pad">@ClientResources.PIlblGender</label>
+                                    @Html.RadioButtonFor(model => model.Gender, ClientResources.PIrbtnGenderMale, new { @class = "radio-botton", id = "rbtnAOGenderMale", name = "rbtnAOGender", @checked = "checked" })
+                                    <label class="label-radio fl">@ClientResources.URMale</label>
+                                    @Html.RadioButtonFor(model => model.Gender, ClientResources.PIrbtnGenderFemale, new { @class = "radio-botton", id = "rbtnAOGenderFemale", name = "rbtnAOGender" })
+                                    <label class="label-radio fl">@ClientResources.URFemale</label>
+                                    <div class="clr">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label id="lblDateofBirth" class="width110">
+                                        Date of Birth</label>
+                                    @Html.Partial("CBPDOBnAge", Model.dOBnAgeModellist[0])
+                                </li>
+                                <li>
+                                    <div class="fl">
+                                        <label id="lblPAN" class="width110">@ClientResources.PIlblPAN</label>
+                                        @Html.TextBoxFor(model => model.PAN, new { name = "txtAOPAN", @class = "required width110", id = "txtAOPAN", maxlength = "10" })
+                                    </div>
+                                    <div class="fl">
+                                        <label id="lblUID" class="width30">@ClientResources.PIlblUID</label>
+                                        @Html.TextBoxFor(model => model.UID, new { name = "txtAOUID", @class = "textfiled width140", id = "txtAOUID", maxlength = "12" })
+                                    </div>
+                                </li>
+                                <li>
+                                    <label id="lblAOStatus" class="label-radio-pad">@ClientResources.lblStatus</label>
+                                    @Html.RadioButtonFor(model => model.IsActive, true, new { @checked = "checked", @class = "radio-botton", id = "rbtnAOActiveStatus", name = "rbtnAOStatus" })
+                                    <label class="label-radio fl">@ClientResources.RadiobtnActive</label>
+                                    @Html.RadioButtonFor(model => model.IsActive, false, new { @class = "radio-botton", id = "rbtnAOInactiveStatus", name = "rbtnAOStatus" })
+                                    <label class="label-radio fl">@ClientResources.RadiobtnInactive</label>
+                                </li>
+                                @{
+                if (!String.IsNullOrEmpty(IsPartner))
+                {
+                                    <li>
+                                        <label id="lblJoiningDate" class="width110">@ClientResources.lblJoiningDate</label>
+                                        @*@Html.Partial("CBPDOBnAge", Model.dOBnAgeModellist[1])*@
+                                        @Html.DevExpress().DateEdit(settings =>
+    {
+        settings.Name = "txtJoiningDate";
+        settings.Properties.NullText = "DD-MM-YYYY";
+        settings.Properties.EditFormat = DevExpress.Web.ASPxEditors.EditFormat.Custom;
+        settings.Properties.EditFormatString = Cams.Common.Constants.DATEFORMATFORDISPAY;
+        settings.Properties.UseMaskBehavior = true;
+        settings.Properties.MinDate = DateTime.Parse("01-01-1900");
+        settings.ControlStyle.Font.Name = "DejaVu Serif";
+        settings.ControlStyle.BackColor = System.Drawing.Color.White;
+        settings.Width = System.Web.UI.WebControls.Unit.Pixel(110);
+    }).Bind(Model.JoiningDate).GetHtml()
+                                    </li>
+
+                    string displayfarewell = "display:none;";
+                    if (!String.IsNullOrEmpty(mode) && !String.IsNullOrEmpty(cpmode))
+                    {
+                        displayfarewell = "display:block;";
+                    }
+
+                                    <li id="liFarewellDate" style=@displayfarewell>
+                                        <label id="lblFarewellDate" class="width110">@ClientResources.lblFarewellDate</label>
+                                        @*@Html.Partial("CBPDOBnAge", Model.dOBnAgeModellist[2])*@
+                                        @Html.DevExpress().DateEdit(settings =>
+    {
+        settings.Name = "txtRelievingDate";
+        settings.Properties.NullText = "DD-MM-YYYY";
+        settings.Properties.EditFormat = DevExpress.Web.ASPxEditors.EditFormat.Custom;
+        settings.Properties.EditFormatString = Cams.Common.Constants.DATEFORMATFORDISPAY;
+        settings.Properties.UseMaskBehavior = true;
+        settings.Properties.MinDate = DateTime.Parse("01-01-1900");
+        settings.ControlStyle.Font.Name = "DejaVu Serif";
+        settings.ControlStyle.BackColor = System.Drawing.Color.White;
+        settings.Width = System.Web.UI.WebControls.Unit.Pixel(110);
+    }).Bind(Model.RelievingDate).GetHtml()
+                                    </li>
+                }
+                                }
+                            </ul>
+                            <ul class="reset rightfield fr" style="width: 20%;">
+                                <li>
+                                    <div class="fl" style="width: 23px;">
+                                        &nbsp;</div>
+                                    <div class="profile-img fl">
+                                        @{
+                string AOimagePath = string.Empty;
+                if (!String.IsNullOrEmpty(Model.Image))
+                {
+                    AOimagePath = Url.Content(Constants.IMAGEUPLOADPATHCLIENTPARTNERS + Model.Image);
+                }
+                else
+                {
+                    AOimagePath = @Url.Content("~/Content/UploadedImages/avatar_blank.jpg");
+                }
+                                        }
+                                        <img id="AOpreviewImage" width="110" height="100" alt="" src="@AOimagePath"/>
+                                        @Html.DevExpress().UploadControl(
+UploadControlsettings =>
+{
+    UploadControlsettings.Name = "AOImageUpload";
+    UploadControlsettings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "AOCallbacksImageUpload" };
+    UploadControlsettings.ShowProgressPanel = true;
+    UploadControlsettings.ClientSideEvents.FileUploadComplete = "AORenderImage";
+    UploadControlsettings.Width = System.Web.UI.WebControls.Unit.Pixel(140);
+    UploadControlsettings.BrowseButton.Text = "...";
+
+}).GetHtml()
+                                        <input type="button" value="Upload" onclick="AOImageUpload.Upload()" align="left" />
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clr">
+                            </div>
+                        </div>
+                        <div class="groupfieldset groupfieldsetcol fl" style="min-height: 219px;">
+                            <ul class="reset onecolfield">
+                                <li>
+                                    <label id="lblAddress" class="width110">@ClientResources.PIlblAddress</label>
+                                    @Html.TextAreaFor(model => model.ClientPartnerAddress.AddressLine1, new { name = "txtAOAddress", @class = "textarea width195", id = "txtAOAddress", cols = "", rows = "" })
+                                </li>
+                                <li>
+                                    <label id="lblAOCountry" class="width110">@ClientResources.PIlblCountry</label>
+                                    <input name="txtAOCountryName" type="text" class="autoinputvalue width90" id="txtAOCountryName"
+                                        value="India" maxlength="40" />
+                                </li>
+                                @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[0])
+                                <li>
+                                    <label id="lblAOPIN" class="width110">@ClientResources.PIlblPin</label>
+                                    @Html.TextBoxFor(model => model.ClientPartnerAddress.PIN, new { name = "txtAOPIN", @class = "required width110", id = "txtAOPIN", maxlength = "6" })
+                                </li>
+                            </ul>
+                            <div class="clr">
+                            </div>
+                        </div>
+                        <div class="groupfieldset groupfieldsetcol fr" style="min-height: 219px;">
+                            <ul class="reset onecolfield">
+                                <li>
+                                    <input id="CLRAOCurrentIndex" type="hidden" value="@Model.ClientPartnerContacts.Count" />
+                                    <table id="CLRAOContacts">
+                                        @{
+                if (Model.ClientPartnerContacts == null)
+                {
+                    Model.ClientPartnerContacts = new List<ContactDetailsDto>();
+                }
+
+                if (Model.ClientPartnerContacts.Count == 0)
+                {
+                    Model.ClientPartnerContacts.Add(new ContactDetailsDto
+                    {
+                        ContactNoType = ContactType.MobileNo,
+                        CountryCallingCode = "+91",
+                        STDCode = "020"
+                    });
+                }
+
+
+                for (int i = 0; i < Model.ClientPartnerContacts.Count; i++)
+                {
+                                            @Html.HiddenFor(model => model.ClientPartnerContacts[i].ContactDetailsId);
+                                                                                                                     bool contactTypeMobile = Model.ClientPartnerContacts[i].ContactNoType == ContactType.MobileNo ? true : false;
+                                                                                                                     bool contactTypeOff = Model.ClientPartnerContacts[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                                                                                                                     bool contactTypeRes = Model.ClientPartnerContacts[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                                                                                                                     bool contactTypefax = Model.ClientPartnerContacts[i].ContactNoType == ContactType.Fax ? true : false;
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DropDownListFor(model => Model.ClientPartnerContacts[i].ContactNoType,
+new List<SelectListItem> { 
+    new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(),Selected = contactTypeMobile},
+    new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected=contactTypeOff},
+    new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+    new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(),Selected = contactTypefax}
+    }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(model => Model.ClientPartnerContacts[i].CountryCallingCode, new { value = "+91", @class = "required", style = "width:28px; text-align:center", disabled = "disabled" })
+                                                </td>
+                                                <td>
+                                                    @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                                                    {
+                                                        @Html.TextBoxFor(model => Model.ClientPartnerContacts[i].STDCode, new { value = Model.ClientPartnerContacts[i].STDCode, @class = "required", style = "width:38px; text-align:center;" });
+                                                        @Html.TextBoxFor(model => Model.ClientPartnerContacts[i].ContactNo, new { @class = "required width118", value = "", maxlength = "15" });
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.TextBoxFor(model => Model.ClientPartnerContacts[i].STDCode,
+                        new { value = "020", @class = "required", style = "width:38px; display:none; text-align:center;" });
+                                                        @Html.TextBoxFor(model => Model.ClientPartnerContacts[i].ContactNo, new { @class = "required width166", value = "", maxlength = "15" });
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @Html.HiddenIndexerInputForModel()
+                                                    @if (i == 0)
+                                                    {
+                                                        <a href="#" class="addnew" onclick="javascript:addNewContact('#CLRAOContacts','#CLRAOCurrentIndex','4','ClientPartnerContacts_', 'ClientPartnerContacts')">
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="#" class="remove" onclick="javascript:removeContact('@i')"></a>
+                                                    }
+                                                </td>
+                                            </tr>
+                }
+                                        }
+                                    </table>
+                                </li>
+                                <li>
+                                    <label id="lblEmail1" class="width83">@ClientResources.Email1</label>
+                                    @Html.TextBoxFor(model => model.Email1, new { @class = "required width200", id = "txtAOEmail1", name = "txtAOEmail1" })
+                                    <a href="#" class="addnew" onclick="javascript:showEmail2('#CLRAOliEmail2')"></a>
+                                </li>
+                                @{
+                string displaystyle = string.Empty;
+                if (string.IsNullOrEmpty(Model.Email2))
+                {
+                    displaystyle = "display: none";
+                }
+                else
+                {
+                    displaystyle = "display: block";
+                }
+                                }
+                                <li id="CLRAOliEmail2" style="@displaystyle">
+                                    <label id="lblEmail2" class="width83" style="">@ClientResources.Email2</label>
+                                    @Html.TextBoxFor(model => model.Email2, new { @class = "generalfield width200", id = "txtAOEmail2", name = "txtAOEmail2" })
+                                    <a href="#" class="remove" onclick="javascript:hideEmail2('#CLRAOliEmail2')"></a>
+                                </li>
+                            </ul>
+                            <div class="clr">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @Html.Partial("GardianDetailsAdd", Model)
+                <div class="clr">
+                </div>
+                <ul class="reset input-botton">
+                    <li>
+                        <input type="image" src=@Url.Content("~/content/images/control/save.jpg") name="button111"
+onclick="" />
+                        <div class="text-link">@ClientResources.PICancelText&nbsp;@Html.ActionLink(ClientResources.PICancel, "ClientRegistrationIndex", new { mode = mode })</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+}

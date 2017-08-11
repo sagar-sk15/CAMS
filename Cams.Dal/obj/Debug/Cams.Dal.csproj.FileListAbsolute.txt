@@ -1,0 +1,33 @@
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Dal.dll
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Dal.pdb
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Common.dll
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Domain.dll
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Spring.Core.dll
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\AutoMapper.dll
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Common.pdb
+D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Domain.pdb
+D:\DND\CAMS\CAMS\Cams.Dal\obj\Debug\ResolveAssemblyReference.cache
+D:\DND\CAMS\CAMS\Cams.Dal\obj\Debug\Cams.Dal.dll
+D:\DND\CAMS\CAMS\Cams.Dal\obj\Debug\Cams.Dal.pdb
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Dal.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Dal.pdb
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Common.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Domain.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Spring.Core.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\AutoMapper.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Common.pdb
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Domain.pdb
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\obj\Debug\ResolveAssemblyReference.cache
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\obj\Debug\Cams.Dal.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Dal\obj\Debug\Cams.Dal.pdb
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Dal.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Dal.pdb
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Common.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Domain.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Spring.Core.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\AutoMapper.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Common.pdb
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\bin\Debug\Cams.Domain.pdb
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\obj\Debug\Cams.Dal.csprojResolveAssemblyReference.cache
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\obj\Debug\Cams.Dal.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Dal\obj\Debug\Cams.Dal.pdb

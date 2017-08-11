@@ -1,0 +1,30 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel           
+    @Html.DevExpress().ComboBox(
+        settings =>
+        {
+            settings.Name = Model.StateComboName;// "cmbStates";
+            settings.Width = Model.DropDownWidth;
+            settings.SelectedIndex = 0;
+            settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+            settings.CallbackRouteValues = new { Controller = "Common", Action = "GetStates" };
+            settings.Properties.EnableCallbackMode = true;
+            settings.Properties.CallbackPageSize = 30;
+            settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+            settings.Properties.TextFormatString = "{0}";
+            settings.Properties.ValueField = "StateId";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.Columns.Add("RegionName", "Name");
+            settings.Properties.Columns.Add("RegionType", "State/UT");
+            settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {" + "var item = s.GetSelectedItem(); var StateOrUT=item.texts[1];" +
+                                                        "if(StateOrUT!='State') StateOrUT='U.T.'; " +
+                                                        "$('#" + Model.StateLabelName + "').text(StateOrUT);" +
+                                                        Model.DistrictCallBackPanelName + ".PerformCallback();" +
+                                                        " StateSelectedIndexChange('" + Model.ControlNamePrefix + "');  }";
+
+            settings.Properties.ClientSideEvents.BeginCallback = "function(s,e){ e.customArgs['CommonControlPrefix'] = '" + Model.ControlNamePrefix + "'; }";
+            settings.ControlStyle.CssClass = "fontName";
+            settings.ControlStyle.Font.Name = "DejaVu Serif";
+        }
+).BindList(Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel.GetStatesFromDB()).Bind(Model.HiddenFieldForStateValue).GetHtml()
+    
+

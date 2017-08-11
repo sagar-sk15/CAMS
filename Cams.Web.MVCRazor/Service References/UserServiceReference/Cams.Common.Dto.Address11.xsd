@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Message" />
+  <xs:complexType name="AddressDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q1:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressId" type="xs:long" />
+          <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" minOccurs="0" name="AddressOfEmergencyContact" nillable="true" type="q2:UserEmergencyContactPersonDto" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" minOccurs="0" name="AddressOfUser" nillable="true" type="q3:UserProfileDto" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" minOccurs="0" name="AddressofAPMC" nillable="true" type="q4:APMCDto" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" minOccurs="0" name="AddressofBankBranch" nillable="true" type="q5:BankBranchDto" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="AddressofClient" nillable="true" type="q6:ClientDto" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="AddressofClientPartnerGuardian" nillable="true" type="q7:ClientPartnerGuardianDetailsDto" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="AddressofClientPartners" nillable="true" type="q8:ClientPartnerDetailsDto" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="AddressofClientPrimaryContactPerson" nillable="true" type="q9:ClientPrimaryContactPersonDto" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" minOccurs="0" name="CityVillage" nillable="true" type="q10:CityVillageDto" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PIN" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddressDto" nillable="true" type="tns:AddressDto" />
+  <xs:complexType name="ArrayOfAddressDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressDto" nillable="true" type="tns:AddressDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddressDto" nillable="true" type="tns:ArrayOfAddressDto" />
+</xs:schema>

@@ -1,0 +1,52 @@
+﻿@model Cams.Web.MVCRazor.Models.Masters.APMCModel
+@Html.DevExpress().PopupControl(
+settings =>
+{
+    settings.Name = "PopupAddApmc";
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.EnableAnimation = false;
+    settings.HeaderText = "Add APMC";
+    settings.ControlStyle.CssClass = "fontName";
+    settings.Modal = true;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+    settings.SetContent(() =>
+                            {
+                                Html.RenderPartial("APMCPartial", Model);
+
+                                ViewContext.Writer.Write("<br/>");
+                                Html.DevExpress().Button(
+                                    buttonSettings =>
+                                    {
+                                        buttonSettings.Name = "ppAddApmcSavebutton";
+                                        buttonSettings.Images.Image.Url = "../content/images/control/save.jpg";
+                                        buttonSettings.Text = "";
+                                        buttonSettings.ClientEnabled = true;
+                                        buttonSettings.ClientSideEvents.Click = "function(s,e) {"
+                                                                                +"$('#liApmcNameBlank').hide();"
+                                                                                +"$('#liApmcAddressBlank').hide();"
+                                                                                +"$('#liApmcCityVillage').hide();"
+                                                                                + "if(($('#Name').val() !='' && $('#txtAPMCAddress').val()!='') && (CAcmbStates.GetText()!='[Select]' && CAcmbDistricts.GetText()!='[Select]' && CAcmbCityVillage.GetText()!='[Select]'))"
+                                                                                + "{CBPPopupAddApmc.PerformCallback();"
+                                                                                 + "PopupAddApmc.Hide();"
+                                                                                + "}"
+                                                                                + "else"
+                                                                                + "{PopupAddApmc.Show();"
+                                                                                + "if($('#Name').val()==='')"
+                                                                                +"{"
+                                                                                + "$('#liApmcNameBlank').show();"
+                                                                                +"}"
+                                                                                  + "if($('#txtAPMCAddress').val()==='')"
+                                                                                + "{"
+                                                                                + "$('#liApmcAddressBlank').show();"
+                                                                                  + "}"
+                                                                                + "if(CAcmbStates.GetText()=='[Select]' || CAcmbDistricts.GetText()=='[Select]' || CAcmbCityVillage.GetText()=='[Select]')"
+                                                                                + "{$('#liApmcCityVillage').show();"
+                                                                                + "}"
+                                                                                + "}"
+                                                                                + "}";
+                                    }).Render();
+
+                            });
+    settings.ClientSideEvents.PopUp = "PopupAddApmc_OnPopUp";
+}).GetHtml()

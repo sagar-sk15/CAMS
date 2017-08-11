@@ -1,0 +1,70 @@
+﻿   @model Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel
+@*@{
+    List<Cams.Common.Dto.Masters.CityVillageDto> CityList = Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel.GetPlaces(Model.HiddenFieldForDistrictValue);
+
+    int selectedcity = 0;
+    if (!String.IsNullOrEmpty(Model.HiddenFieldForCityVillageValue))
+    {
+        selectedcity = CityList.FindIndex(x=>x.CityVillageId==Convert.ToInt32( Model.HiddenFieldForCityVillageValue));
+    }
+}*@
+              
+    @Html.DevExpress().CallbackPanel(s => {
+    s.Name = Model.PlacesCallBackPanelName; //"cbpPlaces";
+    s.CallbackRouteValues = new { Controller = "Common", Action = "GetCityVillage" };
+    s.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        s.SetContent(() => 
+        {
+            @Html.DevExpress().ComboBox(
+                            settings =>
+                            {
+                                settings.Name = Model.PlacesComboName; //"cmbCityVillage";
+                                settings.Width = Model.DropDownWidth;
+                                settings.SelectedIndex = 0;
+                                //settings.Properties.DropDownWidth = 100;
+                                settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                settings.CallbackRouteValues = new { Controller = "Common", Action = "GetCityVillage" };
+                                //settings.Properties.EnableCallbackMode = true;
+                                settings.Properties.CallbackPageSize = 30;
+                                settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                                settings.Properties.TextFormatString = "{0}";
+                                settings.Properties.ValueField = "CityVillageId";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.Columns.Add("Name", "Name");
+                                settings.Properties.Columns.Add("CityOrVillage", "City/Village");
+                                //settings.Properties.Columns.Add("STDCode", "STD Code");
+                                settings.ControlStyle.CssClass = "fontName";
+                                settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {" + "var item = s.GetSelectedItem(); " +
+                                                            "$('#" + Model.PlacesLabelName + "').text(item.texts[1]);" +
+                                                            " PlaceSelectedIndexChange('" + Model.ControlNamePrefix + "');  }";
+                                                        
+                                                        
+                            }
+                        ).BindList(Cams.Web.MVCRazor.Models.Shared.StateDistrictCityControlNamesModel.GetPlaces(Model.HiddenFieldForDistrictValue)).Bind(Model.HiddenFieldForCityVillageValue).GetHtml();
+        });
+    
+        s.ClientSideEvents.BeginCallback = "function(s,e){ var districtid = " + Model.DistrictComboName + ".GetValue();  e.customArgs['districtId'] = districtid; "
+                            + "e.customArgs['district'] = " + Model.DistrictComboName + ".GetText();"
+                            + "e.customArgs['CommonControlPrefix'] = '" + Model.ControlNamePrefix + "'; "
+                            + "e.customArgs['DefaultCityVillageId'] = $('#" + Model.HiddenFieldForCityVillage + "').val();  " 
+                            + "}";
+        s.ClientSideEvents.EndCallback = "function(s,e) { " +
+                                         "var cityOrVillage=$('#" + Model.HiddenFieldForCityVillage + "').val();  " +
+                                         //"alert(cityOrVillage);" +                                        
+                                         "if (cityOrVillage != '') {" +
+                                                " var item = " + Model.PlacesComboName + ".FindItemByValue(cityOrVillage);" + 
+                                                "if(item==null){" +
+                                                " var item = " + Model.PlacesComboName + ".FindItemByText(cityOrVillage);}" +
+                                                "if(item!=null){" +
+                                                 //"alert(item.text);" + "alert(item.index);" +
+                                                Model.PlacesComboName + ".SetSelectedIndex(item.index);" +
+                                                Model.PlacesComboName + ".SetText(item.text);" +
+                                                Model.PlacesComboName + ".SetValue(" + Model.PlacesComboName + ".GetValue());}" +
+                                                "cityOrVillage = '';}}";
+    // $('#" + Model.HiddenFieldForCityVillage + "').val(''); 
+    }
+    ).GetHtml()
+    
+   

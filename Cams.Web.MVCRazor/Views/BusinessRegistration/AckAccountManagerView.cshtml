@@ -1,0 +1,21 @@
+﻿@using Cams.Web.MVCRazor
+@model Cams.Common.Dto.User.UserDto
+
+<div class="groupfieldset" style="min-height: 100px;">
+	<ul class="reset onecolfield">
+		<li>
+			<label id="lblAMName" class="width75">@ClientResources.lblName</label>
+			<span class="non-editable-txt">@Model.Name</span>			
+		</li>		
+		<li>
+			<label id="lblAMEmail" class="width75">@ClientResources.lblEmail</label>
+			<span class="non-editable-txt">@Model.Email</span>
+		</li>
+		<li>
+			<label id="lblAMMobileNo" class="width75">@ClientResources.PIlblPIMobileNumber</label>
+			<span class="non-editable-txt">@Model.MobileNo</span>
+		</li>
+	</ul>
+	<div class="clr">
+	</div>
+</div>

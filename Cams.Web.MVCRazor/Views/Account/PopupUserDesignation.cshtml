@@ -1,0 +1,71 @@
+﻿@* Resource keys related to this page have prefix ADPP == Add Designation Popup*@
+
+@*@Html.ActionLink("Add New", "", null, htmlAttributes: new { href = "javascript:UserDesignationModal.Show();" })*@
+
+@Html.DevExpress().PopupControl(
+                                    settings =>
+                                    {
+                                        settings.Name = "UserDesignationModal";
+                                        settings.Width = 150;
+                                        settings.CloseAction = CloseAction.CloseButton;
+                                        settings.EnableAnimation = false;                                        
+                                        settings.HeaderText = "User Designation";
+                                        settings.Modal = true;
+                                        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+                                        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+                                        settings.ControlStyle.CssClass = "fontName";
+                                        settings.SetContent(() =>
+                                                                {
+
+                                                                    ViewContext.Writer.Write("<div class='Form-Wrap' style='width:300px;'>");
+                                                                    Html.DevExpress().Label(
+                                                                        labelSettings =>
+                                                                        {
+                                                                            labelSettings.ControlStyle.CssClass = "width85 fontName";
+                                                                            labelSettings.Text = "Designation";
+                                                                        }
+                                                                    )
+                                                                    .Render();
+                                                                    Html.DevExpress().TextBox(
+                                                                        textBoxSettings =>
+                                                                        {
+
+                                                                            textBoxSettings.Name = "ppUserDesignation";
+                                                                            textBoxSettings.ControlStyle.CssClass = "required fontName";
+                                                                            textBoxSettings.TabIndex = 1;
+                                                                            textBoxSettings.Properties.MaxLength = 15;
+                                                                            textBoxSettings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                                                                            textBoxSettings.Properties.ValidationSettings.RequiredField.ErrorText = @Cams.Web.MVCRazor.ClientResources.ADPPDesignation;
+                                                                            textBoxSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+                                                                            textBoxSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                                                                        }
+                                                                    )
+                                                                    .Render();
+
+                                                                    ViewContext.Writer.Write("</div><div class=\"line\">");
+                                                                    ViewContext.Writer.Write("<br/>");
+
+                                                                    Html.DevExpress().Label(
+                                                                      labelSettings =>
+                                                                      {
+                                                                          labelSettings.ControlStyle.CssClass = "width85 fontName";
+                                                                      }
+                                                                  )
+                                                                  .Render();
+
+                                                                    Html.DevExpress().Button(
+                                                                        buttonSettings =>
+                                                                        {
+                                                                            buttonSettings.Name = "userDesignationSavebutton";
+                                                                            buttonSettings.Images.Image.Url = "../content/images/control/save.jpg";
+                                                                            buttonSettings.Text = "";
+                                                                            buttonSettings.TabIndex = 2;
+                                                                            buttonSettings.ClientSideEvents.Click = "UserDesignationPopupSaveButtonClick";
+                                                                        }).Render();
+
+                                                                    ViewContext.Writer.Write("</div><b class=\"Clear\"></b>");
+
+                                                                });
+
+                                        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(UserDesignationModal, '', true); }";
+                                    }).GetHtml()

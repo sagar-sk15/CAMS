@@ -1,0 +1,14 @@
+D:\DND\CAMS\CAMS\Cams.Cache\bin\Debug\Cams.Cache.dll
+D:\DND\CAMS\CAMS\Cams.Cache\bin\Debug\Cams.Cache.pdb
+D:\DND\CAMS\CAMS\Cams.Cache\obj\Debug\ResolveAssemblyReference.cache
+D:\DND\CAMS\CAMS\Cams.Cache\obj\Debug\Cams.Cache.dll
+D:\DND\CAMS\CAMS\Cams.Cache\obj\Debug\Cams.Cache.pdb
+E:\Company\ACKCEZIONE\CAMS\Cams.Cache\bin\Debug\Cams.Cache.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Cache\bin\Debug\Cams.Cache.pdb
+E:\Company\ACKCEZIONE\CAMS\Cams.Cache\obj\Debug\ResolveAssemblyReference.cache
+E:\Company\ACKCEZIONE\CAMS\Cams.Cache\obj\Debug\Cams.Cache.dll
+E:\Company\ACKCEZIONE\CAMS\Cams.Cache\obj\Debug\Cams.Cache.pdb
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Cache\bin\Debug\Cams.Cache.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Cache\bin\Debug\Cams.Cache.pdb
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Cache\obj\Debug\Cams.Cache.dll
+H:\Data\Desktop-PC Data\E\Company\ACKCEZIONE\CAMS\Cams.Cache\obj\Debug\Cams.Cache.pdb

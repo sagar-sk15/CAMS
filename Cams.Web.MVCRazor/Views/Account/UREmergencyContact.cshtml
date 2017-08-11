@@ -1,0 +1,154 @@
+﻿@model Cams.Web.MVCRazor.Models.Account.UserRegistrationModel
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Helpers
+@using Cams.Common.Dto
+@using Cams.Common
+<h1>
+    Emergency Contact Details</h1>
+<div class="Form-Wrap">
+    <div class="groupfieldset">
+        <ul class="reset leftfield fl" style="width: 56%;">
+            <li>
+                <label id="lblECContactPerson" class="width110">@ClientResources.EClblContactPerson</label>
+                @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.Name, new { name = "txtECContactPerson", @class = "textfiled width265", id = "txtECContactPerson", value = "", maxlength = "60" })
+            </li>
+        </ul>
+        <ul class="reset rightfield fr" style="width: 43%;">
+            <li>
+                <label id="lblECRelationship" class="width120 label-radio-pad">@ClientResources.EClblECRelationship</label>
+                @Html.DropDownListFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonRelationshipWithUser.RelationshipId, new SelectList(Model.ECRelationshipWithUser, "RelationshipId", "Name"),  new { @class = "width130", name = "ddlRelationShip", id = "ddlRelationShip"})          
+                            <div class="clr">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="groupfieldset groupfieldsetcol fl" style="min-height: 196px;">
+        <ul class="reset onecolfield">
+            <li>
+                <label class="width110" id="lblECAddress">@ClientResources.EClblAddress</label>
+                @Html.TextAreaFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.AddressLine1, new { cols = "", rows = "", name = "txtECAddress", id = "txtECAddress", @class = "textarea width195" })
+            </li>
+            <li>
+                <label id="lblECCountry" class="width110">@ClientResources.EClblCountry</label>
+                <span class="countryinput">India</span> </li>
+            @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[1])
+            <li>
+                <label id="lblECPin" class="width110">@ClientResources.EClblPin</label>
+                @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.PIN, new { name = "txtECPin", type = "text", @class = "generalfield width110", id = "txtECPin", value = "", maxlength = "6" })
+            </li>
+        </ul>
+        <div class="clr">
+        </div>
+    </div>
+    <div class="groupfieldset groupfieldsetcol fr" style="min-height: 196px;">
+        <ul class="reset onecolfield fl">
+            <li>               
+                <table id="URECContacts">
+                    @{ 
+                        if (Model.UserProfile.UserEmergencyContactPerson == null)
+                        {
+                            Model.UserProfile.UserEmergencyContactPerson = new Cams.Common.Dto.User.UserEmergencyContactPersonDto();
+                        }
+                        if (Model.UserProfile.UserEmergencyContactPerson.Contacts == null)
+                        {                            
+                            Model.UserProfile.UserEmergencyContactPerson.Contacts.Add(new ContactDetailsDto
+                            {
+                                ContactNoType = ContactType.MobileNo,
+                                CountryCallingCode = "+91",
+                                STDCode = "020"
+                            });
+                        }
+                        if (Model.UserProfile.UserEmergencyContactPerson.Contacts.Count == 0)
+                        {
+                            Model.UserProfile.UserEmergencyContactPerson.Contacts = new List<ContactDetailsDto>();
+                            Model.UserProfile.UserEmergencyContactPerson.Contacts.Add(new ContactDetailsDto
+                            {
+                                ContactNoType = ContactType.MobileNo,
+                                CountryCallingCode = "+91",
+                                STDCode = "020"
+                            });
+                        }
+                        <input id="URECCurrentIndex" type="hidden" value="@Model.UserProfile.UserEmergencyContactPerson.Contacts.Count" />
+                        for (int i = 0; i < Model.UserProfile.UserEmergencyContactPerson.Contacts.Count; i++)
+                        {
+                         @Html.HiddenFor(model => model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactDetailsId)
+
+                            bool contactTypeMobile = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.MobileNo ? true : false;
+                            bool contactTypeOff = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                            bool contactTypeRes = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                            bool contactTypefax = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.Fax ? true : false;
+                        <tr>
+                            <td>
+                                @Html.DropDownListFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType,
+            new List<SelectListItem> { 
+                            new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(), Selected = contactTypeMobile },
+                            new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected = contactTypeOff },
+                            new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(), Selected = contactTypefax}
+            }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].CountryCallingCode, new { value = "+91", @class = "textfiled", style = "width:28px; text-align:center", disabled = "disabled" })
+                            </td>
+                            <td>
+                                @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                                {
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].STDCode, new { value = @Model.UserProfile.UserEmergencyContactPerson.Contacts[i].STDCode, @class = "textfiled", style = "width:38px; text-align:center;" })
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNo, new { @class = "width118", value = "", maxlength = "15" })
+
+                                }
+                                else
+                                {            
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].STDCode, new { value = "020", @class = "textfiled", style = "width:38px; display:none; text-align:center;" })
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNo, new { @class = "width166", value = "", maxlength = "15" })
+                                }
+                                
+                            </td>
+                            <td>
+                                @Html.HiddenIndexerInputForModel()
+                                @if (i == 0)
+                                {
+                                    <a href="#" class="addnew" onclick="javascript:addNewContact('#URECContacts', '#URECCurrentIndex', '5', 'UserProfile_UserEmergencyContactPerson_Contacts_', 'UserProfile.UserEmergencyContactPerson.Contacts')">
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="remove" onclick="javascript:removeContact('@i')"></a>
+                                }
+                            </td>
+                        </tr>
+                        } 
+                    }
+                </table>
+            </li>
+            <li>
+                <label id="lblECEmail1" class="width83">
+                    Email1</label>
+                @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Email1, new { @class = "generalfield width200" })
+                <a href="#" class="addnew" onclick="javascript:showEmail2('#URECliEmail2')"></a>
+            </li>
+            @if (string.IsNullOrEmpty(Model.UserProfile.UserEmergencyContactPerson.Email2))
+            {    
+                <li id="URECliEmail2" style="display: none">
+                    <label id="lblECEmail2" class="width83" style="">
+                        Email2</label>
+                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Email2, new { @class = "generalfield width200" })
+                    <a href="#" class="remove" onclick="javascript:hideEmail2('#URECliEmail2')"></a>
+                </li>
+            }
+            else
+            {
+                <li id="URECliEmail2">
+                    <label id="lblECEmail2" class="width83" style="">
+                        Email2</label>
+                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Email2, new { @class = "generalfield width200" })
+                    <a href="#" class="remove" onclick="javascript:hideEmail2('#URECliEmail2')"></a>
+                </li> 
+            }
+        </ul>
+        <div class="clr">
+        </div>
+    </div>
+    <div class="clr">
+    </div>
+</div>

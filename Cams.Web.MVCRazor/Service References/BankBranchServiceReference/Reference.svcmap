@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="be29859b-6c98-4fe1-9931-f66852423f6f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="75ab64be-33a5-43c8-9e49-3187341befff" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="f231c3da-4eae-4564-841f-b0b0b179eb0a" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="82de2423-197f-4b30-bf5c-923ad0df175f" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="dd1edd05-eafc-4557-9dd6-ea7231fb3249" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="2464da0a-ddee-433a-a135-d0836273da81" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="cf911c14-4024-4450-994d-22e22d4786f6" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="80ab9825-a6b1-454c-b304-d6fda7020e58" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="6421c8dd-ada5-4134-8315-a071f68e8062" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="7ae9f196-15eb-4715-a4a3-f6e6db1096d2" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="13260184-29b1-4075-bdb7-fbc1f4efdd4d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="c24f71d2-dc6d-4b27-8a5e-4875d3585b99" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="f6aad1af-90a9-44f4-9555-fdf3098f4f1a" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="4db060bc-36a3-4ac7-a971-e0981901ab7b" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="7562101a-e274-49d9-af20-310a3ccd1ccb" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/BankBranchWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

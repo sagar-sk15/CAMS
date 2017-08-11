@@ -1,0 +1,21 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.DesignationModel
+
+@Html.DevExpress().CallbackPanel(cbpSettings =>
+{
+    cbpSettings.Name = Model.CBPCtrlPopupAddDesignation;
+    cbpSettings.CallbackRouteValues = new { Controller = "Common", Action = "CreateNewUserDesignation" };
+    cbpSettings.SetContent(() =>
+                               {
+                                   Html.RenderPartial("PopupAddDesignation");
+                               });
+    cbpSettings.ClientSideEvents.BeginCallback = "function(s, e) {"
+                                                                    + "e.customArgs['prefix'] = '" + Model.Prefix + "';"
+                                                                    + "var ppUserDesignation = ASPxClientControl.GetControlCollection().GetByName('" + Model.ppUserDesignation + "');"
+                                                                    + "e.customArgs[\"ppUserDesignation\"] = ppUserDesignation.GetText();"
+                                                                    + "$('#" + Model.HiddenAddedValueTextBoxName + "').val(ppUserDesignation.GetText());"
+                                                                    + Model.PopupctrlAddDesignation + ".Hide();"
+                                                                    + "}";
+    cbpSettings.ClientSideEvents.EndCallback = "function(s, e) {"
+                                                                + Model.CBPCtrlUserDesignationList + ".PerformCallback();"
+                                                                + "}";
+}).GetHtml()

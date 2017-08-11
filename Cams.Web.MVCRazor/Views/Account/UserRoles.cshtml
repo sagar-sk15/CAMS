@@ -1,0 +1,173 @@
+﻿@model Cams.Web.MVCRazor.Models.Account.ParentUserRolesModel
+@using Cams.Web.MVCRazor
+@{
+    ViewBag.Title = "UserRoles";
+    //Cams.Common.Dto.User.UserDto loggedInUser = (Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER];
+
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+@section Scripts
+{
+    @*<script src="../../Scripts/ASPxScriptIntelliSense.js" type="text/javascript"></script>*@
+    <script src=@Url.Content("~/Scripts/JS/CommonScripts.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightSuperAdminMainMenu('#mnuUserGroups');
+        });
+
+        function ShowLastPage() {
+            gvUserRoles.GotoPage(gvUserRoles.GetPageCount() - 1);            
+        }
+
+        function OnNewButtonClick() {
+            gvUserRoles.PerformCallback("AddNewRole");
+        }
+
+        function OnDelete(key) {
+            gvUserRoles.PerformCallback('DeleteRole' + key);
+        }
+
+        function cmbUserRolesSelect(s, e) {
+            var cmbUserRoles = ASPxClientComboBox.Cast(s);
+            var item = s.GetValue();
+            var urpId = s.name.replace('cmbUserRoles', '');
+            var username = $.QueryString['username'];
+
+            $('#hdnUrpId').val(urpId);
+            $.ajax({
+                type: "POST",
+                url: "/Account/GetRolePermissions?",
+                data: { item: item, urpId: urpId, username: username },
+                success: function (data) {
+                    var ctrlPrint = ASPxClientControl.GetControlCollection().GetByName('chkPrint_' + $('#hdnUrpId').val());
+                    var ctrlPr = ASPxClientCheckBox.Cast("ff");
+                    
+                    if (ctrlPrint != null) {
+                        ctrlPrint.SetEnabled(true);
+                        ctrlPrint.SetCheckState("Unchecked");
+                    }
+                    var ctrlAdd = ASPxClientControl.GetControlCollection().GetByName('chkAdd_' + $('#hdnUrpId').val());
+                    if (ctrlAdd != null) {
+                        ctrlAdd.SetEnabled(true);
+                        ctrlAdd.SetCheckState("Unchecked");
+                    }
+                    var ctrlView = ASPxClientControl.GetControlCollection().GetByName('chkView_' + $('#hdnUrpId').val());
+                    if (ctrlView != null) {
+                        ctrlView.SetEnabled(true);
+                        ctrlView.SetCheckState("Unchecked");
+                    }
+                    var ctrlDelete = ASPxClientControl.GetControlCollection().GetByName('chkDelete_' + $('#hdnUrpId').val());
+                    if (ctrlDelete != null) {
+                        ctrlDelete.SetEnabled(true);
+                        ctrlDelete.SetCheckState("Unchecked");
+                    }
+                    var ctrlEdit = ASPxClientControl.GetControlCollection().GetByName('chkEdit_' + $('#hdnUrpId').val());
+                    if (ctrlEdit != null) {
+                        ctrlEdit.SetEnabled(true);
+                        ctrlEdit.SetCheckState("Unchecked");
+                    }
+
+                    if (data) {
+                        if (data["RoleAlreadyExist"] == "True") {
+                            alert('Role is already assigned to user.');
+                            cmbUserRoles.SetSelectedIndex(-1);
+                        }
+                        else {
+                            if (data["IsPrintApplicable"] == "False") {
+                                ctrlPrint.SetEnabled(false);
+                            }
+                            if (data["IsAddApplicable"] == "False") {
+                                ctrlAdd.SetEnabled(false);
+                            }
+                            if (data["IsViewApplicable"] == "False") {
+                                ctrlView.SetEnabled(false);
+                            }
+                            if (data["IsDeleteApplicable"] == "False") {
+                                ctrlDelete.SetEnabled(false);
+                            }
+                            if (data["IsEditApplicable"] == "False") {
+                                ctrlEdit.SetEnabled(false);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        </script>
+}
+@section MainBody{
+@{
+    string UserType = string.Empty;
+    if (Request.QueryString["usertype"] != null)
+    {
+        UserType = Request.QueryString["usertype"];
+    }
+    
+    string username = string.Empty;
+    if (Request.QueryString["username"] != null)
+    {
+        username = Request.QueryString["username"];
+    }
+}
+    @using (Html.BeginForm("SaveUserRolePermissions", "Account", new { usertype = UserType, username = username }, FormMethod.Post, new { id = "UserRolesForm" }))
+    {
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data padbot15">
+                <h1>@ClientResources.UserRoles</h1>
+                <div class="ListHead">
+                    <div class="ListSearch fl" style="width:100% !important;">
+                    <table width="100%">
+                        <tr>
+                            <td style="width:75px; text-align:left;">
+                                <label id="lblUserName" class="fontName">@ClientResources.URlblUserName</label>
+                            </td>
+                            <td style="width:226px;text-align:left;">
+                                <input id="txtUsername" type="text" class="autoinputvalue" value="@username" maxlength="60" style="width:210px;" readonly="readonly" />    
+                            </td>
+                            <td style="width:84px; text-align:left;">
+                                <label id="lblUserGroup" class="fontName">@ClientResources.UGLGridUserGroups</label>
+                            </td>
+                            
+                            <td style="text-align:left;">
+                                <textarea id="txtUserGroup" rows="2" cols="20" class="autoinputvalue" style="width:331px" readonly="readonly">@Model.UserGroupsString</textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    </div>
+                    <div class="clr">
+                    </div>
+                </div>
+                <div id="RoleGroupGrid">
+                    @Html.Partial("RoleGroupGridReadOnly",Model.UserRoleDtoList)
+                </div>
+                <br /><br />
+                <div id="myGrid">
+                    @Html.Partial("UserRolesGrid", Model.UserRoleModelList)
+                    
+                </div>
+                <div class="Form-Wrap">
+                    <ul class="reset input-botton">
+                        <li>
+                            <input type="image" src=@Url.Content("~/content/images/control/save.jpg") name="SaveButton"
+                                onclick="" />
+                            <div class="text-link">@ClientResources.CancelString
+                                @Html.ActionLink(ClientResources.CancelbtnText, "UsersIndex", new { usertype = Request.QueryString["usertype"] })
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    }
+}

@@ -1,0 +1,79 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Web.MVCRazor;
+@using Cams.Common.Dto;
+@using Cams.Common;
+@using Cams.Web.MVCRazor.Helpers;
+<div class="panes-data">
+    <h1>@ClientResources.CLRPCPH1</h1>
+    <div class="Form-Wrap">
+        <div class="groupfieldset">
+            <ul class="reset leftfield fl" style="width: 70%">
+                <li>
+                    <label class="width110">@ClientResources.URClientName</label>
+                    @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.Title, new { @class = "autoinputvalue", style = "width:50px; padding:1px;" })
+                    @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.CAPrimaryConatactPersonName, new { id = "txtCLRPCPName", name = "txtCLRPCPName", @class = "autoinputvalue width145", @readonly = "readonly" })
+                </li>
+                <li>
+                    <label id="lblDesignation" class="width110">@ClientResources.URlblDesignation</label>
+                    @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.ClientPrimaryContactPersonDesignation.DesignationName, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                </li>
+                <li>
+                    <label id="lblCLRPCPGender" class="width110 label-radio-pad">@ClientResources.PIlblGender</label>
+                    @if (Model.ClientPrimaryContactPerson.Gender == "M")
+                    {
+                        @Html.TextBox("Male", "M", new { @class = "autoinputvalue width15", @readonly = "readonly" })    
+                    }
+                    else
+                    {
+                        @Html.TextBox("Female", "F", new { @class = "autoinputvalue width15", @readonly = "readonly" }) 
+                    }
+                    <div class="clr">
+                    </div>
+                </li>
+                <li>
+                    <label id="lblDateofBirth" class="width110">@ClientResources.URlblDateofBirth</label>
+                    @Html.TextBoxFor(model => model.PrimaryContactPersonDOBString, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                </li>
+                <li>
+                    <label id="lblMothersMaidenName" class="width110">@ClientResources.lblMaidenName</label>
+                    @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.MothersMaidenName, new { @class = "autoinputvalue width110", @readonly = "readonly" })
+                </li>
+                <li>
+                    <div class="fl">
+                        <label id="lblPAN" class="width110">@ClientResources.PIlblPAN</label>
+                        @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.PAN, new { @class = "autoinputvalue width110", @readonly = "readonly" })
+                    </div>
+                    <div class="fl">
+                        <label id="lblUID" class="width30">@ClientResources.PIlblUID</label>
+                        @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.UID, new { @class = "autoinputvalue width110", @readonly = "readonly" })
+                    </div>
+                </li>
+            </ul>
+            <ul class="reset rightfield fr" style="width: 24%;">
+                <li>
+                    <div class="profile-img fl">
+                        @{
+                            string pcpimagePath = @Url.Content("~/Content/UploadedImages/avatar_blank.jpg");
+
+                            if (@Model.ClientPrimaryContactPerson.Image != null)
+                            {
+                                pcpimagePath = @Url.Content("~/Content/UploadedImages/ClientAccount/PrimaryContactPerson/") + @Model.ClientPrimaryContactPerson.Image;
+                            }
+                        }
+                        <img id="PCPpreviewImage" width="110" height="100" alt="" src="@pcpimagePath"/>
+                    </div>
+                </li>
+            </ul>
+            <div class="clr">
+            </div>
+        </div>
+        <div id="divPrimaryContactsAddress" class="groupfieldset groupfieldsetcol fl">
+            @Html.Partial("AddressReadOnlyView", Model.PrimaryContactsAddress)
+        </div>
+        <div id="divPrimaryContactsContacts" class="groupfieldset groupfieldsetcol fr">
+            @Html.Partial("ContactsReadOnlyView", Model.PrimaryContactsContacts)
+        </div>
+        <div class="clr">
+        </div>
+    </div>
+</div>

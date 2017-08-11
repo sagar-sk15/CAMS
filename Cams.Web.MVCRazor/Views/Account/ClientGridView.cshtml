@@ -1,0 +1,31 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+ @Html.DevExpress().GridView(
+                                    settings =>
+                                    {
+                                        settings.Name = "GridViewDataBinding";
+                                        settings.CallbackRouteValues = new { Controller = "Account", Action = "ClientGridView" };
+                                        settings.Settings.ShowTitlePanel = true;
+                                        //settings.SettingsPager.AllButton.Text = "All";
+                                        //settings.SettingsPager.NextPageButton.Text = "Next &gt;";
+                                        //settings.SettingsPager.PrevPageButton.Text = "&lt; Prev";
+                                        settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+                                        settings.SettingsPager.PageSize = 10;
+                                        settings.SettingsPager.Position = PagerPosition.Bottom;
+                                        settings.SettingsPager.FirstPageButton.Visible = true;
+                                        settings.SettingsPager.LastPageButton.Visible = true;
+                                        settings.Settings.ShowFilterRow = true;
+                                        settings.Columns.Add(Column =>
+                                        {
+                                            Column.Caption = "Select";
+                                            Column.ColumnType = MVCxGridViewColumnType.CheckBox;
+                                            Column.UnboundType = UnboundColumnType.Boolean;
+                                            Column.Settings.AllowAutoFilter =DefaultBoolean.False;
+                                            Column.Settings.AllowSort = DefaultBoolean.False;
+                                            
+                                            
+                                        });
+                                        settings.Columns.Add("CAId");
+                                        settings.Columns.Add("CAName");
+                                        settings.Columns.Add("Place");
+                                    }).Bind(ViewData["ClientList"]).GetHtml()

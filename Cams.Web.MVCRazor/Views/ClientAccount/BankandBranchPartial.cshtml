@@ -1,0 +1,20 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientSubscriptionPaymentDetailsModel
+@Html.DevExpress().ComboBox(cmbsettings =>
+            {
+                cmbsettings.Name = "BankandBranch" + Model.PaymentMode;
+                cmbsettings.Properties.DropDownStyle = DevExpress.Web.ASPxEditors.DropDownStyle.DropDownList;
+                cmbsettings.Width = System.Web.UI.WebControls.Unit.Pixel(250);
+                cmbsettings.SelectedIndex = 0;
+                cmbsettings.ControlStyle.Font.Name = "DejaVu Serif";
+                cmbsettings.ControlStyle.Font.Size = System.Web.UI.WebControls.FontUnit.Point(10);
+                cmbsettings.ControlStyle.CssClass = "comboBoxControl";
+                cmbsettings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                cmbsettings.Properties.TextFormatString = "{0},{1}";
+                cmbsettings.Properties.ValueField = "BranchId";
+                cmbsettings.Properties.TextField = "Name";
+                cmbsettings.Properties.Columns.Add("BranchOfBank.BankName", "Bank Name");
+                cmbsettings.Properties.Columns.Add("Name","Branch");
+                cmbsettings.Properties.Columns.Add("BranchAddress.CityVillage.Name", "Place");
+                cmbsettings.Properties.CallbackPageSize = 30;
+
+            }).BindList(Cams.Web.MVCRazor.Models.ClientRegistration.ClientSubscriptionPaymentDetailsModel.GetAllBankandBranche()).GetHtml()

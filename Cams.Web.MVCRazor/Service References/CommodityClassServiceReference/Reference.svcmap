@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b5c16375-f1f8-443e-9d48-49b816d25435" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="31c7bda9-d643-4580-b68e-1d6fd442b924" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="e917c36d-d52a-437a-a4dc-1cdbe47460a0" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7671b01b-0c91-4930-88cc-c0b45ff66c82" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e5c68514-77e3-4319-ad64-a4104e55add2" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="bfc27259-2748-4653-84c1-3159d03e784c" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="07636303-be2e-4171-a102-0a264bd8cd3a" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="729c7ed8-0ba8-499c-ba56-8edae17b0592" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="25d9dc8f-935c-4eb6-9ca7-ca6f1ace01e9" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="cc24904f-72a4-47de-a92b-e3199548b2d2" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="91a2321e-b183-4e51-a5c5-f51bf764e41d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="85ecce05-87c7-4545-a484-b92c4a2e8d33" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="fd5bcdaf-626e-4512-a208-85e3c61766fb" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="61ccd942-cc7e-474e-99f6-ce9f0a68c927" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="5528180c-c2d7-4fbf-8572-c94b6d3b810c" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CommodityClassWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,9 @@
+﻿@Html.DevExpress().CallbackPanel(cbpSettings => {
+        cbpSettings.Name = "cbp";
+        cbpSettings.CallbackRouteValues = new { Controller = "Account", Action = "UploadImage" };
+        cbpSettings.SetContent(() =>
+        {
+            Html.RenderPartial("UploadImagePartial");
+        });
+        cbpSettings.ClientSideEvents.BeginCallback = "cbp_OnBeginCallback";
+}).GetHtml()

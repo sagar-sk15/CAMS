@@ -1,0 +1,10 @@
+﻿@Html.DevExpress().CallbackPanel(cbpSettings => {
+        cbpSettings.Name = "cbpAddBank";
+        cbpSettings.CallbackRouteValues = new { Controller = "BankBranch", Action = "AddNewBank" };    
+        cbpSettings.SetContent(() =>
+        {
+            Html.RenderPartial("PopupAddBank");
+        });
+        cbpSettings.ClientSideEvents.BeginCallback = "cbpAddBank_OnBeginCallback";
+        cbpSettings.ClientSideEvents.EndCallback = "cbpAddBank_OnEndCallback";
+}).GetHtml()

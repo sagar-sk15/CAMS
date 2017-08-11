@@ -1,0 +1,151 @@
+﻿@using Cams.Common
+@using Cams.Common.Dto
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Helpers
+@model Cams.Web.MVCRazor.Models.Masters.APMCModel          
+<div class="page-data fl">
+    <div class="panes-data">
+        <ul>
+            <li id="liApmcNameBlank" style="display: none">
+                <label id="lblApmcNameBlank" style="color: red" class="width155">
+                    APMC name is required</label>
+            </li>
+            <li id="liApmcAddressBlank" style="display: none">
+                <label id="lblApmcAddressBlank" style="color: red"class="width155">
+                    Address is required</label>
+            </li>
+            <li id="liApmcCityVillage" style="display: none">
+                <label id="lblApmcCityVillage" style="color: red"class="width155">
+                    State,District,City/Village values are required</label>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="panes">
+        <div class="Form-Wrap">
+            <div class="groupfieldset">
+                <ul class="reset onecolfield fl">
+                    <div class="fl">
+                        <li>
+                            <div class="fl">
+                                <label id="lbl_APMC" class="width110">
+                                    @ClientResources.APMC</label>
+                                @Html.TextBoxFor(model => model.Name, new { @Class = "required" })
+                            </div>
+                            <div class="fl">
+                                <label id="lbl_Status" class="label-radio-pad width145">
+                                    @ClientResources.APMCStatus</label>
+                                @Html.RadioButtonFor(model => model.Status, "Active", new { Checked = "checked" })
+                                @ClientResources.APMCActive
+                                @Html.RadioButtonFor(model => model.Status, "Inactive")
+                                @ClientResources.APMCInactive
+                                <div class="clr">
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+                <div class="clr">
+                </div>
+            </div>
+            <div class="groupfieldset groupfieldsetcol fl" style="min-height: 196px;">
+                <ul class="reset onecolfield fl">
+                    <li>
+                        <label class="width110" id="lblAPMCAddress">@ClientResources.APMCAddress</label>
+                        @Html.TextAreaFor(model => model.Address.AddressLine1, new { cols = "", rows = "", name = "txtAPMCAddress", id = "txtAPMCAddress", @class = "textarea width195" })
+                    </li>
+                    @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[1])
+                    <li>
+                        <label id="lblPIAPMCPin" class="width110">@ClientResources.APMCPin</label>
+                        @Html.TextBoxFor(model => model.Address.PIN, new { name = "txtAPMCPin", type = "text", @class = "generalfield width110", id = "txtAPMCPin", value = "", maxlength = "6" })
+                    </li>
+                </ul>
+                <div class="clr">
+                </div>
+            </div>
+            <div class="groupfieldset groupfieldsetcol fr" style="min-height: 196px;">
+                <ul class="reset onecolfield">
+                    <li>
+                        <label id="website" class="width83" style="">
+                            @ClientResources.APMCWebsite</label>
+                        @Html.TextBoxFor(model => model.Website, new { name = "txtwebsite", type = "text", @class = "generalfield width200", value = "", })
+                    </li>
+                    <li>
+                        <input id="APMCCurrentIndex" type="hidden" value="@Model.ContactNos.Count" />
+                        <table id="APMCContacts">
+                            @{
+                                if (Model.ContactNos == null || Model.ContactNos.Count() == 0)
+                                {
+                                    Model.ContactNos = new List<ContactDetailsDto>();
+                                }
+
+                                if (Model.ContactNos.Count == 0)
+                                {
+                                    Model.ContactNos.Add(new ContactDetailsDto
+                                                             {
+                                                                 ContactNoType = ContactType.MobileNo,
+                                                                 CountryCallingCode = "+91",
+                                                                 STDCode = "020"
+                                                             });
+                                }
+                                for (int i = 0; i < Model.ContactNos.Count; i++)
+                                {
+                                @Html.HiddenFor(model => model.ContactNos[i].ContactDetailsId);
+                                <tr>
+                                    <td>
+                                        @Html.DropDownListFor(model => Model.ContactNos[i].ContactNoType, new List<SelectListItem>
+                                                                            {
+                                                                                new SelectListItem {Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(), Selected = true},
+                                                                                new SelectListItem {Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected = false},
+                                                                                new SelectListItem {Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = false},
+                                                                                new SelectListItem {Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(), Selected = false}
+                                                                            }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(model => Model.ContactNos[i].CountryCallingCode, new { value = "+91", @class = "textfiled", style = "width:28px; text-align:center", disabled = "disabled" })
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(model => Model.ContactNos[i].STDCode, new { value = "020", @class = "textfiled", style = "width:38px; display:none; text-align:center;" })
+                                        @Html.TextBoxFor(model => Model.ContactNos[i].ContactNo, new { @class = "width166", value = "", maxlength = "15" })
+                                    </td>
+                                    <td>
+                                        @Html.HiddenIndexerInputForModel()
+                                        @if (i == 0)
+                                        { 
+                                        <a href="#" class="addnew" onclick="javascript:addNewContact('#APMCContacts', '#APMCCurrentIndex', '3','ContactNos_','ContactNos')">
+                                        </a>
+                                        }
+                                        else
+                                        { 
+                                            <a href="#" class="remove" onclick="javascript:removeContact('@i')">
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </table>
+                    </li>
+                    <li>
+                        <label id="lblEmail1" class="width83">
+                            @ClientResources.APMCEmail1</label>
+                        @Html.TextBoxFor(model => model.Email1, new { @class = "generalfield width200",id="APMCEmail1" })
+                        <a href="#" class="addnew" onclick="javascript:showEmail2('#URPliEmail2')"></a>
+                    </li>
+                    @{ string display = "display: none";
+                       if (!String.IsNullOrEmpty(Model.Email2))
+                       {
+                           display = "display: block";
+                       }
+                    }
+                    <li id="URPliEmail2" style="@display">
+                        <label id="lblEmail2" class="width83" style="">
+                            @ClientResources.APMCEmail2</label>
+                        @Html.TextBoxFor(model => model.Email2, new { @class = "generalfield width200", id = "APMCEmail2" })
+                        <a href="#" class="remove" onclick="javascript:hideEmail2('#URPliEmail2')"></a>
+                    </li>
+                </ul>               
+            </div>
+        </div>
+    </div>
+</div>

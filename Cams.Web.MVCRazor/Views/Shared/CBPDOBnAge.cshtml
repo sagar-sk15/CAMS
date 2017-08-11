@@ -1,0 +1,40 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.DOBnAgeModel
+
+@Html.DevExpress().CallbackPanel(
+        s => {
+            s.Name = Model.cbpDOBnAgeName;//"cbpDOB";
+            s.CallbackRouteValues = new { Controller = "Common", Action = "GetAgeInYearsAndMonths" };
+            s.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+            s.SetContent(() => 
+            {
+                ViewContext.Writer.Write("<table><tr><td>");         
+                @Html.DevExpress().DateEdit(settings =>
+                {
+                    settings.Width = System.Web.UI.WebControls.Unit.Pixel(Model.Width);//110
+                    settings.Name = Model.txtDOBnAgeName;//"txtDateofBirth";
+                    settings.Properties.NullText = "DD-MM-YYYY";
+                    settings.Properties.EditFormat = DevExpress.Web.ASPxEditors.EditFormat.Custom;
+                    settings.Properties.EditFormatString = Cams.Common.Constants.DATEFORMATFORDISPAY;
+                    settings.Properties.UseMaskBehavior = true;
+                    settings.Properties.MaxDate = Model.MaxDate;
+                    settings.Properties.MinDate = Model.MinDate;
+                    settings.ControlStyle.Font.Name = "DejaVu Serif";
+                    settings.ControlStyle.BackColor = System.Drawing.Color.White;
+
+                    settings.Properties.ClientSideEvents.DateChanged = "function(s,e){  newDate = " + Model.txtDOBnAgeName 
+                        + ".GetText(); " + Model.cbpDOBnAgeName + ".PerformCallback();" +
+                        "cbpDOBnAge_EndCallback('" + Model.txtDOBnAgeName + "','" + Model.Prefix + "')" +"}";
+                }).Bind(Model.BindDate).GetHtml();  //
+
+                ViewContext.Writer.Write("</td><td><label id=\"lblAge\">" + ViewData["AgeinYearsMonths"] + "</label></td></tr></table>");                         
+            });
+            s.ClientSideEvents.BeginCallback = "function(s,e){"
+                                                                +"e.customArgs['newDate'] = " + Model.txtDOBnAgeName + ".GetText() ;"
+                                                                + "e.customArgs['MaxDate'] = '" + Model.MaxDate + "';"
+                                                                + "e.customArgs['MinDate'] = '" + Model.MinDate + "';"
+                                                                + "e.customArgs['Width'] = '" + Model.Width + "';"
+                                                                + "e.customArgs['prefix'] = '" + Model.Prefix + "'"
+                                                            +"}";
+    }
+).GetHtml()

@@ -1,0 +1,234 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Web.MVCRazor;
+@using Cams.Common.Dto;
+@using Cams.Common;
+@using Cams.Web.MVCRazor.Helpers;
+@using Cams.Common.Dto.ClientRegistration;
+@{
+    SubscriptionMasterDto StandardSubscription = Model.SubscriptionMasterList.Where(x => x.SubscriptionType == SubscriptionType.Standard).FirstOrDefault();
+    SubscriptionMasterDto PremiumSubscription = Model.SubscriptionMasterList.Where(x => x.SubscriptionType == SubscriptionType.Premium).FirstOrDefault();
+}
+<div class="panes-data">
+    <h1>@ClientResources.CLRSDH1</h1>
+    <div class="packages2">
+        <div class="standard_package fl">
+            <span class="packge_heading">@ClientResources.lblStandard</span>
+            <div class="pckge_dtls fl">
+                <p class="totalusers">
+                    <label class="fl packgeinfolbl1">@ClientResources.lblTotalNoofUsers</label>
+                    <span class="fl pckgeusers">@StandardSubscription.TotalNoOfUsers</span></p>
+                <div class="package_subinfo ovfl-hidden">
+                    <p>
+                        <label class="fl packgeinfolbl">@ClientResources.lblOwnersEmployees</label>
+                        <span class="fl pckgeusers">@StandardSubscription.NoOfEmployees</span></p>
+                    <p>
+                        <label class="fl packgeinfolbl">@ClientResources.lblAuditors</label>
+                        <span class="fl pckgeusers">@StandardSubscription.NoOfAuditors</span></p>
+                    <p>
+                        <label class="fl packgeinfolbl">@ClientResources.lblAssociates</label>
+                        <span class="fl pckgeusers">@StandardSubscription.NoOfAssociates</span></p>
+                </div>
+            </div>
+            <div class="stnrd_subscription_fees fl">
+                <span class="subscriptionfeestxt">@ClientResources.lblSubscriptionFees</span> <span
+                    class="subscriptionfees">@ClientResources.lblrs&nbsp;@String.Format("{0:0.##}", StandardSubscription.SubscriptionFees)&nbsp;@ClientResources.lblperannum</span>
+                <span class="renewalfeestext">@ClientResources.lblRenewalFeespa&nbsp;@String.Format("{0:0.##}", StandardSubscription.RenewalFeesPerAnnum)
+                    @ClientResources.PercentSign</span>
+            </div>
+            <div class="rel selectpackage">
+                <span class="slctlft_corn"></span><a class="pckgeselectbtn">
+                    @Html.RadioButtonFor(model => model.ClientSubscription.SubscriptionMaster.SubscriptionId, StandardSubscription.SubscriptionId, new {@class="autoinputvalue", id = "rbtnSelectStandardPackage", name = "selectpackage", @checked = "checked", style = "position:absolute; top:5px; left:0;", @readonly = "readonly", @disabled = "disabled" })
+                    @Html.Hidden("hdnStandardSubscriptionId", StandardSubscription.SubscriptionId)
+                    <label id="selectpackage">@ClientResources.lblSelect</label></a> <span class="slctrgt_corn">
+                    </span>
+            </div>
+        </div>
+        <div class="standard_package premium_package_2 fr">
+            <span class="packge_heading">@ClientResources.lblPremium</span>
+            <div class="pckge_dtls fl">
+                <p class="totalusers">
+                    <label class="fl packgeinfolbl1">@ClientResources.lblTotalNoofUsers</label>
+                    <span class="fl pckgeusers">@PremiumSubscription.TotalNoOfUsers</span></p>
+                <div class="package_subinfo ovfl-hidden">
+                    <p>
+                        <label class="fl packgeinfolbl">@ClientResources.lblOwnersEmployees</label>
+                        <span class="fl pckgeusers">@PremiumSubscription.NoOfEmployees</span></p>
+                    <p>
+                        <label class="fl packgeinfolbl">@ClientResources.lblAuditors</label>
+                        <span class="fl pckgeusers">@PremiumSubscription.NoOfAuditors</span></p>
+                    <p>
+                        <label class="fl packgeinfolbl">@ClientResources.lblAssociates</label>
+                        <span class="fl pckgeusers">@PremiumSubscription.NoOfAssociates</span></p>
+                </div>
+            </div>
+            <div class="stnrd_subscription_fees stnrd_subscription_fees2 fl">
+                <span class="subscriptionfeestxt">@ClientResources.lblSubscriptionFees</span> <span
+                    class="subscriptionfees">@ClientResources.lblrs&nbsp;@String.Format("{0:0.##}", PremiumSubscription.SubscriptionFees)&nbsp;@ClientResources.lblperannum</span>
+                <span class="renewalfeestext">@ClientResources.lblRenewalFeespa&nbsp;@String.Format("{0:0.##}", PremiumSubscription.RenewalFeesPerAnnum)
+                    @ClientResources.PercentSign</span>
+            </div>
+            <div class="rel selectpackage selectpackage2">
+                <span class="slctlft_corn"></span><a class="pckgeselectbtn">
+                    @Html.RadioButtonFor(model => model.ClientSubscription.SubscriptionMaster.SubscriptionId, PremiumSubscription.SubscriptionId, new {@class="autoinputvalue", id = "rbtnSelectPremiumPackage", name = "selectpackage", style = "position:absolute; top:5px; left:0", @readonly = "readonly" ,@disabled="disabled"})
+                    @Html.Hidden("hdnPremiumSubscriptionId", PremiumSubscription.SubscriptionId)
+                    <label id="selectpackage1">@ClientResources.lblSelect</label></a> <span class="slctrgt_corn">
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="clr">
+        &nbsp;</div>
+    <div class="subscription-period-info fl ovfl-hidden">
+        <div class="Form-Wrap">
+            <div class="groupfieldset">
+                <ul class="reset onecolfield">
+                    <li>
+                        <div class="fl">
+                            <label id="lblSubscriptionperiod" class="width155">@ClientResources.lblSubscriptionperiod
+                            </label>
+                            @Html.TextBoxFor(model => model.ClientSubscription.SubscriptionPeriod, new { name = "txtSubscriptionperiod", style = "margin-right:4px;text-align:center", @class = "width30 autoinputvalue", id = "txtSubscriptionperiod", @readonly = "readonly" })
+                            @ClientResources.lblYear</div>
+                        <div class="fl">
+                            <label id="lblStateUT" class="width90" style="margin-right: 4px">@ClientResources.lblFrom</label>
+                            @Html.TextBoxFor(model => model.SubscriptionPeriodFromDateString, new { @class = "autoinputvalue width83", @readonly = "readonly" })
+                        </div>
+                        <div class="fl">
+                            <label class="width60" style="margin-right: 4px">@ClientResources.lblTo</label>
+                            @Html.TextBoxFor(model => model.SubscriptionPeriodToDateString, new { @class = "autoinputvalue width83", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <div class="clr">
+                </div>
+            </div>
+            <div style="min-height: 80px; width: 48%" class="groupfieldset groupfieldsetcol fl">
+                <table width="100%" border="0" cellpadding="2" style="min-height: 166px;">
+                    <tr class="vsmltxt">
+                        <th align="left">@ClientResources.lblAdditionalUsers
+                        </th>
+                        <th align="center">@ClientResources.lblNoofUsers
+                        </th>
+                        <th align="center">@ClientResources.lblAdditionalCost
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>@ClientResources.lblOwnersPlusEmployees
+                        </td>
+                        <td align="center">
+                            @Html.TextBoxFor(model => model.ClientSubscription.AdditionalNoOfEmployees, new { id = "txtAdditionalNoOfEmployees", name = "txtAdditionalNoOfEmployees", @class = "width40 autoinputvalue",@readonly = "readonly" })
+                        </td>
+                        <td align="center">
+                            <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                                &nbsp;</span>
+                            @Html.TextBoxFor(model => model.ClientSubscription.AdditionalCostForEmployees, new { id = "txtAdditionalCostForEmployees", name = "txtAdditionalCostForEmployees", @class = "width60 autoinputvalue", @readonly = "readonly" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@ClientResources.Auditors
+                        </td>
+                        <td align="center">
+                            @Html.TextBoxFor(model => model.ClientSubscription.AdditionalNoOfAuditors, new { id = "txtAdditionalNoOfAuditors", name = "txtAdditionalNoOfAuditors", @class = "width40 autoinputvalue",@readonly = "readonly" })
+                        </td>
+                        <td align="center">
+                            <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                                &nbsp;</span>
+                            @Html.TextBoxFor(model => model.ClientSubscription.AdditionalCostForAuditors, new { id = "txtAdditionalCostForAuditors", name = "txtAdditionalCostForAuditors", @class = "width60 autoinputvalue", @readonly = "readonly" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@ClientResources.Associates
+                        </td>
+                        <td align="center">
+                            @Html.TextBoxFor(model => model.ClientSubscription.AdditionalNoOfAssociates, new { id = "txtAdditionalNoOfAssociates", name = "txtAdditionalNoOfAssociates", @class = "width40 autoinputvalue", @readonly = "readonly" })
+                        </td>
+                        <td align="center">
+                            <span class="WebRupee" style="width: 10px; height: 10px;">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                                &nbsp;</span>
+                            @Html.TextBoxFor(model => model.ClientSubscription.AdditionalCostForAssociates, new { id = "txtAdditionalCostForAssociates", name = "txtAdditionalCostForAssociates", @class = "width60 autoinputvalue", @readonly = "readonly" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <strong>@ClientResources.Total</strong>
+                        </td>
+                        <td align="center">
+                            @Html.TextBoxFor(model => model.TotalAdditionalUsers, new { @class = "width40 textfiled autoinputvalue", id = "txtTotalAdditionalUsers", @readonly = "readonly" })
+                        </td>
+                        <td align="center">
+                            <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                                &nbsp;</span>
+                            @Html.TextBoxFor(model => model.TotalAdditionalCost, new { @class = "width60 textfiled autoinputvalue", id = "txtTotalAdditionalCost", @readonly = "readonly" })
+                        </td>
+                    </tr>
+                </table>
+                <div class="clr">
+                </div>
+            </div>
+            <div class="groupfieldset groupfieldsetcol fr">
+                <ul class="reset onecolfield">
+                    <li>
+                        <label id="lblSubscriptionfees" class="width130" style="margin-right: 50px;">@ClientResources.lblSubscriptionFees</label>
+                        <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                            &nbsp;</span>
+                        @Html.TextBoxFor(model => model.TotalSubscriptionFees, new { @class = "width110 autoinputvalue", id = "txtTotalSubscriptionFees", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label id="lblDiscount" class="width130">@ClientResources.Discount</label>
+                        @Html.TextBoxFor(model => model.ClientSubscription.DiscountInPercentage, new { id = "txtDiscountInPercentage", @class = "width30 autoinputvalue",@readonly = "readonly" })
+                        <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                            &nbsp;</span>
+                        @Html.TextBoxFor(model => model.ClientSubscription.DiscountInRupees, new { id = "txtDiscountInRupees", @class = "width110 autoinputvalue", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label id="lblServiceTax" class="width130" style="margin-right: 50px;">@ClientResources.ServiceTax</label>
+                        <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                            &nbsp;</span>
+                        @Html.TextBoxFor(model => model.ClientSubscription.ServiceTax, new { id = "txtServiceTax", @class = "width110 autoinputvalue", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label id="lblOtherTax" class="width130" style="margin-right: 50px;">@ClientResources.OtherTax</label>
+                        <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                            &nbsp;</span>
+                        @Html.TextBoxFor(model => model.ClientSubscription.OtherTax, new { id = "txtOtherTax", @class = "width110 autoinputvalue", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label id="lblNetAmount" class="width130" style="margin-right: 50px;">@ClientResources.NetAmount</label>
+                        <span class="WebRupee">&nbsp;<img alt="Rupee" height="10" width="10" src=@Url.Content("~/content/images/control/RupeeFont.png") />
+                            &nbsp;</span>
+                        @Html.TextBoxFor(model => model.NetAmount, new { id = "txtNetAmount", @class = "width110 autoinputvalue", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label class="width130">@ClientResources.lblCalculationcolon</label>
+                        <p style="padding: 0; margin: 5px 0 0 0; font-size: 11px;">@ClientResources.lblSubscriptionFees
+                            - @ClientResources.Discount<br />
+                            + @ClientResources.lblAdditionalUsers = @ClientResources.NetAmount</p>
+                    </li>
+                </ul>
+                <div class="clr">
+                </div>
+            </div>
+            <div class="clr">
+            </div>
+            <div class="groupfieldset">
+                <ul class="reset leftfield fl">
+                    <li>
+                        <label id="lblAccountStatus" class="width155">@ClientResources.lblAccountStatus</label>
+                        @Html.TextBoxFor(model => model.ClientSubscription.Status, new { id = "txtStatus", @class = "width83 autoinputvalue", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label id="lblActivationDate" class="width155">@ClientResources.lblActivationDate</label>                       
+                        @Html.TextBoxFor(model => model.SubscriptionPeriodActivationDateString, new { @class = "autoinputvalue width83", @readonly = "readonly" })
+                    </li>
+                </ul>
+                <ul class="reset leftfield fr" style="width: 48%">
+                    <li>
+                        <label id="lblAdditionalInfo" class="width130">@ClientResources.lblAdditionalInfo</label>
+                        @Html.TextAreaFor(model => model.ClientSubscription.AdditionalInfo, new { id = "txtAdditionalInfo", @class = "autoinputvalue textarea", style = "height:40px", rows = "2", cols = "10", @readonly = "readonly" })
+                    </li>
+                </ul>
+            </div>
+            <div class="clr">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@using Cams.Web.MVCRazor.Controllers;
+@{
+    //CalendarDemoHelper calendarHelper = new CalendarDemoHelper(Server.MapPath("~/App_Data/CalendarNotes.xml")); 
+}
+
+@Html.DevExpress().Calendar(
+    settings =>
+    {
+        settings.Name = "calendar";
+        settings.CallbackRouteValues = new { Controller = "HolidayCalendar", Action = "HolidayCalendarPartial" };
+        settings.VisibleDate = DateTime.Now; //new DateTime(2010, 10, 1);
+        settings.ReadOnly = true;
+        settings.Properties.EnableMonthNavigation = true;
+        settings.Properties.EnableYearNavigation = false;
+        //settings.Height = 600;
+        settings.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Width = 600;
+
+        //settings.DayCellInitialize = (sender, e) => {
+        //    if (calendarHelper.GetNoteNodes(e.Date).Count > 0) {
+        //        e.IsWeekend = false;
+        //        e.NavigateUrl = string.Format("javascript:ShowNotes('{0}')", calendarHelper.GetDateString(e.Date));
+        //    } else {
+        //        e.IsWeekend = true;
+        //    }
+        //};
+
+        //settings.DayCellPrepared = (sender, e) => {
+        //    if (calendarHelper.GetNoteNodes(e.Date).Count > 0) {
+        //        e.TextControl.ForeColor = Color.Black;
+        //        e.TextControl.Font.Bold = true;
+        //    }
+        //};
+    }).GetHtml()

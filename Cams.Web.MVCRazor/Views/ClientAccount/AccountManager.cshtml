@@ -1,0 +1,63 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Web.MVCRazor
+<div class="panes-data">
+            <h1>@ClientResources.lblAccountManager</h1>
+            <div class="Form-Wrap">
+                <div class="groupfieldset groupfieldsetcol fl" style="min-height:100px;">
+                  <ul class="reset onecolfield">
+                    <li>
+                      <label id="lblAMcmbName" class="width75">@ClientResources.lblName</label>
+                      @Html.DevExpress().ComboBox(
+                                   settings =>
+                                   {
+                                       settings.Name = "cmbAccountManager";
+                                       settings.Width = 230;
+                                       settings.Properties.ValueType = typeof(long);
+                                       settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                       settings.Properties.CallbackPageSize = 30;
+                                       settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                                       settings.Properties.ValueField = "UserId";
+                                       settings.Properties.TextField = "Name";
+                                       settings.ControlStyle.CssClass = "fontName";
+									   settings.Properties.TextFormatString = "{0}";
+                                       settings.Properties.ClientSideEvents.SelectedIndexChanged = "cmbAccountManager_SelectedIndexChanged";
+                                       settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                   }).BindList(Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel.GetAccountManagers()).Bind(Model.AccountManagerId).GetHtml()
+
+                    </li>
+                  </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="groupfieldset groupfieldsetcol fr" style="min-height:100px;">
+                  <ul class="reset onecolfield">
+                    <li>
+                        <label id="lblAMName" class="width75">@ClientResources.lblName</label>
+                        <span class="non-editable-txt">
+                            <label id="AMName" style=" text-align:left; padding:0px 0px 0px 0px;"></label>
+                        </span>
+                    </li>
+                    
+                     <li>
+                       <label id="lblAMUserName" class="width75">@ClientResources.URlblUserName</label>
+                       <span class="non-editable-txt">
+                            <label id="AMUsername" style=" text-align:left; padding:0px 0px 0px 0px;"></label>
+                        </span>
+                    </li>
+                     <li>
+                        <label id="lblAMEmail" class="width75">@ClientResources.lblEmail</label>
+                        <span class="non-editable-txt">
+                            <label id="AMEmail" style=" text-align:left; padding:0px 0px 0px 0px;"></label>
+                        </span>
+                    </li>
+                    <li>
+                        <label id="lblAMMobileNo" class="width75">@ClientResources.PIlblPIMobileNumber</label>
+                        <span class="non-editable-txt">
+                            <label id="AMMobileNo" style=" text-align:left; padding:0px 0px 0px 0px;"></label>
+                        </span>
+                    </li>
+                  </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+          </div>

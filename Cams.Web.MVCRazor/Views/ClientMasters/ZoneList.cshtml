@@ -1,0 +1,54 @@
+﻿@using Cams.Web.MVCRazor;
+@model Cams.Web.MVCRazor.Models.ClientMasters.ZoneModel
+@{
+    ViewBag.Title = "ZoneList";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+@section Scripts{
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            HighlightClientAdminMainMenu('#mnuMasters');
+        });
+
+        function OnZoneListGridViewDataBindingFocusedRowChanged(s, e) {
+            if (s.focusedRowIndex != -1) {
+                if (s.GetRowKey(s.GetFocusedRowIndex()) != null) {
+                    $('#ZoneId').val(s.GetRowKey(s.GetFocusedRowIndex()).toString());
+                }
+            }
+        }
+
+        function OnEditClick(s, e) {
+            if ($('#ZoneId').val() == null || $('#ZoneId').val() == "" || $('#ZoneId').val() == "0") {
+                alert("Please select Zone from the list.");
+            }
+            s.SetNavigateUrl(s.GetNavigateUrl() + '&zoneid=' + $('#ZoneId').val());
+            return true;
+        }
+    </script>
+}
+@section MainBody {
+
+    <div class="page-data fl">
+        <div class="panes">
+          <div class="panes-data padbot15">
+            <h1>@ClientResources.ZoneListH1</h1>
+            @if (TempData["StateSaved"] != null)
+            {
+                <div class="response-msg success-msg">
+                        <span>@TempData["StateSaved"].ToString()</span>
+                </div>
+            }
+            <div class="ListHead">
+                    <div class="ListAddNew fr">
+                        @Html.ActionLink(" ", "AddZoneIndex", "ClientMasters", null, new { @class = "button_Add" })
+                    </div>
+                    <div class="clr">
+                    </div>
+                </div>
+                @Html.Partial("ZoneListGridView", Model)
+          </div>
+         @Html.HiddenFor(model=>model.ZoneId)
+        </div>
+      </div>
+}

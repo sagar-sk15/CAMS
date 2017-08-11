@@ -1,0 +1,36 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.DesignationModel
+           
+@Html.DevExpress().CallbackPanel(cbpSettings =>
+{
+    cbpSettings.Name = Model.CBPCtrlUserDesignationList;
+    cbpSettings.CallbackRouteValues = new { Controller = "Common", Action = "GetUpdatedUserDesignationList" };
+    cbpSettings.SetContent(() =>
+                               {
+                                   Html.DevExpress().ComboBox(
+                                   settings =>
+                                   {
+                                       settings.Name = Model.DDLDesignations;
+                                       //settings.SelectedIndex = TempData["DesignationId"] != null && ((List<Cams.Common.Dto.User.DesignationDto>)Model.designations) != null ? ((List<Cams.Common.Dto.User.DesignationDto>)Model.designations).FindIndex(x => x.DesignationId == Convert.ToInt32(TempData["DesignationId"])) : 0;
+                                       settings.Width = 180;
+                                       settings.Properties.ValueType = typeof(int);
+                                       settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                       settings.Properties.CallbackPageSize = 30;
+                                       settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                                       settings.Properties.TextFormatString = "{0}";
+                                       settings.Properties.ValueField = "DesignationId";
+                                       settings.Properties.TextField = "DesignationName";                                       
+                                       settings.ControlStyle.Font.Name = "DejaVu Serif";
+                                       settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s, e) {"
+                                                                                                    + "$('#" + Model.HiddenTextboxName + "').val(s.GetValue());"
+                                                                                                    + "}";
+                                   }).BindList(Cams.Web.MVCRazor.Models.Shared.DesignationModel.GetDesignations()).Bind(Model.SelectedId).Render();
+                                   
+                                   
+                               });
+    cbpSettings.ClientSideEvents.BeginCallback = "function(s, e) {"
+                                                                    + "e.customArgs['prefix'] = '" + Model.Prefix + "';"
+                                                                    + "e.customArgs['AddedDesignation'] = $('#" + Model.HiddenAddedValueTextBoxName + "').val();"
+                                                                    + "var designation = $('#" + Model.HiddenTextboxName + "').val();"
+                                                                + "}";
+}).GetHtml()
+

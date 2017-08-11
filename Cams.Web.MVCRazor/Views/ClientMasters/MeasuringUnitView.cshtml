@@ -1,0 +1,83 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientMasters.MeasuringUnitModel
+@using Cams.Web.MVCRazor
+@{
+    ViewBag.Title = "MeasuringUnitView";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+@section Scripts{
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/content/css/style.css") />
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            HighlightClientAdminMainMenu('#mnuMasters');
+        });
+
+        function formshowhide(id) {
+            if (id == "quote") {
+                document.getElementById('quotef').style.display = "block";
+                document.getElementById('otherf').style.display = "none";
+                $('#txtMUQuantity').val("");
+                $('#txtEUQuantity').val("");
+            }
+            else {
+                document.getElementById('quotef').style.display = "none";
+                document.getElementById('otherf').style.display = "block";
+                $('#txtMUWeight').val("");
+                $('#txtEUWeight').val("");
+            }
+        }
+    </script>
+}
+      <div class="page-data fl">
+       @using (Html.BeginForm("AddMeasuringUnit", "ClientMasters", FormMethod.Post))
+       {
+        <div class="panes">
+          <div class="panes-data">
+            <h1>@ClientResources.MUViewH1</h1>
+            <div style="background:#fffcfc;color:#FF0000">@Html.ValidationSummary(false)</div>
+            <div class="Form-Wrap">
+                <ul class="reset onecolfield fl">
+                  <li>&nbsp;</li>
+                  <li>
+                   <label id="lblUnitType" class="label-radio-pad width75">@ClientResources.AddMUlblUnitType</label>
+                    <label class="autoinputvalue" style="text-align:left;">@Model.UnitType</label>
+                    @*@Html.RadioButtonFor(model => model.UnitType, Cams.Common.UnitType.Weight, new { @class = "radio-botton", id = "rbtnWeight", name = "rbtnUnitType", @readonly = "readonly", disabled = "disabled" })
+                    <label class="label-radio fl">&nbsp;@Cams.Common.UnitType.Weight.ToString()&nbsp;&nbsp;</label>
+                    @Html.RadioButtonFor(model => model.UnitType, Cams.Common.UnitType.Quantity, new { @class = "radio-botton", id = "rbtnQuantity", name = "rbtnUnitType", @readonly = "readonly", disabled = "disabled" })
+                    <label class="label-radio fl">&nbsp;@Cams.Common.UnitType.Quantity.ToString()</label>*@
+                    <div class="clr"></div>
+                  </li>
+                  <li>&nbsp;</li>
+                  <li>
+                    <div id="quotef" style="display:block;">
+                      <label id="lblWeight" class="width75">@ClientResources.MUlblWeight</label>
+                      @Html.TextBoxFor(model => model.MeasurementUnitWeight, new { name = "txtMUWeight", id = "txtMUWeight", @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                      =
+                      @Html.TextBoxFor(model => model.EquivalentUnitWeight, new { name = "txtEUWeight", id = "txtEUWeight", @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                      @ClientResources.MUTextKg </div>
+                    <div id="otherf" style="display:none;">
+                      <label id="lblQuantity" class="width75">@ClientResources.MUlblQuantity</label>
+                      @Html.TextBoxFor(model => model.MeasurementUnitQuantity, new { name = "txtMUQuantity", id = "txtMUQuantity", @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                      =
+                      @Html.TextBoxFor(model => model.EquivalentUnitQuantity, new { name = "txtEUQuantity", id = "txtEUQuantity", @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                      @ClientResources.MUTextPieces </div>
+                  </li>
+                </ul>
+                  <div class="clr"></div>
+                    <ul class="reset input-botton">
+                   <li>
+                      @Html.ActionLink(" ", "AddMeasuringUnitIndex", "ClientMasters", new { mode = "edit", measuringunitid = Model.UnitId.ToString() }, new { @class = "button_Edit", style = "margin-left:auto; margin-right:auto;" })
+                      <div class="text-link">@ClientResources.CancelString&nbsp;<a href="#" tabindex = "13">@Html.ActionLink(ClientResources.CancelbtnText, "MeasuringUnitListIndex", "ClientMasters")</a></div>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+           if (Model.UnitType == Cams.Common.UnitType.Quantity)
+           { 
+                <script type="text/javascript" language="javascript">
+                    formshowhide('other');
+                </script>
+           }
+       }
+      </div>

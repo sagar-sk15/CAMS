@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a595547e-7df3-4bf7-9950-37f3a3f2e0ec" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="dedc675c-052c-47f4-9c4a-d6ad62faa52d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="950d7f0c-779f-4a0d-bbd6-8cc1cfb6507d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d2db5229-c284-4f7f-a1f6-aed3b66130bb" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="1c9bbbb4-5798-4c71-9851-d405a9312065" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="a0f50517-a600-4000-85d8-2756c6618d98" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="8ab927da-db45-47d9-9631-442028d2b4c0" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="841987b0-4f69-4550-ab86-49d1f908d718" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="9b1f3887-5979-425a-9f35-b431850f2031" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="0064bb25-39c0-4da5-b792-701562aba74b" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="39b85f15-5e68-4750-a7ff-f5d614a1891d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="0aa6066b-2095-4e4d-9620-2087f8a96478" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="72364ef0-2994-461b-821b-d76e4fcc5974" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="543f9379-57ed-415b-963c-2cac7d03d807" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="59ddc572-f2de-4039-8e43-83c5f0e98ed1" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/CityVillageWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

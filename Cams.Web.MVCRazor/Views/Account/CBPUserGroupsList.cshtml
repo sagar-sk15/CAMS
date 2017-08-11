@@ -1,0 +1,11 @@
+﻿
+@Html.DevExpress().CallbackPanel(cbpSettings => {
+        cbpSettings.Name = "cbpUGroupList";
+        cbpSettings.CallbackRouteValues = new { Controller = "Account", Action = "cbpUGroupList" };
+        cbpSettings.ControlStyle.Font.Name = "DejaVu Serif";
+        cbpSettings.SetContent(() =>
+        {
+            Html.RenderPartial("UserGroupsGrid");
+        });
+        cbpSettings.ClientSideEvents.BeginCallback = "SetCAId";
+}).GetHtml()

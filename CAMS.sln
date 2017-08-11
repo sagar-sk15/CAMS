@@ -1,0 +1,151 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49A97071-FAAF-4CBC-855B-1ACD00CBB71A}"
+	ProjectSection(SolutionItems) = preProject
+		CAMS6.vsmdi = CAMS6.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{4D10D6F2-3B2D-41F0-8464-7A2F2F812FA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{BDA0F939-47D2-4785-B0C5-A2FDCC3CCA61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{029035F3-0E6B-441B-9FE9-12837B4B3D4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B303B385-A0EE-48E2-BB0A-FE4942E84034}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{A159EB25-D3F5-4E53-B3F8-9DCF5E97ABB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{26191C77-19A7-44D4-B227-98E4C33734CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.WcfService", "Cams.WcfService\Cams.WcfService.csproj", "{095AB5F0-09E0-47B3-B1CF-1450635165A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.Common", "Cams.Common\Cams.Common.csproj", "{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.Domain", "Cams.Domain\Cams.Domain.csproj", "{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.Dal", "Cams.Dal\Cams.Dal.csproj", "{BA636BBF-2D66-4C39-B137-EB1117AFC9C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.Cache", "Cams.Cache\Cams.Cache.csproj", "{D525F921-D22D-4F38-B5E7-20F1716227B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.UnitTests", "Cams.UnitTests\Cams.UnitTests.csproj", "{625D9F18-A145-4DA8-BB6F-A33AF8377DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.Extension", "Cams.Extension\Cams.Extension.csproj", "{C9A69E6C-8AE2-4185-8455-59E8EF0EED16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cams.Web.MVCRazor", "Cams.Web.MVCRazor\Cams.Web.MVCRazor.csproj", "{B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{095AB5F0-09E0-47B3-B1CF-1450635165A2} = {095AB5F0-09E0-47B3-B1CF-1450635165A2}
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Cams.Database", "Cams.Database\Cams.Database.sqlproj", "{F30E7B2A-7D0E-4200-AB28-85130212B590}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{095AB5F0-09E0-47B3-B1CF-1450635165A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{095AB5F0-09E0-47B3-B1CF-1450635165A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{095AB5F0-09E0-47B3-B1CF-1450635165A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{095AB5F0-09E0-47B3-B1CF-1450635165A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA636BBF-2D66-4C39-B137-EB1117AFC9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA636BBF-2D66-4C39-B137-EB1117AFC9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA636BBF-2D66-4C39-B137-EB1117AFC9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA636BBF-2D66-4C39-B137-EB1117AFC9C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D525F921-D22D-4F38-B5E7-20F1716227B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D525F921-D22D-4F38-B5E7-20F1716227B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D525F921-D22D-4F38-B5E7-20F1716227B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D525F921-D22D-4F38-B5E7-20F1716227B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625D9F18-A145-4DA8-BB6F-A33AF8377DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625D9F18-A145-4DA8-BB6F-A33AF8377DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625D9F18-A145-4DA8-BB6F-A33AF8377DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625D9F18-A145-4DA8-BB6F-A33AF8377DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A69E6C-8AE2-4185-8455-59E8EF0EED16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A69E6C-8AE2-4185-8455-59E8EF0EED16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A69E6C-8AE2-4185-8455-59E8EF0EED16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A69E6C-8AE2-4185-8455-59E8EF0EED16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30E7B2A-7D0E-4200-AB28-85130212B590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30E7B2A-7D0E-4200-AB28-85130212B590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30E7B2A-7D0E-4200-AB28-85130212B590}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F30E7B2A-7D0E-4200-AB28-85130212B590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30E7B2A-7D0E-4200-AB28-85130212B590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30E7B2A-7D0E-4200-AB28-85130212B590}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49A97071-FAAF-4CBC-855B-1ACD00CBB71A} = {B303B385-A0EE-48E2-BB0A-FE4942E84034}
+		{095AB5F0-09E0-47B3-B1CF-1450635165A2} = {4D10D6F2-3B2D-41F0-8464-7A2F2F812FA0}
+		{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4} = {029035F3-0E6B-441B-9FE9-12837B4B3D4C}
+		{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3} = {4D10D6F2-3B2D-41F0-8464-7A2F2F812FA0}
+		{BA636BBF-2D66-4C39-B137-EB1117AFC9C8} = {4D10D6F2-3B2D-41F0-8464-7A2F2F812FA0}
+		{D525F921-D22D-4F38-B5E7-20F1716227B2} = {BDA0F939-47D2-4785-B0C5-A2FDCC3CCA61}
+		{625D9F18-A145-4DA8-BB6F-A33AF8377DD1} = {B303B385-A0EE-48E2-BB0A-FE4942E84034}
+		{C9A69E6C-8AE2-4185-8455-59E8EF0EED16} = {A159EB25-D3F5-4E53-B3F8-9DCF5E97ABB0}
+		{B7058BF2-A8D8-48EA-BB2C-8A34BFA6978B} = {BDA0F939-47D2-4785-B0C5-A2FDCC3CCA61}
+		{F30E7B2A-7D0E-4200-AB28-85130212B590} = {26191C77-19A7-44D4-B227-98E4C33734CB}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://ack-app-srv:8080/tfs/dnd
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Cams.Cache\\Cams.Cache.csproj
+		SccProjectTopLevelParentUniqueName1 = CAMS.sln
+		SccProjectName1 = Cams.Cache
+		SccLocalPath1 = Cams.Cache
+		SccProjectUniqueName2 = Cams.Dal\\Cams.Dal.csproj
+		SccProjectTopLevelParentUniqueName2 = CAMS.sln
+		SccProjectName2 = Cams.Dal
+		SccLocalPath2 = Cams.Dal
+		SccProjectUniqueName3 = Cams.Domain\\Cams.Domain.csproj
+		SccProjectTopLevelParentUniqueName3 = CAMS.sln
+		SccProjectName3 = Cams.Domain
+		SccLocalPath3 = Cams.Domain
+		SccProjectUniqueName4 = Cams.UnitTests\\Cams.UnitTests.csproj
+		SccProjectTopLevelParentUniqueName4 = CAMS.sln
+		SccProjectName4 = Cams.UnitTests
+		SccLocalPath4 = Cams.UnitTests
+		SccProjectUniqueName5 = Cams.WcfService\\Cams.WcfService.csproj
+		SccProjectTopLevelParentUniqueName5 = CAMS.sln
+		SccProjectName5 = Cams.WcfService
+		SccLocalPath5 = Cams.WcfService
+		SccProjectUniqueName6 = Cams.Extension\\Cams.Extension.csproj
+		SccProjectTopLevelParentUniqueName6 = CAMS.sln
+		SccProjectName6 = Cams.Extension
+		SccLocalPath6 = Cams.Extension
+		SccProjectUniqueName7 = Cams.Common\\Cams.Common.csproj
+		SccProjectTopLevelParentUniqueName7 = CAMS.sln
+		SccProjectName7 = Cams.Common
+		SccLocalPath7 = Cams.Common
+		SccProjectUniqueName8 = Cams.Web.MVCRazor\\Cams.Web.MVCRazor.csproj
+		SccProjectTopLevelParentUniqueName8 = CAMS.sln
+		SccProjectName8 = Cams.Web.MVCRazor
+		SccLocalPath8 = Cams.Web.MVCRazor
+		SccProjectUniqueName9 = Cams.Database\\Cams.Database.dbproj
+		SccProjectTopLevelParentUniqueName9 = CAMS.sln
+		SccProjectName9 = Cams.Database
+		SccLocalPath9 = Cams.Database
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CAMS6.vsmdi
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,90 @@
+﻿@using Cams.Web.MVCRazor;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ClientResources.CompanyName</title>
+    <link rel="shortcut icon" type="image/x-icon" href=@Url.Content("~/Content/images/favicon.ico") />
+    <link href=@Url.Content("~/Content/css/control/control.css") rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/Content/css/control/tabs.css") />
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/content/css/control/ddmegamenu.css") />
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/content/css/control/ddsmoothmenu.css") />
+    <link href=@Url.Content("~/Content/Css/ColorBox/colorbox.css") rel="stylesheet" type="text/css" />
+    <link href=@Url.Content("~/Content/Css/style.css") rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src=@Url.Content("~/Scripts/jquery.min.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/js/control/jquery.tools.min.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/js/colorbox/jquery.colorbox.js")></script>
+    @*<script type="text/javascript" src="../../Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".example5").colorbox();
+        });
+
+//        function changeHashOnLoad() {
+//            var href = "#";
+//            window.location.href += href;
+//            setTimeout("changeHashAgain()", "50");
+//        }
+
+//        function changeHashAgain() {
+//            var href = "1";
+//            window.location.href += href;
+//        }
+
+//        var storedHash = window.location.hash;
+//        window.setInterval(function () {
+//            if (window.location.hash != storedHash) {
+//                window.location.hash = storedHash;
+//            }
+//        }, 50);
+
+
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="wrapper-inner">
+            <div class="header">
+                <div class="logo fl">
+                    <a title="AgriERP" href="#">@ClientResources.AgriErp</a></div>
+                <div class="clr">
+                </div>
+                <div class="date-time fr">
+                    @DateTime.Now.ToString(ClientResources.HeaderDateFormat)
+                </div>
+            </div>
+            <div>
+                @RenderBody()
+                @if (IsSectionDefined(("MainBody")))
+                {
+                    @RenderSection("MainBody")
+                }
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer-inner">
+            <div class="footer-left fl">
+                &copy; @ClientResources.CopyRight</div>
+            <div class="footer-right fl">
+                <div id="quick-content-rel">
+                    <div id="quick-content">
+                        <div id="quick-panel">
+                            <a href="#" id="quick-panel-tab"></a>
+                            <div class="inner">
+                                <ul class="panel-list reset">
+                                    <li><a href="#" class="icon-help">@ClientResources.HelpForPage</a></li>
+                                    <li><a href="#" class="icon-chat">@ClientResources.TechnicalSupport</a></li>
+                                    <li><a href="#" class="icon-call">@ClientResources.Dialack</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clr">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Users]
+    ADD CONSTRAINT [FK617D3C3A934218F7] FOREIGN KEY ([DesignationId]) REFERENCES [dbo].[Designations] ([DesignationId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

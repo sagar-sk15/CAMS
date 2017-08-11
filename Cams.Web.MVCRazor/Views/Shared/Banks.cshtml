@@ -1,0 +1,46 @@
+﻿    @Html.DevExpress().CallbackPanel(s => {
+    s.Name = "cbpBanks";
+    s.CallbackRouteValues = new { Controller = "BankBranch", Action = "GetBanksView" };
+    s.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        s.SetContent(() => 
+        {
+            @Html.DevExpress().ComboBox(
+                        settings =>
+                        {
+                            settings.Name = "cmbBank";
+                            settings.SelectedIndex = ViewData["SelectedBank"] != null ? Convert.ToInt32(ViewData["SelectedBank"]) : 0;
+                            //settings.Properties.Items.FindByValue(ViewData["SelectedBank"] != null ? ViewData["SelectedBank"].ToString() : "0").Selected = true;
+                            settings.Properties.DropDownStyle = DevExpress.Web.ASPxEditors.DropDownStyle.DropDownList;
+                            settings.Width = System.Web.UI.WebControls.Unit.Pixel(370);
+                            settings.ControlStyle.Font.Name = "DejaVu Serif";
+                            settings.ControlStyle.Font.Size = System.Web.UI.WebControls.FontUnit.Point(10);
+                            settings.ControlStyle.CssClass = "comboBoxControl";
+                            settings.CallbackRouteValues = new { Controller = "BankBranch", Action = "GetBanksView" };
+                            //settings.Properties.CallbackPageSize = 30;
+                            settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                            settings.Properties.TextFormatString = "{0}";
+                            settings.Properties.ValueField = "BankId";
+                            settings.Properties.ValueType = typeof(string);
+                            settings.Properties.TextField = "BankName";
+                            settings.Properties.Columns.Add("BankName", "Name");
+                            settings.Properties.Columns.Add("Alias", "Alias");                            
+                            settings.Properties.Columns.Add("URL","Bank URL");
+                            settings.Properties.ClientSideEvents.SelectedIndexChanged = "cmbBankSelect";
+                        }
+                    ).BindList(ViewData["BankList"]).GetHtml();
+        });
+        s.ClientSideEvents.BeginCallback = "cbpBanks_cbpBanksBeginCallback";
+        s.ClientSideEvents.EndCallback = "cbpBanks_cbpBanksEndCallback";
+    }).GetHtml()
+
+    @{  string strRoles=Cams.Common.Constants.BANKREGISTRATION;
+        IList<string> roles= strRoles.Split(',').ToList();
+        if(Cams.Web.MVCRazor.Helpers.CamsAuthorizeAttribute.IsUserInRole(roles, Cams.Web.MVCRazor.Helpers.CamsAuthorizeAttribute.RolePermission.Add,(Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+        {
+            <a href="#" class="addnew" onclick="AddNewBankButtonClick()"></a>
+        }
+    }
+            <div>
+                @Html.Partial("CallBackPopupAddBank")
+            </div>

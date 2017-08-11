@@ -1,0 +1,14 @@
+﻿@using Cams.Web.MVCRazor
+@{
+    ViewBag.Title = "ErrorView";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+@section MainBody
+{
+    <br />
+    <div class="response-msg error-msg">
+        <h3>
+            @ErrorAndValidationMessages.ErrorMessage 
+            @Html.ActionLink(ErrorAndValidationMessages.ERLogin, "LogOn", "Account")</h3>
+    </div>
+}

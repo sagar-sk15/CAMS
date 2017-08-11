@@ -1,0 +1,106 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Data
+@using Cams.Web.MVCRazor
+ @Html.DevExpress().GridView(
+                settings =>
+                {
+                    settings.Name = "CommodityListGridViewDataBinding";
+                    settings.CallbackRouteValues = new { Controller = "Masters", Action = "CommodityListGridView" };
+                    settings.Settings.ShowTitlePanel = false;
+                    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+                    settings.Settings.ShowFilterRow = true;
+                    settings.CommandColumn.ClearFilterButton.Visible = true;
+                    settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+                    settings.SettingsPager.FirstPageButton.Visible = true;
+                    settings.SettingsPager.LastPageButton.Visible = true;
+                    settings.SettingsPager.AlwaysShowPager = true;
+                    settings.SettingsPager.PageSize = 10;
+                    settings.SettingsPager.ShowEmptyDataRows = true;
+                    settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+                    settings.Styles.Header.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;                                                            
+                    
+                    settings.Settings.ShowGroupPanel = true;
+                    settings.KeyFieldName = "CommodityId";
+                    settings.SettingsBehavior.AllowFocusedRow = true;
+                    settings.ClientSideEvents.FocusedRowChanged = "OnCommodityListGridViewDataBindingFocusedRowChanged";
+                    settings.ControlStyle.CssClass = "fontName";
+                    settings.Columns.Add("CommoditiesInCommodityClass.Name", "Commodity Class");
+                    settings.Columns.Add(column =>
+                    {
+                        column.FieldName = "CommodityId";
+                        column.Caption = "Commodity";
+                        column.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Left;
+                        column.Settings.AllowAutoFilter = DefaultBoolean.True;
+                        column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                        column.ColumnType = MVCxGridViewColumnType.HyperLink;
+                        HyperLinkProperties properties = column.PropertiesEdit as HyperLinkProperties;
+                        String urlFormatString = Url.Action("GetCommodityView", "Masters", new RouteValueDictionary(new { commodityid = "{0}" }));
+                        properties.Style.Font.Name = "DejaVu Serif";
+                        properties.NavigateUrlFormatString = HttpUtility.UrlDecode(urlFormatString);
+                        properties.TextField = "Name";
+                    });
+                    
+                    settings.Columns.Add(column =>
+                    {
+                        column.FieldName = "IsActive";
+                        column.Caption = "Status";
+                        column.Settings.AllowAutoFilter = DefaultBoolean.False;
+                        column.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+                        column.SetDataItemTemplateContent(c =>
+                        {
+                            ViewContext.Writer.Write(
+                                Html.DevExpress().Label(editSettings =>
+                                {
+                                    bool isActive = (bool)DataBinder.Eval(c.DataItem, "IsActive");
+                                    editSettings.Text = (isActive) ?  ClientResources.UGLGridActive : ClientResources.UGLGridInActive;
+                                    editSettings.ControlStyle.ForeColor = (!isActive) ? System.Drawing.Color.Red : System.Drawing.Color.Black;
+                                    editSettings.AssociatedControlName = "IsActive";
+                                }).GetHtml().ToHtmlString()
+                                );
+                        });
+                    });
+
+                    settings.Settings.ShowFooter = true;
+                    settings.SetFooterRowTemplateContent(footer =>
+                    {
+                        Html.DevExpress().HyperLink(linkSettings =>
+                        {
+                            linkSettings.Name = "EditButton";
+                            linkSettings.ClientVisible =((List<Cams.Common.Dto.ClientMasters.CommodityDto>) Model.CommodityList).Count() == 0 ? false : true;
+                            linkSettings.Properties.Style.CssClass = "button_Edit";
+                            linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                            linkSettings.NavigateUrl = Url.Action("AddCommodityIndex", "Masters", new { mode = "edit" });
+                        }).Render();
+                    });
+                    
+                    settings.CustomCallback = (sender, e) =>
+                    {
+                        int layoutIndex = Int32.Parse(e.Parameters);
+                        MVCxGridView grid = (MVCxGridView)sender;
+
+                        grid.BeginUpdate();
+                        try
+                        {
+                            grid.ClearSort();
+                            switch (layoutIndex)
+                            {
+                                case 0:
+                                    grid.GroupBy(grid.Columns["CommoditiesInCommodityClass.Name"]);
+                                    break;
+                                case 1:
+                                    grid.GroupBy(grid.Columns["Name"]);
+                                    break;
+                                case 2:
+                                    grid.GroupBy(grid.Columns["IsActive"]);
+                                    break;
+                            }
+                        }
+                        finally
+                        {
+                            grid.EndUpdate();
+                        }
+                        grid.ExpandAll();
+                    };
+
+                }).Bind(Model.CommodityList).GetHtml()

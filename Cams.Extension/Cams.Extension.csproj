@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9A69E6C-8AE2-4185-8455-59E8EF0EED16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cams.Extension</RootNamespace>
+    <AssemblyName>Cams.Extension</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppServices\RequestContextExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AddressServiceAdapter.cs" />
+    <Compile Include="Services\APMCServiceAdapter.cs" />
+    <Compile Include="Services\BankBranchServiceAdapter.cs" />
+    <Compile Include="Services\BankServiceAdapter.cs" />
+    <Compile Include="Services\BusinessConstitutionServiceAdapter.cs" />
+    <Compile Include="Services\ChargesPayableToServiceAdapter.cs" />
+    <Compile Include="Services\CityVillageServiceAdapter.cs" />
+    <Compile Include="Services\ClientBusinessConstitutionHistoryServiceAdapter.cs" />
+    <Compile Include="Services\ClientCommoditiesHistoryServiceAdapter.cs" />
+    <Compile Include="Services\ClientContractLocator.cs" />
+    <Compile Include="Services\ClientHolidayCalenderServiceAdapter.cs" />
+    <Compile Include="Services\ClientPartnerHistoryServiceAdapter.cs" />
+    <Compile Include="Services\ClientPhoneChargesHistoryServiceAdapter.cs" />
+    <Compile Include="Services\ClientProfileChangeRequestsServiceAdapter.cs" />
+    <Compile Include="Services\ClientServiceAdapter.cs" />
+    <Compile Include="Services\ClientServiceLocator.cs" />
+    <Compile Include="Services\ClientWeeklyOffDayHistoryServiceAdapter.cs" />
+    <Compile Include="Services\ClientWeeklyOffDayServiceAdapter.cs" />
+    <Compile Include="Services\CommodityClassServiceAdapter.cs" />
+    <Compile Include="Services\CommodityServiceAdapter.cs" />
+    <Compile Include="Services\CountryMasterServiceAdapter.cs" />
+    <Compile Include="Services\DesignationServiceAdapter.cs" />
+    <Compile Include="Services\DistrictServiceAdapter.cs" />
+    <Compile Include="Services\IClientServices.cs" />
+    <Compile Include="Services\LabourChargeTypeAdapter.cs" />
+    <Compile Include="Services\MeasuringUnitServiceAdapter.cs" />
+    <Compile Include="Services\RelationshipServiceAdapter.cs" />
+    <Compile Include="Services\RoleServiceAdapter.cs" />
+    <Compile Include="Services\ServiceAdapterBase.cs" />
+    <Compile Include="Services\StatesMasterServiceAdapter.cs" />
+    <Compile Include="Services\SubscriptionMasterServiceAdapter.cs" />
+    <Compile Include="Services\UserGroupServiceAdapter.cs" />
+    <Compile Include="Services\UserRolePermissionServiceAdapter.cs" />
+    <Compile Include="Services\UserServiceAdapter.cs" />
+    <Compile Include="Services\Wcf\AddressServiceProxy.cs" />
+    <Compile Include="Services\Wcf\APMCServiceProxy.cs" />
+    <Compile Include="Services\Wcf\BankBranchServiceProxy.cs" />
+    <Compile Include="Services\Wcf\BankServiceProxy.cs" />
+    <Compile Include="Services\Wcf\BusinessConstitutionServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ChargesPayableToServiceProxy.cs" />
+    <Compile Include="Services\Wcf\CityVillageServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientBusinessConstitutionHistoryServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientCommoditiesHistoryServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientHolidayCalenderServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientPartnerHistoryServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientPhoneChargesHistoryServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientProfileChangeRequestsServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientWeeklyOffDayHistoryServiceProxy.cs" />
+    <Compile Include="Services\Wcf\ClientWeeklyOffDayServiceProxy.cs" />
+    <Compile Include="Services\Wcf\CommodityClassServiceProxy.cs" />
+    <Compile Include="Services\Wcf\CommodityServiceProxy.cs" />
+    <Compile Include="Services\Wcf\CountryMasterServiceProxy.cs" />
+    <Compile Include="Services\Wcf\DesignationServiceProxy.cs" />
+    <Compile Include="Services\Wcf\DistrictServiceProxy.cs" />
+    <Compile Include="Services\Wcf\LabourChargeTypeServiceProxy.cs" />
+    <Compile Include="Services\Wcf\MeasuringUnitServiceProxy.cs" />
+    <Compile Include="Services\Wcf\RelationshipServiceProxy.cs" />
+    <Compile Include="Services\Wcf\RoleServiceProxy.cs" />
+    <Compile Include="Services\Wcf\StatesMasterServiceProxy.cs" />
+    <Compile Include="Services\Wcf\SubscriptionMasterServiceProxy.cs" />
+    <Compile Include="Services\Wcf\UserGroupServiceProxy.cs" />
+    <Compile Include="Services\Wcf\UserRolePermissionServiceProxy.cs" />
+    <Compile Include="Services\Wcf\UserServiceProxy.cs" />
+    <Compile Include="Services\Wcf\WcfAdapterBase.cs" />
+    <Compile Include="Services\Wcf\WcfContractLocator.cs" />
+    <Compile Include="Services\Wcf\WeeklyHalfDayProxy.cs" />
+    <Compile Include="Services\Wcf\WeeklyOffDayProxy.cs" />
+    <Compile Include="Services\Wcf\ZoneServiceProxy.cs" />
+    <Compile Include="Services\WeeklyHalfDayServiceAdapter.cs" />
+    <Compile Include="Services\WeeklyOffDayServiceAdapter.cs" />
+    <Compile Include="Services\ZoneServiceAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cams.Common\Cams.Common.csproj">
+      <Project>{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}</Project>
+      <Name>Cams.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cams.Domain\Cams.Domain.csproj">
+      <Project>{A8FBABDA-DBE1-49C3-962B-1BD6A83239B3}</Project>
+      <Name>Cams.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

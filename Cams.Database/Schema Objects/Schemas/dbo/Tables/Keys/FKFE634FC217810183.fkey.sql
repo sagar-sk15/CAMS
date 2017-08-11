@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[APMCContacts]
+    ADD CONSTRAINT [FKFE634FC217810183] FOREIGN KEY ([ContactDetailsId]) REFERENCES [dbo].[ContactDetails] ([ContactDetailsId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

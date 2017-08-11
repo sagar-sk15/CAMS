@@ -1,0 +1,77 @@
+.dropdown dd, .dropdown dt, .dropdown ul, dl {
+	margin:0px;
+	padding:0px;
+}
+dl {
+	margin:10px 0 0 0;
+	padding:0px;
+}
+.dropdown dd {
+	position:relative;
+}
+
+.dropdown a:hover {
+	color:#5d4617;
+}
+.dropdown dt a:hover {
+	color:#5d4617;
+	border: 1px solid #d0c9af;
+}
+.dropdown dt a {
+	background:#ffffff url(../../images/control/loggedin-arrow.jpg) no-repeat scroll right center;
+	display:block;
+	padding-right:20px;
+	border:1px solid #BBBBBB;
+	
+}
+.dropdown dt a span {
+	cursor:pointer;
+	display:block;
+	padding:0px 0 0 7px;
+	color:#000000;
+	font-size: 11px;
+}
+.dropdown dt a:hover, .dropdown dt a span:hover {
+	color:#339900;
+	text-decoration:none;
+}
+.dropdown dd {
+	margin:0;
+	padding:0;
+}
+.dropdown dd ul {
+	background:#ffffff none repeat scroll 0 0;
+	border:1px solid #BBBBBB;
+	
+	display:none;
+	left:0px;
+	margin:0;
+	padding:5px 0px;
+	position:absolute;
+	top:2px;
+	width:99%;
+	list-style:none;
+}
+.dropdown span.value {
+	display:none;
+}
+.dropdown dd ul li a {
+	padding:2px 5px;
+	display:block;
+	color:#000000;
+}
+.dropdown dd ul li a:hover {
+	color:#275614;
+}
+.dropdown img.flag {
+	border:none;
+	vertical-align:middle;
+	margin-left:10px;
+}
+.flagvisibility {
+	display:none;
+}
+.column {
+	float:left;
+	width:70%;
+}

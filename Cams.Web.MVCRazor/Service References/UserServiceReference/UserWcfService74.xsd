@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49846/UserWcfService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Message" />
+  <xs:import schemaLocation="http://localhost:49846/UserWcfService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" />
+  <xs:complexType name="UserDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q1:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowDelete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowEdit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CAId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FailedPasswordAttemptCount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FailedPasswordAttemptWindowStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLockedOut" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOnLine" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastActivityDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastLockedOutDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastLoginDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastPassword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastPasswordChangedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MothersMaidenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecondLastPassword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecondLastPasswordChangedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserDesignation" nillable="true" type="tns:DesignationDto" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserProfile" nillable="true" type="tns:UserProfileDto" />
+          <xs:element minOccurs="0" name="UserWithRolePermissions" nillable="true" type="tns:ArrayOfUserRolePermissionDto" />
+          <xs:element minOccurs="0" name="UserWithUserGroups" nillable="true" type="tns:ArrayOfUserGroupDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserDto" nillable="true" type="tns:UserDto" />
+  <xs:complexType name="DesignationDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q2:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DesignationId" type="xs:int" />
+          <xs:element minOccurs="0" name="DesignationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UsersWithDesignation" nillable="true" type="tns:ArrayOfUserDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DesignationDto" nillable="true" type="tns:DesignationDto" />
+  <xs:complexType name="ArrayOfUserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDto" nillable="true" type="tns:UserDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDto" nillable="true" type="tns:ArrayOfUserDto" />
+  <xs:complexType name="UserProfileDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q3:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BloodGroup" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateOfJoining" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Gender" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaritalStatus" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PAN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PFNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportPlace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportValidFromDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PassportValidToDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserDto" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" minOccurs="0" name="UserAddress" nillable="true" type="q4:UserAddressDto" />
+          <xs:element minOccurs="0" name="UserEmergencyContactPerson" nillable="true" type="tns:UserEmergencyContactPersonDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserProfileDto" nillable="true" type="tns:UserProfileDto" />
+  <xs:complexType name="UserEmergencyContactPersonDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q5:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CPName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" minOccurs="0" name="ContactPersonAddress" nillable="true" type="q6:UserAddressDto" />
+          <xs:element minOccurs="0" name="ContactPersonRelationshipWithUser" nillable="true" type="tns:RelationshipDto" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserContactPerson" nillable="true" type="tns:UserProfileDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserEmergencyContactPersonDto" nillable="true" type="tns:UserEmergencyContactPersonDto" />
+  <xs:complexType name="RelationshipDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q7:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CAId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmergencyContactPersonRelationshipWithUser" nillable="true" type="tns:ArrayOfUserEmergencyContactPersonDto" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RelationshipId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RelationshipDto" nillable="true" type="tns:RelationshipDto" />
+  <xs:complexType name="ArrayOfUserEmergencyContactPersonDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserEmergencyContactPersonDto" nillable="true" type="tns:UserEmergencyContactPersonDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserEmergencyContactPersonDto" nillable="true" type="tns:ArrayOfUserEmergencyContactPersonDto" />
+  <xs:complexType name="ArrayOfUserRolePermissionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRolePermissionDto" nillable="true" type="tns:UserRolePermissionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRolePermissionDto" nillable="true" type="tns:ArrayOfUserRolePermissionDto" />
+  <xs:complexType name="UserRolePermissionDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q8:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowAdd" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowDelete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowEdit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowPrint" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowView" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PermissionForRole" nillable="true" type="tns:RoleDto" />
+          <xs:element minOccurs="0" name="PermissionForUser" nillable="true" type="tns:UserDto" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserRolePermissionDto" nillable="true" type="tns:UserRolePermissionDto" />
+  <xs:complexType name="RoleDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q9:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsAddApplicable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeleteApplicable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsEditApplicable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPrintApplicable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsViewApplicable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RolesInUserGroupRolePermissions" nillable="true" type="tns:ArrayOfUserGroupRolePermissionDto" />
+          <xs:element minOccurs="0" name="RolesInUserRolePermissions" nillable="true" type="tns:ArrayOfUserRolePermissionDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RoleDto" nillable="true" type="tns:RoleDto" />
+  <xs:complexType name="ArrayOfUserGroupRolePermissionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroupRolePermissionDto" nillable="true" type="tns:UserGroupRolePermissionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserGroupRolePermissionDto" nillable="true" type="tns:ArrayOfUserGroupRolePermissionDto" />
+  <xs:complexType name="UserGroupRolePermissionDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q10:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowAdd" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowDelete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowEdit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowPrint" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowView" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PermissionForRole" nillable="true" type="tns:RoleDto" />
+          <xs:element minOccurs="0" name="PermissionForUserGroup" nillable="true" type="tns:UserGroupDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserGroupRolePermissionDto" nillable="true" type="tns:UserGroupRolePermissionDto" />
+  <xs:complexType name="UserGroupDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q11:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowDelete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowEdit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CAId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RolePermissionsInUserGroup" nillable="true" type="tns:ArrayOfUserGroupRolePermissionDto" />
+          <xs:element minOccurs="0" name="RolesInUserGroupCount" type="xs:int" />
+          <xs:element minOccurs="0" name="UserGroupId" type="xs:int" />
+          <xs:element minOccurs="0" name="UserGroupName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UsersInUserGroup" nillable="true" type="tns:ArrayOfUserDto" />
+          <xs:element minOccurs="0" name="UsersInUserGroupCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserGroupDto" nillable="true" type="tns:UserGroupDto" />
+  <xs:complexType name="ArrayOfUserGroupDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroupDto" nillable="true" type="tns:UserGroupDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserGroupDto" nillable="true" type="tns:ArrayOfUserGroupDto" />
+</xs:schema>

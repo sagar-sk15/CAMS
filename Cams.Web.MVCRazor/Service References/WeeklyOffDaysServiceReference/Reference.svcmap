@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3f7a7dd5-b5a3-4e86-9d03-b956bf84a86b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d3be25cf-2abf-4363-8dda-ea97a4ac6714" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="c76c33f1-c9e4-4d62-95b2-0c420e63b3d5" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="21c4e004-c3d0-4ea0-88d3-277a98c75482" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e9f62763-0bca-4837-85df-bd0fc9cf6a3a" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.xsd" MetadataType="Schema" ID="a504cffc-8b23-4437-98fb-19de36da7008" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Message.xsd" MetadataType="Schema" ID="8e0fbbc8-eda6-42ae-bd1a-da996e540e93" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.xsd" MetadataType="Schema" ID="42d0e578-1069-4dc7-b275-c8024b4d9b75" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientMasters.xsd" MetadataType="Schema" ID="e3dd2a45-7679-4bb2-8f9a-436706f5a370" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Address.xsd" MetadataType="Schema" ID="3f90df87-a3e1-4b34-8229-7b73bc793b22" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.User.xsd" MetadataType="Schema" ID="f91dd6ee-ccd6-40e1-afc8-d9da8b73c5f5" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.Masters.xsd" MetadataType="Schema" ID="32c03400-e90f-4926-8f79-4575b52cf76d" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Dto.ClientRegistration.xsd" MetadataType="Schema" ID="e4e81e42-f6da-48b0-8f77-c4300cc77747" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Cams.Common.Querying.xsd" MetadataType="Schema" ID="53be1c57-f98d-4f15-9c38-0558ff1ef0c7" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="82c47b91-4849-4982-8637-f5338440f1b8" SourceId="1" SourceUrl="net.tcp://localhost:50970/Cams.WcfService/WeeklyOffDaysWcfService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Message" />
+  <xs:complexType name="ArrayOfContactDetailsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactDetailsDto" nillable="true" type="tns:ContactDetailsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactDetailsDto" nillable="true" type="tns:ArrayOfContactDetailsDto" />
+  <xs:complexType name="ContactDetailsDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q1:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContactDetailsId" type="xs:long" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" minOccurs="0" name="ContactDetailsOfAPMC" nillable="true" type="q2:ArrayOfAPMCDto" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" minOccurs="0" name="ContactDetailsOfBankBranch" nillable="true" type="q3:ArrayOfBankBranchDto" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="ContactDetailsOfClient" nillable="true" type="q4:ArrayOfClientDto" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="ContactDetailsOfClientPartnerBankContactPerson" nillable="true" type="q5:ArrayOfClientPartnerBankDetailsDto" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="ContactDetailsOfClientPartnerGuardian" nillable="true" type="q6:ArrayOfClientPartnerGuardianDetailsDto" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="ContactDetailsOfClientPartnerNominee" nillable="true" type="q7:ArrayOfClientPartnerNomineeDetailsDto" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="ContactDetailsOfClientPartners" nillable="true" type="q8:ArrayOfClientPartnerDetailsDto" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" minOccurs="0" name="ContactDetailsOfClientPrimaryContactPerson" nillable="true" type="q9:ArrayOfClientPrimaryContactPersonDto" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" minOccurs="0" name="ContactDetailsOfEmergencyContact" nillable="true" type="q10:ArrayOfUserEmergencyContactPersonDto" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" minOccurs="0" name="ContactDetailsOfUser" nillable="true" type="q11:ArrayOfUserProfileDto" />
+          <xs:element minOccurs="0" name="ContactNo" nillable="true" type="xs:string" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Cams.Common" minOccurs="0" name="ContactNoType" type="q12:ContactType" />
+          <xs:element minOccurs="0" name="CountryCallingCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STDCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContactDetailsDto" nillable="true" type="tns:ContactDetailsDto" />
+  <xs:complexType name="WeeklyHalfDayDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WeekDaysDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WeeklyHalfDayId" type="xs:int" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" minOccurs="0" name="WeeklyHalfDayOfBranch" nillable="true" type="q13:BankBranchDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WeeklyHalfDayDto" nillable="true" type="tns:WeeklyHalfDayDto" />
+  <xs:complexType name="WeekDaysDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q14:DtoBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsFriday" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsMonday" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSaturday" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSunday" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsThursday" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTuesday" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsWednesday" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WeekDaysDto" nillable="true" type="tns:WeekDaysDto" />
+  <xs:complexType name="WeeklyOffDaysDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WeekDaysDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WeeklyOffDayId" type="xs:int" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" minOccurs="0" name="WeeklyOffDayOfBranch" nillable="true" type="q15:BankBranchDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WeeklyOffDaysDto" nillable="true" type="tns:WeeklyOffDaysDto" />
+  <xs:complexType name="EntityDtosOfUserDtosN5Euqgj">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityDtosOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="UserDto" Namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/Cams.Common.Message" base="q16:DtoBase">
+        <xs:sequence>
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" minOccurs="0" name="Entities" nillable="true" type="q17:ArrayOfUserDto" />
+          <xs:element minOccurs="0" name="TotalRecords" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityDtosOfUserDtosN5Euqgj" nillable="true" type="tns:EntityDtosOfUserDtosN5Euqgj" />
+</xs:schema>

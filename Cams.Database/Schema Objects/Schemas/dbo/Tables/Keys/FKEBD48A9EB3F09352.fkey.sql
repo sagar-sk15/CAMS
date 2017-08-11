@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Addresses]
+    ADD CONSTRAINT [FKEBD48A9EB3F09352] FOREIGN KEY ([CityVillageId]) REFERENCES [dbo].[CityVillages] ([CityVillageId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

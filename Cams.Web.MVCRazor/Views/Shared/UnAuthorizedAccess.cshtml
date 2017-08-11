@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "AddBankBranch";
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+<h2>
+@Cams.Web.MVCRazor.ClientResources.AuthorizationFailMessage
+</h2>

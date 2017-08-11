@@ -1,0 +1,169 @@
+﻿@model Cams.Web.MVCRazor.Models.Account.UserRegistrationModel
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Helpers
+@using Cams.Common.Dto
+@using Cams.Common
+<h1>
+    Emergency Contact Details</h1>
+<div class="Form-Wrap">
+    <div class="groupfieldset">
+        <ul class="reset leftfield fl" style="width: 56%;">
+            <li>
+                <label id="lblECContactPerson" class="width110">@ClientResources.EClblContactPerson</label>
+                @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.Name, new { name = "txtECContactPerson", @class = "autoinputvalue textfiled width265", id = "txtECContactPerson", value = "", maxlength = "60", @readonly = "readonly" })
+            </li>
+        </ul>
+        <ul class="reset rightfield fr" style="width: 43%;">
+            <li>
+                <label id="lblECRelationship" class="width120 label-radio-pad">@ClientResources.EClblECRelationship</label>
+                @Html.TextBoxFor(model => model.UserProfile.BloodGroup, new { id = "txtRelationship", name = "txtRelationship", type = "text", val = "", @class = "autoinputvalue width130", @readonly = "readonly" })
+                <div class="clr">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="groupfieldset groupfieldsetcol fl" style="min-height: 196px;">
+        <ul class="reset onecolfield">
+            <li>
+                <label class="width110" id="lblECAddress">@ClientResources.EClblAddress</label>
+                @Html.TextAreaFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.AddressLine1, new { cols = "", rows = "", name = "txtECAddress", id = "txtECAddress", @class = "autoinputvalue textarea width195", @readonly = "readonly" })
+            </li>
+            <li>
+                <label id="lblECCountry" class="width110">@ClientResources.EClblCountry</label>
+                <span class="countryinput">India</span> </li>
+            <li>
+                <label id="PIlblState" class="width110">@ClientResources.PIlblState</label>
+                @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.DistrictOfCityVillage.StateOfDistrict.RegionName, new { id = "txtStateName", name = "txtStateName", val = "", @class = "autoinputvalue", @readonly = "readonly" })
+            </li>
+            <li>
+                <label id="PIlblDistrict" class="width110">@ClientResources.PIlblDistrict</label>
+                @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.DistrictOfCityVillage.DistrictName, new { id = "txtDistrictName", name = "txtDistrictName", val = "", @class = "autoinputvalue", @readonly = "readonly" })
+            </li>
+            <li>
+                @{if (Model.UserProfile == null)
+                  {
+                    <label id="lblCityOrVillage" class="width110">@ClientResources.EClblCityVillage</label>
+                    @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.Name, new { @class = "autoinputvalue", @readonly = "readonly" })
+                  }
+                  else if (Model.UserProfile != null && Model.UserProfile.UserEmergencyContactPerson == null)
+                  {
+                    <label id="lblCityOrVillage1" class="width110">@ClientResources.EClblCityVillage</label>
+                    @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.Name, new { @class = "autoinputvalue", @readonly = "readonly" })
+                  }
+                  else if (Model.UserProfile.UserEmergencyContactPerson != null && Model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress == null)
+                  {
+                    <label id="lblCityOrVillage2" class="width110">@ClientResources.EClblCityVillage</label>
+                    @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.Name, new { @class = "autoinputvalue", @readonly = "readonly" })
+                  }
+                  else if (Model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress != null && Model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage == null)
+                  {
+                    <label id="lblCityOrVillage3" class="width110">@ClientResources.EClblCityVillage</label>
+                    @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.Name, new { @class = "autoinputvalue", @readonly = "readonly" })
+                  }
+                  else
+                  {
+                    <label id="lblCityOrVillage4" class="width110">@Model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.CityOrVillage</label>
+                    @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.CityVillage.Name, new { @class = "autoinputvalue", @readonly = "readonly" })
+                  }
+                }
+            </li>
+            <li>
+                <label id="lblECPin" class="width110">@ClientResources.EClblPin</label>
+                @Html.TextBoxFor(model => model.UserProfile.UserEmergencyContactPerson.ContactPersonAddress.PIN, new { name = "txtECPin", type = "text", @class = "autoinputvalue generalfield width110", id = "txtECPin", value = "", maxlength = "6", @readonly = "readonly" })
+            </li>
+        </ul>
+        <div class="clr">
+        </div>
+    </div>
+    <div class="groupfieldset groupfieldsetcol fr" style="min-height: 196px;">
+        <ul class="reset onecolfield fl">
+            <li>
+                <input id="URECCurrentIndex" type="hidden" value="@Model.UserProfile.ContactNos.Count" />
+                <table id="URECContacts">
+                    @{ if (Model.UserProfile.UserEmergencyContactPerson == null)
+                       {
+                           Model.UserProfile.UserEmergencyContactPerson = new Cams.Common.Dto.User.UserEmergencyContactPersonDto();
+                       }
+                       if (Model.UserProfile.UserEmergencyContactPerson.Contacts == null)
+                       {
+                           Model.UserProfile.UserEmergencyContactPerson.Contacts = new List<ContactDetailsDto>();
+                       }
+                       if (Model.UserProfile.UserEmergencyContactPerson.Contacts.Count == 0)
+                       {
+                           Model.UserProfile.UserEmergencyContactPerson.Contacts = new List<ContactDetailsDto>();
+                           Model.UserProfile.UserEmergencyContactPerson.Contacts.Add(new ContactDetailsDto
+                           {
+                               ContactNoType = ContactType.MobileNo,
+                               CountryCallingCode = "+91",
+                               STDCode = "020"
+                           });
+                       }
+                       for (int i = 0; i < Model.UserProfile.UserEmergencyContactPerson.Contacts.Count; i++)
+                       {
+
+                           bool contactTypeMobile = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.MobileNo ? true : false;
+                           bool contactTypeOff = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                           bool contactTypeRes = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                           bool contactTypefax = Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.Fax ? true : false;
+                        <tr>
+                            <td class="width90">
+                                <label class="width80">
+                                            @{if (Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.MobileNo)
+                                              { @ClientResources.ContactNoTypeMobile; }
+                                              else if (Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.OfficeNo)
+                                              { @ClientResources.ContactNoTypeOfficeNo; }
+                                              else if (Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType == ContactType.ResidenceNo)
+                                              { @ClientResources.ContactNoTypeResNo; }
+                                              else { @ClientResources.ContactNoTypeFaxNo; }} 
+                                              </label>  
+                                @*@Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNoType, new { id = "txtContactNoType", name = "txtContactNoType", @class = "clsContactNoType autoinputvalue", @readonly = "readonly", style = "width:90px; border: medium none; padding: 1px; float:left" })*@
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].CountryCallingCode, new { value = "+91", @class = "textfiled autoinputvalue", style = "width:28px; text-align:center", disabled = "disabled", @readonly = "readonly" })
+                            </td>
+                            <td>
+                                @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                                {
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].STDCode, new { value = @Model.UserProfile.UserEmergencyContactPerson.Contacts[i].STDCode, @class = "textfiled autoinputvalue", style = "width:38px; text-align:center;", @readonly = "readonly" })
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNo, new { @class = "autoinputvalue width118", value = "", maxlength = "15", @readonly = "readonly" })
+
+                                }
+                                else
+                                {            
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].STDCode, new { value = "020", @class = "textfiled autoinputvalue", style = "width:38px; display:none; text-align:center;", @readonly = "readonly" })
+                                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Contacts[i].ContactNo, new { @class = "autoinputvalue width166", value = "", maxlength = "15", @readonly = "readonly" })
+                                }
+                            </td>
+                        </tr>
+                       } 
+                    }
+                </table>
+            </li>
+            <li>
+                <label id="lblECEmail1" class="width83">
+                    Email1</label>
+                @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Email1, new { @class = "autoinputvalue generalfield width203", @readonly = "readonly" })
+            </li>
+            @if (string.IsNullOrEmpty(Model.UserProfile.UserEmergencyContactPerson.Email2))
+            {    
+                <li id="URECliEmail2a" style="display: none">
+                    <label id="lblECEmail2a" class="width83" style="">
+                        Email2</label>
+                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Email2, new { @class = "autoinputvalue generalfield width203", @readonly = "readonly" })
+                </li>
+            }
+            else
+            {
+                <li id="URECliEmail2">
+                    <label id="lblECEmail2" class="width83" style="">
+                        Email2</label>
+                    @Html.TextBoxFor(model => Model.UserProfile.UserEmergencyContactPerson.Email2, new { @class = "autoinputvalue generalfield width203", @readonly = "readonly" })
+                </li> 
+            }
+        </ul>
+        <div class="clr">
+        </div>
+    </div>
+    <div class="clr">
+    </div>
+</div>

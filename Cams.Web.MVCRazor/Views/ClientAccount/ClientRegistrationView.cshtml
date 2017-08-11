@@ -1,0 +1,241 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Common
+@using Cams.Web.MVCRazor
+@{
+    ViewBag.Title = "ClientRegistrationView";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+@section Scripts
+{
+    <script type="text/javascript">
+        function SetAddressContactDivHeight(divCmpnyAddClientId, divCmpnyCntsClientId) {
+            var divCmpnyAdd = $('#' + divCmpnyAddClientId);
+            var divCmpnyCnts = $('#' + divCmpnyCntsClientId);
+            var height = divCmpnyCnts.height();
+            if (divCmpnyAdd.height() > height) {
+                height = divCmpnyAdd.height();
+            }
+            divCmpnyAdd.height(height);
+            divCmpnyCnts.height(height);
+            
+        }
+    </script>
+    <script type="text/javascript">
+
+        function nextTab() {
+            var currentIndex = $('#hdnCurrentTab').val();
+            var nextTabIndex = (currentIndex && currentIndex != '') ? parseInt(currentIndex) + 1 : 0;
+            nextTabIndex = (nextTabIndex == 7) ? 6 : nextTabIndex;
+            $('#hdnCurrentTab').val(nextTabIndex);
+            $("ul.tabs").tabs("div.panes > div.panes-data",
+                {
+                    initialIndex: parseInt(nextTabIndex)
+                });
+        }
+
+        function previousTab() {
+            var currentIndex = $('#hdnCurrentTab').val();
+            var prevTabIndex = (currentIndex && currentIndex != '') ? parseInt(currentIndex) - 1 : 0;
+            prevTabIndex = (prevTabIndex == -1) ? 0 : prevTabIndex;
+            $('#hdnCurrentTab').val(prevTabIndex);
+            $("ul.tabs").tabs("div.panes > div.panes-data",
+                {
+                    initialIndex: parseInt(prevTabIndex)
+                });
+            }
+
+
+            $(document).ready(function () {
+                var additionalCostForEmployees = $('#txtAdditionalCostForEmployees').val();
+                var additionalCostForAuditors = $('#txtAdditionalCostForAuditors').val();
+                var additionalCostForAssociates = $('#txtAdditionalCostForAssociates').val();
+                var totalAdditionalCost = $('#txtTotalAdditionalCost').val();
+                var totalSubscriptionFees = $('#txtTotalSubscriptionFees').val();
+                var discountInRupees = $('#txtDiscountInRupees').val();
+                var serviceTax = $('#txtServiceTax').val();
+                var otherTax = $('#txtOtherTax').val();
+                var netAmount = $('#txtNetAmount').val();
+
+                $('#txtAdditionalCostForEmployees').val(parseFloat(additionalCostForEmployees).toFixed(2));
+                $('#txtAdditionalCostForAuditors').val(parseFloat(additionalCostForAuditors).toFixed(2));
+                $('#txtAdditionalCostForAssociates').val(parseFloat(additionalCostForAssociates).toFixed(2));
+                $('#txtTotalAdditionalCost').val(parseFloat(totalAdditionalCost).toFixed(2));
+                $('#txtTotalSubscriptionFees').val(parseFloat(totalSubscriptionFees).toFixed(2));
+                $('#txtDiscountInRupees').val(parseFloat(discountInRupees).toFixed(2));
+                $('#txtServiceTax').val(parseFloat(serviceTax).toFixed(2));
+                $('#txtOtherTax').val(parseFloat(otherTax).toFixed(2));
+                $('#txtNetAmount').val(parseFloat(netAmount).toFixed(2));
+                HighlightSuperAdminMainMenu('#mnuClientSub');
+                SetAddressContactDivHeight('divCompanyAddress', 'divCompanyContacts');
+               
+                var currentIndex = $('#hdnCurrentTab').val();
+                var activeTab = currentIndex;
+                if (activeTab != null) {
+                    $("ul.tabs").tabs("div.panes > div.panes-data", {
+                        initialIndex: parseInt(activeTab),
+                         onBeforeClick: function (event, tabIndex) {
+                        currentIndex = this.getIndex();
+                        $('#hdnCurrentTab').val(parseInt(tabIndex));
+                    },
+                        onClick: function () {
+                            currentIndex = this.getIndex();
+                            var tabIndex = $('#hdnCurrentTab').val();
+                            SetHeightofAddressAndContacts(tabIndex);
+                        }
+                    });}
+            });
+
+
+            function SetHeightofAddressAndContacts(tabIndex) {
+                switch (tabIndex) {
+                    case "1": 
+                        SetAddressContactDivHeight('divPrimaryContactsAddress', 'divPrimaryContactsContacts');
+                        break;
+                    case "2":
+                        SetAddressContactDivHeight('divAPMCAddress', 'divAPMCContacts');
+                        break;
+                }
+            }
+
+
+            function OnEditClick(s, e) {
+                s.SetNavigateUrl(s.GetNavigateUrl() + '&caid=' + $('#CAId').val());
+                return true;
+            }
+    </script>
+}
+@section PanelPartial
+{
+    <!-- the tabs -->
+    <ul class="tabs">
+        <li><a href="#">@ClientResources.CLRCompanyProfile</a></li>
+        <li><a href="#">@ClientResources.CLRPCPH1</a></li>
+        <li><a href="#">@ClientResources.CLRApmcDetails</a></li>
+        <li><a href="#">@ClientResources.CLRBusinessConstitution</a></li>
+        <li><a href="#">@ClientResources.CLRSubscriptionDetails</a></li>
+        <li><a href="#">@ClientResources.CLRPaymentDetails</a></li>
+        <li><a href="#">@ClientResources.CLRAccountManager</a></li>
+    </ul>
+}
+@section MainBody
+{
+    <div class="page-data fl">
+        <div class="panes">
+            <div class="panes-data" id="CompanyProfile">
+                <h1>
+                    Client Registration View
+                </h1>
+                <div style="background: #fffcfc; color: #FF0000">@Html.ValidationSummary(false)</div>
+                @if (TempData["Success"] != null)
+                {
+                    <div class="response-msg success-msg">
+                        <span>@TempData["Success"].ToString()</span>
+                    </div>
+                }
+                <div class="Form-Wrap">
+                    <div class="groupfieldset">
+                        <ul class="reset leftfield fl" style="width: 60%;">
+                            <li>
+                                <label id="lblDisplayClientId" class="width110">@ClientResources.CLRClientID
+                                </label>
+                                @Html.TextBoxFor(model => model.DisplayClientId, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblName" class="width110">@ClientResources.CLRName
+                                </label>
+                                <input type="text" value="M/s." style="width: 23px" class="autoinputvalue" />
+                                @Html.TextBoxFor(model => model.CompanyName, new { @class = "required width145 autoinputvalue", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblCompanyAlias" class="width110">@ClientResources.CLRAlias</label>
+                                @Html.TextBoxFor(model => model.Alias, new { @class = "required width145 autoinputvalue", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblCompanyPAN" class="width110">@ClientResources.CLRPAN</label>
+                                @Html.TextBoxFor(model => model.PAN, new { @class = "required width145 autoinputvalue", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <label id="lblCompanyTAN" class="width110">@ClientResources.CLRTAN</label>
+                                @Html.TextBoxFor(model => model.TAN, new { @class = "required width145 autoinputvalue", @readonly = "readonly" })
+                            </li>
+                        </ul>
+                        <ul class="reset rightfield fr" style="width: 40%;">
+                            <li>
+                                <label id="lblCompanyRegistrationDate" class="width110">@ClientResources.CLRRegistrationDate
+                                </label>
+                                @Html.TextBoxFor(model => model.RegistrationDateString, new { @class = "autoinputvalue width145", @readonly = "readonly" })
+                            </li>
+                            <li>
+                                <div class="profile-img fl">
+                                    @{
+                                        var imagePath = "../../Content/UploadedImages/ClientAccount/clientlogo.jpg";
+                                        if (@Model.Image != null)
+                                        {
+                                            imagePath = "../../Content/UploadedImages/ClientAccount/" + @Model.Image;
+                                        }
+                                        <img alt="" id="previewLogo" src="@imagePath" align="left" />
+                                    }
+                                    <br />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="divCompanyAddress" class="groupfieldset groupfieldsetcol fl">
+                        @Html.Partial("AddressReadOnlyView", Model.CompanyAddress)
+                    </div>
+                    <div id="divCompanyContacts" class="groupfieldset groupfieldsetcol fr">
+                        @Html.Partial("ContactsReadOnlyView", Model.CompanyContacts)
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("PrimaryContactPersonView", Model)
+            @Html.Partial("APMCDetailsView", Model)
+            @Html.Partial("BusinessConstitutionListView", Model)
+            @Html.Partial("SubscriptionDetailsView", Model)
+            @Html.Partial("ClientSubscriptionPaymentDetailsView", Model.ClientSubscriptionPaymentDetailsModel)
+            @Html.Partial("AccountManagerView", Model.AccountManager)
+        </div>       
+        <div class="clr">
+        </div>
+        <div>
+        <br/>
+        @Html.DevExpress().HyperLink(linkSettings =>
+                {
+                    linkSettings.Name = "EditButton";                    
+                    linkSettings.Properties.Style.CssClass = "button_Edit";
+                    linkSettings.Properties.ClientSideEvents.Click = "OnEditClick";
+                    linkSettings.NavigateUrl = Url.Action("EditClientIndex", "ClientAccount", new { mode = "edit" });
+                }).GetHtml()
+            <table style="width: 100%">
+                <tr>
+                    <td style="width: 20%">
+                        <ul class="reset input-botton" style="text-align: left;">
+                            <li><a href="javascript:previousTab()">
+                                <img src="../../Content/Images/Control/btn-previous-icon.gif" alt="previous" /></a> </li>
+                        </ul>
+                    </td>
+                    <td style="width: 60%">
+                        <ul class="reset input-botton" style="text-align: center;">
+                            <li>
+                                <br />
+                            </li>
+                            <li>
+                                <br />
+                                <div class="text-link">
+                                    @Html.ActionLink(ClientResources.CancelbtnText, "ClientsIndex", new { usertype = Request.QueryString["usertype"] })
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="width: 20%">
+                        <ul class="reset input-botton" style="text-align: right;">
+                            <li><a href="javascript:nextTab()"><img src="../../Content/Images/Control/btn-next-icon.gif" alt="next"/></a> </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+@Html.HiddenFor(model => model.hdnCurrentTab)
+ @Html.HiddenFor(model => model.CAId)

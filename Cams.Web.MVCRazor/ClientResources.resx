@@ -1,0 +1,1392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SAMActivityLog" xml:space="preserve">
+    <value>Activity Log</value>
+  </data>
+  <data name="AgriErp" xml:space="preserve">
+    <value>AgriERP</value>
+  </data>
+  <data name="APMC" xml:space="preserve">
+    <value>APMC</value>
+  </data>
+  <data name="BankBranch" xml:space="preserve">
+    <value>Bank &amp; Branch</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="ClientRegistration" xml:space="preserve">
+    <value>Client Registration</value>
+  </data>
+  <data name="SAMCommodity" xml:space="preserve">
+    <value>Commodity</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>ack' Technologies Pvt. Ltd.</value>
+  </data>
+  <data name="CopyRight" xml:space="preserve">
+    <value>Copyright 2011 ack' Technologies Pvt. Ltd. All rights reserved.</value>
+  </data>
+  <data name="SAMCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Dialack" xml:space="preserve">
+    <value>Dial ack</value>
+  </data>
+  <data name="SAMDistrict" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="LGForgotUserNamePassWord" xml:space="preserve">
+    <value>Forgot Username / Password?</value>
+  </data>
+  <data name="HelpForPage" xml:space="preserve">
+    <value>Help for this page</value>
+  </data>
+  <data name="LoggedInAs" xml:space="preserve">
+    <value>Logged in as:</value>
+  </data>
+  <data name="LGLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Manageackusers" xml:space="preserve">
+    <value>Manage ack users</value>
+  </data>
+  <data name="ManageClientUsers" xml:space="preserve">
+    <value>Manage Client Users</value>
+  </data>
+  <data name="SAMMasters" xml:space="preserve">
+    <value>Masters</value>
+  </data>
+  <data name="LGPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SAMPlace" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="SAMState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="SAMSubscriptionRenewal" xml:space="preserve">
+    <value>Subscription Renewal</value>
+  </data>
+  <data name="TechnicalSupport" xml:space="preserve">
+    <value>Technical Support</value>
+  </data>
+  <data name="SAMUserGroups" xml:space="preserve">
+    <value>User &amp; Groups</value>
+  </data>
+  <data name="LGUserName" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="SAMUserRegistration" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="SAMackAccount" xml:space="preserve">
+    <value>ack Account</value>
+  </data>
+  <data name="ClientAccount" xml:space="preserve">
+    <value>Client Account</value>
+  </data>
+  <data name="SAMGroupRegistration" xml:space="preserve">
+    <value>Manage Groups</value>
+  </data>
+  <data name="CredentialsIncorrect" xml:space="preserve">
+    <value>Incorrect Username or Password</value>
+  </data>
+  <data name="LGLoginFailed" xml:space="preserve">
+    <value>Login failed</value>
+  </data>
+  <data name="ValidatePassword" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="ValidateUserName" xml:space="preserve">
+    <value>Username is required</value>
+  </data>
+  <data name="CLMAccounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="CLMControlPanel" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="CLMMIS" xml:space="preserve">
+    <value>MIS</value>
+  </data>
+  <data name="CLMTransactions" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="CLMReports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="CLMUtilities" xml:space="preserve">
+    <value>Utilities</value>
+  </data>
+  <data name="SAMClientAccount" xml:space="preserve">
+    <value>Client Account</value>
+  </data>
+  <data name="PICancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PICancelText" xml:space="preserve">
+    <value>Or Click here to</value>
+  </data>
+  <data name="PIlblAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="PIlblBloodGroup" xml:space="preserve">
+    <value>Blood Group</value>
+  </data>
+  <data name="PIlblCityVillage" xml:space="preserve">
+    <value>City / Village</value>
+  </data>
+  <data name="PIlblCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="PIlblDistrict" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="PIlblGender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="PIlblMaritalStatus" xml:space="preserve">
+    <value>Marital Status</value>
+  </data>
+  <data name="PIlblPAN" xml:space="preserve">
+    <value>PAN</value>
+  </data>
+  <data name="PIlblPIMobileNumber" xml:space="preserve">
+    <value>Mobile No.</value>
+  </data>
+  <data name="PIlblPin" xml:space="preserve">
+    <value>PIN</value>
+  </data>
+  <data name="PIlblState" xml:space="preserve">
+    <value>State/UT</value>
+  </data>
+  <data name="PIlblUID" xml:space="preserve">
+    <value>UID</value>
+  </data>
+  <data name="URABNegative" xml:space="preserve">
+    <value>AB-</value>
+  </data>
+  <data name="URABPositive" xml:space="preserve">
+    <value>AB+</value>
+  </data>
+  <data name="URActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="URANegative" xml:space="preserve">
+    <value>A-</value>
+  </data>
+  <data name="URAPositive" xml:space="preserve">
+    <value>A+</value>
+  </data>
+  <data name="URBNegative" xml:space="preserve">
+    <value>B-</value>
+  </data>
+  <data name="URBPositive" xml:space="preserve">
+    <value>B+</value>
+  </data>
+  <data name="URCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="URCancelText" xml:space="preserve">
+    <value>Or Click here to </value>
+  </data>
+  <data name="URCapture" xml:space="preserve">
+    <value>Capture</value>
+  </data>
+  <data name="URFemale" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="URInactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="URlblClientIDName" xml:space="preserve">
+    <value>Client ID / Name</value>
+  </data>
+  <data name="URlblDateofBirth" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="URlblDesignation" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+  <data name="URlblEmail" xml:space="preserve">
+    <value>eMail</value>
+  </data>
+  <data name="URlblFullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="URlblMothersMaidenName" xml:space="preserve">
+    <value>Mother's maiden name</value>
+  </data>
+  <data name="URlblStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="URlblURMobileNumber" xml:space="preserve">
+    <value>Mobile No.</value>
+  </data>
+  <data name="URlblUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="URMale" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="URMarried" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="URMr" xml:space="preserve">
+    <value>Mr.</value>
+  </data>
+  <data name="URMrs" xml:space="preserve">
+    <value>Mrs.</value>
+  </data>
+  <data name="URMs" xml:space="preserve">
+    <value>Ms.</value>
+  </data>
+  <data name="URMss" xml:space="preserve">
+    <value>M/s.</value>
+  </data>
+  <data name="URONegative" xml:space="preserve">
+    <value>O-</value>
+  </data>
+  <data name="UROPositive" xml:space="preserve">
+    <value>O+</value>
+  </data>
+  <data name="URSingle" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="URUpload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="URTabPersonalInformation" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="URTabRegistration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="URtxtCountryOption" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="AstCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="AstName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AstState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="AstUT" xml:space="preserve">
+    <value>Union Territory</value>
+  </data>
+  <data name="AstAddState" xml:space="preserve">
+    <value>Add State</value>
+  </data>
+  <data name="AstValidateRegionName" xml:space="preserve">
+    <value>State/Union Territory name required.</value>
+  </data>
+  <data name="UGCreateUserGroup" xml:space="preserve">
+    <value>Create User Group</value>
+  </data>
+  <data name="UGDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="UGGroupName" xml:space="preserve">
+    <value>Group Name</value>
+  </data>
+  <data name="UGErrorRequiredGroupName" xml:space="preserve">
+    <value>Group name required</value>
+  </data>
+  <data name="UserGroupAdded" xml:space="preserve">
+    <value>User Group : '{0}' is added to list</value>
+  </data>
+  <data name="UGResgistrationFailed" xml:space="preserve">
+    <value>User Group registration failed</value>
+  </data>
+  <data name="CntAgeStd" xml:space="preserve">
+    <value>Age Standard</value>
+  </data>
+  <data name="CntCallingCode" xml:space="preserve">
+    <value>Calling Code</value>
+  </data>
+  <data name="CntCountryName" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CntCurrency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="CntCurrencyCode" xml:space="preserve">
+    <value>Currency Code</value>
+  </data>
+  <data name="CntFinancialYear" xml:space="preserve">
+    <value>Financial Year</value>
+  </data>
+  <data name="CntGoBack" xml:space="preserve">
+    <value>Go Back</value>
+  </data>
+  <data name="CntMsg" xml:space="preserve">
+    <value>To make any changes to Country Details. Please contact ack</value>
+  </data>
+  <data name="CntStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="CntSymbol" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
+  <data name="CntTimeZone" xml:space="preserve">
+    <value>Time Zone</value>
+  </data>
+  <data name="CntCountryDetails" xml:space="preserve">
+    <value>Country Details</value>
+  </data>
+  <data name="EClblContactPerson" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="EClblECRelationship" xml:space="preserve">
+    <value>Relationship</value>
+  </data>
+  <data name="ECOptionBrother" xml:space="preserve">
+    <value>Brother</value>
+  </data>
+  <data name="ECOptionFather" xml:space="preserve">
+    <value>Father</value>
+  </data>
+  <data name="ECOptionFriend" xml:space="preserve">
+    <value>Friend</value>
+  </data>
+  <data name="ECOptionMother" xml:space="preserve">
+    <value>Mother</value>
+  </data>
+  <data name="ECOptionSister" xml:space="preserve">
+    <value>Sister</value>
+  </data>
+  <data name="ContactNoTypeFaxNo" xml:space="preserve">
+    <value>Fax No.</value>
+  </data>
+  <data name="ContactNoTypeMobile" xml:space="preserve">
+    <value>Mobile No.</value>
+  </data>
+  <data name="ContactNoTypeOfficeNo" xml:space="preserve">
+    <value>Office No.</value>
+  </data>
+  <data name="ContactNoTypeResNo" xml:space="preserve">
+    <value>Resi. No.</value>
+  </data>
+  <data name="PIlblPIEmail" xml:space="preserve">
+    <value>eMail</value>
+  </data>
+  <data name="URlblURUserGroup" xml:space="preserve">
+    <value>User Group</value>
+  </data>
+  <data name="URMinAgeLimit" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="URTabEmergencyContact" xml:space="preserve">
+    <value>Emergency Contact</value>
+  </data>
+  <data name="UGLGridAssignRoles" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="UGLGridDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="UGLGridMembers" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="UGLGridRoles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="UGLGridUpdateRoles" xml:space="preserve">
+    <value>Update Roles</value>
+  </data>
+  <data name="UGLGridUserGroups" xml:space="preserve">
+    <value>User Groups</value>
+  </data>
+  <data name="UGListTitle" xml:space="preserve">
+    <value>User Group List</value>
+  </data>
+  <data name="ULGridFullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="ULGridLoginStatus" xml:space="preserve">
+    <value>Login Status</value>
+  </data>
+  <data name="ULGridMobileNo" xml:space="preserve">
+    <value>Mobile No.</value>
+  </data>
+  <data name="ULGridRoles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="ULGridUserGroup" xml:space="preserve">
+    <value>User Group</value>
+  </data>
+  <data name="ULGridUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="UListTitle" xml:space="preserve">
+    <value>User List</value>
+  </data>
+  <data name="ULGridEmail" xml:space="preserve">
+    <value>eMail</value>
+  </data>
+  <data name="ULGridAssignRoles" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="ULGridLocked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="ULGridOpen" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="ULGridUpdateRoles" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="EClblAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="EClblCityVillage" xml:space="preserve">
+    <value>City / Village</value>
+  </data>
+  <data name="EClblCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="EClblDistrict" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="EClblECEmail" xml:space="preserve">
+    <value>eMail</value>
+  </data>
+  <data name="EClblPin" xml:space="preserve">
+    <value>PIN</value>
+  </data>
+  <data name="EClblState" xml:space="preserve">
+    <value>State/UT</value>
+  </data>
+  <data name="PIrbtnGenderFemale" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="PIrbtnGenderMale" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="PIrbtnMaritalStatusMarried" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="PIrbtnMaritalStatusSingle" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="URrbtnStatusActive" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="URrbtnStatusInactive" xml:space="preserve">
+    <value>false</value>
+  </data>
+  <data name="SAMClients" xml:space="preserve">
+    <value>Manage Clients</value>
+  </data>
+  <data name="SAMClientSubscription" xml:space="preserve">
+    <value>Client Subscription</value>
+  </data>
+  <data name="ULGridUpdateGroups" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="ULGridUserGroups" xml:space="preserve">
+    <value>User Groups</value>
+  </data>
+  <data name="UGActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="UGInActive" xml:space="preserve">
+    <value>InActive</value>
+  </data>
+  <data name="UGStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="URContactInformationEC" xml:space="preserve">
+    <value>EC</value>
+  </data>
+  <data name="URContactInformationPI" xml:space="preserve">
+    <value>PI</value>
+  </data>
+  <data name="UGLGridActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="UGLGridInActive" xml:space="preserve">
+    <value>InActive</value>
+  </data>
+  <data name="ULGridActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="ULGridInActive" xml:space="preserve">
+    <value>InActive</value>
+  </data>
+  <data name="ULGridAssignGroups" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="StateSaved" xml:space="preserve">
+    <value>{0} : '{1}' is added to list</value>
+  </data>
+  <data name="AddDistHeaderH1" xml:space="preserve">
+    <value>Add District</value>
+  </data>
+  <data name="AddDistlblCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="HeaderDateFormat" xml:space="preserve">
+    <value>ddd, MMM dd, yyyy hh:mm tt</value>
+  </data>
+  <data name="CLMZone" xml:space="preserve">
+    <value>Zone</value>
+  </data>
+  <data name="AddZoneCancelLinkText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AddZoneCancelText" xml:space="preserve">
+    <value>Or Click here to</value>
+  </data>
+  <data name="AddZonelblStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="AddZonelblZone" xml:space="preserve">
+    <value>Zone</value>
+  </data>
+  <data name="AddZonelblZonefor" xml:space="preserve">
+    <value>Zone For </value>
+  </data>
+  <data name="AddZonerbtnTextActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AddZonerbtnTextInactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="ZoneListH1" xml:space="preserve">
+    <value>Zone List</value>
+  </data>
+  <data name="ZoneListlblZoneFor" xml:space="preserve">
+    <value>Zone For:</value>
+  </data>
+  <data name="ZoneListZoneSaved" xml:space="preserve">
+    <value>'{0}' for {1} is added to the list</value>
+  </data>
+  <data name="AddZoneH1" xml:space="preserve">
+    <value>Add Zone</value>
+  </data>
+  <data name="CommodityListH1" xml:space="preserve">
+    <value>Commodity List</value>
+  </data>
+  <data name="AddCommodityCancelBtnText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AddCommodityCancelText" xml:space="preserve">
+    <value>Or Click here to</value>
+  </data>
+  <data name="AddCommodityH1" xml:space="preserve">
+    <value>Add Commodity</value>
+  </data>
+  <data name="AddCommoditylblBotinicalName" xml:space="preserve">
+    <value>Botanical Name</value>
+  </data>
+  <data name="AddCommoditylblCommodity" xml:space="preserve">
+    <value>Commodity</value>
+  </data>
+  <data name="AddCommoditylblCommodityClass" xml:space="preserve">
+    <value>Commodity Class</value>
+  </data>
+  <data name="AddCommoditylblStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="AddCommodityrbtnTextActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AddCommodityrbtnTextInactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="URAgeInYearsMonths" xml:space="preserve">
+    <value>&lt;b&gt;{0}&lt;/b&gt; years &lt;b&gt;{1}&lt;/b&gt; months</value>
+  </data>
+  <data name="AddCommoditySaved" xml:space="preserve">
+    <value>Commodity '{0}' successfully added to  '{1}' class</value>
+  </data>
+  <data name="InValidUserAge" xml:space="preserve">
+    <value>Age should be minumum {0}</value>
+  </data>
+  <data name="AddLCTH1" xml:space="preserve">
+    <value>Add Labour Charge</value>
+  </data>
+  <data name="AddLCTlblLabourCharge" xml:space="preserve">
+    <value>Labour charge</value>
+  </data>
+  <data name="lblPayableto" xml:space="preserve">
+    <value>Payable to</value>
+  </data>
+  <data name="CancelbtnText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CancelString" xml:space="preserve">
+    <value>Or Click here to</value>
+  </data>
+  <data name="CLMLabourChargeTypes" xml:space="preserve">
+    <value>Labour Charges</value>
+  </data>
+  <data name="lblDerivative" xml:space="preserve">
+    <value>Derivative</value>
+  </data>
+  <data name="lblStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="LCTLH1" xml:space="preserve">
+    <value>Labour Charge List</value>
+  </data>
+  <data name="RadiobtnActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="RadiobtnInactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="RadiobtnNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="RadiobtnYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="LCTDerivative2" xml:space="preserve">
+    <value>Derivative 2</value>
+  </data>
+  <data name="LCTlblDerivative1" xml:space="preserve">
+    <value>Derivative 1</value>
+  </data>
+  <data name="LCTlblDerivative2" xml:space="preserve">
+    <value>Derivative 2</value>
+  </data>
+  <data name="AddLCTSaved" xml:space="preserve">
+    <value>Labour charge saved successfully</value>
+  </data>
+  <data name="AddMUH1" xml:space="preserve">
+    <value>Measuring Unit List</value>
+  </data>
+  <data name="AddMUlblUnitType" xml:space="preserve">
+    <value>Unit Type :</value>
+  </data>
+  <data name="CLMSellingUnit" xml:space="preserve">
+    <value>Selling Unit</value>
+  </data>
+  <data name="MUlblQuantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="MUlblWeight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="MUAddH1" xml:space="preserve">
+    <value>Add Measuring Unit</value>
+  </data>
+  <data name="MUListlblUnitType" xml:space="preserve">
+    <value>Unit Type</value>
+  </data>
+  <data name="MUTextKg" xml:space="preserve">
+    <value>Kg</value>
+  </data>
+  <data name="MUTextPieces" xml:space="preserve">
+    <value>Pieces</value>
+  </data>
+  <data name="MUSaved" xml:space="preserve">
+    <value>Measuring Unit '{0}' of type '{1}' saved successfully</value>
+  </data>
+  <data name="APMCSaved" xml:space="preserve">
+    <value>APMC '{0}' saved successfully</value>
+  </data>
+  <data name="APMCActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="APMCAdd" xml:space="preserve">
+    <value>Add APMC</value>
+  </data>
+  <data name="APMCAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="APMCCityVillage" xml:space="preserve">
+    <value>City / Village</value>
+  </data>
+  <data name="APMCCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="APMCDistricts" xml:space="preserve">
+    <value>Districts</value>
+  </data>
+  <data name="APMCEmail1" xml:space="preserve">
+    <value>eMail1</value>
+  </data>
+  <data name="APMCEmail2" xml:space="preserve">
+    <value>eMail2</value>
+  </data>
+  <data name="APMCInactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="APMCPin" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="APMCState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="APMCStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="APMCWebsite" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="APMCListH1" xml:space="preserve">
+    <value>APMC List</value>
+  </data>
+  <data name="SAMAPMC" xml:space="preserve">
+    <value>APMC</value>
+  </data>
+  <data name="BBRAdd" xml:space="preserve">
+    <value>Add Bank Branch</value>
+  </data>
+  <data name="BBRAlias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="BBRBank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="BBRBranch" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="BBRBreak" xml:space="preserve">
+    <value>Break</value>
+  </data>
+  <data name="BBRFullDay" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="BBRHalfDay" xml:space="preserve">
+    <value>Half Day</value>
+  </data>
+  <data name="BBRIFSC" xml:space="preserve">
+    <value>IFSC</value>
+  </data>
+  <data name="BBRIndia" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="BBRMICR" xml:space="preserve">
+    <value>MICR</value>
+  </data>
+  <data name="BBRSWIFTCode" xml:space="preserve">
+    <value>SWIFT Code</value>
+  </data>
+  <data name="BBRTo" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="BBRWorkingHours" xml:space="preserve">
+    <value>Working Hours</value>
+  </data>
+  <data name="Email1" xml:space="preserve">
+    <value>eMail1</value>
+  </data>
+  <data name="Email2" xml:space="preserve">
+    <value>eMail2</value>
+  </data>
+  <data name="WebSiteURL" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="BankBranchAdded" xml:space="preserve">
+    <value>'{0}' branch of '{1}' bank is added to the list.</value>
+  </data>
+  <data name="BBRCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="BBRListH1" xml:space="preserve">
+    <value>Bank &amp; Branch List</value>
+  </data>
+  <data name="CityVillageAdded" xml:space="preserve">
+    <value>{0} : '{1}' is added to list</value>
+  </data>
+  <data name="ACPPPlace" xml:space="preserve">
+    <value>Place is required</value>
+  </data>
+  <data name="ACPPStdCode" xml:space="preserve">
+    <value>STD code is required</value>
+  </data>
+  <data name="ADPPDesignation" xml:space="preserve">
+    <value>Designation is required</value>
+  </data>
+  <data name="AUGPPUserGroupName" xml:space="preserve">
+    <value>UserGroup name is required</value>
+  </data>
+  <data name="ViewCommodityH1" xml:space="preserve">
+    <value>View Commodity</value>
+  </data>
+  <data name="ZoneViewH1" xml:space="preserve">
+    <value>View Zone</value>
+  </data>
+  <data name="LCTViewH1" xml:space="preserve">
+    <value>View Labour Charge</value>
+  </data>
+  <data name="MUViewH1" xml:space="preserve">
+    <value>View Measuring Unit</value>
+  </data>
+  <data name="UpdateCommoditySaved" xml:space="preserve">
+    <value>Commodity '{0}' updated successfully.</value>
+  </data>
+  <data name="ZoneListZoneUpdated" xml:space="preserve">
+    <value>Zone '{0}' updated successfully</value>
+  </data>
+  <data name="AddLCTUpdated" xml:space="preserve">
+    <value>Labour charge updated successfully</value>
+  </data>
+  <data name="MUUpdate" xml:space="preserve">
+    <value>Measuring Unit updated successfully</value>
+  </data>
+  <data name="BBRView" xml:space="preserve">
+    <value>View Bank Branch</value>
+  </data>
+  <data name="MasterViewBankAndBranch" xml:space="preserve">
+    <value>Bank &amp; Branch</value>
+  </data>
+  <data name="APMCUpdated" xml:space="preserve">
+    <value>APMC '{0}' updated successfully</value>
+  </data>
+  <data name="BankBranchUpdated" xml:space="preserve">
+    <value>'{0}' branch of '{1}' bank is updated successfully.</value>
+  </data>
+  <data name="URClientId" xml:space="preserve">
+    <value>Client ID</value>
+  </data>
+  <data name="URClientName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="URClientPlace" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="UGViewUserGroup" xml:space="preserve">
+    <value>View User Group</value>
+  </data>
+  <data name="UserGroupUpdated" xml:space="preserve">
+    <value>UserGroup: {0} updated successfully.</value>
+  </data>
+  <data name="UGEditUserGroup" xml:space="preserve">
+    <value>Edit User Group</value>
+  </data>
+  <data name="AddUserRegistrationH1" xml:space="preserve">
+    <value>User Registration</value>
+  </data>
+  <data name="APMCEdit" xml:space="preserve">
+    <value>Edit APMC</value>
+  </data>
+  <data name="AstEditState" xml:space="preserve">
+    <value>Edit State</value>
+  </data>
+  <data name="BBREdit" xml:space="preserve">
+    <value>Edit Bank Branch</value>
+  </data>
+  <data name="EditCommodityH1" xml:space="preserve">
+    <value>Edit Commodity</value>
+  </data>
+  <data name="EditLCTH1" xml:space="preserve">
+    <value>Edit Labour Charge Type</value>
+  </data>
+  <data name="EditUserRegistrationH1" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="EditZoneH1" xml:space="preserve">
+    <value>Edit Zone</value>
+  </data>
+  <data name="MUEditH1" xml:space="preserve">
+    <value>Edit Measuring Unit</value>
+  </data>
+  <data name="AccountLocked" xml:space="preserve">
+    <value>Your account is locked. Try to log in after 1 hour.</value>
+  </data>
+  <data name="GroupRoles" xml:space="preserve">
+    <value>Group Roles</value>
+  </data>
+  <data name="UserRoles" xml:space="preserve">
+    <value>User Roles</value>
+  </data>
+  <data name="AuthorizationFailMessage" xml:space="preserve">
+    <value>You are not authorized to acces the requested page.</value>
+  </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Password changed successfully</value>
+  </data>
+  <data name="LoggedInWithSameAccount" xml:space="preserve">
+    <value>You are already logged in with same account</value>
+  </data>
+  <data name="CHPConfiremNewPassword" xml:space="preserve">
+    <value>Confirm New Password</value>
+  </data>
+  <data name="CHPCurrentPassword" xml:space="preserve">
+    <value>Current Password</value>
+  </data>
+  <data name="CHPNewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="CHPPasswordContents" xml:space="preserve">
+    <value>Password should include Uppercase/Lowercase letters, Numerals and Symbols.</value>
+  </data>
+  <data name="CHPPasswordEXample" xml:space="preserve">
+    <value>For e.g. : password@123,Pswd@123</value>
+  </data>
+  <data name="CHPPasswordLength" xml:space="preserve">
+    <value>Password should contain 6 – 12 characters.</value>
+  </data>
+  <data name="CHPPasswordSpace" xml:space="preserve">
+    <value>Space is not allowed.</value>
+  </data>
+  <data name="CLRPCPH1" xml:space="preserve">
+    <value>Primary Contact Person</value>
+  </data>
+  <data name="CLRAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="CLRAlias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="CLRClientID" xml:space="preserve">
+    <value>Client ID</value>
+  </data>
+  <data name="CLRCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CLRName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CLRPAN" xml:space="preserve">
+    <value>PAN</value>
+  </data>
+  <data name="CLRPin" xml:space="preserve">
+    <value>PIN</value>
+  </data>
+  <data name="CLRRegistrationDate" xml:space="preserve">
+    <value>Registration Date</value>
+  </data>
+  <data name="CLRTAN" xml:space="preserve">
+    <value>TAN</value>
+  </data>
+  <data name="CLRAccountManager" xml:space="preserve">
+    <value>Account Manager</value>
+  </data>
+  <data name="CLRApmcDetails" xml:space="preserve">
+    <value>APMC Details</value>
+  </data>
+  <data name="CLRBusinessConstitution" xml:space="preserve">
+    <value>Business Constitution</value>
+  </data>
+  <data name="CLRCompanyProfile" xml:space="preserve">
+    <value>Company Profile</value>
+  </data>
+  <data name="CLRPaymentDetails" xml:space="preserve">
+    <value>Payment Details</value>
+  </data>
+  <data name="CLRSubscriptionDetails" xml:space="preserve">
+    <value>Subscription Details</value>
+  </data>
+  <data name="lblMaidenName" xml:space="preserve">
+    <value>Maiden Name</value>
+  </data>
+  <data name="SameasCompanyAddress" xml:space="preserve">
+    <value>Same as Company Address</value>
+  </data>
+  <data name="SameasCompanyContacts" xml:space="preserve">
+    <value>Same as Company Contacts</value>
+  </data>
+  <data name="CLRSDH1" xml:space="preserve">
+    <value>Subscription Details</value>
+  </data>
+  <data name="lblAssociates" xml:space="preserve">
+    <value>- Associates</value>
+  </data>
+  <data name="lblAuditors" xml:space="preserve">
+    <value>- Auditors</value>
+  </data>
+  <data name="lblOwnersEmployees" xml:space="preserve">
+    <value>- Owners + Employees</value>
+  </data>
+  <data name="lblperannum" xml:space="preserve">
+    <value>p.a.</value>
+  </data>
+  <data name="lblPremium" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="lblRenewalFeespa" xml:space="preserve">
+    <value>Renewal Fees p.a.</value>
+  </data>
+  <data name="lblrs" xml:space="preserve">
+    <value>Rs.</value>
+  </data>
+  <data name="lblSelect" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="lblStandard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="lblSubscriptionFees" xml:space="preserve">
+    <value>Subscription Fees</value>
+  </data>
+  <data name="lblTotalNoofUsers" xml:space="preserve">
+    <value>Total No. of Users</value>
+  </data>
+  <data name="PercentSign" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="Premium" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="CLRAPMCAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="CLRAPMCCommodityClass" xml:space="preserve">
+    <value>Commodity Class</value>
+  </data>
+  <data name="CLRAPMCCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CLRAPMCEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="CLRAPMCLicenseNo" xml:space="preserve">
+    <value>APMC License No.</value>
+  </data>
+  <data name="CLRAPMCMobileNo" xml:space="preserve">
+    <value>Mobile No.</value>
+  </data>
+  <data name="CLRAPMCName" xml:space="preserve">
+    <value>APMC</value>
+  </data>
+  <data name="CLRAPMCState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="CLRAPMCValidupto" xml:space="preserve">
+    <value>Valid upto</value>
+  </data>
+  <data name="Associates" xml:space="preserve">
+    <value>Associates</value>
+  </data>
+  <data name="Auditors" xml:space="preserve">
+    <value>Auditors</value>
+  </data>
+  <data name="lblAdditionalCost" xml:space="preserve">
+    <value>Additional Cost</value>
+  </data>
+  <data name="lblAdditionalUsers" xml:space="preserve">
+    <value>Additional Users</value>
+  </data>
+  <data name="lblFrom" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="lblNoofUsers" xml:space="preserve">
+    <value>No. of Users</value>
+  </data>
+  <data name="lblOwnersPlusEmployees" xml:space="preserve">
+    <value>Owners + Employees</value>
+  </data>
+  <data name="lblSubscriptionperiod" xml:space="preserve">
+    <value>Subscription Period</value>
+  </data>
+  <data name="lblTo" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="lblYear" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="NetAmount" xml:space="preserve">
+    <value>Net Amount</value>
+  </data>
+  <data name="lblAccountStatus" xml:space="preserve">
+    <value>Account Status</value>
+  </data>
+  <data name="lblActivationDate" xml:space="preserve">
+    <value>Activation Date</value>
+  </data>
+  <data name="lblAdditionalInfo" xml:space="preserve">
+    <value>Additional Info</value>
+  </data>
+  <data name="lblCalculationcolon" xml:space="preserve">
+    <value>Calculation:</value>
+  </data>
+  <data name="CLRBCH1" xml:space="preserve">
+    <value>Business Constitution</value>
+  </data>
+  <data name="lblBusinessConstitution" xml:space="preserve">
+    <value>Business Constitution</value>
+  </data>
+  <data name="lblNoofPartners" xml:space="preserve">
+    <value>No. of Partners</value>
+  </data>
+  <data name="lblSoleProprientorship" xml:space="preserve">
+    <value>Sole Proprientorship</value>
+  </data>
+  <data name="OtherTax" xml:space="preserve">
+    <value>Other Tax</value>
+  </data>
+  <data name="ServiceTax" xml:space="preserve">
+    <value>Service Tax</value>
+  </data>
+  <data name="lblAccountManager" xml:space="preserve">
+    <value>Account Manager</value>
+  </data>
+  <data name="lblEmail" xml:space="preserve">
+    <value>eMail</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AOGardianDetails" xml:space="preserve">
+    <value>Gardian Details</value>
+  </data>
+  <data name="AOPartnerDetails" xml:space="preserve">
+    <value>Partner Details</value>
+  </data>
+  <data name="AddOwner" xml:space="preserve">
+    <value>Add Owner</value>
+  </data>
+  <data name="lblRelationship" xml:space="preserve">
+    <value>Relationship</value>
+  </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="CPDAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="CPDChequeDate" xml:space="preserve">
+    <value>Cheque Date</value>
+  </data>
+  <data name="CPDChequeNo" xml:space="preserve">
+    <value>ChequeNo.</value>
+  </data>
+  <data name="CPDClearanceDate" xml:space="preserve">
+    <value>Clearance Date</value>
+  </data>
+  <data name="CPDDrawnon" xml:space="preserve">
+    <value>Drawn on</value>
+  </data>
+  <data name="CPDRTGS" xml:space="preserve">
+    <value>RTGS</value>
+  </data>
+  <data name="CPDStandardCheque" xml:space="preserve">
+    <value>Standard Cheque</value>
+  </data>
+  <data name="CSPDAdditionalInfo" xml:space="preserve">
+    <value>Additional Info</value>
+  </data>
+  <data name="CSPDCash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="CSPDCheque" xml:space="preserve">
+    <value>Cheque</value>
+  </data>
+  <data name="CSPDDD" xml:space="preserve">
+    <value>DD</value>
+  </data>
+  <data name="CSPDNetAmount" xml:space="preserve">
+    <value>Net Amount</value>
+  </data>
+  <data name="CSPDOnline" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="CSPDPaidBy" xml:space="preserve">
+    <value>Paid By</value>
+  </data>
+  <data name="CSPDTDS" xml:space="preserve">
+    <value>TDS</value>
+  </data>
+  <data name="CSPDTotalAmount" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="DDPDAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="DDPDddDate" xml:space="preserve">
+    <value>DD Date</value>
+  </data>
+  <data name="DDPDddNo" xml:space="preserve">
+    <value>DD No.</value>
+  </data>
+  <data name="DDPDPurchasedon" xml:space="preserve">
+    <value>Purchased on</value>
+  </data>
+  <data name="OPDAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="OPDBank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="OPDNEFT" xml:space="preserve">
+    <value>NEFT</value>
+  </data>
+  <data name="OPDReceiptDate" xml:space="preserve">
+    <value>Receipt Date</value>
+  </data>
+  <data name="OPDRTGS" xml:space="preserve">
+    <value>RTGS</value>
+  </data>
+  <data name="OPDTransactionNo" xml:space="preserve">
+    <value>Transaction No.</value>
+  </data>
+  <data name="CLRError" xml:space="preserve">
+    <value>Client registration failed.</value>
+  </data>
+  <data name="CLRSuccess" xml:space="preserve">
+    <value>Client registered successfully.</value>
+  </data>
+  <data name="lblFarewellDate" xml:space="preserve">
+    <value>Farewell Date</value>
+  </data>
+  <data name="lblJoiningDate" xml:space="preserve">
+    <value>Joining Date</value>
+  </data>
+  <data name="BRTabClientProfile" xml:space="preserve">
+    <value>Business Profile</value>
+  </data>
+  <data name="BRTabPhoneCharges" xml:space="preserve">
+    <value>Phone Charges</value>
+  </data>
+  <data name="BRTabSisterConcerns" xml:space="preserve">
+    <value>Sister Concerns</value>
+  </data>
+  <data name="BRTabSubscription" xml:space="preserve">
+    <value>Subscription Details</value>
+  </data>
+  <data name="BRTabTaxation" xml:space="preserve">
+    <value>Taxation &amp; Licenses</value>
+  </data>
+  <data name="CLRSaveAndContinue" xml:space="preserve">
+    <value>Save &amp; continue</value>
+  </data>
+  <data name="CLRSaveAndSubmit" xml:space="preserve">
+    <value>Save &amp; submit</value>
+  </data>
+  <data name="CLRSaveasdraft" xml:space="preserve">
+    <value>Save as draft</value>
+  </data>
+</root>

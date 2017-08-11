@@ -1,0 +1,345 @@
+﻿@using Cams.Common;
+@using Cams.Web.MVCRazor
+@using Cams.Web.MVCRazor.Helpers
+@model Cams.Web.MVCRazor.Models.Shared.BankBranchModel
+           
+@{
+    ViewBag.Title = "AddBankBranch";
+    if (!Cams.Common.Helper.IsCAIdNotNull((Cams.Common.Dto.User.UserDto)Session[Cams.Common.Constants.SKCURRENTUSER]))
+    {
+        Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/ClientMaster.cshtml";
+    }
+}
+
+@section Scripts
+{
+    <script src=@Url.Content("~/Scripts/JS/ContactDetails.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/StateDistrictVillage.js") type="text/javascript"></script>
+    <script src=@Url.Content("~/Scripts/JS/BankBranchScripts.js") type="text/javascript"></script>
+    <script type="text/javascript">
+        function cmbBankSelect() {
+            var item = cmbBank.GetSelectedItem();
+
+            if (item.texts[1] != null) {
+                $('#BranchOfBank_Alias').val(item.texts[1]);
+                $('#BranchOfBank_URL').val(item.texts[2]);
+            }
+        }
+    </script>
+
+}
+
+@section MainBody
+{
+    <div class="page-data fl">
+        <div class="panes">
+            @using (Html.BeginForm("AddBankBranch", "BankBranch", FormMethod.Post))
+            {
+                <div class="panes-data">
+                    <h1>
+                        @ClientResources.BBRView</h1>
+                        
+                    <div class="Form-Wrap">
+                <div class="groupfieldset">
+                  <ul class="reset onecolfield fl">
+                    <li>
+                      <div class="fl">
+                      <table><tr>
+                      <td>
+                        <label id="lblBank" style="width:78px">@ClientResources.BBRBank</label>
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.BranchOfBank.BankName, new { @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                        </td>
+                        </tr></table>
+                      </div>
+                      <div style="margin-right: 14px;" class="fr">
+                        <label id="lbl_Alias" style="width:63px">@ClientResources.BBRAlias</label>
+                        @*<input name="txt_Alias"  type="text" class="required width135" id="txt_Alias" value="" maxlength="10"/>*@
+                        @Html.TextBoxFor(model => model.BranchOfBank.Alias, new { @class = "autoinputvalue width135", @readonly = "readonly" })
+                      </div>
+                    </li>
+                    <li>
+                      <div class="fl">
+                        <label id="lbl_Branch" class="width80">@ClientResources.BBRBranch</label>
+                        @*<input name="txt_Branch"  type="text" class="required width365" id="txt_Branch" value="" maxlength="40"/>*@
+                        @Html.TextBoxFor(model => model.Name, new { @class = "autoinputvalue width365", @readonly = "readonly" })
+                      </div>
+                    </li>
+
+                    <li>
+                      <div class="fl">
+                        <label id="lbl_IFSC" class="width80">@ClientResources.BBRIFSC</label>
+                        @*<input name="txt_IFSC"  type="text" class="textfiled width135" id="txt_IFSC" value="" maxlength="15"/>*@
+                         @Html.TextBoxFor(model => model.IFSCCode, new { @class = "autoinputvalue width135", @readonly = "readonly" })
+                      </div>
+                      <div class="fl">
+                        <label id="lbl_MICR" class="width80">@ClientResources.BBRMICR</label>
+                        @*<input name="txt_MICR"  type="text" class="textfiled width135" id="txt_MICR" value="" maxlength="10"/>*@
+                         @Html.TextBoxFor(model => model.MICRCode, new { @class = "autoinputvalue width135", @readonly = "readonly" })
+                      </div>
+                      <div class="f1">
+                        <label id="lbl_RTGS" class="width80">@ClientResources.BBRSWIFTCode</label>
+                        @*<input name="txt_RTGS"  type="text" class="textfiled width135" id="txt_RTGS" value="" maxlength="11"/>*@
+                        @Html.TextBoxFor(model => model.SWIFTCode, new { @class = "autoinputvalue width135", @readonly = "readonly" })
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="clr"></div>
+                <div class="groupfieldset groupfieldsetcol fl" >
+                    <ul class="reset onecolfield">
+                    <li>
+                        <label class="width80" id="lblPIAddress">@ClientResources.PIlblAddress</label>
+                        @Html.TextAreaFor(model => model.BranchAddress.AddressLine1, new { @class = "textarea autoinputvalue width195", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label class="width80">@ClientResources.PIlblCountry</label>
+                        <span class="autoinputvalue width90">@ClientResources.BBRIndia</span>            
+                    </li>  
+                    <li>
+                        <label class="width80">@ClientResources.PIlblState</label>
+                        @Html.TextBoxFor(model => model.BranchAddress.CityVillage.DistrictOfCityVillage.StateOfDistrict.RegionName, new { @class = "autoinputvalue width195", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label class="width80">@ClientResources.PIlblDistrict</label>
+                        @Html.TextBoxFor(model => model.BranchAddress.CityVillage.DistrictOfCityVillage.DistrictName, new { @class = "autoinputvalue width195", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label class="width80">@Model.BranchAddress.CityVillage.CityOrVillage</label>
+                        @Html.TextBoxFor(model => model.BranchAddress.CityVillage.Name, new { @class = "autoinputvalue width195", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label class="width80">@ClientResources.PIlblPin</label>
+                        @Html.TextBoxFor(model => model.BranchAddress.PIN, new { @class = "autoinputvalue width110", @readonly = "readonly" })
+                    </li>
+                    </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="groupfieldset groupfieldsetcol fr" style="min-height:196px;">
+                 <ul class="reset onecolfield fl">
+                    <li>
+                    <input id="BBrCurrentIndex" type="hidden" value="@Model.BranchContactNos.Count" />
+                    <table id="BBrContacts">
+                        @{ if (Model.BranchContactNos.Count > 0)
+                           {
+
+                               for (int i = 0; i < Model.BranchContactNos.Count; i++)
+                               {
+                                    <tr>
+                                        <td class="width90">    
+                                            <label class="width80">
+                                            @{if (Model.BranchContactNos[i].ContactNoType == ContactType.MobileNo) { @ClientResources.ContactNoTypeMobile; }
+                                            else if (Model.BranchContactNos[i].ContactNoType == ContactType.OfficeNo) { @ClientResources.ContactNoTypeOfficeNo; }
+                                            else if (Model.BranchContactNos[i].ContactNoType == ContactType.ResidenceNo) { @ClientResources.ContactNoTypeResNo; }
+                                              else { @ClientResources.ContactNoTypeFaxNo; }}
+                                            </label>
+                                            @*@Html.TextBoxFor(model => Model.BranchContactNos[i].ContactNoType, new { @class = "autoinputvalue", style = "width:90px;", @readonly = "readonly" })*@
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.BranchContactNos[i].CountryCallingCode, new { value = "+91", @class = "autoinputvalue", style = "width:28px;", @readonly = "readonly" })
+                                        </td>
+                                        
+                                            @{string displaystring = string.Empty; if (Model.BranchContactNos[i].ContactNoType != Cams.Common.ContactType.MobileNo) { displaystring = "display:block;"; } else { displaystring = "display:none;"; }}
+                                            @if (displaystring == "display:block;")
+                                            {
+                                                <td>
+                                                    @Html.TextBoxFor(model => Model.BranchContactNos[i].STDCode, new { value = "020", @class = "autoinputvalue", style = "width:30px; text-align:center;" + displaystring, @readonly = "readonly" })
+                                                </td>
+                                            }
+                                            @if (displaystring == "display:block;")
+                                            {
+                                            <td>
+                                                @Html.TextBoxFor(model => Model.BranchContactNos[i].ContactNo, new { @class = "autoinputvalue", style = "width:130px", maxlength = "15", @readonly = "readonly" })
+                                            </td>
+                                            }
+                                            else
+                                            {
+                                                <td colspan="2">
+                                                    @Html.TextBoxFor(model => Model.BranchContactNos[i].ContactNo, new { @class = "autoinputvalue", style = "width:169px", maxlength = "15", @readonly = "readonly" })
+                                                </td>
+                                            }
+                                            
+                                        
+                                    </tr>
+                               }
+                           }
+                       }  
+                    </table>
+                    </li>
+                    <li>
+                        <label id="lblEmail1" class="width83">@ClientResources.Email1</label>
+                        @Html.TextBoxFor(model => Model.Email1, new { @class = "autoinputvalue width203", @readonly = "readonly" })
+                    </li>
+                    <li id="BBrEmail2" style="display:none">
+                        <label id="lblEmail2" class="width83" style="">@ClientResources.Email2</label>
+                        @Html.TextBoxFor(model => Model.Email2, new { @class = "autoinputvalue width203", @readonly = "readonly" })
+                    </li>
+                    <li>
+                        <label id="lblBankUrl" class="width83" style="">@ClientResources.WebSiteURL</label>
+                        @Html.TextBoxFor(model => Model.BranchOfBank.URL, new { @class = "autoinputvalue width203", @readonly = "readonly" })
+                    </li>
+                    
+                    </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="groupfieldset">
+                  <div class="BankFieldborder">
+
+                  @Html.DevExpress().PageControl(
+                    settings =>
+                    {
+                        settings.Name = "pcFeatures";
+                        settings.TabAlign = TabAlign.Left;
+                        settings.TabPosition = TabPosition.Top;
+                        settings.TabPages.Add("Weekly Off").SetContent(() =>
+                        {
+                            ViewContext.Writer.Write("<table width=\"100%\" ><tr ><td width=\"25px\" height=\"5px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsMonday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Monday&nbsp;");
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDaysCHK\" width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsTuesday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Tuesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsWednesday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Wednesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsThursday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Thursday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsFriday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Friday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsSaturday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Saturday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyOffDay.IsSunday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Sunday&nbsp;");
+                            ViewContext.Writer.Write("</td><td></tr></table>");
+                        });
+                        settings.TabPages.Add("Half Day").SetContent(() =>
+                        {
+                            ViewContext.Writer.Write("<table width=\"100%\"><tr><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsMonday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Monday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsTuesday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Tuesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsWednesday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Wednesday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsThursday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Thursday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsFriday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Friday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsSaturday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Saturday&nbsp;");
+                            ViewContext.Writer.Write("</td><td width=\"25px\">&nbsp;");
+                            ViewContext.Writer.Write(Html.CheckBoxFor(m => m.WeeklyHalfDay.IsSunday, new { @class = "autoinputvalue", disabled = "disabled" }));
+                            ViewContext.Writer.Write("</td><td class=\"BankWorkingDays\" width=\"70px\" align=\"left\">");
+                            ViewContext.Writer.Write("Sunday&nbsp;");
+                            ViewContext.Writer.Write("</td><td></tr></table>");
+
+                        });
+                    }).GetHtml()
+                                        
+                  </div><div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="groupfieldset">
+                  <div class="BankFieldborder">
+                  <table class="reset onecolfield fl">
+                    <tr style="margin-bottom:0;"><td>
+                      <label class="width75 fl">@ClientResources.BBRWorkingHours</label>
+                      </td><td>
+                      <table class="BankFieldborder1 fl">
+                      <tr>
+                        <td><span class="width75 inline-block">@ClientResources.BBRFullDay</span></td>
+                        <td>
+                            @Html.TextBoxFor(model => Model.FullDayTimeFromString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                        </td>
+                        <td><label class="reset-label">@ClientResources.BBRTo</label>
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => Model.FullDayTimeToString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><label class="reset-label">@ClientResources.BBRBreak</label></td>
+                        <td>
+                            @Html.TextBoxFor(model => Model.FullDayBreakFromString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                        </td>
+                        <td><label class="reset-label">@ClientResources.BBRTo</label>
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => Model.FullDayBreakToString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                        </td>
+                        </tr>
+                        <tr>
+                            <td><span class="width75 inline-block">@ClientResources.BBRHalfDay</span></td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.HalfDayTimeFromString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                            </td>
+                            <td><label class="reset-label">@ClientResources.BBRTo</label>
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.HalfDayTimeToString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                            </td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td><label class="reset-label">@ClientResources.BBRBreak</label></td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.HalfDayBreakFromString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                            </td>
+                            <td><label class="reset-label">@ClientResources.BBRTo</label>
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.HalfDayBreakToString, new { @class = "timeControl autoinputvalue", style = "width:84px !important", @readonly = "readonly" })
+                            </td>
+                        </tr></table>
+                        </td>
+                      </tr>
+                      <tr><td>&nbsp;</td></tr>
+                      </table>
+                     
+                <div class="clr"></div>
+                <ul class="reset input-botton">
+                    <li>
+                        @Html.ActionLink(" ", "AddBankBranchIndex", "BankBranch", new { mode = "edit", branchid = Model.BranchId.ToString() }, new { @class = "button_Edit", style = "margin-left:auto; margin-right:auto;" })
+                        <div class="text-link">@ClientResources.CancelString&nbsp;<a href="#" tabindex = "13">@Html.ActionLink(ClientResources.CancelbtnText, "BankBranchListIndex", "BankBranch")</a></div>
+                    </li>
+                </ul>
+            </div>
+                </div>
+            
+        </div>
+    </div>
+                           if (!String.IsNullOrEmpty(Model.Email2))
+                           { 
+                    <script type="text/javascript" language="javascript">
+                        showEmail2('#BBrEmail2');
+                    </script>
+                           }
+            }
+                </div>
+                </div>
+}

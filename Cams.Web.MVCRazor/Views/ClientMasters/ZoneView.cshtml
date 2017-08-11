@@ -1,0 +1,73 @@
+﻿@using Cams.Web.MVCRazor;
+@model Cams.Web.MVCRazor.Models.ClientMasters.ZoneModel
+
+@{
+    ViewBag.Title = "ZoneView";
+    Layout = "~/Views/Shared/ClientMaster.cshtml";
+}
+@section Scripts{
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/content/css/style.css")/>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            HighlightClientAdminMainMenu('#mnuMasters');
+        });
+    </script>
+}
+      <div class="page-data fl">
+      @using (Html.BeginForm("EditZone", "ClientMasters", FormMethod.Post))
+      {
+        <div class="panes">
+          <div class="panes-data">
+            <h1>@ClientResources.ZoneViewH1</h1>
+            @if (ViewData["Error"] != null)
+            {
+                <div class="response-msg error-msg">
+                    <span>@ViewData["Error"].ToString()</span>
+                    <br />
+                    <span>@Html.ValidationSummary(true)</span>
+                </div>
+            }
+            <div style="background:#fffcfc;color:#FF0000">@Html.ValidationSummary(false)</div>
+            @if (TempData["Success"] != null)
+            {
+                <div class="response-msg success-msg">
+                    <span>@TempData["Success"].ToString()</span>
+                </div>
+            }
+
+            <div class="Form-Wrap">
+              
+                <ul class="reset onecolfield fl">
+                  <li>
+                    <label id="lblZonefor" class="width75">@ClientResources.AddZonelblZonefor</label>
+                    @Html.TextBoxFor(model => model.ZoneFor, new { name = "txtZoneFor", id = "txtZoneFor", value = "", maxlength = "30", @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                  </li>
+                  <li>
+                    <div class="fl">
+                      <label id="lblZone" class="width75">@ClientResources.AddZonelblZone</label>
+                      @Html.TextBoxFor(model => model.Name, new { name = "txtZone", id = "txtZone", value = "", maxlength = "30", @readonly = "readonly", @class = "autoinputvalue", style = "width:250;" })
+                    </div>
+                    <div class="clr"></div>
+                  </li>
+                  <li>
+                    <label id="lblStatus" class="width85 label-radio-pad">@ClientResources.AddZonelblStatus</label>
+                    @Html.RadioButtonFor(model => model.IsActive, true, new { @class = "radio-botton", id = "rbtnActiveStatus", name = "rbtnStatus", @readonly = "readonly", disabled = "disabled" })
+                    <label class="label-radio fl">@ClientResources.AddZonerbtnTextActive</label>
+                    @Html.RadioButtonFor(model => model.IsActive, false, new { @class = "radio-botton", id = "rbtnInactiveStatus", name = "rbtnStatus", @readonly = "readonly", disabled = "disabled" })
+                    <label class="label-radio fl">@ClientResources.AddZonerbtnTextInactive</label>
+                    <div class="clr"></div>
+                  </li>
+                  </ul>
+                  <div class="clr"></div>
+                  <ul class="reset input-botton">
+                   <li>
+                      @Html.ActionLink(" ", "AddZoneIndex", "ClientMasters", new { mode = "edit", zoneid = Model.ZoneId.ToString() }, new { style = "background:url('../content/images/control/btn-edit.jpg'); background-repeat:no-repeat; display:block; height:25px; color:White; text-align:center; width:100px; margin-left:auto; margin-right:auto;" })
+                      <div class="text-link">@ClientResources.CancelString&nbsp;@Html.ActionLink(ClientResources.CancelbtnText, "ZoneListIndex", "ClientMasters")</div>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      }
+      </div>

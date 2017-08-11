@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="96b30922-b568-4548-9e13-0b517d2e4b77" name="Sagar.Kulkarni@ACKCEZIONE7 2012-03-29 17:02:53" runUser="ACKCEZIONE\Sagar.Kulkarni" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="2f3ab211-9129-46ab-87e4-4332742e1f1b">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Sagar.Kulkarni_ACKCEZIONE7 2012-03-29 17_02_53">
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Extension\bin\Debug\Cams.Extension.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\FluentNHibernate.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Common\bin\Debug\Cams.Common.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Libs\Iesi.Collections.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.WcfService\bin\Cams.WcfService.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\NHibernate.ByteCode.Castle.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\Common.Logging.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\Spring.Core.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Libs\Castle.Core.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\NHibernate.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Domain\bin\Debug\Cams.Domain.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.Dal\bin\Debug\Cams.Dal.dll" />
+      <DeploymentItem filename="D:\DND\CAMS\CAMS\Cams.UnitTests\bin\Debug\log4net.dll" />
+    </Deployment>
+    <Execution hostProcessPlatform="MSIL">
+      <Hosts>
+        <AspNet name="ASP.NET" executionType="WebDev" />
+      </Hosts>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+      </TestTypeSpecific>
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-29T17:02:53.9090000+05:30" queuing="2012-03-29T17:03:00.9020000+05:30" start="2012-03-29T17:03:03.3490000+05:30" finish="2012-03-29T17:03:26.0390000+05:30" />
+  <ResultSummary outcome="Aborted">
+    <Counters total="68" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="67" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="UpdateBankBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="602524c9-1191-b81f-54fb-a83a8cc28dfa">
+      <Execution id="8e350fcf-088e-4903-a1b9-ce6003670d50" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateBankBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdates1" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="1220822f-7ade-a5dc-3dc0-c74c8ee4ae23">
+      <Execution id="de59f149-b348-4f15-843b-d4d30bebfa05" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdates1" />
+    </UnitTest>
+    <UnitTest name="FindDistricts" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="9927c0e2-6555-07c1-24dc-85b0aa383948">
+      <Execution id="4123164a-8fae-4a0f-b49f-8c310d5ab0df" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindDistricts" />
+    </UnitTest>
+    <UnitTest name="CreateBranch" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="134539ca-342d-b3fd-0afe-6079fec3df38">
+      <Execution id="58c3719c-c635-4952-aa32-26512ef41a46" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateBranch" />
+    </UnitTest>
+    <UnitTest name="UpdateClient" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="249228b9-b3cd-de95-a511-61f434eac4c6">
+      <Execution id="349959f2-01e7-4c7e-b65f-4f83f22bd004" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientRegistrationServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateClient" />
+    </UnitTest>
+    <UnitTest name="TestFindByQueryBankList" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="eae97f7c-fc52-a8a3-a92a-bb3963525838">
+      <Execution id="80fed0eb-0439-4519-b2fb-ccb253a1f69e" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestFindByQueryBankList" />
+    </UnitTest>
+    <UnitTest name="GetUserById" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="d165b5d0-298b-55b7-da96-f7ff4b902a59">
+      <Execution id="cca8d7a9-1b6c-4f3d-acc3-ff2fadaabbe8" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetUserById" />
+    </UnitTest>
+    <UnitTest name="UpdateBankCreatedByClientUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="8627ebc0-df91-1bcb-333e-cbade4de85c8">
+      <Execution id="64ce77ed-7c2f-44fd-a358-d20c0ea9bb1a" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateBankCreatedByClientUser" />
+    </UnitTest>
+    <UnitTest name="FindAllChargesPayableTo" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="88b9ee92-c436-2596-c852-70e7cc331036">
+      <Execution id="bd3de01a-a416-4a92-8aba-834314fe8136" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UnitTest1, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindAllChargesPayableTo" />
+    </UnitTest>
+    <UnitTest name="FindAll" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="7d7ecdad-b2f8-34cc-8060-549877d4f5b6">
+      <Execution id="60e38f9e-31b3-4c38-82b2-f3f939233621" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.RoleServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindAll" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesBankChangesNameButBankNamePresentwithDifferentID" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="9006c47c-47ba-d3cc-6094-a3c33d755452">
+      <Execution id="22808fc6-28fe-41fc-8703-9284172e35ce" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesBankChangesNameButBankNamePresentwithDifferentID" />
+    </UnitTest>
+    <UnitTest name="UpdateZone" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="e87e22d6-fb16-f660-f8d0-7d50453bd471">
+      <Execution id="1873cde7-5524-4f1d-8192-235e99d370bb" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateZone" />
+    </UnitTest>
+    <UnitTest name="CreateUserWithIncompleteDetails" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="4f1657e7-dc3b-d693-79ff-2f5169ea577c">
+      <Execution id="7e2d7932-a16f-4f6b-9aa0-8360a9b148aa" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateUserWithIncompleteDetails" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesCVCreatedBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="898690c3-413f-60f7-8bcc-547e1e2301ff">
+      <Execution id="740c8058-155e-4b9b-8568-9b8f8519042b" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesCVCreatedBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="CreateNewBranchByClientUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="966f01c0-8cdf-49ec-9257-26b9c8abb816">
+      <Execution id="384a3ac0-bc10-49e5-9e12-705644a41ea0" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateNewBranchByClientUser" />
+    </UnitTest>
+    <UnitTest name="CheckLoginForValidUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="8ff09e9e-f7e5-605d-fdf6-f673842525dd">
+      <Execution id="4039254f-cbf4-41d2-89eb-e749243e2ca9" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckLoginForValidUser" />
+    </UnitTest>
+    <UnitTest name="GetUserGroupById" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="6302336f-0aa3-b877-eff3-a95974f28dc4">
+      <Execution id="3346b1b6-4644-4e2e-a9e1-93db58ab9896" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserGroupServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetUserGroupById" />
+    </UnitTest>
+    <UnitTest name="UpdateBank" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="fbb06383-74ee-697e-39b9-ddc0d7a48335">
+      <Execution id="361f5f6f-c866-46fc-8afb-203f3538cbdf" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateBank" />
+    </UnitTest>
+    <UnitTest name="CreateUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="dee8c842-56a3-1c5d-d01e-daee835fee2f">
+      <Execution id="66115f23-ff0c-482a-bb14-12612d923011" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateUser" />
+    </UnitTest>
+    <UnitTest name="FindAll" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="c3e3f92c-fd1c-7c40-75d3-b89bbf583cf5">
+      <Execution id="56bfff39-50ce-4801-8a3d-740febd17aec" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindAll" />
+    </UnitTest>
+    <UnitTest name="UpdateBranchAddedBySameClientUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="902d7981-a69d-1248-2a37-a98674dfde2c">
+      <Execution id="7cc111b8-8ca6-4ac1-9b50-1daded3e6fca" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateBranchAddedBySameClientUser" />
+    </UnitTest>
+    <UnitTest name="CreateNewCVBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="b9184647-0b59-7ee6-4443-b348d8c3b63c">
+      <Execution id="e473fabd-a39b-4be8-a063-e1684f45c285" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateNewCVBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesCVChangesNameButCVNamePresentwithDifferentID" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="29c9b5c9-1449-b647-e226-f3a1e072a9cd">
+      <Execution id="416a7321-e512-49f0-a0bc-fe8f6d80b5aa" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesCVChangesNameButCVNamePresentwithDifferentID" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesBankCreatedByHimselfButWithNameSameExistingBank" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="da63f4f8-0b17-a065-8176-7f7b4cd24582">
+      <Execution id="13ad15f3-f3de-4b30-962a-14ee014da18f" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesBankCreatedByHimselfButWithNameSameExistingBank" />
+    </UnitTest>
+    <UnitTest name="UpdateCVCreatedByClientUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="bc77522e-b396-0127-3cfe-77e9a6c1d195">
+      <Execution id="563b3dda-1409-433b-8a38-874de035eb2c" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateCVCreatedByClientUser" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesBankCreatedBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="b49aea89-c604-787f-4559-1d471a7cc89e">
+      <Execution id="6c5dbf2c-483f-47a5-b5ff-dd400b3ddf54" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesBankCreatedBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="UpdateBranchBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="4400c710-b1a0-cd4c-e77e-fc5862b83c03">
+      <Execution id="cba2d3bd-07c0-4a60-ba13-9552cb9e60fa" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateBranchBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="UpdateBankByChangingCAId" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="ab18a82c-2bb2-3fac-40c8-9de69895aa2f">
+      <Execution id="82dcc15b-4f95-4adc-935a-c8c18215d815" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateBankByChangingCAId" />
+    </UnitTest>
+    <UnitTest name="CreateNewBankBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="75b080d5-7130-7188-2f58-f5ffa35be264">
+      <Execution id="44001498-c91d-4569-b807-8a1489981551" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateNewBankBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="CreateLabourCharge" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="f61ca820-bf09-4640-68c8-c6d1a0ffb8ba">
+      <Execution id="53b826b9-1249-4a46-850c-e7867355e831" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UnitTest1, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateLabourCharge" />
+    </UnitTest>
+    <UnitTest name="CreateZone" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="6f98be28-91f6-1db2-2692-778243d66241">
+      <Execution id="06568255-abd9-4daa-9824-c35616e32f38" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateZone" />
+    </UnitTest>
+    <UnitTest name="UpdateUserGroup" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="e5281b49-ab19-36c4-14ba-1d35520afe20">
+      <Execution id="fd28fe86-df3e-4d7e-95d5-862df98cd985" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserGroupServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateUserGroup" />
+    </UnitTest>
+    <UnitTest name="FindAllUserGroups" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="465b6414-7ec5-a98d-f8ab-d6e71ca942ff">
+      <Execution id="e24a8de9-2686-4a39-84e9-b92cf6227b8b" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserGroupServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindAllUserGroups" />
+    </UnitTest>
+    <UnitTest name="CreateBankBranch" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="01c6738c-04de-0d78-8c30-d80625f3f5f5">
+      <Execution id="f4289fc0-ddbe-4918-98b9-4ed42f0c057e" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateBankBranch" />
+    </UnitTest>
+    <UnitTest name="CreateNewBankByClientUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="8188d559-27f5-42ab-5c29-e11e87276a9f">
+      <Execution id="05c1a01b-77b2-419b-b778-8488f4cc7e70" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateNewBankByClientUser" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesBankCreatedByHimself" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="331c2772-1309-029e-b525-8d2b9184c8c2">
+      <Execution id="6fe608c9-9dba-4a18-b86b-042be3fa815a" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesBankCreatedByHimself" />
+    </UnitTest>
+    <UnitTest name="CreateNewBranchBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="ad401334-e1f7-7335-ae9d-0a59c882d7a8">
+      <Execution id="921c8091-d882-40b4-a350-eb75a965e026" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateNewBranchBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="CreateNewCVByClientUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="77762e31-eeb5-4f14-2b0d-a99d75054f29">
+      <Execution id="1740b039-fbc9-49c3-b9bf-18d87b2c007c" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateNewCVByClientUser" />
+    </UnitTest>
+    <UnitTest name="GetBankId" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="3143e4b4-3449-41d2-f03d-ed1b6fce33f8">
+      <Execution id="21e96247-99be-4fbc-ac2b-46fdd644e106" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetBankId" />
+    </UnitTest>
+    <UnitTest name="CreateClient" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="39a544f5-197f-0243-5ce0-902a935ee439">
+      <Execution id="29956828-a193-4c59-8c1b-16b5f42884e6" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientRegistrationServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateClient" />
+    </UnitTest>
+    <UnitTest name="CheckLogin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="63e24212-d204-dc1c-afaf-bce0196c1ccf">
+      <Execution id="248cbbca-d02c-4ca4-bd37-9552f9ff11ac" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckLogin" />
+    </UnitTest>
+    <UnitTest name="AssignRoletoUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="653864b9-0a63-110c-b293-13ba9fafe499">
+      <Execution id="af32d000-6e8f-4451-a494-577b04c382fa" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserRolePermissionServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AssignRoletoUser" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesCVCreatedByHimself" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="6a76fe9a-0f25-7580-93f7-4b3125424a4a">
+      <Execution id="e05c6eb1-c648-490f-a0a2-9a6b72724812" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesCVCreatedByHimself" />
+    </UnitTest>
+    <UnitTest name="AssignRoletoUserGroup" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="131dee7b-93ef-feff-9a47-8469fdd4eaaf">
+      <Execution id="86473901-5945-44f8-a406-2e87bd17bbec" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserGroupServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AssignRoletoUserGroup" />
+    </UnitTest>
+    <UnitTest name="UpdateCVBySuperAdmin" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="5504cf2d-d1ad-ee69-0d98-4c950ccd86df">
+      <Execution id="59e1eb1d-e517-48f2-81d9-cd420ea87b20" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateCVBySuperAdmin" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdates1" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="3aaa4227-ed40-3c58-2e34-8d7d4cb703e5">
+      <Execution id="e34ed610-e8dd-4a85-a722-19b71014d822" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdates1" />
+    </UnitTest>
+    <UnitTest name="UpdateAPMC" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="1514bdf6-099c-1362-b0f4-c332f94632da">
+      <Execution id="ac80b4d5-bc5b-49d5-87d9-64db3b3cd9ac" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateAPMC" />
+    </UnitTest>
+    <UnitTest name="CreateCommodity" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="0cf414f6-6495-cc41-d334-d2d8b0289337">
+      <Execution id="306305c5-7dfe-4496-a235-0cb5f021d780" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.CommodityServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateCommodity" />
+    </UnitTest>
+    <UnitTest name="CheckGetAllNotification" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="77b7f0e5-fe01-5a49-ac8f-f69a0871ea24">
+      <Execution id="61d5f746-b828-4e9d-8ca1-f5ed31d770ba" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckGetAllNotification" />
+    </UnitTest>
+    <UnitTest name="FindLabourChargeTypesOnCAId" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="67891097-4376-4848-2f17-bf4fc360c3a4">
+      <Execution id="c0808738-e730-4907-86e0-2772c5b5bc58" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UnitTest1, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindLabourChargeTypesOnCAId" />
+    </UnitTest>
+    <UnitTest name="CAUserUpdatesCVCreatedByHimselfButWithNameSameExistingCityVillage" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="3a3707eb-27cf-901b-0853-02876795adcc">
+      <Execution id="8e5cca94-f3b2-43e8-97d6-b1fd15293fb3" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.MasterServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CAUserUpdatesCVCreatedByHimselfButWithNameSameExistingCityVillage" />
+    </UnitTest>
+    <UnitTest name="UpdateBankBySameCAId" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="814d65c9-2c9c-b2fa-5326-660188af4dad">
+      <Execution id="2ce54c43-0034-4dd7-9e54-617fe40734ee" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateBankBySameCAId" />
+    </UnitTest>
+    <UnitTest name="FindMeasuringUnitOnCAId" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="22997076-7fb8-a45f-a978-32af2129ff7c">
+      <Execution id="c53b1686-40d9-4a17-9132-afa41eed018a" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UnitTest1, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindMeasuringUnitOnCAId" />
+    </UnitTest>
+    <UnitTest name="UpdateLabourCharge" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="145ad90f-641e-8dbe-342e-52b51032f6f1">
+      <Execution id="f54e7a17-35c3-432f-b00e-1810dc4d637e" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UnitTest1, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateLabourCharge" />
+    </UnitTest>
+    <UnitTest name="FindBranchesOfCA" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="f83d0e52-501d-dee1-5b58-d427005a7df2">
+      <Execution id="f9060afd-d530-4782-9b91-0ad424db55c4" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindBranchesOfCA" />
+    </UnitTest>
+    <UnitTest name="CreateMeasuringUnit" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="c76c2024-8a7f-a3b8-e04b-82af9f4b148c">
+      <Execution id="1e9b7987-1128-4a51-9142-c4d0f2871c36" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UnitTest1, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateMeasuringUnit" />
+    </UnitTest>
+    <UnitTest name="UpdateUser1" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="0c2e5202-a49a-1963-9df2-3184386229f5">
+      <Execution id="d427071a-f68d-47ae-8592-a8561cfce932" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateUser1" />
+    </UnitTest>
+    <UnitTest name="GetRoleById" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="bd29d242-979c-d222-d43b-754ea9216a4c">
+      <Execution id="a1914dc8-ad3e-4593-bbbf-2ae332c3c36d" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.RoleServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRoleById" />
+    </UnitTest>
+    <UnitTest name="AddRole" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="26bb6488-6f30-59cc-5571-44d1aa503ec7">
+      <Execution id="3a0f98e4-8915-4d38-8d9d-b695df7795a9" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddRole" />
+    </UnitTest>
+    <UnitTest name="FindByQueryUserGroups" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="49c8f53d-fce5-eb79-108b-61bbe59e666f">
+      <Execution id="14f61fae-7f50-4904-8467-65b8db6c2601" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserGroupServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindByQueryUserGroups" />
+    </UnitTest>
+    <UnitTest name="CreateUserGroupWithRolePermissions" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="4d199d38-7d3f-c33f-47fc-8e055487b044">
+      <Execution id="46326484-c175-44f4-9229-dbd8fb0bb20e" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserGroupServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateUserGroupWithRolePermissions" />
+    </UnitTest>
+    <UnitTest name="CreateUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="26eec93f-f47f-a6a0-4598-b5d9fb18d63f">
+      <Execution id="fe818ce1-9dfc-433e-b7b3-7b090621f784" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserRolePermissionServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateUser" />
+    </UnitTest>
+    <UnitTest name="CreateDesignation" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="7cf6a8bf-4b6c-47b9-76f1-54c02d4eaf8a">
+      <Execution id="b6263d5a-3679-4616-bd89-7d16247d84ff" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.DesignationServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateDesignation" />
+    </UnitTest>
+    <UnitTest name="CreateUserGroup" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="cbb2fd81-0be8-0dd1-f18f-18bc705f0395">
+      <Execution id="5637aadc-48e5-40b8-a6af-1f191a606639" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserGroupServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateUserGroup" />
+    </UnitTest>
+    <UnitTest name="TestFindByQueryBankName" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="67a677d8-2f27-99b4-51d9-613a62529708">
+      <Execution id="4b71d342-ad81-499c-9a2d-0aa6b6f317af" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.ClientMastersServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestFindByQueryBankName" />
+    </UnitTest>
+    <UnitTest name="UpdateUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="f55b3d1d-939c-6aa7-e2c5-f4bbcf25fd49">
+      <Execution id="e700b2e1-e8ad-4312-9273-b5bea0d1cbc2" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateUser" />
+    </UnitTest>
+    <UnitTest name="TestFindBy" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="4ce46508-e8a8-20f3-a85d-c67c54052bdc">
+      <Execution id="b0a68aff-31c8-4036-a3bf-636431151f75" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.UserServiceTests, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestFindBy" />
+    </UnitTest>
+    <UnitTest name="UpdateDefaultRegisterBranchByClientUser" storage="d:\dnd\cams\cams\cams.unittests\bin\debug\cams.unittests.dll" id="c810cd97-429b-7256-bf13-e19c8a9e1fbd">
+      <Execution id="68acf211-88e1-462e-9aab-d47bad074443" />
+      <TestMethod codeBase="D:/DND/CAMS/CAMS/Cams.UnitTests/bin/Debug/Cams.UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Cams.UnitTests.Domain.Services.BankBranchServiceTest, Cams.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateDefaultRegisterBranchByClientUser" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="01c6738c-04de-0d78-8c30-d80625f3f5f5" executionId="f4289fc0-ddbe-4918-98b9-4ed42f0c057e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c2e5202-a49a-1963-9df2-3184386229f5" executionId="d427071a-f68d-47ae-8592-a8561cfce932" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0cf414f6-6495-cc41-d334-d2d8b0289337" executionId="306305c5-7dfe-4496-a235-0cb5f021d780" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1220822f-7ade-a5dc-3dc0-c74c8ee4ae23" executionId="de59f149-b348-4f15-843b-d4d30bebfa05" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="131dee7b-93ef-feff-9a47-8469fdd4eaaf" executionId="86473901-5945-44f8-a406-2e87bd17bbec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="134539ca-342d-b3fd-0afe-6079fec3df38" executionId="58c3719c-c635-4952-aa32-26512ef41a46" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="145ad90f-641e-8dbe-342e-52b51032f6f1" executionId="f54e7a17-35c3-432f-b00e-1810dc4d637e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1514bdf6-099c-1362-b0f4-c332f94632da" executionId="ac80b4d5-bc5b-49d5-87d9-64db3b3cd9ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="22997076-7fb8-a45f-a978-32af2129ff7c" executionId="c53b1686-40d9-4a17-9132-afa41eed018a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="249228b9-b3cd-de95-a511-61f434eac4c6" executionId="349959f2-01e7-4c7e-b65f-4f83f22bd004" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="26bb6488-6f30-59cc-5571-44d1aa503ec7" executionId="3a0f98e4-8915-4d38-8d9d-b695df7795a9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="26eec93f-f47f-a6a0-4598-b5d9fb18d63f" executionId="fe818ce1-9dfc-433e-b7b3-7b090621f784" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29c9b5c9-1449-b647-e226-f3a1e072a9cd" executionId="416a7321-e512-49f0-a0bc-fe8f6d80b5aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3143e4b4-3449-41d2-f03d-ed1b6fce33f8" executionId="21e96247-99be-4fbc-ac2b-46fdd644e106" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="331c2772-1309-029e-b525-8d2b9184c8c2" executionId="6fe608c9-9dba-4a18-b86b-042be3fa815a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="39a544f5-197f-0243-5ce0-902a935ee439" executionId="29956828-a193-4c59-8c1b-16b5f42884e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a3707eb-27cf-901b-0853-02876795adcc" executionId="8e5cca94-f3b2-43e8-97d6-b1fd15293fb3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3aaa4227-ed40-3c58-2e34-8d7d4cb703e5" executionId="e34ed610-e8dd-4a85-a722-19b71014d822" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4400c710-b1a0-cd4c-e77e-fc5862b83c03" executionId="cba2d3bd-07c0-4a60-ba13-9552cb9e60fa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="465b6414-7ec5-a98d-f8ab-d6e71ca942ff" executionId="e24a8de9-2686-4a39-84e9-b92cf6227b8b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49c8f53d-fce5-eb79-108b-61bbe59e666f" executionId="14f61fae-7f50-4904-8467-65b8db6c2601" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ce46508-e8a8-20f3-a85d-c67c54052bdc" executionId="b0a68aff-31c8-4036-a3bf-636431151f75" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d199d38-7d3f-c33f-47fc-8e055487b044" executionId="46326484-c175-44f4-9229-dbd8fb0bb20e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4f1657e7-dc3b-d693-79ff-2f5169ea577c" executionId="7e2d7932-a16f-4f6b-9aa0-8360a9b148aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5504cf2d-d1ad-ee69-0d98-4c950ccd86df" executionId="59e1eb1d-e517-48f2-81d9-cd420ea87b20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="602524c9-1191-b81f-54fb-a83a8cc28dfa" executionId="8e350fcf-088e-4903-a1b9-ce6003670d50" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6302336f-0aa3-b877-eff3-a95974f28dc4" executionId="3346b1b6-4644-4e2e-a9e1-93db58ab9896" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63e24212-d204-dc1c-afaf-bce0196c1ccf" executionId="248cbbca-d02c-4ca4-bd37-9552f9ff11ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="653864b9-0a63-110c-b293-13ba9fafe499" executionId="af32d000-6e8f-4451-a494-577b04c382fa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67891097-4376-4848-2f17-bf4fc360c3a4" executionId="c0808738-e730-4907-86e0-2772c5b5bc58" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67a677d8-2f27-99b4-51d9-613a62529708" executionId="4b71d342-ad81-499c-9a2d-0aa6b6f317af" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6a76fe9a-0f25-7580-93f7-4b3125424a4a" executionId="e05c6eb1-c648-490f-a0a2-9a6b72724812" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6f98be28-91f6-1db2-2692-778243d66241" executionId="06568255-abd9-4daa-9824-c35616e32f38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="75b080d5-7130-7188-2f58-f5ffa35be264" executionId="44001498-c91d-4569-b807-8a1489981551" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77762e31-eeb5-4f14-2b0d-a99d75054f29" executionId="1740b039-fbc9-49c3-b9bf-18d87b2c007c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77b7f0e5-fe01-5a49-ac8f-f69a0871ea24" executionId="61d5f746-b828-4e9d-8ca1-f5ed31d770ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7cf6a8bf-4b6c-47b9-76f1-54c02d4eaf8a" executionId="b6263d5a-3679-4616-bd89-7d16247d84ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d7ecdad-b2f8-34cc-8060-549877d4f5b6" executionId="60e38f9e-31b3-4c38-82b2-f3f939233621" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="814d65c9-2c9c-b2fa-5326-660188af4dad" executionId="2ce54c43-0034-4dd7-9e54-617fe40734ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8188d559-27f5-42ab-5c29-e11e87276a9f" executionId="05c1a01b-77b2-419b-b778-8488f4cc7e70" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8627ebc0-df91-1bcb-333e-cbade4de85c8" executionId="64ce77ed-7c2f-44fd-a358-d20c0ea9bb1a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="88b9ee92-c436-2596-c852-70e7cc331036" executionId="bd3de01a-a416-4a92-8aba-834314fe8136" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="898690c3-413f-60f7-8bcc-547e1e2301ff" executionId="740c8058-155e-4b9b-8568-9b8f8519042b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8ff09e9e-f7e5-605d-fdf6-f673842525dd" executionId="4039254f-cbf4-41d2-89eb-e749243e2ca9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9006c47c-47ba-d3cc-6094-a3c33d755452" executionId="22808fc6-28fe-41fc-8703-9284172e35ce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="902d7981-a69d-1248-2a37-a98674dfde2c" executionId="7cc111b8-8ca6-4ac1-9b50-1daded3e6fca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="966f01c0-8cdf-49ec-9257-26b9c8abb816" executionId="384a3ac0-bc10-49e5-9e12-705644a41ea0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9927c0e2-6555-07c1-24dc-85b0aa383948" executionId="4123164a-8fae-4a0f-b49f-8c310d5ab0df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ab18a82c-2bb2-3fac-40c8-9de69895aa2f" executionId="82dcc15b-4f95-4adc-935a-c8c18215d815" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ad401334-e1f7-7335-ae9d-0a59c882d7a8" executionId="921c8091-d882-40b4-a350-eb75a965e026" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b49aea89-c604-787f-4559-1d471a7cc89e" executionId="6c5dbf2c-483f-47a5-b5ff-dd400b3ddf54" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9184647-0b59-7ee6-4443-b348d8c3b63c" executionId="e473fabd-a39b-4be8-a063-e1684f45c285" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bc77522e-b396-0127-3cfe-77e9a6c1d195" executionId="563b3dda-1409-433b-8a38-874de035eb2c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bd29d242-979c-d222-d43b-754ea9216a4c" executionId="a1914dc8-ad3e-4593-bbbf-2ae332c3c36d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c3e3f92c-fd1c-7c40-75d3-b89bbf583cf5" executionId="56bfff39-50ce-4801-8a3d-740febd17aec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c76c2024-8a7f-a3b8-e04b-82af9f4b148c" executionId="1e9b7987-1128-4a51-9142-c4d0f2871c36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c810cd97-429b-7256-bf13-e19c8a9e1fbd" executionId="68acf211-88e1-462e-9aab-d47bad074443" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbb2fd81-0be8-0dd1-f18f-18bc705f0395" executionId="5637aadc-48e5-40b8-a6af-1f191a606639" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d165b5d0-298b-55b7-da96-f7ff4b902a59" executionId="cca8d7a9-1b6c-4f3d-acc3-ff2fadaabbe8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da63f4f8-0b17-a065-8176-7f7b4cd24582" executionId="13ad15f3-f3de-4b30-962a-14ee014da18f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dee8c842-56a3-1c5d-d01e-daee835fee2f" executionId="66115f23-ff0c-482a-bb14-12612d923011" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e5281b49-ab19-36c4-14ba-1d35520afe20" executionId="fd28fe86-df3e-4d7e-95d5-862df98cd985" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e87e22d6-fb16-f660-f8d0-7d50453bd471" executionId="1873cde7-5524-4f1d-8192-235e99d370bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eae97f7c-fc52-a8a3-a92a-bb3963525838" executionId="80fed0eb-0439-4519-b2fb-ccb253a1f69e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f55b3d1d-939c-6aa7-e2c5-f4bbcf25fd49" executionId="e700b2e1-e8ad-4312-9273-b5bea0d1cbc2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f61ca820-bf09-4640-68c8-c6d1a0ffb8ba" executionId="53b826b9-1249-4a46-850c-e7867355e831" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f83d0e52-501d-dee1-5b58-d427005a7df2" executionId="f9060afd-d530-4782-9b91-0ad424db55c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fbb06383-74ee-697e-39b9-ddc0d7a48335" executionId="361f5f6f-c866-46fc-8afb-203f3538cbdf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="f4289fc0-ddbe-4918-98b9-4ed42f0c057e" testId="01c6738c-04de-0d78-8c30-d80625f3f5f5" testName="CreateBankBranch" computerName="ACKCEZIONE7" duration="00:00:12.2740000" startTime="2012-03-29T17:03:03.3870000+05:30" endTime="2012-03-29T17:03:15.6610000+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4289fc0-ddbe-4918-98b9-4ed42f0c057e">
+      <Output>
+        <ErrorInfo>
+          <Message>User aborted test run.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d427071a-f68d-47ae-8592-a8561cfce932" testId="0c2e5202-a49a-1963-9df2-3184386229f5" testName="UpdateUser1" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d427071a-f68d-47ae-8592-a8561cfce932">
+    </UnitTestResult>
+    <UnitTestResult executionId="306305c5-7dfe-4496-a235-0cb5f021d780" testId="0cf414f6-6495-cc41-d334-d2d8b0289337" testName="CreateCommodity" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="306305c5-7dfe-4496-a235-0cb5f021d780">
+    </UnitTestResult>
+    <UnitTestResult executionId="de59f149-b348-4f15-843b-d4d30bebfa05" testId="1220822f-7ade-a5dc-3dc0-c74c8ee4ae23" testName="CAUserUpdates1" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de59f149-b348-4f15-843b-d4d30bebfa05">
+    </UnitTestResult>
+    <UnitTestResult executionId="86473901-5945-44f8-a406-2e87bd17bbec" testId="131dee7b-93ef-feff-9a47-8469fdd4eaaf" testName="AssignRoletoUserGroup" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="86473901-5945-44f8-a406-2e87bd17bbec">
+    </UnitTestResult>
+    <UnitTestResult executionId="58c3719c-c635-4952-aa32-26512ef41a46" testId="134539ca-342d-b3fd-0afe-6079fec3df38" testName="CreateBranch" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="58c3719c-c635-4952-aa32-26512ef41a46">
+    </UnitTestResult>
+    <UnitTestResult executionId="f54e7a17-35c3-432f-b00e-1810dc4d637e" testId="145ad90f-641e-8dbe-342e-52b51032f6f1" testName="UpdateLabourCharge" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f54e7a17-35c3-432f-b00e-1810dc4d637e">
+    </UnitTestResult>
+    <UnitTestResult executionId="ac80b4d5-bc5b-49d5-87d9-64db3b3cd9ac" testId="1514bdf6-099c-1362-b0f4-c332f94632da" testName="UpdateAPMC" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac80b4d5-bc5b-49d5-87d9-64db3b3cd9ac">
+    </UnitTestResult>
+    <UnitTestResult executionId="c53b1686-40d9-4a17-9132-afa41eed018a" testId="22997076-7fb8-a45f-a978-32af2129ff7c" testName="FindMeasuringUnitOnCAId" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c53b1686-40d9-4a17-9132-afa41eed018a">
+    </UnitTestResult>
+    <UnitTestResult executionId="349959f2-01e7-4c7e-b65f-4f83f22bd004" testId="249228b9-b3cd-de95-a511-61f434eac4c6" testName="UpdateClient" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="349959f2-01e7-4c7e-b65f-4f83f22bd004">
+    </UnitTestResult>
+    <UnitTestResult executionId="3a0f98e4-8915-4d38-8d9d-b695df7795a9" testId="26bb6488-6f30-59cc-5571-44d1aa503ec7" testName="AddRole" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a0f98e4-8915-4d38-8d9d-b695df7795a9">
+    </UnitTestResult>
+    <UnitTestResult executionId="fe818ce1-9dfc-433e-b7b3-7b090621f784" testId="26eec93f-f47f-a6a0-4598-b5d9fb18d63f" testName="CreateUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fe818ce1-9dfc-433e-b7b3-7b090621f784">
+    </UnitTestResult>
+    <UnitTestResult executionId="416a7321-e512-49f0-a0bc-fe8f6d80b5aa" testId="29c9b5c9-1449-b647-e226-f3a1e072a9cd" testName="CAUserUpdatesCVChangesNameButCVNamePresentwithDifferentID" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="416a7321-e512-49f0-a0bc-fe8f6d80b5aa">
+    </UnitTestResult>
+    <UnitTestResult executionId="21e96247-99be-4fbc-ac2b-46fdd644e106" testId="3143e4b4-3449-41d2-f03d-ed1b6fce33f8" testName="GetBankId" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="21e96247-99be-4fbc-ac2b-46fdd644e106">
+    </UnitTestResult>
+    <UnitTestResult executionId="6fe608c9-9dba-4a18-b86b-042be3fa815a" testId="331c2772-1309-029e-b525-8d2b9184c8c2" testName="CAUserUpdatesBankCreatedByHimself" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6fe608c9-9dba-4a18-b86b-042be3fa815a">
+    </UnitTestResult>
+    <UnitTestResult executionId="29956828-a193-4c59-8c1b-16b5f42884e6" testId="39a544f5-197f-0243-5ce0-902a935ee439" testName="CreateClient" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="29956828-a193-4c59-8c1b-16b5f42884e6">
+    </UnitTestResult>
+    <UnitTestResult executionId="8e5cca94-f3b2-43e8-97d6-b1fd15293fb3" testId="3a3707eb-27cf-901b-0853-02876795adcc" testName="CAUserUpdatesCVCreatedByHimselfButWithNameSameExistingCityVillage" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e5cca94-f3b2-43e8-97d6-b1fd15293fb3">
+    </UnitTestResult>
+    <UnitTestResult executionId="e34ed610-e8dd-4a85-a722-19b71014d822" testId="3aaa4227-ed40-3c58-2e34-8d7d4cb703e5" testName="CAUserUpdates1" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e34ed610-e8dd-4a85-a722-19b71014d822">
+    </UnitTestResult>
+    <UnitTestResult executionId="cba2d3bd-07c0-4a60-ba13-9552cb9e60fa" testId="4400c710-b1a0-cd4c-e77e-fc5862b83c03" testName="UpdateBranchBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cba2d3bd-07c0-4a60-ba13-9552cb9e60fa">
+    </UnitTestResult>
+    <UnitTestResult executionId="e24a8de9-2686-4a39-84e9-b92cf6227b8b" testId="465b6414-7ec5-a98d-f8ab-d6e71ca942ff" testName="FindAllUserGroups" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e24a8de9-2686-4a39-84e9-b92cf6227b8b">
+    </UnitTestResult>
+    <UnitTestResult executionId="14f61fae-7f50-4904-8467-65b8db6c2601" testId="49c8f53d-fce5-eb79-108b-61bbe59e666f" testName="FindByQueryUserGroups" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="14f61fae-7f50-4904-8467-65b8db6c2601">
+    </UnitTestResult>
+    <UnitTestResult executionId="b0a68aff-31c8-4036-a3bf-636431151f75" testId="4ce46508-e8a8-20f3-a85d-c67c54052bdc" testName="TestFindBy" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0a68aff-31c8-4036-a3bf-636431151f75">
+    </UnitTestResult>
+    <UnitTestResult executionId="46326484-c175-44f4-9229-dbd8fb0bb20e" testId="4d199d38-7d3f-c33f-47fc-8e055487b044" testName="CreateUserGroupWithRolePermissions" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="46326484-c175-44f4-9229-dbd8fb0bb20e">
+    </UnitTestResult>
+    <UnitTestResult executionId="7e2d7932-a16f-4f6b-9aa0-8360a9b148aa" testId="4f1657e7-dc3b-d693-79ff-2f5169ea577c" testName="CreateUserWithIncompleteDetails" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e2d7932-a16f-4f6b-9aa0-8360a9b148aa">
+    </UnitTestResult>
+    <UnitTestResult executionId="59e1eb1d-e517-48f2-81d9-cd420ea87b20" testId="5504cf2d-d1ad-ee69-0d98-4c950ccd86df" testName="UpdateCVBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59e1eb1d-e517-48f2-81d9-cd420ea87b20">
+    </UnitTestResult>
+    <UnitTestResult executionId="8e350fcf-088e-4903-a1b9-ce6003670d50" testId="602524c9-1191-b81f-54fb-a83a8cc28dfa" testName="UpdateBankBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e350fcf-088e-4903-a1b9-ce6003670d50">
+    </UnitTestResult>
+    <UnitTestResult executionId="3346b1b6-4644-4e2e-a9e1-93db58ab9896" testId="6302336f-0aa3-b877-eff3-a95974f28dc4" testName="GetUserGroupById" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3346b1b6-4644-4e2e-a9e1-93db58ab9896">
+    </UnitTestResult>
+    <UnitTestResult executionId="248cbbca-d02c-4ca4-bd37-9552f9ff11ac" testId="63e24212-d204-dc1c-afaf-bce0196c1ccf" testName="CheckLogin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="248cbbca-d02c-4ca4-bd37-9552f9ff11ac">
+    </UnitTestResult>
+    <UnitTestResult executionId="af32d000-6e8f-4451-a494-577b04c382fa" testId="653864b9-0a63-110c-b293-13ba9fafe499" testName="AssignRoletoUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af32d000-6e8f-4451-a494-577b04c382fa">
+    </UnitTestResult>
+    <UnitTestResult executionId="c0808738-e730-4907-86e0-2772c5b5bc58" testId="67891097-4376-4848-2f17-bf4fc360c3a4" testName="FindLabourChargeTypesOnCAId" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0808738-e730-4907-86e0-2772c5b5bc58">
+    </UnitTestResult>
+    <UnitTestResult executionId="4b71d342-ad81-499c-9a2d-0aa6b6f317af" testId="67a677d8-2f27-99b4-51d9-613a62529708" testName="TestFindByQueryBankName" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4b71d342-ad81-499c-9a2d-0aa6b6f317af">
+    </UnitTestResult>
+    <UnitTestResult executionId="e05c6eb1-c648-490f-a0a2-9a6b72724812" testId="6a76fe9a-0f25-7580-93f7-4b3125424a4a" testName="CAUserUpdatesCVCreatedByHimself" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e05c6eb1-c648-490f-a0a2-9a6b72724812">
+    </UnitTestResult>
+    <UnitTestResult executionId="06568255-abd9-4daa-9824-c35616e32f38" testId="6f98be28-91f6-1db2-2692-778243d66241" testName="CreateZone" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06568255-abd9-4daa-9824-c35616e32f38">
+    </UnitTestResult>
+    <UnitTestResult executionId="44001498-c91d-4569-b807-8a1489981551" testId="75b080d5-7130-7188-2f58-f5ffa35be264" testName="CreateNewBankBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="44001498-c91d-4569-b807-8a1489981551">
+    </UnitTestResult>
+    <UnitTestResult executionId="1740b039-fbc9-49c3-b9bf-18d87b2c007c" testId="77762e31-eeb5-4f14-2b0d-a99d75054f29" testName="CreateNewCVByClientUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1740b039-fbc9-49c3-b9bf-18d87b2c007c">
+    </UnitTestResult>
+    <UnitTestResult executionId="61d5f746-b828-4e9d-8ca1-f5ed31d770ba" testId="77b7f0e5-fe01-5a49-ac8f-f69a0871ea24" testName="CheckGetAllNotification" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="61d5f746-b828-4e9d-8ca1-f5ed31d770ba">
+    </UnitTestResult>
+    <UnitTestResult executionId="b6263d5a-3679-4616-bd89-7d16247d84ff" testId="7cf6a8bf-4b6c-47b9-76f1-54c02d4eaf8a" testName="CreateDesignation" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6263d5a-3679-4616-bd89-7d16247d84ff">
+    </UnitTestResult>
+    <UnitTestResult executionId="60e38f9e-31b3-4c38-82b2-f3f939233621" testId="7d7ecdad-b2f8-34cc-8060-549877d4f5b6" testName="FindAll" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="60e38f9e-31b3-4c38-82b2-f3f939233621">
+    </UnitTestResult>
+    <UnitTestResult executionId="2ce54c43-0034-4dd7-9e54-617fe40734ee" testId="814d65c9-2c9c-b2fa-5326-660188af4dad" testName="UpdateBankBySameCAId" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ce54c43-0034-4dd7-9e54-617fe40734ee">
+    </UnitTestResult>
+    <UnitTestResult executionId="05c1a01b-77b2-419b-b778-8488f4cc7e70" testId="8188d559-27f5-42ab-5c29-e11e87276a9f" testName="CreateNewBankByClientUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="05c1a01b-77b2-419b-b778-8488f4cc7e70">
+    </UnitTestResult>
+    <UnitTestResult executionId="64ce77ed-7c2f-44fd-a358-d20c0ea9bb1a" testId="8627ebc0-df91-1bcb-333e-cbade4de85c8" testName="UpdateBankCreatedByClientUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="64ce77ed-7c2f-44fd-a358-d20c0ea9bb1a">
+    </UnitTestResult>
+    <UnitTestResult executionId="bd3de01a-a416-4a92-8aba-834314fe8136" testId="88b9ee92-c436-2596-c852-70e7cc331036" testName="FindAllChargesPayableTo" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bd3de01a-a416-4a92-8aba-834314fe8136">
+    </UnitTestResult>
+    <UnitTestResult executionId="740c8058-155e-4b9b-8568-9b8f8519042b" testId="898690c3-413f-60f7-8bcc-547e1e2301ff" testName="CAUserUpdatesCVCreatedBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="740c8058-155e-4b9b-8568-9b8f8519042b">
+    </UnitTestResult>
+    <UnitTestResult executionId="4039254f-cbf4-41d2-89eb-e749243e2ca9" testId="8ff09e9e-f7e5-605d-fdf6-f673842525dd" testName="CheckLoginForValidUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4039254f-cbf4-41d2-89eb-e749243e2ca9">
+    </UnitTestResult>
+    <UnitTestResult executionId="22808fc6-28fe-41fc-8703-9284172e35ce" testId="9006c47c-47ba-d3cc-6094-a3c33d755452" testName="CAUserUpdatesBankChangesNameButBankNamePresentwithDifferentID" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="22808fc6-28fe-41fc-8703-9284172e35ce">
+    </UnitTestResult>
+    <UnitTestResult executionId="7cc111b8-8ca6-4ac1-9b50-1daded3e6fca" testId="902d7981-a69d-1248-2a37-a98674dfde2c" testName="UpdateBranchAddedBySameClientUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7cc111b8-8ca6-4ac1-9b50-1daded3e6fca">
+    </UnitTestResult>
+    <UnitTestResult executionId="384a3ac0-bc10-49e5-9e12-705644a41ea0" testId="966f01c0-8cdf-49ec-9257-26b9c8abb816" testName="CreateNewBranchByClientUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="384a3ac0-bc10-49e5-9e12-705644a41ea0">
+    </UnitTestResult>
+    <UnitTestResult executionId="4123164a-8fae-4a0f-b49f-8c310d5ab0df" testId="9927c0e2-6555-07c1-24dc-85b0aa383948" testName="FindDistricts" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4123164a-8fae-4a0f-b49f-8c310d5ab0df">
+    </UnitTestResult>
+    <UnitTestResult executionId="82dcc15b-4f95-4adc-935a-c8c18215d815" testId="ab18a82c-2bb2-3fac-40c8-9de69895aa2f" testName="UpdateBankByChangingCAId" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="82dcc15b-4f95-4adc-935a-c8c18215d815">
+    </UnitTestResult>
+    <UnitTestResult executionId="921c8091-d882-40b4-a350-eb75a965e026" testId="ad401334-e1f7-7335-ae9d-0a59c882d7a8" testName="CreateNewBranchBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="921c8091-d882-40b4-a350-eb75a965e026">
+    </UnitTestResult>
+    <UnitTestResult executionId="6c5dbf2c-483f-47a5-b5ff-dd400b3ddf54" testId="b49aea89-c604-787f-4559-1d471a7cc89e" testName="CAUserUpdatesBankCreatedBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c5dbf2c-483f-47a5-b5ff-dd400b3ddf54">
+    </UnitTestResult>
+    <UnitTestResult executionId="e473fabd-a39b-4be8-a063-e1684f45c285" testId="b9184647-0b59-7ee6-4443-b348d8c3b63c" testName="CreateNewCVBySuperAdmin" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e473fabd-a39b-4be8-a063-e1684f45c285">
+    </UnitTestResult>
+    <UnitTestResult executionId="563b3dda-1409-433b-8a38-874de035eb2c" testId="bc77522e-b396-0127-3cfe-77e9a6c1d195" testName="UpdateCVCreatedByClientUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="563b3dda-1409-433b-8a38-874de035eb2c">
+    </UnitTestResult>
+    <UnitTestResult executionId="a1914dc8-ad3e-4593-bbbf-2ae332c3c36d" testId="bd29d242-979c-d222-d43b-754ea9216a4c" testName="GetRoleById" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1914dc8-ad3e-4593-bbbf-2ae332c3c36d">
+    </UnitTestResult>
+    <UnitTestResult executionId="56bfff39-50ce-4801-8a3d-740febd17aec" testId="c3e3f92c-fd1c-7c40-75d3-b89bbf583cf5" testName="FindAll" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56bfff39-50ce-4801-8a3d-740febd17aec">
+    </UnitTestResult>
+    <UnitTestResult executionId="1e9b7987-1128-4a51-9142-c4d0f2871c36" testId="c76c2024-8a7f-a3b8-e04b-82af9f4b148c" testName="CreateMeasuringUnit" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e9b7987-1128-4a51-9142-c4d0f2871c36">
+    </UnitTestResult>
+    <UnitTestResult executionId="68acf211-88e1-462e-9aab-d47bad074443" testId="c810cd97-429b-7256-bf13-e19c8a9e1fbd" testName="UpdateDefaultRegisterBranchByClientUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="68acf211-88e1-462e-9aab-d47bad074443">
+    </UnitTestResult>
+    <UnitTestResult executionId="5637aadc-48e5-40b8-a6af-1f191a606639" testId="cbb2fd81-0be8-0dd1-f18f-18bc705f0395" testName="CreateUserGroup" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5637aadc-48e5-40b8-a6af-1f191a606639">
+    </UnitTestResult>
+    <UnitTestResult executionId="cca8d7a9-1b6c-4f3d-acc3-ff2fadaabbe8" testId="d165b5d0-298b-55b7-da96-f7ff4b902a59" testName="GetUserById" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cca8d7a9-1b6c-4f3d-acc3-ff2fadaabbe8">
+    </UnitTestResult>
+    <UnitTestResult executionId="13ad15f3-f3de-4b30-962a-14ee014da18f" testId="da63f4f8-0b17-a065-8176-7f7b4cd24582" testName="CAUserUpdatesBankCreatedByHimselfButWithNameSameExistingBank" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="13ad15f3-f3de-4b30-962a-14ee014da18f">
+    </UnitTestResult>
+    <UnitTestResult executionId="66115f23-ff0c-482a-bb14-12612d923011" testId="dee8c842-56a3-1c5d-d01e-daee835fee2f" testName="CreateUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="66115f23-ff0c-482a-bb14-12612d923011">
+    </UnitTestResult>
+    <UnitTestResult executionId="fd28fe86-df3e-4d7e-95d5-862df98cd985" testId="e5281b49-ab19-36c4-14ba-1d35520afe20" testName="UpdateUserGroup" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fd28fe86-df3e-4d7e-95d5-862df98cd985">
+    </UnitTestResult>
+    <UnitTestResult executionId="1873cde7-5524-4f1d-8192-235e99d370bb" testId="e87e22d6-fb16-f660-f8d0-7d50453bd471" testName="UpdateZone" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1873cde7-5524-4f1d-8192-235e99d370bb">
+    </UnitTestResult>
+    <UnitTestResult executionId="80fed0eb-0439-4519-b2fb-ccb253a1f69e" testId="eae97f7c-fc52-a8a3-a92a-bb3963525838" testName="TestFindByQueryBankList" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="80fed0eb-0439-4519-b2fb-ccb253a1f69e">
+    </UnitTestResult>
+    <UnitTestResult executionId="e700b2e1-e8ad-4312-9273-b5bea0d1cbc2" testId="f55b3d1d-939c-6aa7-e2c5-f4bbcf25fd49" testName="UpdateUser" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e700b2e1-e8ad-4312-9273-b5bea0d1cbc2">
+    </UnitTestResult>
+    <UnitTestResult executionId="53b826b9-1249-4a46-850c-e7867355e831" testId="f61ca820-bf09-4640-68c8-c6d1a0ffb8ba" testName="CreateLabourCharge" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="53b826b9-1249-4a46-850c-e7867355e831">
+    </UnitTestResult>
+    <UnitTestResult executionId="f9060afd-d530-4782-9b91-0ad424db55c4" testId="f83d0e52-501d-dee1-5b58-d427005a7df2" testName="FindBranchesOfCA" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f9060afd-d530-4782-9b91-0ad424db55c4">
+    </UnitTestResult>
+    <UnitTestResult executionId="361f5f6f-c866-46fc-8afb-203f3538cbdf" testId="fbb06383-74ee-697e-39b9-ddc0d7a48335" testName="UpdateBank" computerName="ACKCEZIONE7" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="361f5f6f-c866-46fc-8afb-203f3538cbdf">
+    </UnitTestResult>
+  </Results>
+</TestRun>

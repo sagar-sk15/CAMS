@@ -1,0 +1,20 @@
+﻿@model Cams.Web.MVCRazor.Models.Shared.DesignationModel   
+           
+@using Cams.Web.MVCRazor;
+@using Cams.Common.Dto;
+@using Cams.Common;
+
+@{string popuplink = "javascript:" + Model.PopupctrlAddDesignation + ".Show()";}
+<table>
+    <tr>
+        <td>
+            @Html.HiddenFor(model => model.SelectedId, new { id = Model.HiddenTextboxName })
+            @Html.Partial("CBPUserDesignationList", Model)
+        </td>
+        <td>
+            <a href=@popuplink class="addnew"></a>
+        </td>
+    </tr>
+</table>
+@Html.Partial("CBPPopupAddDesignation")
+@Html.HiddenFor(model => model.HiddenAddedValue, new { id = Model.HiddenAddedValueTextBoxName })

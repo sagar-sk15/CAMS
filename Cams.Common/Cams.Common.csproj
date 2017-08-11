@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5954F1DC-A13F-4CCD-A419-8BFBFEAA7AC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cams.Common</RootNamespace>
+    <AssemblyName>Cams.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\..\Backup\CAMS AS ON 30-1-2012\CAMS\Libs\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ConfigConstants.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientBusinessConstitutionHistoryDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientCommoditiesHistoryDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientDto.cs" />
+    <Compile Include="Dto\ClientMasters\BankBranchDto.cs" />
+    <Compile Include="Dto\ClientMasters\BankDto.cs" />
+    <Compile Include="Dto\ClientMasters\ChargesPayableToDto.cs" />
+    <Compile Include="Dto\ClientMasters\CommodityClassDto.cs" />
+    <Compile Include="Dto\ClientMasters\CommodityDto.cs" />
+    <Compile Include="Dto\ClientMasters\LabourChargeTypeDto.cs" />
+    <Compile Include="Dto\ClientMasters\MeasuringUnitDto.cs" />
+    <Compile Include="Dto\ClientRegistration\BusinessConstitutionDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientHolidayCalenderDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPartnerBankDetailsDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPartnerDetailsDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPartnerGuardianDetailsDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPartnerHistoryDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPartnerNomineeDetailsDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPhoneChargesDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPhoneChargesHistoryDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientPrimaryContactPersonDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientSisterConcernDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientSubscriptionDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientSubscriptionPaymentDetailsDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientTaxationAndLicensesDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientWeeklyOffDayDto.cs" />
+    <Compile Include="Dto\ClientRegistration\ClientWeeklyOffDayHistoryDto.cs" />
+    <Compile Include="Dto\ClientRegistration\SubscriptionMasterDto.cs" />
+    <Compile Include="Dto\ContactDetailsDto.cs" />
+    <Compile Include="Dto\Email\ClientProfileChangeRequestFieldsDto.cs" />
+    <Compile Include="Dto\Email\ClientProfileChangeRequestsDto.cs" />
+    <Compile Include="Dto\Email\EmailAttachmentDto.cs" />
+    <Compile Include="Dto\Email\EmailMessagesDto.cs" />
+    <Compile Include="Dto\EntityDtos.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Dto\Log\ActivityLogDto.cs" />
+    <Compile Include="Dto\Masters\APMCDto.cs" />
+    <Compile Include="Dto\Masters\CityVillageDto.cs" />
+    <Compile Include="Dto\Masters\CountryDto.cs" />
+    <Compile Include="Dto\Masters\DistrictDto.cs" />
+    <Compile Include="Dto\Masters\StateDto.cs" />
+    <Compile Include="Dto\Masters\ZoneDto.cs" />
+    <Compile Include="Dto\User\DesignationDto.cs" />
+    <Compile Include="Dto\User\RelationshipDto.cs" />
+    <Compile Include="Dto\User\UserEmergencyContactPersonDto.cs" />
+    <Compile Include="Dto\User\UserGroupRolePermissionDto.cs" />
+    <Compile Include="Dto\User\UserProfileDto.cs" />
+    <Compile Include="Dto\User\UserRolePermissionDto.cs" />
+    <Compile Include="Dto\User\viewUserUserGroupRolePermissionsDto.cs" />
+    <Compile Include="Dto\WeekDaysDto.cs" />
+    <Compile Include="Dto\WeeklyHalfDayDto.cs" />
+    <Compile Include="Dto\WeeklyOffDaysDto.cs" />
+    <Compile Include="Logging\LoggingFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\ApplicationSettingsFactory.cs" />
+    <Compile Include="DependencyInjection\DiContext.cs" />
+    <Compile Include="Dto\Address\AddressDto.cs" />
+    <Compile Include="Dto\Address\AddressDtos.cs" />
+    <Compile Include="Dto\User\RoleDto.cs" />
+    <Compile Include="Dto\User\UserGroupDto.cs" />
+    <Compile Include="Dto\User\UserDto.cs" />
+    <Compile Include="Message\BusinessException.cs" />
+    <Compile Include="Message\BusinessExceptionDto.cs" />
+    <Compile Include="Message\BusinessExceptionEnum.cs" />
+    <Compile Include="Message\BusinessWarning.cs" />
+    <Compile Include="Message\BusinessWarningEnum.cs" />
+    <Compile Include="Message\DtoBase.cs" />
+    <Compile Include="Message\DtoResponse.cs" />
+    <Compile Include="Message\IDtoResponseEnvelop.cs" />
+    <Compile Include="Message\Response.cs" />
+    <Compile Include="Querying\CriteriaOperator.cs" />
+    <Compile Include="Querying\Criterion.cs" />
+    <Compile Include="Querying\OrderByClause.cs" />
+    <Compile Include="Querying\PropertyNameHelper.cs" />
+    <Compile Include="Querying\Query.cs" />
+    <Compile Include="Querying\QueryName.cs" />
+    <Compile Include="Querying\QueryOperator.cs" />
+    <Compile Include="ServiceContract\IAPMCService.cs" />
+    <Compile Include="ServiceContract\IBankBranchService.cs" />
+    <Compile Include="ServiceContract\IBankService.cs" />
+    <Compile Include="ServiceContract\IBusinessConstitutionService.cs" />
+    <Compile Include="ServiceContract\IChargesPayableToService.cs" />
+    <Compile Include="ServiceContract\ICityVillageService.cs" />
+    <Compile Include="ServiceContract\IClientBusinessConstitutionHistoryService.cs" />
+    <Compile Include="ServiceContract\IClientCommoditiesHistoryService.cs" />
+    <Compile Include="ServiceContract\IClientHolidayCalenderService.cs" />
+    <Compile Include="ServiceContract\IClientPartnerHistoryService.cs" />
+    <Compile Include="ServiceContract\IClientPhoneChargesHistoryService.cs" />
+    <Compile Include="ServiceContract\IClientProfileChangeRequestsService.cs" />
+    <Compile Include="ServiceContract\IClientService.cs" />
+    <Compile Include="ServiceContract\IClientWeeklyOffDayHistoryService.cs" />
+    <Compile Include="ServiceContract\IClientWeeklyOffDayService.cs" />
+    <Compile Include="ServiceContract\ICommodityClassService.cs" />
+    <Compile Include="ServiceContract\ICommodityService.cs" />
+    <Compile Include="ServiceContract\ICountryMasterService.cs" />
+    <Compile Include="ServiceContract\IDesignationService.cs" />
+    <Compile Include="ServiceContract\IDistrictService.cs" />
+    <Compile Include="ServiceContract\ILabourChargeTypeService.cs" />
+    <Compile Include="ServiceContract\IMeasuringUnitService.cs" />
+    <Compile Include="ServiceContract\IRelationShipService.cs" />
+    <Compile Include="ServiceContract\IRoleService.cs" />
+    <Compile Include="ServiceContract\IStateService.cs" />
+    <Compile Include="ServiceContract\ISubscriptionMasterService.cs" />
+    <Compile Include="ServiceContract\IUserGroupService.cs" />
+    <Compile Include="ServiceContract\IUserRolePermissionService.cs" />
+    <Compile Include="ServiceContract\IUserService.cs" />
+    <Compile Include="ServiceContract\IAddressService.cs" />
+    <Compile Include="ServiceContract\IContract.cs" />
+    <Compile Include="ServiceContract\IContractLocator.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="ServiceContract\IWeeklyHalfDayService.cs" />
+    <Compile Include="ServiceContract\IWeeklyOffDaysService.cs" />
+    <Compile Include="ServiceContract\IZoneService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dto\Menu\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

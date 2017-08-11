@@ -1,0 +1,216 @@
+﻿@model Cams.Web.MVCRazor.Models.ClientRegistration.ClientRegistrationModel
+@using Cams.Web.MVCRazor;
+@using Cams.Common.Dto;
+@using Cams.Common;
+@using Cams.Web.MVCRazor.Helpers;
+
+<div class="panes-data">
+            <h1>@ClientResources.CLRPCPH1</h1>
+            <div class="Form-Wrap">
+                <div class="groupfieldset">
+                  <ul class="reset leftfield fl" style="width:70%">
+                    <li>
+                      <label class="width100">@ClientResources.URClientName</label>
+                      @Html.DropDownListFor(model => model.ClientPrimaryContactPerson.Title,
+                                            new List<SelectListItem> { 
+                                                    new SelectListItem { Text = ClientResources.URMr, Value = ClientResources.URMr, Selected = true },
+                                                    new SelectListItem { Text = ClientResources.URMrs, Value = ClientResources.URMrs},
+                                                    new SelectListItem { Text = ClientResources.URMs, Value = ClientResources.URMs}
+                                                }, new { style="width:50px; padding:1px;" })
+                      @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.CAPrimaryConatactPersonName, new { id = "txtCLRPCPName", name = "txtCLRPCPName", @class = "required width210", maxlength = "60" })
+                    </li>
+                    <li>
+                        <label id="lblDesignation" class="width100">@ClientResources.URlblDesignation</label>                        
+                        @Html.Partial("SelectDesignation", Model.designationModel[0])
+                    </li>
+                    <li>
+                        <label id="lblCLRPCPGender" class="width100 label-radio-pad">@ClientResources.PIlblGender</label>
+                        @Html.RadioButtonFor(model => model.ClientPrimaryContactPerson.Gender, ClientResources.PIrbtnGenderMale, new { id = "rbtnCLRPCPMaleGender", name = "rbtnCLRPCPGender", @class = "radio-botton", @checked = "checked" })
+                        <label class="label-radio fl">@ClientResources.URMale</label>
+                        @Html.RadioButtonFor(model => model.ClientPrimaryContactPerson.Gender, ClientResources.PIrbtnGenderFemale, new { id = "rbtnCLRPCPFemaleGender", name = "rbtnCLRPCPGender", @class = "radio-botton" })
+                        <label class="label-radio fl">@ClientResources.URFemale</label>
+                        <div class="clr">
+                        </div>
+                    </li>
+                    <li>
+                        <label id="lblDateofBirth" class="width100">@ClientResources.URlblDateofBirth</label>
+                                    @Html.Partial("CBPDOBnAge", Model.dOBnAgeModellist[0])
+                                    @*@Html.Partial("CBPDOBnAge", Model.ClientPrimaryContactPerson.DateOfBirth)*@
+                    </li>
+                    <li>
+                        <label id="lblMothersMaidenName" class="width100">@ClientResources.lblMaidenName</label>
+                        @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.MothersMaidenName, new { @class = "required width110", id = "txtCLRPCPMotherMaidenName", value = "", maxlength = "15" })
+                    </li>
+                    <li>
+                      <div class="fl">
+                        <label id="lblPAN" class="width100">@ClientResources.PIlblPAN</label>
+                        @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.PAN, new { @class = "required width110", id = "txtCLRPCPPAN", maxlength = "10" })
+                      </div>
+                      <div class="fl">
+                        <label id="lblUID" class="width30">@ClientResources.PIlblUID</label>
+                        @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.UID, new { @class = "textfiled width140", id = "txtCLRPCPUID", name = "txtCLRPCPUID", value = "", maxlength = "12" })
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="reset rightfield fr" style="width:24%;">
+                    <li>
+                      
+                      <div class="profile-img fl"> 
+                        @{
+                            string pcpimagePath = @Url.Content("~/Content/UploadedImages/avatar_blank.jpg");
+                            if (!String.IsNullOrEmpty(Model.ClientPrimaryContactPerson.Image))
+                            {
+                                pcpimagePath = Url.Content("~/Content/UploadedImages/ClientAccount/PrimaryContactPerson/") + Model.ClientPrimaryContactPerson.Image;
+                            }
+                            }
+                                        <img id="PCPpreviewImage" width="110" height="100" alt="" src="@pcpimagePath"/>
+                                        @Html.DevExpress().UploadControl(
+                                            settings =>
+                                            {
+                                                settings.Name = "PCPImageUpload";
+                                                settings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "PCPCallbacksImageUpload" };
+                                                settings.ShowProgressPanel = true;
+                                                settings.ClientSideEvents.FileUploadComplete = "PrimaryContactPersonRenderImage";
+                                                settings.Width = System.Web.UI.WebControls.Unit.Pixel(140);
+                                                settings.BrowseButton.Text = "...";
+
+                                            }).GetHtml()
+                                        <br />
+                                        <input type="button" value="Upload" onclick="PCPImageUpload.Upload()" align="left" />
+                      </div>
+                    </li>
+                  </ul>
+                  
+                  <div class="clr"></div>
+                </div>
+                <div class="groupfieldset groupfieldsetcol fl" style="min-height:219px;">
+                  <ul class="reset onecolfield">
+                    <li class="nomarg nopad">
+                      <label id="lblCLRPCPAddress" class="width100">&nbsp;</label>
+                      @Html.CheckBoxFor(model => model.ClientPrimaryContactPerson.IsSameAsCompanyAddress, new { @class = "fl", @onChange ="CopyCompanyAddress()"})
+                      <span class="fl" style="display:block; margin-top:1px; color:#497a36">@ClientResources.SameasCompanyAddress</span> </li>
+                    <li>
+                        <label class="width100" id="lblPIAddress">@ClientResources.PIlblAddress</label>
+                        @Html.TextAreaFor(model => model.ClientPrimaryContactPerson.ClientPrimaryContactPersonAddress.AddressLine1, new { cols = "", rows = "", name = "txtCLRPCPAddress", id = "txtCLRPCPAddress", @class = "textarea width185", @onChange = "UpdateSameAsCompanyAddressFlag()" })
+                    </li>
+                    <li>
+                        <label id="lblPICountry" class="width100">@ClientResources.PIlblCountry</label>
+                        <span class="countryinput">India</span> 
+                    </li>
+                        @Html.Partial("SelectStateDistrictPlace", Model.StateDistrictPlacesControlNames[1])
+                    <li>
+                        <label id="lblCLRPCPPIPin" class="width100">@ClientResources.PIlblPin</label>
+                        @Html.TextBoxFor(model => model.ClientPrimaryContactPerson.ClientPrimaryContactPersonAddress.PIN, new { name = "txtCLRPCPPin", type = "text", @class = "required width110", id = "txtCLRPCPPin", value = "", maxlength = "6", @onChange = "UpdateSameAsCompanyAddressFlag()" })
+                    </li>
+                  </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="groupfieldset groupfieldsetcol fr" style="min-height:219px;">
+                  <ul class="reset onecolfield">
+                    <li class="nomarg nopad">
+                      <label class="width100">&nbsp;</label>
+                      @Html.CheckBoxFor(model => model.ClientPrimaryContactPerson.IsSameAsCompanyContact, new { @class = "fl", @onChange = "CopyCompanyContacts()" })
+                      <span class="fl" style="display:block; margin-top:1px; color:#497a36">@ClientResources.SameasCompanyContacts</span> </li>
+                    <li>
+                      <div class="fl">
+                        <input id="CLRPCPCurrentIndex" type="hidden" value="@Model.ClientPrimaryContactPerson.ClientPrimaryContacts.Count" />
+                <table id="CLRPCPContacts">
+                    @{ if (Model.ClientPrimaryContactPerson.ClientPrimaryContacts == null)
+                       {
+                           Model.ClientPrimaryContactPerson.ClientPrimaryContacts = new List<ContactDetailsDto>();
+                       }
+
+                       if (Model.ClientPrimaryContactPerson.ClientPrimaryContacts.Count == 0)
+                       {
+                           Model.ClientPrimaryContactPerson.ClientPrimaryContacts.ToList().Add(new ContactDetailsDto
+                           {
+                               ContactNoType = ContactType.MobileNo,
+                               CountryCallingCode = "+91",
+                               STDCode = "020"
+                           });
+                       }
+
+
+                       for (int i = 0; i < Model.ClientPrimaryContactPerson.ClientPrimaryContacts.Count; i++)
+                       {
+                        @Html.HiddenFor(model => model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactDetailsId)
+                           bool contactTypeMobile = Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactNoType == ContactType.MobileNo ? true : false;
+                           bool contactTypeOff = Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactNoType == ContactType.OfficeNo ? true : false;
+                           bool contactTypeRes = Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactNoType == ContactType.ResidenceNo ? true : false;
+                           bool contactTypefax = Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactNoType == ContactType.Fax ? true : false;
+                
+                        <tr>
+                            <td>
+                                @Html.DropDownListFor(model => Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactNoType,
+            new List<SelectListItem> { 
+                            new SelectListItem { Text = ClientResources.ContactNoTypeMobile, Value = ContactType.MobileNo.ToString(),Selected = contactTypeMobile},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeOfficeNo, Value = ContactType.OfficeNo.ToString(), Selected=contactTypeOff},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeResNo, Value = ContactType.ResidenceNo.ToString(), Selected = contactTypeRes},
+                            new SelectListItem { Text = ClientResources.ContactNoTypeFaxNo, Value = ContactType.Fax.ToString(),Selected = contactTypefax}
+            }, new { @class = "clsContactNoType", style = "width:90px; border: medium none; padding: 1px; float:left" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].CountryCallingCode, new { value = "+91", @class = "textfiled", style = "width:28px; text-align:center", disabled = "disabled" })
+                            </td>
+                            <td>
+                               @if (contactTypeOff == true || contactTypeRes == true || contactTypefax == true)
+                               {
+                                    @Html.TextBoxFor(model => Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].STDCode, new { value = @Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].STDCode, @class = "textfiled", style = "width:38px; text-align:center;" })
+                                    @Html.TextBoxFor(model => Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactNo, new { @class = "width118", value = "", maxlength = "15" })
+
+                               }
+                               else
+                               {
+                                @Html.TextBoxFor(model => Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].STDCode, new { value = "020", @class = "textfiled", style = "width:38px; display:none; text-align:center;" })
+                                @Html.TextBoxFor(model => Model.ClientPrimaryContactPerson.ClientPrimaryContacts[i].ContactNo, new { @class = "required width166", value = "", maxlength = "15" })
+                               }
+                            </td>
+                            <td>
+                                @Html.HiddenIndexerInputForModel()
+                                @if (i == 0)
+                                { 
+                                    <a href="#" class="addnew" onclick="javascript:addNewContact('#CLRPCPContacts','#CLRPCPCurrentIndex','5','ClientPrimaryContactPerson_ClientPrimaryContacts_', 'ClientPrimaryContactPerson.ClientPrimaryContacts')">
+                                    </a>
+                                }
+                                else
+                                { 
+                                    <a href="#" class="remove" onclick="javascript:removeContact('@i')">
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                       }
+                    }
+                </table>
+                      </div>
+                    </li>
+                    <li>
+                        <label class="width83">@ClientResources.Email1</label>
+                        @Html.TextBoxFor(model => Model.ClientPrimaryContactPerson.Email1, new { @class = "required width200" })
+                        <a href="#" class="addnew" onclick="javascript:showEmail2('#LiPCPEmail2')"></a>
+                    </li>
+                    @{
+                        string displaystyle = "display: none;";
+                        if (Model.ClientPrimaryContactPerson != null)
+                        {
+                            if (!String.IsNullOrEmpty(Model.ClientPrimaryContactPerson.Email2))
+                            {
+                                displaystyle = "display: block;";
+                            }
+                        }
+                        
+                    }
+                        <li id="LiPCPEmail2" style='@displaystyle'>
+                            <label  class="width83" style="">@ClientResources.Email2</label>
+                            @Html.TextBoxFor(model => Model.ClientPrimaryContactPerson.Email2, new { @class = "generalfield width200" })
+                            <a href="#" class="remove" onclick="javascript:hideEmail2('#LiPCPEmail2')"></a>
+                        </li>
+                        <li>Note: Enter atleast one mobile no.</li>
+                  </ul>
+                  <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+          </div>
+
+

@@ -1,0 +1,28 @@
+﻿ @Html.DevExpress().CallbackPanel(cbpSettings =>
+                                           {
+                                               cbpSettings.Name = "CBPSearchBankBranchPopup";
+                                               cbpSettings.CallbackRouteValues = new { Controller = "ClientAccount", Action = "SearchBankandBranch" };
+                                               cbpSettings.SetContent(() =>
+                                                                          {
+                                                                              @Html.DevExpress().GridView(gridViewSettings =>
+                                                                              {
+                                                                                  gridViewSettings.Name = "gvSearchBankBranch";
+                                                                                  gridViewSettings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                                                                                  gridViewSettings.KeyFieldName = "BranchId";
+                                                                                  gridViewSettings.Styles.Header.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+                                                                                  gridViewSettings.ControlStyle.CssClass = "fontName";
+                                                                                  gridViewSettings.SettingsLoadingPanel.ShowImage = false;
+                                                                                  gridViewSettings.SettingsBehavior.AllowSelectSingleRowOnly = true;
+                                                                                  gridViewSettings.Columns.Add("BranchOfBank.BankName", "Bank");
+                                                                                  gridViewSettings.Columns.Add("Name", "Branch");
+                                                                                  gridViewSettings.Columns.Add("BranchAddress.CityVillage.Name", "Place");
+                                                                                  gridViewSettings.Columns.Add("IFSCCode", "IFSC");
+                                                                                  gridViewSettings.Columns.Add("MICRCode", "MICR");
+                                                                                  gridViewSettings.Columns.Add("SWIFTCode", "SWIFT");
+                                                                                  gridViewSettings.SettingsBehavior.AllowFocusedRow = true;
+                                                                                  gridViewSettings.ClientSideEvents.FocusedRowChanged = "OngvSearchBankBranchFocusedRowChanged";
+                                                                              }).Bind(ViewData["SearchBank"]).Render();
+                                                                          });
+                                               
+                                               cbpSettings.ClientSideEvents.BeginCallback = "CBPSearchBankBranchPopup_OnBeginCallback";
+                                           }).GetHtml()

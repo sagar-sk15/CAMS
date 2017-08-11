@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://Cams/userservices/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Cams/userservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Cams/userservices/Imports">
+      <xsd:import namespace="http://Cams/userservices/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.User" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Message" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientRegistration" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Masters" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.Address" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Dto.ClientMasters" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cams.Common.Querying" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FindAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAll" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FindAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByUserName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAvailableUsernameList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableUsernameList" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAvailableUsernameList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableUsernameListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindBy" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FindByQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByQuery" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FindByQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAccountManagerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerList" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAccountManagerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/GetById" message="tns:IUserService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/GetByIdResponse" message="tns:IUserService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/Update" message="tns:IUserService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/UpdateResponse" message="tns:IUserService_Update_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/Create" message="tns:IUserService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/CreateResponse" message="tns:IUserService_Create_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/FindAll" message="tns:IUserService_FindAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/FindAllResponse" message="tns:IUserService_FindAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/LoginResponse" message="tns:IUserService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByUserName">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/GetByUserName" message="tns:IUserService_GetByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/GetByUserNameResponse" message="tns:IUserService_GetByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableUsernameList">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/GetAvailableUsernameList" message="tns:IUserService_GetAvailableUsernameList_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/GetAvailableUsernameListResponse" message="tns:IUserService_GetAvailableUsernameList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindBy">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/FindBy" message="tns:IUserService_FindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/FindByResponse" message="tns:IUserService_FindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByQuery">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/FindByQuery" message="tns:IUserService_FindByQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/FindByQueryResponse" message="tns:IUserService_FindByQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManagerList">
+      <wsdl:input wsaw:Action="http://Cams/userservices/IUserService/GetAccountManagerList" message="tns:IUserService_GetAccountManagerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://Cams/userservices/IUserService/GetAccountManagerListResponse" message="tns:IUserService_GetAccountManagerList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

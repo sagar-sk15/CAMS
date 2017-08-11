@@ -1,0 +1,72 @@
+﻿@using System.Web.UI.WebControls
+@using Cams.Web.MVCRazor;
+@using DevExpress.Data
+@using DevExpress.Web.ASPxGridView
+@using DevExpress.Web.ASPxHtmlEditor.Internal
+@using DevExpress.Web.Mvc
+@using DevExpress.Web.Mvc.UI
+@model Cams.Web.MVCRazor.Models.Account.UserGroupModel
+@{
+    ViewBag.Title = "UserGroup";
+    Layout = "~/Views/Shared/SuperAdminMaster.cshtml";
+}
+
+@section MainBody{
+    @using (Html.BeginForm("ClientUserGroup", "Account", FormMethod.Post))
+    {
+        <div class="page-data fl">
+            <div class="panes">
+                <div class="panes-data">
+                    <h1>
+                        @ClientResources.UGCreateUserGroup</h1>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <div class="response-msg error-msg">
+                            <span>@ViewData["Error"].ToString()</span>
+                            <br />
+                            <span>@Html.ValidationSummary(true)</span>
+                        </div>
+                    }
+                    @Html.ValidationSummary(false)
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="response-msg success-msg">
+                            <span>@TempData["Success"].ToString()</span>
+                        </div>
+                    }
+                    <div class="Form-Wrap">
+                        <ul class="reset leftfield fl">
+                            <li>
+                                <label id="lblGroupName" class="width85">
+                                    @ClientResources.UGGroupName
+                                </label>
+                                @Html.TextBoxFor(model => model.UserGroupName, new { @class = "required", @maxlength = 30 })
+                            </li>
+                            <li>
+                                <label id="lblDescription" class="width85">
+                                    @ClientResources.UGDescription</label>
+                                @Html.TextAreaFor(model => model.Description)
+                            </li>
+                        </ul>
+                        <div class="middlefield fl">
+                        </div>
+                        <ul class="reset rightfield fr">
+                            <li>
+                                @Html.Partial("ClientGridView", Model)
+                            </li>
+                        </ul>
+                        <div class="clr">
+                        </div>
+                        <div class="text-link" align="center">
+                            <input type="image" src=@Url.Content("~/content/images/control/save.jpg") name="button" />
+                        </div>
+                        <div class="text-link" align="center">
+                            <br />
+                            Or Click here to @Html.ActionLink("Cancel", "UserRegistrationIndex", "Account")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

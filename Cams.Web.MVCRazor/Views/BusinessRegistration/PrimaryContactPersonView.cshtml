@@ -1,0 +1,95 @@
+﻿@model Cams.Web.MVCRazor.Models.BusinessRegistration.BusinessRegistrationModel           
+<div class="groupfieldset">
+	<ul class="reset leftfield fl" style="width: 70%">
+		<li>
+			<label class="width110">
+				Name</label>
+			<span class="non-editable-txt">@Model.ClientPrimaryContactPerson.Title @Model.ClientPrimaryContactPerson.CAPrimaryConatactPersonName</span>
+		</li>
+		<li>
+			<label class="width110">
+				Designation</label>
+			<span class="non-editable-txt">@Model.ClientPrimaryContactPerson.ClientPrimaryContactPersonDesignation.DesignationName</span>
+		</li>
+		<li>
+			<div class="fl">
+				<label class="width110">
+					Gender</label>
+				@{                
+					var sGender = Model.ClientPrimaryContactPerson.Gender == "M" ? "Male" : "Female";
+					var sAge = "";
+					var sDob = "";
+					Cams.Common.Age age = null;
+					if (Model.ClientPrimaryContactPerson.DateOfBirth != null)
+					{
+						DateTime dob = Convert.ToDateTime(Model.ClientPrimaryContactPerson.DateOfBirth);
+						age = Cams.Common.Helper.CalculateAge(dob);
+						sDob = dob.ToString(Cams.Common.Constants.DATEFORMATFORDISPAY);
+						sAge = string.Format(Cams.Web.MVCRazor.ClientResources.URAgeInYearsMonths, age.Years, age.Months);
+						
+					}
+                
+				}
+				<span class="non-editable-txt">@sGender</span>
+			</div>
+			<div class="fl">
+				<label class="width110">
+					Date of Birth</label>
+				<span class="non-editable-txt">@sDob</span>
+				@{
+					if(age!=null)
+					{
+						<span class="non-editable-txt">,&nbsp;</span><b class="non-editable-txt">@age.Years</b><span class="non-editable-txt">&nbsp;years&nbsp;</span><b
+						class="non-editable-txt">@age.Months</b><span
+						class="non-editable-txt">&nbsp;months</span>
+					}
+				}
+			</div>
+		</li>
+		<li>
+			<label class="width110">
+				Maiden Name</label>
+			<span class="non-editable-txt">@Model.ClientPrimaryContactPerson.MothersMaidenName</span>
+		</li>
+		<li>
+			<div class="fl">
+				<label class="width110">
+					PAN</label>
+				<span class="non-editable-txt">@Model.ClientPrimaryContactPerson.PAN</span>
+			</div>
+			<div class="fl">
+				<label class="width110">
+					UID</label>
+				<span class="non-editable-txt">@Model.ClientPrimaryContactPerson.UID</span>
+			</div>
+		</li>
+	</ul>
+	<ul class="reset rightfield fr" style="width: 24%;">
+		<li>
+			<div class="profile-img-link fl" style="width: 13px;">
+				&nbsp;</div>
+			<div class="profile-img fl">
+				<img src="../content/images/control/blnk_img.jpg" width="110" height="100" alt="" />
+				<br />
+				<!--<a href="#" class="fl">Upload</a> &nbsp;&nbsp;<a href="#" class="fr">Capture</a>-->
+			</div>
+		</li>
+	</ul>
+	<div class="clr">
+	</div>
+</div>
+<div id="divPCPAdd" class="groupfieldset groupfieldsetcol fl">
+	@Html.Partial("AddressReadOnlyView", Model.PrimaryContactsAddress)
+</div>
+<div id="divPCPCnts" class="groupfieldset groupfieldsetcol fr">
+	@Html.Partial("ContactsReadOnlyView", Model.PrimaryContactsContacts)
+</div>
+<div class="clr">
+</div>
+<ul class="reset">
+	<li>
+		<div class="text-link">
+			<a href="BusinessChangeRequestPopup.html" class='ColorboxFrame email'>
+				Send request to change company profile details</a></div>
+	</li>
+</ul>

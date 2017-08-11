@@ -1,0 +1,27 @@
+﻿    
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "gvRoleGroupsReadOnly";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "GetRoleGroups" };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        //settings.CallbackRouteValues = new { Controller = "Account", Action = "GetRolesList", RoleGroup = ViewData["RoleGroup"] };
+        settings.ControlStyle.CssClass = "fontName";
+        settings.KeyFieldName = "RoleGroup";
+        settings.Columns.Add("RoleGroup");
+
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
+        settings.SettingsDetail.ShowDetailRow = true;
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+        settings.SetDetailRowTemplateContent(c => {
+            //Html.DevExpress().Label(lablesetting =>
+            //    {
+            //        lablesetting.Text = "This is temporary view instead of Role Grid";
+            //    }).GetHtml();
+            Html.RenderAction("GetRolesList", "Account", new { RoleGroup = DataBinder.Eval(c.DataItem, "RoleGroup"), UserName = Request.Params["username"] });
+        });
+        settings.PreRender = (sender, e) => {
+            ((MVCxGridView)sender).DetailRows.CollapseAllRows();
+        };
+        settings.ClientSideEvents.BeginCallback = "function(s,e) {e.customArgs['UserName']=$.QueryString['username'];}";
+    }).Bind(Model).GetHtml()

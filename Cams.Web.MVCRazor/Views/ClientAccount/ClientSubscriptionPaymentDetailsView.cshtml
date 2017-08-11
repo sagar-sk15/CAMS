@@ -1,0 +1,278 @@
+﻿@using Cams.Common
+@using Cams.Web.MVCRazor.Models.ClientRegistration
+@using Cams.Web.MVCRazor
+@model IList<ClientSubscriptionPaymentDetailsModel>
+<div class="panes-data">
+    <h1>
+        Payment Details</h1>
+    <div class="Form-Wrap">
+        <div id="Cash" class="groupfieldset" style="display: block;">
+            &nbsp;Cash
+            @if (Model.Count > 0)
+            {
+
+                for (int i = 0; i < Model.Count(); i++)
+                {
+                    if (Model[i].PaymentMode == PaymentMode.Cash && Model[i].Amount != 0)
+                    {
+                <ul class="reset onecolfield fl">
+                    <li>
+                        <div class="fl">
+                            <label id="lblCash" class="width100">
+                                Cash</label>
+                        </div>
+                        <div class="fr" style="padding-right: 28px">
+                            <label id="lblCashAmount" class="width90">
+                                @ClientResources.CPDAmount</label>
+                            <span class="WebRupee">
+                                <img width="10" height="10"
+                                          src=@Url.Content("~/Content/Images/Control/RupeeFont.png") />
+                            </span>
+                            @Html.TextBoxFor(model => model[i].Amount, new { @class = "autoinputvalue width75", @maxlength = "10", id = "txtAmount", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <br />
+                    }
+                }
+            }
+        </div>
+        <div id="Cheque" class="groupfieldset" style="display: block;">
+            &nbsp;Cheque
+            @if (Model.Count > 0)
+            {
+
+                for (int i = 0; i < Model.Count(); i++)
+                {
+                    if (Model[i].PaymentMode == PaymentMode.Cheque && Model[i].Amount != 0)
+                    {
+                <ul class="reset onecolfield fl">
+                    <li>
+                        <label id="lbl" class="width100">
+                            &nbsp;</label>
+                        @if (Model[i].IsRTGS)
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "RTGS", new { @class = "autoinputvalue", @Checked = "checked", id = "ChequeRTGS" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        else
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "RTGS", new { @class = "autoinputvalue", id = "ChequeRTGS" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        <span>@ClientResources.CPDRTGS </span>
+                        @if (Model[i].IsStandardCheque)
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "Standard Cheque", new { @class = "autoinputvalue", @Checked = "checked", id = "ChequeStandard" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        else
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "Standard Cheque", new { @class = "autoinputvalue", id = "ChequeStandard" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        <span>@ClientResources.CPDStandardCheque</span>
+                        <div class="fr" style="padding-right: 28px">
+                            <label id="lblChequeAmount" class="width90">
+                                Amount</label>
+                            <span class="WebRupee">
+                                <img width="10" height="10" src="../../Content/Images/Control/RupeeFont.png" />
+                            </span>
+                            @Html.TextBoxFor(model => model[i].Amount, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 100%">
+                    <li>
+                        <div class="fl">
+                            <label id="lblChequeNo" class="width100">
+                                @ClientResources.CPDChequeNo</label>
+                            @Html.TextBoxFor(model => model[i].ChequeDDTransationNo, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 37%">
+                    <li>
+                        <label id="lblChequeDate" class="width100">
+                            @ClientResources.CPDChequeDate</label>
+                        @Html.TextBoxFor(model => model[i].ChequeDDTransactionDateString, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                    </li>
+                </ul>
+                <ul class="reset leftfield fr" style="width: 63%">
+                    <li>
+                        <label id="lblChequeDate" class="width100">
+                            @ClientResources.CPDClearanceDate</label>
+                        @Html.TextBoxFor(model => model[i].ChequeClearanceDateString, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 52%">
+                    <li>
+                        <label id="lbl_Bank" class="width100">
+                            @ClientResources.CPDDrawnon
+                        </label>
+                        @Html.TextBoxFor(model => model[i].BankBranch.BranchOfBank.BankName, new { @class = "autoinputvalue width110", @readonly = "readonly" }),
+                        @Html.TextBoxFor(model => model[i].BankBranch.Name, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                    </li>
+                </ul>
+                    }
+                }
+            }
+        </div>
+        <div id="Online" class="groupfieldset" style="display: block;">
+            &nbsp;Online
+            @if (Model.Count > 0)
+            {
+                for (int i = 0; i < Model.Count(); i++)
+                {
+                    if (Model[i].PaymentMode == PaymentMode.Online && Model[i].Amount != 0)
+                    {
+                <ul class="reset onecolfield fl">
+                    <li>
+                        <label id="lbl" class="width100">
+                            &nbsp;</label>
+                        @if (Model[i].IsRTGS)
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "RTGS", new { @class = "autoinputvalue", @Checked = "checked", id = "ChequeRTGS" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        else
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "RTGS", new { @class = "autoinputvalue", id = "ChequeRTGS" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        <span>@ClientResources.OPDRTGS </span>
+                        @if (Model[i].IsNEFT)
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "NEFT", new { @class = "autoinputvalue", @Checked = "checked", id = "ChequeStandard" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        else
+                        {
+                            @Html.RadioButtonFor(model => model[i].TransactionType, "NEFT", new { @class = "autoinputvalue", id = "ChequeStandard" + i.ToString(), @readonly = "readonly", disabled = "disabled" })
+                        }
+                        <span>@ClientResources.OPDNEFT</span>
+                        <div class="fr" style="padding-right: 28px">
+                            <label id="lblonlineAmount" class="width90">
+                                Amount</label>
+                            <span class="WebRupee">
+                                <img width="10" height="10" src="../../Content/Images/Control/RupeeFont.png" />
+                            </span>
+                            @Html.TextBoxFor(model => model[i].Amount, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 100%">
+                    <li>
+                        <div class="fl">
+                            <label id="lbonlineNo" class="width100">
+                                @ClientResources.OPDTransactionNo</label>
+                            @Html.TextBoxFor(model => model[i].ChequeDDTransationNo, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 100%">
+                    <li>
+                        <label id="lblreciptDate" class="width100">
+                            @ClientResources.OPDReceiptDate</label>
+                        @Html.TextBoxFor(model => model[i].ChequeDDTransactionDateString, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 52%">
+                    <li>
+                        <label id="lbl_BankOnline" class="width100">
+                            @ClientResources.OPDBank
+                        </label>
+                        @Html.TextBoxFor(model => model[i].BankBranch.BranchOfBank.BankName, new { @class = "autoinputvalue width110", @readonly = "readonly" }),
+                        @Html.TextBoxFor(model => model[i].BankBranch.Name, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                    </li>
+                </ul>
+                    }
+                }
+            }
+        </div>
+        <div id="DD" class="groupfieldset" style="display: block;">
+            &nbsp;DD
+            @if (Model.Count > 0)
+            {
+                for (int i = 0; i < Model.Count(); i++)
+                {
+                    if (Model[i].PaymentMode == PaymentMode.DD && Model[i].Amount != 0)
+                    {
+                <ul class="reset onecolfield fl">
+                    <li>
+                        <label id="lbl" class="width100">
+                            &nbsp;</label>
+                        <div class="fr" style="padding-right: 28px">
+                            <label id="lblDDAmount" class="width90">
+                                Amount</label>
+                            <span class="WebRupee">
+                                <img width="10" height="10" src="../../Content/Images/Control/RupeeFont.png" />
+                            </span>
+                            @Html.TextBoxFor(model => model[i].Amount, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 100%">
+                    <li>
+                        <div class="fl">
+                            <label id="lbDDNo" class="width100">
+                                @ClientResources.DDPDddNo</label>
+                            @Html.TextBoxFor(model => model[i].ChequeDDTransationNo, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                        </div>
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 100%">
+                    <li>
+                        <label id="lblDDDate" class="width100">
+                            @ClientResources.DDPDddDate</label>
+                        @Html.TextBoxFor(model => model[i].ChequeDDTransactionDateString, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                    </li>
+                </ul>
+                <ul class="reset leftfield fl" style="width: 52%">
+                    <li>
+                        <label id="lbl_BankDD" class="width100">
+                            @ClientResources.DDPDPurchasedon
+                        </label>
+                        @Html.TextBoxFor(model => model[i].BankBranch.BranchOfBank.BankName, new { @class = "autoinputvalue width110", @readonly = "readonly" }),
+                        @Html.TextBoxFor(model => model[i].BankBranch.Name, new { @class = "autoinputvalue width75", @readonly = "readonly" })
+                    </li>
+                </ul>
+                    }
+                }
+            }
+        </div>
+          @if (Model.Count > 0)
+          {
+              <div class="groupfieldset">
+                  <ul class="reset leftfield fl" style="width: 60%">
+                      <li>
+                          <label id="lblAdditionalInfo" class="width100">
+                              @ClientResources.CSPDAdditionalInfo</label>
+                          @Html.TextAreaFor(model => model[0].AdditionalInfo, new {@class = "autoinputvalue textarea width195", name = "txtAdditionalInfo", @style = "height: 65px", cols = "", rows = "", id = "AdditionalInfo", @readonly = "readonly"})
+                      </li>
+                  </ul>
+                  <ul class="reset leftfield fr" style="width: 37%">
+                      <li>
+                          <label id="lblAmount" class="width89">
+                              @ClientResources.CSPDTotalAmount</label>
+                          <span class="WebRupee">
+                              <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png") />
+                          </span>
+                          @Html.TextBoxFor(model => model[0].TotalAmount, new {@class = "autoinputvalue width75", @maxlength = "10", id = "TotalAmount", @readonly = "readonly"})
+                      </li>
+                      <li>
+                          <label id="lblTaxes" class="width89">
+                              @ClientResources.CSPDTDS</label>
+                          <span class="WebRupee">
+                              <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png")>
+                          </span>
+                          @Html.TextBoxFor(model => model[0].TDS, new {@class = "autoinputvalue width75", @maxlength = "10", id = "TDS", @readonly = "readonly"})
+                      </li>
+                      <li>
+                          <label id="lblTotalCost" class="width89">
+                              @ClientResources.CSPDNetAmount</label>
+                          <span class="WebRupee">
+                              <img width="10" height="10" src=@Url.Content("~/Content/Images/Control/RupeeFont.png") />
+                          </span>
+                          @Html.TextBoxFor(model => model[0].NetAmount, new {@class = "autoinputvalue width75", @maxlength = "10", id = "NetAmount", @readonly = "readonly"})
+                      </li>
+                  </ul>
+                  <div class="clr">
+                  </div>
+              </div>
+          }
+    </div>
+</div>

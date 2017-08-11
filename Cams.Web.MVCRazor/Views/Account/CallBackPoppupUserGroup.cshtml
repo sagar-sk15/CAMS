@@ -1,0 +1,11 @@
+﻿
+@Html.DevExpress().CallbackPanel(cbpSettings => {
+        cbpSettings.Name = "cbp";
+        cbpSettings.CallbackRouteValues = new { Controller = "Account", Action = "CreateNewUserGroup" };
+        cbpSettings.SetContent(() =>
+        {
+            Html.RenderPartial("PopupCreateUserGroup");
+        });
+        cbpSettings.ClientSideEvents.BeginCallback = "cbp_OnBeginCallback";
+        cbpSettings.ClientSideEvents.EndCallback = "cbp_OnEndCallback";
+}).GetHtml()
